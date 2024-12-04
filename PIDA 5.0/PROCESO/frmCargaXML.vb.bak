@@ -1,0 +1,502 @@
+﻿Imports System.IO
+Imports System.IO.Compression
+Imports System.Text
+Imports System.Xml
+Public Class frmCargaXML
+    Private eliminarinformacionexistente As Boolean = False
+    Private ValidarNomina As frmValidacionNomina
+    Private archivosTimbrado As New ArrayList
+    Private archivoGenerales As String
+    Private archivoNomina As String
+
+    Private dtPeriodos As DataTable
+
+    Private nombreDelArchivo As String = ""
+    Private ubicacionDelArchivo As String = ""
+    Private directorioExtraccion As String = "c:\pidatmp\"
+    Private cod_comp As String = ""
+
+    Private anoSeleccionado As String = ""
+    Private periodoSeleccionado As String = ""
+
+
+
+    Private Sub ButtonX1_Click(sender As Object, e As EventArgs) Handles ButtonX1.Click
+        Me.Close()
+    End Sub
+
+    Private Sub btnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click
+        Try
+
+
+
+
+
+
+
+            CircularProgress4.Value = 0
+            CircularProgress4.Maximum = 100
+            Dim contador As Integer = 0
+            Dim tipo_periodo = ""
+
+            If chkS.Checked = True Then
+
+                tipo_periodo = "S"
+            ElseIf ChkQ.Checked = True Then
+                tipo_periodo = "Q"
+            ElseIf chkM.Checked = True Then
+                tipo_periodo = "M"
+            End If
+
+
+            If chkTimbrado.Checked = True Then
+                Try
+                    'CircularProgress4.Value = 0
+                    'CircularProgress4.Maximum = 100
+                    'Dim contador As Integer = 0
+
+
+                    For Each archivo As ArchivoTimbrado In archivosTimbrado
+
+                        contador += 1
+                        CircularProgress4.Value = Math.Round((100 / archivosTimbrado.Count()) * contador)
+                        Application.DoEvents()
+
+                        Dim output As StringBuilder = New StringBuilder()
+
+                        Using reader As XmlReader = XmlReader.Create(archivo.FileName)
+                            reader.ReadToFollowing("cfdi:Comprobante")
+                            reader.MoveToAttribute("Sello")
+                            archivo.sello = reader.Value
+
+                            reader.MoveToAttribute("Certificado")
+                            archivo.certificado = reader.Value
+
+                            reader.MoveToAttribute("Serie")
+                            archivo.serie = reader.Value
+
+                            reader.MoveToAttribute("Total")
+                            archivo.total = reader.Value.PadLeft(17, "0")
+
+                            reader.ReadToFollowing("cfdi:Emisor")
+                            reader.MoveToAttribute("Rfc")
+                            archivo.rfcEmisor = reader.Value
+
+                            reader.ReadToFollowing("cfdi:Receptor")
+                            reader.MoveToAttribute("Rfc")
+                            archivo.rfcReceptor = reader.Value
+
+
+                        
+                            reader.ReadToFollowing("nomina12:Nomina")
+                            reader.MoveToAttribute("FechaPago")
+                            archivo.FechaPago = reader.Value
+
+                            reader.ReadToFollowing("nomina12:Receptor")
+                            reader.MoveToAttribute("NumEmpleado")
+                            archivo.reloj = reader.Value
+
+                            'Jose Hdez 2019-ENE-11
+                            reader.ReadToFollowing("nomina12:Deducciones")
+                            Dim deducciones = reader.ReadSubtree()
+                            While (deducciones.Read())
+                                Select Case deducciones.Name
+                                    Case "nomina12:Deduccion"
+                                        deducciones.MoveToAttribute("Clave")
+                                        If deducciones.Value = "ISPTRE" Then
+                                            deducciones.MoveToAttribute("Importe")
+                                            archivo.ISR = deducciones.Value
+                                        End If
+                                End Select
+                            End While
+
+                            reader.ReadToFollowing("tfd:TimbreFiscalDigital")
+                            reader.MoveToAttribute("UUID")
+                            archivo.UUID = reader.Value
+
+                            reader.MoveToAttribute("FechaTimbrado")
+                            archivo.FechaTimbrado = reader.Value
+
+                            reader.MoveToAttribute("SelloCFD")
+                            archivo.selloCFD = reader.Value
+
+                            reader.MoveToAttribute("NoCertificadoSAT")
+                            archivo.noCertificadoSAT = reader.Value
+
+                            reader.MoveToAttribute("SelloSAT")
+                            archivo.selloSat = reader.Value
+
+                            archivo.cod_comp = "610"
+                            archivo.ano = txtanotim.Text
+                            archivo.periodo = txtperiodotim.Text
+
+                            archivo.tipo_periodo_t = tipo_periodo
+
+                            'reader.ReadToFollowing("cfdi:Comprobante")
+                            'reader.MoveToAttribute("sello")
+                            'archivo.sello = reader.Value
+
+                            'reader.MoveToAttribute("certificado")
+                            'archivo.certificado = reader.Value
+
+                            'reader.MoveToAttribute("serie")
+                            'archivo.serie = reader.Value
+
+                            'reader.MoveToAttribute("total")
+                            'archivo.total = reader.Value.PadLeft(17, "0")
+
+                            'reader.ReadToFollowing("cfdi:Emisor")
+                            'reader.MoveToAttribute("rfc")
+                            'archivo.rfcEmisor = reader.Value
+
+                            'reader.ReadToFollowing("cfdi:Receptor")
+                            'reader.MoveToAttribute("rfc")
+                            'archivo.rfcReceptor = reader.Value
+
+
+                            'reader.ReadToFollowing("tfd:TimbreFiscalDigital")
+                            'reader.MoveToAttribute("UUID")
+                            'archivo.UUID = reader.Value
+
+                            'reader.MoveToAttribute("FechaTimbrado")
+                            'archivo.FechaTimbrado = reader.Value
+
+                            'reader.MoveToAttribute("selloCFD")
+                            'archivo.selloCFD = reader.Value
+
+                            'reader.MoveToAttribute("noCertificadoSAT")
+                            'archivo.noCertificadoSAT = reader.Value
+
+                            'reader.MoveToAttribute("selloSAT")
+                            'archivo.selloSat = reader.Value
+
+                            'reader.ReadToFollowing("nomina12:Nomina")
+                            'reader.MoveToAttribute("FechaPago")
+                            'archivo.FechaPago = reader.Value
+
+                            'reader.ReadToFollowing("nomina12:Receptor")
+                            'reader.MoveToAttribute("NumEmpleado")
+                            'archivo.reloj = reader.Value
+
+
+                            'archivo.cod_comp = "610"
+                            'archivo.ano = txtanotim.Text
+                            'archivo.periodo = txtperiodotim.Text
+
+                            'archivo.tipo_periodo_t = tipo_periodo
+
+
+                            archivo.guardar()
+                            archivo.CopiarArchivoXML()
+                        End Using
+
+                    Next
+                Catch ex As Exception
+
+                End Try
+
+            Else
+                For Each archivo As ArchivoTimbrado In archivosTimbrado
+
+                    contador += 1
+                    CircularProgress4.Value = Math.Round((100 / archivosTimbrado.Count()) * contador)
+                    Application.DoEvents()
+
+                    Dim output As StringBuilder = New StringBuilder()
+
+                    Dim grupo As String = ""
+                    Dim Name As String = ""
+                    Dim Name1 As String = ""
+                    Dim Totper As Double = 0
+                    Dim totded As Double = 0
+
+                    Dim folio As String = ""
+
+
+
+                    Dim periodo As String = ""
+                    Dim ano As String = ""
+                    Dim reloj As String = ""
+                    Dim nombres As String = ""
+                    Dim salactual As String = ""
+                    Dim integrado As String = ""
+                    Dim cod_depto As String = ""
+                    Dim cod_turno As String = ""
+                    Dim cod_tipo As String = ""
+                    Dim cod_clase As String = ""
+                    Dim alta As String = ""
+                    Dim baja As String = ""
+                    Dim cuenta As String = ""
+
+
+
+                    Dim concepto_f As String = ""
+                    Dim nombre_concepto As String = ""
+                    Dim concepto_p As String = ""
+                    Dim monto1 As Double = 0
+                    Dim monto2 As Double = 0
+                    Dim hextras As Double = 0
+                    Dim mextra As Double = 0
+                    Dim tipo_horas As String = ""
+                    Dim extras_horas As String = ""
+                    Dim extras_concepto As String = ""
+
+                    Dim hrsnor As Double = 0
+
+
+                    Dim bondes As Double = 0
+
+                    Dim otrosP As Double = 0
+
+                    Dim clave_SAT_P As String = ""
+                    Dim clave_SAT_D As String = ""
+
+
+
+
+
+                    Dim nsCFDi As XNamespace = "http://www.sat.gob.mx/cfd/3" 'para que pueda identificar el prefijo CFDI
+                    Dim archivoXML As XDocument = XDocument.Load(archivo.FileName) 'selecciona y abre la factura electrónica xml
+                    Dim importe As Integer = 0 'contador para saber cuantos conceptos tiene la factura
+                    For Each lconcepto As XElement In archivoXML.Descendants(nsCFDi + "Comprobante") 'ciclo que recorre todos los conceptos de la factura
+
+                        For Each lconcepto2 As XElement In lconcepto.DescendantsAndSelf
+                            grupo = lconcepto2.Name.ToString
+                            For Each atr As XAttribute In lconcepto2.Attributes
+                                Name1 = grupo & "--" & atr.Name.ToString
+                                ListBox1.Items.Add(Name1)
+                                Name = atr.Value.ToString
+                                ListBox2.Items.Add(Name)
+
+
+                                If txtPeriodoE.Text <> "" Then
+                                    ano = txtano.Text
+                                    periodo = txtPeriodoE.Text
+                                Else
+                                    If Name1.Contains("Comprobante--folio") Then
+                                        folio = Name.Trim
+
+                                        ano = folio.Substring(0, 4)
+                                        periodo = folio.Substring(7, 2)
+                                    End If
+                                End If
+
+
+
+                                If Name1.Contains("Nomina--TotalPercepciones") Then
+                                    Double.TryParse(Name, Totper)
+                                ElseIf Name1.Contains("Nomina--TotalDeducciones") Then
+                                    Double.TryParse(Name, totded)
+                                ElseIf Name1.Contains("Nomina--TotalOtrosPagos") Then
+                                    Double.TryParse(Name, otrosP)
+                                    'If Totper > totded Then
+                                    '    'sqlExecute("insert into nomina.dbo.nomina.movimientos (ano,periodo,tipo_nomina,reloj,concepto,monto,tipo_periodo)" & _
+                                    '    '           " values ('" & ano & "', '" & periodo & "', '" & tipo_periodo & "')")
+                                    'End If
+                                ElseIf Name1.Contains("Receptor--Nombre") Then
+                                    nombres = Name.Trim
+                                ElseIf Name1.Contains("Receptor--SalarioBaseCotApor") Then
+                                    salactual = Name.Trim
+                                ElseIf Name1.Contains("Receptor--SalarioDiarioIntegrado") Then
+                                    integrado = Name.Trim
+                                ElseIf Name1.Contains("Receptor--CuentaBancaria") Then
+                                    cuenta = Name.Trim
+                                ElseIf Name1.Contains("Receptor--NumEmpleado") Then
+                                    reloj = "0" & Name.Trim
+                                ElseIf Name1.Contains("Percepcion--Concepto") Then
+                                    nombre_concepto = Name.Trim
+                                ElseIf Name1.Contains("Percepcion--Clave") Then
+                                    concepto_f = Name.Trim
+                                ElseIf Name1.Contains("Percepcion--TipoPercepcion") Then
+                                    clave_SAT_P = Name.Trim
+                                ElseIf Name1.Contains("Percepcion--ImporteGravado") Then
+                                    Double.TryParse(Name, monto1)
+                                ElseIf Name1.Contains("Percepcion--ImporteExento") Then
+                                    Double.TryParse(Name, monto2)
+                                ElseIf Name1.Contains("Deduccion--Clave") Then
+                                    concepto_f = Name.Trim
+                                ElseIf Name1.Contains("Deduccion--Concepto") Then
+                                    nombre_concepto = Name.Trim
+                                ElseIf Name1.Contains("Deduccion--TipoDeduccion") Then
+                                    clave_SAT_D = Name.Trim
+                                ElseIf Name1.Contains("Deduccion--Importe") Then
+                                    Double.TryParse(Name, monto1)
+                                ElseIf Name1.Contains("HorasExtra--HorasExtra") Then
+                                    Double.TryParse(Name, hextras)
+                                ElseIf Name1.Contains("HorasExtra--ImportePagado") Then
+                                    Double.TryParse(Name, mextra)
+                                ElseIf Name1.Contains("HorasExtra--TipoHoras") Then
+                                    tipo_horas = Name.Trim
+                                ElseIf Name1.Contains("Nomina--NumDiasPagados") Then
+                                    Double.TryParse(Name, hrsnor)
+                                End If
+                            Next
+
+                            If monto1 > 0 Or monto2 > 0 Then
+                                Dim conceptos As DataTable = sqlExecute("select nomina.dbo.pida_fortia.* from nomina.dbo.pida_fortia where fortia = '" & concepto_f & "'")
+                                If conceptos.Rows.Count > 0 Then
+                                    sqlExecute("insert into nomina.dbo.movimientos (ano,periodo,tipo_nomina,reloj,concepto,monto,tipo_periodo)" & _
+                                     " values ('" & ano & "', '" & periodo & "', 'N','" & reloj & "','" & conceptos.Rows(0).Item("pida") & "','" & monto1 + monto2 & "','" & tipo_periodo & "')")
+
+                                    If Not IsDBNull(conceptos.Rows(0).Item("pida")) Then
+                                        If conceptos.Rows(0).Item("pida") = "BONDES" Then
+                                            bondes = monto1 + monto2
+                                        End If
+                                    End If
+
+                                Else
+                                    Dim clave_SAT As String = clave_SAT_D & clave_SAT_P
+                                    sqlExecute("insert into nomina.dbo.pida_fortia (fortia, nombre, fortia_SAT) values ('" & concepto_f & "', '" & nombre_concepto & "', '" & clave_SAT & "')")
+                                    
+                                End If
+                                monto1 = 0
+                                monto2 = 0
+                                clave_SAT_D = ""
+                                clave_SAT_P = ""
+                            End If
+                            If hextras > 0 And mextra > 0 Then
+                                If tipo_horas = "01" Then
+                                    extras_horas = "HRSEX2"
+                                    ' extras_concepto = "PEREX2"
+                                Else
+                                    extras_horas = "HRSEX3"
+                                    ' extras_concepto = "PEREX3"
+                                End If
+
+                                sqlExecute("insert into nomina.dbo.movimientos (ano,periodo,tipo_nomina,reloj,concepto,monto,tipo_periodo)" & _
+                                 " values ('" & ano & "', '" & periodo & "', 'N','" & reloj & "','" & extras_horas & "','" & hextras & "','" & tipo_periodo & "')")
+                                'sqlExecute("insert into nomina.dbo.movimientos (ano,periodo,tipo_nomina,reloj,concepto,monto,tipo_periodo)" & _
+                                ' " values ('" & ano & "', '" & periodo & "', '" & tipo_periodo & "','" & reloj & "','" & extras_concepto & "','" & mextra & "','" & tipo_periodo & "')")
+                                hextras = 0
+                                mextra = 0
+                            End If
+
+                            If hrsnor > 0 And reloj <> "" Then
+                                sqlExecute("insert into nomina.dbo.movimientos (ano,periodo,tipo_nomina,reloj,concepto,monto,tipo_periodo)" & _
+                                 " values ('" & ano & "', '" & periodo & "', 'N','" & reloj & "','DIANOR','" & hrsnor & "','" & tipo_periodo & "')")
+                                hrsnor = 0
+                            End If
+                        Next
+                    Next
+
+                    Dim neto As Double = Math.Round((Totper - totded - bondes + otrosP), 2)
+
+                    If neto >= 0 Then
+                        sqlExecute("insert into nomina.dbo.movimientos (ano,periodo,tipo_nomina,reloj,concepto,monto,tipo_periodo)" & _
+                         " values ('" & ano & "', '" & periodo & "', 'N','" & reloj & "','NETO','" & Totper - totded - bondes + otrosP & "','" & tipo_periodo & "')")
+
+
+
+                        Dim dtinfoper As New DataTable
+                        dtinfoper = sqlExecute("select * from personal.dbo.personal where reloj = '" & reloj & "'")
+                        If dtinfoper.Rows.Count > 0 Then
+                            cod_depto = IIf(IsDBNull(dtinfoper.Rows(0).Item("cod_depto")), "", dtinfoper.Rows(0).Item("cod_depto"))
+                            cod_turno = IIf(IsDBNull(dtinfoper.Rows(0).Item("cod_hora")), "", dtinfoper.Rows(0).Item("cod_hora"))
+                            cod_tipo = IIf(IsDBNull(dtinfoper.Rows(0).Item("cod_tipo")), "", dtinfoper.Rows(0).Item("cod_tipo"))
+                            cod_clase = IIf(IsDBNull(dtinfoper.Rows(0).Item("cod_clase")), "", dtinfoper.Rows(0).Item("cod_clase"))
+                            alta = IIf(IsDBNull(dtinfoper.Rows(0).Item("alta")), "", dtinfoper.Rows(0).Item("alta"))
+                            baja = IIf(IsDBNull(dtinfoper.Rows(0).Item("baja")), "", dtinfoper.Rows(0).Item("baja"))
+
+
+                        End If
+
+                        sqlExecute("insert into nomina.dbo.nomina (cod_tipo_nomina,cod_pago,periodo,ano,reloj,nombres,sactual,integrado,cod_depto,cod_turno,cod_tipo,cod_clase,alta,baja,cuenta,cod_comp,impresa,tipo_periodo) " & _
+                        " values ('N','D','" & periodo & "','" & ano & "','" & reloj & "','" & nombres & "','" & salactual & "','" & integrado & "','" & cod_depto & "','" & cod_turno & "','" & cod_tipo & "','" & cod_clase & "','" & alta & "','" & baja & "','" & cuenta & "','610','1','" & tipo_periodo & "')")
+                    Else
+                        MessageBox.Show("El neto es menor a 0 " & reloj, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    End If
+
+
+                Next
+            End If
+
+
+
+
+
+
+
+        Catch ex As Exception
+            ErrorLog(Usuario.getUSERNAME, System.Reflection.MethodBase.GetCurrentMethod.Name(), "Carga xml", Err.Number, ex.Message)
+        End Try
+
+
+
+           
+
+    End Sub
+
+    Private Sub btnVerBuscar_Click(sender As Object, e As EventArgs) Handles btnVerBuscar.Click
+        Try
+            Dim ofd As New OpenFileDialog
+            ofd.Filter = "Archivos PIDA|*.pida"
+            ofd.Multiselect = False
+            ofd.AddExtension = True
+            ofd.CheckFileExists = True
+            ofd.CheckPathExists = True
+            ofd.Title = "Selecciona el archivo de timbrados: " & nombreDelArchivo
+            If ofd.ShowDialog = Windows.Forms.DialogResult.OK Then
+                If System.IO.File.Exists(ofd.FileName) Then
+                  
+                        txtArchivo.Text = ofd.FileName
+                    analizarArchivoDeCargas()
+                End If
+            End If
+        Catch ex As Exception
+            ErrorLog(Usuario.getUSERNAME, System.Reflection.MethodBase.GetCurrentMethod.Name(), "Carga xml", Err.Number, ex.Message)
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+    Private Sub analizarArchivoDeCargas()
+        ubicacionDelArchivo = txtarchivo.Text
+        Using archive As ZipArchive = ZipFile.OpenRead(ubicacionDelArchivo)
+           
+
+            Dim contador As Integer = 0
+
+            For Each entry As ZipArchiveEntry In archive.Entries
+
+                entry.ExtractToFile(Path.Combine(directorioExtraccion, entry.FullName))
+                'RichTextBoxEx1.Text = ("Extrayendo: " & Path.Combine(directorioExtraccion, entry.FullName)) & vbCrLf & RichTextBoxEx1.Text
+
+                Dim archivo As New ArchivoTimbrado
+                archivo.FileName = Path.Combine(directorioExtraccion, entry.FullName)
+                If Path.GetExtension(archivo.FileName).Equals(".xml") Then
+                    archivosTimbrado.Add(archivo)
+                End If
+
+
+                Try
+                    contador += 1
+                    ' CircularProgress1.Value = Math.Round((100 / archive.Entries.Count) * contador)
+                    Application.DoEvents()
+                Catch ex As Exception
+                    ErrorLog(Usuario.getUSERNAME, System.Reflection.MethodBase.GetCurrentMethod.Name(), "Carga xml", Err.Number, ex.Message)
+                End Try
+            Next
+        End Using
+        Label1.Visible = True
+        Label1.Text = archivosTimbrado.Count.ToString & "  archivos xml"
+    End Sub
+
+    Private Sub chkS_CheckedChanged(sender As Object, e As EventArgs) Handles chkS.CheckedChanged
+        If ChkQ.Checked = True Then
+            ChkQ.Checked = False
+            chkM.Checked = False
+        End If
+    End Sub
+
+    Private Sub ChkQ_CheckedChanged(sender As Object, e As EventArgs) Handles ChkQ.CheckedChanged
+        If chkS.Checked = True Then
+            chkS.Checked = False
+            chkM.Checked = False
+        End If
+    End Sub
+
+    Private Sub chkM_CheckedChanged(sender As Object, e As EventArgs) Handles chkM.CheckedChanged
+        If chkM.Checked = True Then
+            ChkQ.Checked = False
+            chkS.Checked = False
+        End If
+    End Sub
+End Class

@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "\\\\pida-fs1\\PIDA-Files\\CTE\\Proyectos\\PIDA 5.0\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CC7EDDE9-5483-477B-960A-38D057855801}|PIDA.vbproj|\\\\pida-fs1\\pida-files\\cte\\proyectos\\pida 5.0\\nomina\\frmajustefiniquito.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CC7EDDE9-5483-477B-960A-38D057855801}|PIDA.vbproj|\\\\pida-fs1\\pida-files\\cte\\proyectos\\pida 5.0\\general\\frmmain.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:323948898:0:{81164725-9a96-4ece-a4cb-440d8fd285e5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2090367263:0:{81164725-9a96-4ece-a4cb-440d8fd285e5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmAjusteFiniquito.vb",
+              "DocumentMoniker": "\\\\pida-fs1\\PIDA-Files\\CTE\\Proyectos\\PIDA 5.0\\NOMINA\\frmAjusteFiniquito.vb",
+              "RelativeDocumentMoniker": "NOMINA\\frmAjusteFiniquito.vb",
+              "ToolTip": "\\\\pida-fs1\\PIDA-Files\\CTE\\Proyectos\\PIDA 5.0\\NOMINA\\frmAjusteFiniquito.vb",
+              "RelativeToolTip": "NOMINA\\frmAjusteFiniquito.vb",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADMPAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-11-15T00:14:14.348Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmMain.vb",
+              "DocumentMoniker": "\\\\pida-fs1\\PIDA-Files\\CTE\\Proyectos\\PIDA 5.0\\GENERAL\\frmMain.vb",
+              "RelativeDocumentMoniker": "GENERAL\\frmMain.vb",
+              "ToolTip": "\\\\pida-fs1\\PIDA-Files\\CTE\\Proyectos\\PIDA 5.0\\GENERAL\\frmMain.vb",
+              "RelativeToolTip": "GENERAL\\frmMain.vb",
+              "ViewState": "AQIAAE4AAAAAAAAAAAAowJgAAABPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-10-24T21:24:11.281Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

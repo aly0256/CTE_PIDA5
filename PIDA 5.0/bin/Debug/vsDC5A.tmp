@@ -1,0 +1,1610 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+PIDA
+</name>
+</assembly>
+<members>
+<member name="M:PIDA.Declaraciones.ExportaExcel(System.Data.DataTable,System.String,System.String,System.String,System.Boolean)">
+	<summary>
+ Exporta a excel un Datatable (más lento que 
+ recordset, pues pasa los registros uno a uno)
+ </summary>
+</member><member name="M:PIDA.Declaraciones.ExcelTOArrayList(System.String)">
+	<summary>
+ 'Función para abrir un archivo de excel, y pasar una lista de relojes a un arreglo
+ tomando la primer columna, de la primer hoja
+ </summary>
+	<param name="Archivo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.Declaraciones.sqlExecute(System.String,System.Boolean,System.String@)">
+	<summary>
+ Función que regresa un Recordset a partir de una consulta SQL
+ </summary>
+</member><member name="M:PIDA.Declaraciones.ExportaExcel(ADODB.Recordset,System.String,System.Boolean)">
+	<summary>
+ Exporta Recordset a excel SIN formato
+ </summary>
+</member><member name="M:PIDA.Declaraciones.RoundUp(System.Double,System.Int32)">
+	<summary>
+ Redondeo truncado hacia arriba.
+ P.Ej. 3.33333 -&gt; 3.34
+ P.Ej. 1.00111 -&gt; 1.01
+ </summary>
+</member><member name="M:PIDA.Declaraciones.SemanaHorarioMixto(System.String,System.String)">
+	<summary>
+ BRP - Procedimiento para obtener el comportamiento de la semana a analizar, en un horario mixto por rol
+ </summary>
+</member><member name="M:PIDA.Declaraciones.RevisaExcepciones(System.Windows.Forms.Form,System.String,System.Boolean)">
+	<summary>
+ MCR 19/OCT/2015 - Código para hacer excepciones a habilitar/ver controles de acuerdo al perfil
+ </summary>
+	<param name="frmControl"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.Declaraciones.ExcelTOArrayList(System.String,System.String)">
+	<summary>
+ 'Función para abrir un archivo de excel, y pasar una lista de relojes a un arreglo
+ tomando la primer columna, de la primer hoja
+ </summary>
+	<param name="Archivo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:PIDA.frmRevisionPrestamos.ComboBoxMotivo">
+	<summary>
+ Clase para crear combo con motivos de préstamo
+ </summary>
+</member><member name="T:PIDA.frmRevisionPrestamos.ComboBoxReloj">
+	<summary>
+ Clase para crear combo con números de reloj
+ </summary>
+</member><member name="T:PIDA.frmRevisionPrestamos.ComboBoxCapturado">
+	<summary>
+ Clase para crear combo con usuarios que capturan...
+ </summary>
+</member><member name="T:PIDA.frmRevisionPrestamos.ComboBoxRevisado">
+	<summary>
+ Clase para crear combo con usuarios que revisan...
+ </summary>
+</member><member name="T:PIDA.FuncionesTA">
+	<summary>
+ Funciones requeridas para análisis de información TA
+ * Evaluador
+ * AnalisisHrsBrt
+ * AnalisisHrsBrtPares
+ * AsistenciaPerfecta
+ ... etc.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmAjustesNomina.ConsultaBitacora(System.Data.DataTable@,System.String,System.String)">
+	<summary>
+ Proceso para regresar la información al fin del periodo, revisando la bitácora
+ </summary>
+</member><member name="M:PIDA.frmReporteadorTA.ConsultaBitacora(System.Data.DataTable,System.DateTime)">
+	<summary>
+ Proceso para actualizar datos antes de ejecutar reporte MCR (4/NOV/2015)
+ </summary>
+</member><member name="P:PIDA.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources._0820_image_02D45740">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources._1468299415_pen_red">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources._1469760469_kmenuedit">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources._1469761077_Space_Food">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources._1469761116_cmyk_04">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources._1469827778_Sync">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources._1470972262_schedule">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources._1471324111_table_edit">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources._1472007528_button_blue_repeat">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources._1472009258_FAQ">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources._1472009258_FAQ1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources._1472009531_camera_photo">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources._1472011640_Abort">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources._1477688541_Settings">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Accept32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ActualizacionVariables24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ActualizaNomina32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Actualizar48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Add">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Add16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Add24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Add241">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Add242">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.AddList32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.AddOrder16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Address_book32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.agrupado">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.agrupado1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Aguinaldo24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.AjustesMasivos32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.AjustesNomina32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.All16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.alternado">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.alternado1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.analysis48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Analyze48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Area22">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Areas">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.asterisk_yellow">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.AusentismoParcial32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Auxiliares24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Award32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.AyudaTextra">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Bancos24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Bloqueado64">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Bold16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.BorrarNomina32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.brush">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.bullet_blue16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Busca48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.calend_csv">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.calendar">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.calendar_32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.calendar_selection_week16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Calendario_2">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Calendario32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Calendario48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.CambiarClave32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.CambiarClave48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.CambiosMasivos16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Cancel">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Cancel16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Cancel2_16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.CancelX">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.candado">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Candado48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.CandadoAbierto48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Capture">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.cards_128x128">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.CargaMasivaAux">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Carta32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.catalog24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.catalog32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Catalogo32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Categorias24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ccostos">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Center16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Cerrar16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Cerrar32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Certificate16B">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Certificate16B1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Checador32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.CheckAuthorization32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Checked16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.checklist">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.checklist_32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Ciudades24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Clasificacion24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Clasificacion24Cap">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Close48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Colonia24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Company24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Comparativo22">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Comparativo32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Compen1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.condensados">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ConsultaEdicion32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ConsultaEmpleados32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ConsultaTAlloc32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.contact">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.content24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.content241">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Contrato24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.copy_16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.CorreccionTransacciones48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Courses24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Courses32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.CursosEmpleado32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Delete">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Delete24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Delete241">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.DeleteOrder16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.DeleteRec">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Department24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Desbloqueado64">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Destinatario24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Documents32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.DoorOut16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Download32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Download48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Edit">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.EditGroup32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.EditList32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.EditPhoto">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Empleados32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.empty_16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Escuelas24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Especializacion32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Estado24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.EstadoCivil24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.estetos">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.EStilo32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Estilo48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Evaluation24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.excel_16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.excepcion1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Export24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Export32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Factores24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.familia_16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.familia32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Family24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Favorite16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Festivo24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Filtro32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.FiltroHC">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Find16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.First16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.flag">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.fondo_cafe_cinco">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.fondo_dos">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.fondo_tres">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.fondo_uno">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Font16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Font24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Food_Dome_128">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.FormaPago">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Gafete40">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.go_back48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.go_into48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.GreenMarker16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Grupos32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.GuardarMnto22">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Help_icon_16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Highlightmarker_green24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Horario24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Id16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ID32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Idea32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Idea321">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Import32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.IMSS24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Inbox32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.incidencias">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Information48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Insert24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Instituto24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Instituto32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Instructores24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Instructores32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Invoice16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Invoice32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Italic16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.key16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.l_cancelado">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.l_disponible">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.l_ocupado">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Lapiz16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.LapizNvo16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Last16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.layout24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Left_align16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.license32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Limit16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.LimpiaFiltroHC">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Lineas24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.list_16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.list_error">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.llave">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.lock">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.lock_open">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.locker1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.locker2">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.logo_pida_nvo_plain">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Mantenimiento24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.medal_gold_1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.MedalBlueGold32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Medical_Bag">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Mensaje24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Mensaje32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.MetroAbstract64">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.MetroCorrecciones">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.MetroExporta">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.MetroReloj64">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Minus16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ModificacionesSueldo24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Modify_time48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ModSalTemp32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.moneybox">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.MotivosBaja24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.MtroDed32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Multiforma1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.multiforma2">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Naturaleza24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.navigate_down16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.navigate_up16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.NewRecord">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.NewReport22">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Next16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Niveles24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.NoFoto">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.NoFoto1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.NoImagen">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Nomina32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Nurse_Female_Light">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Nurse_Female_Light_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Nurse_Female_Light1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Objective24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ObjectiveTA24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Ok16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.outlook_calendar_day">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.outlook_calendar_month">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.outlook_calendar_week">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.PayIdea">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.PayIdea1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Periodo24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Periodo32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.PIDALogin">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Pin16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Planeacion32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Plantas24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Plus16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Poliza32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.preferences_desktop_notification">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Preferencias24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Preguntas64">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Prestamos32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Prev16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Preview16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Preview32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Printer16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Printer32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Printer32White">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.PrintFolderLabel32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ProcesarHoras24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Process32A">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Profile24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Profile32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Puesto24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.qr_code26">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.qr_code32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Question16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Question24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.questionaire48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.refresh16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.refresh161">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.refresh32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.reloj_ta">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Remitente32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Remote">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Reporte16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Reporte32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Reporte48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.representantes">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Reset32_BL">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.retardo_transporte_32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.RevisionPrestamos32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Right_align16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Save_as16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Save_as32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Save16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Save24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Save32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.scorm32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Search16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.search24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Seleccionar32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Set22">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Set32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Set32_GR">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Shirt24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Shirt32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Sintoma32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Sintoma321">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Sort16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Sort32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Star16Blank">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Star16Blank1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Star16ROver">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Star16ROver1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Star24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Star24Blank">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Star48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Stations24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Stations241">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Stations32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Stations321">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Submot">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Subscript16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Superscript16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Supervisor24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Suplente32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.surveys24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.TableReport">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.test_fon_tres">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.test_fon_uno">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.tests24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.tests48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Timer32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.TipoEmp24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.toggle">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.toggle_expand">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ToolBox32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Tools2_24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Tools2_32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Tools32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Total32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.touch_screen_kiosk_icon">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Transferencia22">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.TrashBlue24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.TrashBlue241">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.TrashBlue242">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.TrashBlue32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Turno24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Unckecked16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Underline16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Uniform32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Users32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Users3227">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Users3227B">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Vacaciones24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Validar22">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ver">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.warning_16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Wizard">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Wizard16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Wizard48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.WorkOrder24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.WorkOrder32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.WorkOrder321">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.x18">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ZA24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="T:PIDA.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:PIDA.frmImportaciondatos.ConsultaBitacora(System.Data.DataTable@,System.String,System.String)">
+	<summary>
+ Proceso para regresar la información al fin del periodo, revisando la bitácora
+ </summary>
+</member><member name="M:PIDA.frmMaestroDeducciones.ConsultaBitacora(System.Data.DataTable@,System.String,System.String)">
+	<summary>
+ Proceso para regresar la información al fin del periodo, revisando la bitácora
+ </summary>
+</member><member name="M:PIDA.frmExportar.ExportarAjustesComplementaria">
+	<summary>
+ Exporta solo los ajustes que se hicieron después de la última exportación
+ NO INICIALIZA MAESTRO DE DEDUCCIONES, NI AFECTA SALDOS
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.LibreriasVFP.CtoH(System.String)">
+	<summary>
+ Función para convertir caracter en formato de fecha, regresando tipo String
+ </summary>
+	<param name="_hora"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.LibreriasVFP.RestaHrs(System.String,System.String,System.Boolean)">
+	<summary>
+ Determinar la diferencia en horas, entre 2 horas dadas en formato string
+ </summary>
+</member><member name="M:PIDA.LibreriasVFP.RestaHrs(System.DateTime,System.String,System.DateTime,System.String)">
+	<summary>
+ Función que devuelve el tiempo transcurrido en horas, considerando fecha y hora
+ Las fechas son en formato Date, las horas en formato String. Devuelve un String con formato de hora
+ </summary>
+</member><member name="M:PIDA.LibreriasVFP.HtoS(System.String)">
+	<summary>
+ Determina cuántos segundos hay en la hora indicada
+ </summary>
+	<param name="Hora"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.LibreriasVFP.HtoD(System.String)">
+	<summary>
+  Convertir un hora en formato caracter a formato decimal
+ </summary>
+</member><member name="M:PIDA.LibreriasVFP.DtoH(System.Double)">
+	<summary>
+ Convertir una hora en formato decimal a formato caracter
+ </summary>
+</member><member name="M:PIDA.Importaciones.ImportacionManual(System.String)">
+	<summary>
+ Importación de archivo texto separado por comas, conteniendo GAFETE (O RELOJ),FECHA,HORA
+ </summary>
+	<param name="AnoPeriodo"></param>
+</member><member name="M:PIDA.frmEvaluacionEmpleados.CrearEvaluaciones">
+	<summary>
+ Proceso para crear nodos de las evaluaciones del empleado
+ </summary>
+</member><member name="M:PIDA.frmEvaluacionEmpleados.CrearNodo(System.Data.DataRow)">
+	<summary>
+ Proceso para crear los nodos de los cuestionarios para la evaluación indicada
+ </summary>
+</member>
+</members>
+</doc>

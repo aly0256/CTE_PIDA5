@@ -1,0 +1,736 @@
+C:\Users\Míriam\AppData\Local\Temporary Projects\PIDA .NET\bin\Debug\PIDA.NET.exe.config
+C:\PIDA\PIDA .NET\bin\Debug\PIDA .NET.exe.config
+C:\PIDA\PIDA .NET\obj\Debug\PIDA .NET.vbprojResolveAssemblyReference.cache
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmEtiquetas.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmGrupo.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmBuscaGeneral.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmConfiguracion.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmCrearReporteDinamico.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmMain.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmRangoFechas.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmTrabajando.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmVistaPrevia.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.Resources.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmSeleccionaPeriodo.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmActualizarVariables.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmAguinaldo.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmAuxiliares.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmBanco.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmCambiosMasivos.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmCartasGenerales.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmCiudades.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmCivil.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmClase.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmColonias.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmEscuelas.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmEstados.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmFactInt.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmFamilia.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmFecha.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmFormaPago.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmHorarios.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmLineas.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmMaestro.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmMantenimiento.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmModSalEdicion.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmModSalMasivos.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmModSalTemp.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmMotivosBajaIMSS.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmMotivosBajaInternos.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmNivel.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmPlantas.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmReporteador.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmSuper.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmTipoEmp.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmTipoMovSal.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmTurnos.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmVacaciones.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmLogin.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmAusentismoGlobal.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmFestivos.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmFiltroReporteador.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmFiltroTA.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmReporteadorTA.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmTA.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA .NET.vbproj.GenerateResource.Cache
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmAreasTematicas.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmCapturaCursosMasivos.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmCapturaCursosTemp.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmConsulta.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmCursos.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmOpciones.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmAjustesMasivos.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmAjustesNomina.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmCancelarDeducciones.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmComparaPeriodos.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmConceptoNVO.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmConceptos.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmEditarAjustes.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmEditarDeducciones.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmExportar.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmFiltroNomina.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmImportaciondatos.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmInfoPeriodosEspeciales.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmMaestroDeducciones.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmNaturalezas.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmNomina.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmOrdenNomina.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmPeriodosReporteador.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmPolizas.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmRecibos.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmReporteadorNomina.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmRevisionPrestamos.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmConsultaMaestro.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmContratos.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmDeptos.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmDestinatario.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmFiltro.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmMensajeCartas.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmOrden.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmPuestos.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmRedaccionContrato.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmRemitentes.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmSolicitudPrestamo.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmCambiarClave.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmPerfiles.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmUsuarios.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmKardexAn.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmNaturalezaAusentismo.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmPeriodos.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmProcesarHoras.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmTipoAusentismo.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmEditarCursosEmpleado.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmFiltroCapacitacion.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmInstitutos.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmInstructores.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmModalidades.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmObjetivos.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmOrdenCapacitacion.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmPlaneacion.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmReporteadorCapacitacion.resources
+C:\PIDA\PIDA .NET\bin\Debug\PIDA .NET.exe
+C:\PIDA\PIDA .NET\bin\Debug\PIDA .NET.pdb
+C:\PIDA\PIDA .NET\bin\Debug\PIDA .NET.xml
+C:\PIDA\PIDA .NET\obj\Debug\PIDA .NET.exe
+C:\PIDA\PIDA .NET\obj\Debug\PIDA .NET.xml
+C:\PIDA\PIDA .NET\obj\Debug\PIDA .NET.pdb
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmVigencia.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmEspecializacion.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmConstanciaDC4.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmClasificacionCursos.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmAgregarPrestamo.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmAgregarPrestamoU.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmClasificacionesHerramientas.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmEditarPrestamo.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmEditarPrestamoU.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmFiltroGlobal.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmFiltroH.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmHerramientas.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmHerramientasPersonal.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmOrdenH.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmPrestamoGlobalH.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmPrestamoGlobalU.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmReporteadorHerramientas.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmUniformes.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmUniformesPersonal.resources
+C:\PIDA\PIDA .NET\obj\Debug\PIDA.NET.frmBuscar.resources
+\\Pida003\pidanet\PIDA .NET\bin\Debug\PIDA .NET.exe.config
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA .NET.exe
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA .NET.xml
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA .NET.pdb
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA .NET.vbprojResolveAssemblyReference.cache
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmAreasTematicas.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmCapturaCursosMasivos.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmCapturaCursosTemp.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmClasificacionCursos.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmConsulta.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmCursos.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmEditarCursosEmpleado.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmFiltroCapacitacion.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmInstitutos.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmInstructores.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmModalidades.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmObjetivos.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmOrdenCapacitacion.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmPlaneacion.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmReporteadorCapacitacion.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmConstanciaDC4.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmEspecializacion.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmEtiquetas.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmGrupo.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmBuscaGeneral.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmConfiguracion.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmCrearReporteDinamico.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmMain.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmOpciones.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmRangoFechas.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmTrabajando.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmVigencia.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmVistaPrevia.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmAgregarPrestamo.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmAgregarPrestamoU.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmClasificacionesHerramientas.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmEditarPrestamo.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmEditarPrestamoU.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmFiltroGlobal.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmFiltroH.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmHerramientas.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmHerramientasPersonal.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmOrdenH.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmPrestamoGlobalH.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmPrestamoGlobalU.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmReporteadorHerramientas.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmUniformes.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmUniformesPersonal.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.Resources.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmAjustesMasivos.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmAjustesNomina.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmCancelarDeducciones.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmComparaPeriodos.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmConceptoNVO.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmConceptos.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmEditarAjustes.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmEditarDeducciones.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmExportar.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmFiltroNomina.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmImportaciondatos.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmInfoPeriodosEspeciales.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmMaestroDeducciones.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmNaturalezas.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmNomina.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmOrdenNomina.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmPeriodosReporteador.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmPolizas.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmRecibos.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmReporteadorNomina.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmRevisionPrestamos.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmSeleccionaPeriodo.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmActualizarVariables.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmAguinaldo.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmAuxiliares.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmBanco.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmBuscar.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmCambiosMasivos.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmCartasGenerales.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmCiudades.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmCivil.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmClase.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmColonias.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmConsultaMaestro.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmContratos.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmDeptos.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmDestinatario.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmEscuelas.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmEstados.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmFactInt.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmFamilia.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmFecha.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmFiltro.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmFormaPago.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmHorarios.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmLineas.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmMaestro.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmMantenimiento.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmMensajeCartas.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmModSalEdicion.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmModSalMasivos.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmModSalTemp.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmMotivosBajaIMSS.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmMotivosBajaInternos.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmNivel.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmOrden.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmPlantas.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmPuestos.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmRedaccionContrato.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmRemitentes.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmReporteador.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmSolicitudPrestamo.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmSuper.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmTipoEmp.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmTipoMovSal.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmTurnos.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmVacaciones.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmCambiarClave.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmLogin.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmPerfiles.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmUsuarios.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmAusentismoGlobal.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmFestivos.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmFiltroReporteador.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmFiltroTA.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmKardexAn.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmNaturalezaAusentismo.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmPeriodos.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmProcesarHoras.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmReporteadorTA.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmTA.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA.NET.frmTipoAusentismo.resources
+\\Pida003\pidanet\PIDA .NET\obj\Debug\PIDA .NET.vbproj.GenerateResource.Cache
+\\pida003\pidanet\PIDA .NET\bin\Debug\PIDA .NET.exe
+\\pida003\pidanet\PIDA .NET\bin\Debug\PIDA .NET.pdb
+\\pida003\pidanet\PIDA .NET\bin\Debug\PIDA .NET.xml
+\\pida003\PIDANET\PIDA .NET\obj\Debug\PIDA.NET.frmAgregarEvaluacion.resources
+\\pida003\PIDANET\PIDA .NET\obj\Debug\PIDA.NET.frmCuestionarios.resources
+\\pida003\PIDANET\PIDA .NET\obj\Debug\PIDA.NET.frmEvaluacionEmpleados.resources
+\\pida003\PIDANET\PIDA .NET\obj\Debug\PIDA.NET.frmEvaluaciones.resources
+\\pida003\PIDANET\PIDA .NET\obj\Debug\PIDA.NET.frmRespuestas.resources
+\\pida003\PIDANET\PIDA .NET\bin\Debug\Microsoft.VisualBasic.PowerPacks.dll
+\\pida003\PIDANET\PIDA .NET\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
+\\pida003\PIDANET\PIDA .NET\bin\Debug\PIDA .NET.exe.manifest
+\\pida003\PIDANET\PIDA .NET\bin\Debug\PIDA .NET.application
+\\pida003\PIDANET\PIDA .NET\obj\Debug\PIDA .NET.exe.manifest
+\\pida003\PIDANET\PIDA .NET\obj\Debug\PIDA .NET.application
+\\pida003\PIDANET\HGA PIDA .NET\bin\Debug\PIDA .NET.exe.config
+\\pida003\PIDANET\HGA PIDA .NET\bin\Debug\PIDA .NET.exe.manifest
+\\pida003\PIDANET\HGA PIDA .NET\bin\Debug\PIDA .NET.application
+\\pida003\PIDANET\HGA PIDA .NET\bin\Debug\PIDA .NET.exe
+\\pida003\PIDANET\HGA PIDA .NET\bin\Debug\PIDA .NET.pdb
+\\pida003\PIDANET\HGA PIDA .NET\bin\Debug\PIDA .NET.xml
+\\pida003\PIDANET\HGA PIDA .NET\bin\Debug\Microsoft.VisualBasic.PowerPacks.dll
+\\pida003\PIDANET\HGA PIDA .NET\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA .NET.vbprojResolveAssemblyReference.cache
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmAreasTematicas.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCapturaCursosMasivos.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCapturaCursosTemp.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmClasificacionCursos.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmConsulta.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCursos.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEditarCursosEmpleado.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFiltroCapacitacion.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmInstitutos.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmInstructores.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmModalidades.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmObjetivos.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmOrdenCapacitacion.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmPlaneacion.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmReporteadorCapacitacion.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmAgregarEvaluacion.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCuestionarios.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEvaluacionEmpleados.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEvaluaciones.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmRespuestas.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmConstanciaDC4.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEspecializacion.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEtiquetas.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmGrupo.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmBuscaGeneral.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmConfiguracion.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCrearReporteDinamico.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmMain.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmOpciones.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmRangoFechas.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmTrabajando.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmVigencia.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmVistaPrevia.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmAgregarPrestamo.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmAgregarPrestamoU.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmClasificacionesHerramientas.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEditarPrestamo.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEditarPrestamoU.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFiltroGlobal.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFiltroH.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmHerramientas.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmHerramientasPersonal.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmOrdenH.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmPrestamoGlobalH.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmPrestamoGlobalU.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmReporteadorHerramientas.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmUniformes.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmUniformesPersonal.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.Resources.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmAjustesMasivos.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmAjustesNomina.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCancelarDeducciones.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmComparaPeriodos.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmConceptoNVO.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmConceptos.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEditarAjustes.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEditarDeducciones.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmExportar.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFiltroNomina.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmImportaciondatos.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmInfoPeriodosEspeciales.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmMaestroDeducciones.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmNaturalezas.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmNomina.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmOrdenNomina.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmPeriodosReporteador.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmPolizas.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmRecibos.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmReporteadorNomina.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmRevisionPrestamos.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmSeleccionaPeriodo.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmActualizarVariables.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmAguinaldo.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmAuxiliares.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmBanco.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmBuscar.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCambiosMasivos.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCartasGenerales.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCiudades.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCivil.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmClase.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmColonias.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmConsultaMaestro.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmContratos.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmDeptos.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmDestinatario.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEscuelas.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEstados.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFactInt.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFamilia.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFecha.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFiltro.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFormaPago.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmHorarios.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmLineas.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmMaestro.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmMantenimiento.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmMensajeCartas.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmModSalEdicion.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmModSalMasivos.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmModSalTemp.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmMotivosBajaIMSS.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmMotivosBajaInternos.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmNivel.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmOrden.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmPlantas.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmPuestos.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmRedaccionContrato.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmRemitentes.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmReporteador.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmSolicitudPrestamo.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmSuper.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmTipoEmp.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmTipoMovSal.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmTurnos.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmVacaciones.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCambiarClave.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmLogin.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmPerfiles.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmUsuarios.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmAusentismoGlobal.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFestivos.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFiltroReporteador.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFiltroTA.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmKardexAn.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmNaturalezaAusentismo.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmPeriodos.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmProcesarHoras.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmReporteadorTA.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmTA.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA.NET.frmTipoAusentismo.resources
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA .NET.vbproj.GenerateResource.Cache
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA .NET.exe.manifest
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA .NET.application
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA .NET.exe
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA .NET.xml
+\\pida003\PIDANET\HGA PIDA .NET\obj\Debug\PIDA .NET.pdb
+G:\PIDA\HGA PIDA .NET\bin\Debug\PIDA .NET.exe.config
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA .NET.exe
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA .NET.xml
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA .NET.pdb
+G:\PIDA\HGA PIDA .NET\bin\Debug\PIDA .NET.exe.manifest
+G:\PIDA\HGA PIDA .NET\bin\Debug\PIDA .NET.application
+G:\PIDA\HGA PIDA .NET\bin\Debug\PIDA .NET.exe
+G:\PIDA\HGA PIDA .NET\bin\Debug\PIDA .NET.pdb
+G:\PIDA\HGA PIDA .NET\bin\Debug\PIDA .NET.xml
+G:\PIDA\HGA PIDA .NET\bin\Debug\Microsoft.VisualBasic.PowerPacks.dll
+G:\PIDA\HGA PIDA .NET\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA .NET.vbprojResolveAssemblyReference.cache
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmAreasTematicas.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCapturaCursosMasivos.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCapturaCursosTemp.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmClasificacionCursos.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmConsulta.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCursos.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEditarCursosEmpleado.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFiltroCapacitacion.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmInstitutos.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmInstructores.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmModalidades.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmObjetivos.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmOrdenCapacitacion.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmPlaneacion.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmReporteadorCapacitacion.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmAgregarEvaluacion.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCuestionarios.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEvaluacionEmpleados.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEvaluaciones.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmRespuestas.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmConstanciaDC4.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEspecializacion.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEtiquetas.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmGrupo.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmBuscaGeneral.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCrearReporteDinamico.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmMain.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmRangoFechas.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmTrabajando.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmVigencia.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmVistaPrevia.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmAgregarPrestamo.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmAgregarPrestamoU.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmClasificacionesHerramientas.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEditarPrestamo.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEditarPrestamoU.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFiltroGlobal.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFiltroH.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmHerramientas.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmHerramientasPersonal.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmOrdenH.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmPrestamoGlobalH.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmPrestamoGlobalU.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmReporteadorHerramientas.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmUniformes.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmUniformesPersonal.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.Resources.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmAjustesMasivos.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmAjustesNomina.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCancelarDeducciones.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmComparaPeriodos.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmConceptoNVO.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmConceptos.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEditarAjustes.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEditarDeducciones.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmExportar.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFiltroNomina.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmImportaciondatos.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmInfoPeriodosEspeciales.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmMaestroDeducciones.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmNaturalezas.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmNomina.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmOrdenNomina.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmPeriodosReporteador.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmPolizas.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmRecibos.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmReporteadorNomina.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmRevisionPrestamos.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmSeleccionaPeriodo.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmActualizarVariables.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmAguinaldo.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmAuxiliares.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmBanco.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmBuscar.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCambiosMasivos.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCartasGenerales.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCiudades.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCivil.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmClase.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmColonias.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmConsultaMaestro.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmContratos.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmDeptos.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmDestinatario.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEscuelas.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEstados.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFactInt.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFamilia.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFecha.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFiltro.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFormaPago.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmHorarios.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmLineas.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmMaestro.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmMantenimiento.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmMensajeCartas.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmModSalEdicion.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmModSalMasivos.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmModSalTemp.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmMotivosBajaIMSS.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmMotivosBajaInternos.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmNivel.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmOrden.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmPlantas.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmPuestos.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmRedaccionContrato.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmRemitentes.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmReporteador.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmSolicitudPrestamo.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmSuper.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmTipoEmp.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmTipoMovSal.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmTurnos.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmVacaciones.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCambiarClave.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmLogin.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmPerfiles.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmUsuarios.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmAusentismoGlobal.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFestivos.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFiltroReporteador.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFiltroTA.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmKardexAn.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmNaturalezaAusentismo.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmPeriodos.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmProcesarHoras.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmReporteadorTA.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmTA.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmTipoAusentismo.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA .NET.vbproj.GenerateResource.Cache
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA .NET.exe.manifest
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA .NET.application
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFoto.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmImportacion.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmRecibosCFDI.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFacturacion.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmParametros.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEstilo.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCias.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\bin\Debug\PIDA .NET.exe.config
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA .NET.exe
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA .NET.xml
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA .NET.pdb
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA .NET.vbprojResolveAssemblyReference.cache
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmAreasTematicas.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCapturaCursosMasivos.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCapturaCursosTemp.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmClasificacionCursos.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmConsulta.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCursos.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEditarCursosEmpleado.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFiltroCapacitacion.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmInstitutos.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmInstructores.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmModalidades.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmObjetivos.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmOrdenCapacitacion.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmPlaneacion.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmReporteadorCapacitacion.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmAgregarEvaluacion.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCuestionarios.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEvaluacionEmpleados.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEvaluaciones.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmRespuestas.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmConstanciaDC4.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEspecializacion.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEtiquetas.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmGrupo.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmBuscaGeneral.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmParametros.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEstilo.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCrearReporteDinamico.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmMain.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCias.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmRangoFechas.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmTrabajando.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmVigencia.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmVistaPrevia.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmAgregarPrestamo.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmAgregarPrestamoU.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmClasificacionesHerramientas.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEditarPrestamo.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEditarPrestamoU.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFiltroGlobal.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFiltroH.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmHerramientas.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmHerramientasPersonal.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmOrdenH.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmPrestamoGlobalH.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmPrestamoGlobalU.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmReporteadorHerramientas.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmUniformes.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmUniformesPersonal.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmAjustesMasivos.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmAjustesNomina.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCancelarDeducciones.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmComparaPeriodos.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmConceptoNVO.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmConceptos.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEditarAjustes.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEditarDeducciones.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmExportar.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFiltroNomina.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFacturacion.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmImportaciondatos.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmInfoPeriodosEspeciales.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmMaestroDeducciones.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmNaturalezas.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmNomina.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmOrdenNomina.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmPeriodosReporteador.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmPolizas.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmRecibos.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmRecibosCFDI.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmReporteadorNomina.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmRevisionPrestamos.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmSeleccionaPeriodo.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmActualizarVariables.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmAguinaldo.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmAuxiliares.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmBanco.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmBuscar.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCambiosMasivos.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCartasGenerales.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCiudades.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCivil.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmClase.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmColonias.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmConsultaMaestro.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmContratos.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmDeptos.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmDestinatario.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEscuelas.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmEstados.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFactInt.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFamilia.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFecha.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFiltro.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFormaPago.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFoto.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmHorarios.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmLineas.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmMaestro.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmMantenimiento.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmMensajeCartas.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmModSalEdicion.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmModSalMasivos.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmModSalTemp.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmMotivosBajaIMSS.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmMotivosBajaInternos.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmNivel.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmOrden.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmPlantas.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmPuestos.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmRedaccionContrato.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmRemitentes.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmReporteador.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmSolicitudPrestamo.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmSuper.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmTipoEmp.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmTipoMovSal.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmTurnos.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmVacaciones.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmCambiarClave.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmLogin.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmPerfiles.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmUsuarios.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmAusentismoGlobal.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFestivos.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFiltroReporteador.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmFiltroTA.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmImportacion.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmKardexAn.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmNaturalezaAusentismo.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmPeriodos.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmProcesarHoras.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmReporteadorTA.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmTA.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmTipoAusentismo.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA .NET.vbproj.GenerateResource.Cache
+\\PIDA-FS01\pidanet\HGA PIDA .NET\bin\Debug\PIDA .NET.exe.manifest
+\\PIDA-FS01\pidanet\HGA PIDA .NET\bin\Debug\PIDA .NET.application
+\\PIDA-FS01\pidanet\HGA PIDA .NET\bin\Debug\PIDA .NET.exe
+\\PIDA-FS01\pidanet\HGA PIDA .NET\bin\Debug\PIDA .NET.pdb
+\\PIDA-FS01\pidanet\HGA PIDA .NET\bin\Debug\PIDA .NET.xml
+\\PIDA-FS01\pidanet\HGA PIDA .NET\bin\Debug\Microsoft.VisualBasic.PowerPacks.dll
+\\PIDA-FS01\pidanet\HGA PIDA .NET\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.Resources.resources
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA .NET.exe.manifest
+\\PIDA-FS01\pidanet\HGA PIDA .NET\obj\Debug\PIDA .NET.application
+P:\HGA PIDA .NET\bin\Debug\PIDA .NET.exe.config
+P:\HGA PIDA .NET\obj\Debug\PIDA .NET.exe
+P:\HGA PIDA .NET\obj\Debug\PIDA .NET.xml
+P:\HGA PIDA .NET\obj\Debug\PIDA .NET.pdb
+\\Pida-fs01\pidanet\HGA PIDA .NET\obj\Debug\PIDA.NET.frmHorariosCafeteria.resources
+G:\PIDA\HGA PIDA .NET\obj\Debug\PIDA.NET.frmHorariosCafeteria.resources

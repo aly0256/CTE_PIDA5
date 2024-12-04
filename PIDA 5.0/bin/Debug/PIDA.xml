@@ -1,0 +1,3965 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+PIDA
+</name>
+</assembly>
+<members>
+<member name="M:PIDA.frmCredFonacotMtroDed.ResetVariables">
+	<summary>
+ Función para reestablecer variables globales de manera default
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCredFonacotMtroDed.AlmacenaInfo(System.String)">
+	<summary>
+ Se guarda la info. de las rutas y los registros de los csv
+ </summary>
+	<param name="ruta"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCredFonacotMtroDed.ValidarCadenaNombre(System.String)">
+	<summary>
+ Validaciones especiales para el nombre del empleado de la cédula, Ej. Dobles espacios o nombres con punto
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCredFonacotMtroDed.UltimoPeriodo(System.String,System.Int32,System.Int32,System.Int32)">
+	<summary>
+ Función para determinar el último periodo de acuerdo a un plazo dado
+ </summary>
+	<param name="tipoPeriodo">Semanal o quincenal</param>
+	<param name="periodoInicial">Periodo de inicio</param>
+	<param name="plazo">No. de periodos a considerar</param>
+	<param name="año">Año del periodo</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCredFonacotMtroDed.LeerCsv(System.String,System.String)">
+	<summary>
+ Función que se encarga de regresar un datatable de un archivo csv
+ </summary>
+	<param name="path">Ruta del csv</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCredFonacotMtroDed.CargaDatagrids(System.Data.DataTable)">
+	<summary>
+ Información de los datagridviews.
+ </summary>
+	<param name="dtInfo">Datatable con la información principal</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCredFonacotMtroDed.CargaInfoControles(System.Int32,System.String)">
+	<summary>
+ Cargar los controles de acuerdo a un estado inicial o no.
+ </summary>
+	<param name="estadoInicial">Estado al cargar o editar información</param>
+	<param name="tipoPer">Tipo de periodo (semanal o quincenal)</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCredFonacotMtroDed.GuardaMovimientosTablaSQL(System.Collections.ArrayList)">
+	<summary>
+ Guarda los bloques de registros en sqlite -- Ernesto -- 18 dic 2023
+ </summary>
+	<param name="strQuerys">Querys que se ejecutarán</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCredFonacotMtroDed.GuardarRegistros">
+	<summary>
+ Se valida si los registros que se ingresarán ya existen en la BD.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCredFonacotMtroDed.validaDt(System.Data.DataTable,System.String)">
+	<summary>
+ Función para validar la info. en el datatable principal (Que contiene toda la info.), evaluando si hay celdas vacias o valores idénticos al momento de aplicar cambios.
+ </summary>
+	<param name="dtInfo">Datatable a trabajar (con filtro para semanal o quincenal)</param>
+	<param name="strOp">Si se va editar o validar</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCredFonacotMtroDed.NoRegistros">
+	<summary>
+ Carga la información correspondiente a cada datagridview.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCredFonacotMtroDed.Inicializa">
+	<summary>
+ Carga la información inicial de la forma
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCredFonacotMtroDed.CargarArchivo(System.Object,System.EventArgs)">
+	<summary>
+ Función para cargar la información del excel a un datatable 
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCredFonacotMtroDed.btnCargaCedula_Click(System.Object,System.EventArgs)">
+	<summary>
+ Carga la cedula a maestro de deducciones
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCredFonacotMtroDed.btnCerrar_Click(System.Object,System.EventArgs)">
+	<summary>
+ Cerrar la forma
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCredFonacotMtroDed.btnCargar_Click(System.Object,System.EventArgs)">
+	<summary>
+ Se carga el archivo de fonacot (formato csv) para su vista previa y edición.
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCredFonacotMtroDed.btnAplica_Click(System.Object,System.EventArgs)">
+	<summary>
+ Se aplican las ediciones de periodos, abonos y año a los registros (semanales y quincenales).
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCredFonacotMtroDed.btnExportar_Click(System.Object,System.EventArgs)">
+	<summary>
+ Se exporta txt con información de la excepciones de la carga de la cedula
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCredFonacotMtroDed.frmCredFonacotMtroDed_FormClosed(System.Object,System.Windows.Forms.FormClosedEventArgs)">
+	<summary>
+ Cuando se cierra la forma
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCredFonacotMtroDed.frmCredFonacotMtroDed_Load(System.Object,System.EventArgs)">
+	<summary>
+ Cuando se carga la forma
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCredFonacotMtroDed.InputsValidados(System.Object,System.EventArgs)">
+	<summary>
+ Función para validar los controles de input (periodo, año y abonos).
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCredFonacotMtroDed.dgvArchivos_CellMouseUp(System.Object,System.Windows.Forms.DataGridViewCellMouseEventArgs)">
+	<summary>
+ Eliminar registros del grid de archivos por parte del usuario
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmTimbrado.btnExportar_Click(System.Object,System.EventArgs)">
+	<summary>
+ Inicia el timbrado
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmTimbrado.InterfaceComercioDigital_V40(System.String,PIDA.Declaraciones.InfoCFDI,System.String,System.Boolean,System.String,System.String,System.Data.DataTable,System.Data.DataRow)">
+	<summary>
+ Interfaz comercio digital 4.0
+ </summary>
+	<param name="strFileName"></param>
+	<param name="ParametrosCFDI"></param>
+	<param name="AnoPeriodo"></param>
+	<param name="Pruebas"></param>
+	<param name="_reg_pat_planta"></param>
+	<param name="_pathNom33"></param>
+	<param name="_dtResRegPat"></param>
+	<param name="_drRP"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmEditaEscolaridad.frmEditaEscolaridad_Load(System.Object,System.EventArgs)">
+	<summary>
+ 'Método que para cargar formulario
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmEditaEscolaridad.btnAceptar_Click(System.Object,System.EventArgs)">
+	<summary>
+ 'Método que guarda/actualiza el registro seleccionado
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmEditaEscolaridad.btnElimina_Click(System.Object,System.EventArgs)">
+	<summary>
+ 'Método para eliminar un registro
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmEditaEscolaridad.EsValNum(System.String)">
+	<summary>
+ 'Función para validar si es número
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProgVacs.MostrarInformacion">
+	<summary>
+ 'Método que cargará los registros de vacaciones programadas al dataGridView para mostrar la información
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProgVacs.btnNuevo_Click(System.Object,System.EventArgs)">
+	<summary>
+ 'Método que permitirá capturar nuevos registros, como reloj, a partir de que fecha, y la cantidad de días a partir de la fecha mencionada
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProgVacs.btnBorrar_Click(System.Object,System.EventArgs)">
+	<summary>
+ 'Método para borrar registro seleccionado
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProgVacs.btnAplicar_Click(System.Object,System.EventArgs)">
+	<summary>
+ 'Método para seleccionar a los registros que van a aplicarse
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProgVacs.AplicaVacacion(System.String,System.DateTime,System.String,System.String)">
+	<summary>
+ 'Método para aplicar las vacaciones a saldos_vacaciones, ausentismo y ajustes_nom
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmSelAnoPeriodo.CargarPeriodos(System.DateTime)">
+	<summary>
+ 'Método para cargar periodos al comboBox en la captura de vacaciones para el pago de la nómina
+ </summary>
+	<remarks></remarks>
+</member><member name="T:PIDA.frmRevisionPrestamos.ComboBoxMotivo">
+	<summary>
+ Clase para crear combo con motivos de préstamo
+ </summary>
+</member><member name="T:PIDA.frmRevisionPrestamos.ComboBoxReloj">
+	<summary>
+ Clase para crear combo con números de reloj
+ </summary>
+</member><member name="T:PIDA.frmRevisionPrestamos.ComboBoxCapturado">
+	<summary>
+ Clase para crear combo con usuarios que capturan...
+ </summary>
+</member><member name="T:PIDA.frmRevisionPrestamos.ComboBoxRevisado">
+	<summary>
+ Clase para crear combo con usuarios que revisan...
+ </summary>
+</member><member name="M:PIDA.frmMarcarFiniquitoEspecial.showDatagrid(DevComponents.DotNetBar.Controls.DataGridViewX,System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+	<summary>
+ Muestra solo las columnas deseadas de un datagrid con los nombres asignados
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmLogin.tiempoVal_Tick(System.Object,System.EventArgs)">
+	<summary>
+ Es el contador que se utiliza para validar controles
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmMain.btnPresentacionQueja_Click(System.Object,System.EventArgs)">
+	<summary>
+ Botón para abrir módulo de 'Presentación de quejas'
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmReporteTEBonosProd.btnLayout_Click(System.Object,System.EventArgs)">
+	<summary>
+ Layout de excel
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmReporteTEBonosProd.btnReporte_Click(System.Object,System.EventArgs)">
+	<summary>
+ Genera el reporte en base al layout cargado
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmReporteTEBonosProd.GeneraReporte(System.Data.DataTable,System.String)">
+	<summary>
+ Reporte de tiempo extra y bonos de productividad
+ </summary>
+	<param name="dtInfo"></param>
+	<param name="strRuta"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmReporteTEBonosProd.GetExcelColumnName(System.Int32)">
+	<summary>
+ Obtiene la letra de la columna del excel de acuerdo a un parámetro de un número. -- Ernesto
+ </summary>
+	<param name="columnNumber">Número de columna</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmReporteTEBonosProd.LeerLayout(System.String)">
+	<summary>
+ Lee el layout del excel y lo pasa a un datatable
+ </summary>
+	<param name="strRuta"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmReporteTEBonosProd.GeneraLayoutExcel(System.String)">
+	<summary>
+ Se genera un layout de excel al usuario para que pueda ingresar la información que necesita
+ </summary>
+	<remarks></remarks>
+</member><member name="T:PIDA.FuncionesTA">
+	<summary>
+ Funciones requeridas para análisis de información TA
+ * Evaluador
+ * AnalisisHrsBrt
+ * AnalisisHrsBrtPares
+ * AsistenciaPerfecta
+ ... etc.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.Declaraciones.ExportaExcel(System.Data.DataTable,System.String,System.String,System.String,System.Boolean)">
+	<summary>
+ Exporta a excel un Datatable (más lento que 
+ recordset, pues pasa los registros uno a uno)
+ </summary>
+</member><member name="M:PIDA.Declaraciones.ExcelTOArrayList(System.String)">
+	<summary>
+ 'Función para abrir un archivo de excel, y pasar una lista de relojes a un arreglo
+ tomando la primer columna, de la primer hoja
+ </summary>
+	<param name="Archivo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.Declaraciones.sqlExecute(System.String,System.Boolean,System.String@)">
+	<summary>
+ Función que regresa un Recordset a partir de una consulta SQL
+ </summary>
+</member><member name="M:PIDA.Declaraciones.ExportaExcel(ADODB.Recordset,System.String,System.Boolean)">
+	<summary>
+ Exporta Recordset a excel SIN formato
+ </summary>
+</member><member name="M:PIDA.Declaraciones.RoundUp(System.Double,System.Int32)">
+	<summary>
+ Redondeo truncado hacia arriba.
+ P.Ej. 3.33333 -&gt; 3.34
+ P.Ej. 1.00111 -&gt; 1.01
+ </summary>
+</member><member name="M:PIDA.Declaraciones.SemanaHorarioMixto(System.String,System.String)">
+	<summary>
+ BRP - Procedimiento para obtener el comportamiento de la semana a analizar, en un horario mixto por rol
+ </summary>
+</member><member name="M:PIDA.Declaraciones.RevisaExcepciones(System.Windows.Forms.Form,System.String,System.Boolean)">
+	<summary>
+ MCR 19/OCT/2015 - Código para hacer excepciones a habilitar/ver controles de acuerdo al perfil
+ </summary>
+	<param name="frmControl"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.Declaraciones.ExcelTOArrayList(System.String,System.String)">
+	<summary>
+ 'Función para abrir un archivo de excel, y pasar una lista de relojes a un arreglo
+ tomando la primer columna, de la primer hoja
+ </summary>
+	<param name="Archivo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.Declaraciones.creaDt(System.String,System.String)">
+	<summary>
+ Función para crear datatables (solo columnas sin información). Retorna un valor tipo datatable.
+ Autor: Ernesto G.  Fecha: 5 abril 2022
+ </summary>
+	<param name="nombresCol">Nombres de las columnas</param>
+	<param name="tipoCol">Tipo de columnas</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.Declaraciones.GenConsec(System.String@,System.String@,System.String@,System.String)">
+	<summary>
+ Función para generar el numero consecutivo de algun campo
+ Autor: Ing. Adrian Ortega S. el 2024-05-31
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.Declaraciones.ValidaPalabrasRestringidas(System.Windows.Forms.Form)">
+	<summary>
+ Validar palabras restringidas de formas activas
+ </summary>
+	<param name="formaActiva"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.Declaraciones.AES_Encriptar(System.String,System.String)">
+	<summary>
+ Encriptacion
+ </summary>
+	<param name="input"></param>
+	<param name="pass"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.Declaraciones.AES_Desencriptar(System.String,System.String)">
+	<summary>
+ Desencriptacion
+ </summary>
+	<param name="input"></param>
+	<param name="pass"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCapturaQuejas.MostrarInformacion(System.Boolean,System.Data.DataTable)">
+	<summary>
+ Valores iniciales de controles al cargar pantalla
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCapturaQuejas.validacionesControles(System.Boolean)">
+	<summary>
+ Validación al momento de agregar o editar info.
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCapturaQuejas.btnAceptar_Click(System.Object,System.EventArgs)">
+	<summary>
+ Agrega o edita la información
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCapturaQuejas.btnBuscar_Click(System.Object,System.EventArgs)">
+	<summary>
+ Info. para controles del empleado que se buscó
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="T:PIDA.frmCapturaQuejas">
+	<summary>
+ Módulo de captura de quejas a empleados [basado en el módulo de captura de medidas disciplinaria]
+ Ernesto  13feb2023
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmEditaSolInciPer.GenDataRepInciPers(System.String,System.String,System.DateTime,System.String,System.Data.DataTable)">
+	<summary>
+ 'Método para generar información para mostrar reporte de incidencias del personal
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmListInciPers.MostrarInformacion">
+	<summary>
+ 'Método que cargará los registros de vacaciones programadas al dataGridView para mostrar la información
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmPensionesAlimenticias.ctrlInterfaz(System.String,System.Int32)">
+	<summary>
+ Recorrer panel de controles para obtener su información
+ </summary>
+	<param name="strNomControl"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmExportar.ExportarAjustesComplementaria">
+	<summary>
+ Exporta solo los ajustes que se hicieron después de la última exportación
+ NO INICIALIZA MAESTRO DE DEDUCCIONES, NI AFECTA SALDOS
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmAjustesNomina.ConsultaBitacora(System.Data.DataTable@,System.String,System.String)">
+	<summary>
+ Proceso para regresar la información al fin del periodo, revisando la bitácora
+ </summary>
+</member><member name="M:PIDA.frmMaestroDeducciones.btnBuscar_Click(System.Object,System.EventArgs)">
+	<summary>
+ Busqueda por empleado
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmMaestroDeducciones.dgvMaestro_CellEnter(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)">
+	<summary>
+ Si se adentra el curso dentro de una celda en el datagrid
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmMaestroDeducciones.cmbConceptoCuenta_SelectedValueChanged(System.Object,System.EventArgs)">
+	<summary>
+ De los saldo ca, muestra la info del concepto seleccionado
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmMaestroDeducciones.btnAgregar_Click(System.Object,System.EventArgs)">
+	<summary>
+ Agregar nuevo concepto
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmMaestroDeducciones.btnCancelar_Click(System.Object,System.EventArgs)">
+	<summary>
+ Cancela concepto
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmMaestroDeducciones.btnFonacot_Click(System.Object,System.EventArgs)">
+	<summary>
+ Abre forma para la carga de la cedula de fonacot por creditos
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmMaestroDeducciones.btnRegAct_Click(System.Object,System.EventArgs)">
+	<summary>
+ Botones para el reporte de resumen de conceptos
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmMaestroDeducciones.habilitarBotones">
+	<summary>
+ Se habilitan o deshabilitan los botones de interfaz
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmMaestroDeducciones.mostrarInformacion(System.String)">
+	<summary>
+ Refresca la info de la interfaz
+ </summary>
+	<param name="strReloj"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmMaestroDeducciones.tabEdoCta_Click(System.Object,System.EventArgs)">
+	<summary>
+ Tab para visualizar los conceptos de mtro ded
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmMaestroDeducciones.tabMtro_Click(System.Object,System.EventArgs)">
+	<summary>
+ Tab para visualizar los saldos ca
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmMaestroDeducciones.btnEditar_Click(System.Object,System.EventArgs)">
+	<summary>
+ Edicion de conceptos
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmReporteadorAUS.ConsultaBitacora(System.Data.DataTable,System.DateTime)">
+	<summary>
+ Proceso para actualizar datos antes de ejecutar reporte MCR (4/NOV/2015)
+ </summary>
+</member><member name="M:PIDA.frmCondensadoNomina.GeneraReporteDescuentoDefuncion(System.Data.DataTable,System.String,System.String,System.String)">
+	<summary>
+ Función que se encarga de generar reporte de descuento de defunción de acuerdo a valores de tabla. Puede ser más de 1 reporte.
+ Ernesto 27 ene 2023
+ </summary>
+	<param name="dtFiltroPersonal"></param>
+	<param name="nombre_archivo_reporte"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmMaestro.btnExpExcelDetVac_Click(System.Object,System.EventArgs)">
+	<summary>
+ 'Método para exportar el detalle del empleado de vacaciones a excel
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmMaestro.ExportaExcelOpenXML(System.Data.DataTable,System.String,System.String)">
+	<summary>
+ 'Método para generar detalle en excel a partir de datos en un datatable
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmMaestro.CargarPeriodos(System.DateTime)">
+	<summary>
+ 'Método para cargar periodos al comboBox en la captura de vacaciones para el pago de la nómina
+ </summary>
+	<remarks></remarks>
+</member><member name="F:PIDA.CSaldoVacaciones.fecha_inicio">
+	<summary>
+ fecha donde inicia el primer periodo de aniversario del empleado
+ </summary>
+</member><member name="F:PIDA.CSaldoVacaciones.fecha_corte">
+	<summary>
+ fecha de corte para el calculo de proporciones
+ </summary>
+</member><member name="F:PIDA.CSaldoVacaciones.dtEmpleado">
+	<summary>
+ Tabla de datos del empleado segun a personalvw
+ de todas las proporciones de vacaciones
+ </summary>
+</member><member name="F:PIDA.CSaldoVacaciones.dtProporcionesVacaciones">
+	<summary>
+ Tabla de los periodos calculados
+ con sus respectivas proporciones
+ </summary>
+</member><member name="F:PIDA.CSaldoVacaciones.dtVacacionesBeneficios">
+	<summary>
+ Tabla de dias de vacaciones ganados por aniversario
+ </summary>
+</member><member name="F:PIDA.CSaldoVacaciones.dtVacacionesEspeciales">
+	<summary>
+ Tabla de dias de vacaciones ganados para empleados que
+ tienen dias de vacaciones especiales
+ </summary>
+</member><member name="F:PIDA.CSaldoVacaciones.dtCambioTipoEmpleado">
+	<summary>
+ Tabla de cambios de empleado obtenido de la bitacora
+ </summary>
+</member><member name="F:PIDA.CSaldoVacaciones.dtVacacionesAniversario">
+	<summary>
+ Tabla de periodos, saldos iniciales obtenidos de la tabla
+ de 'vac_aniversario'
+ </summary>
+</member><member name="F:PIDA.CSaldoVacaciones.NumColSaldoVacaciones">
+	<summary>
+ Numero de columnas de la tabla de saldos de vacaciones
+ de todas las proporciones de vacaciones
+ </summary>
+</member><member name="F:PIDA.CSaldoVacaciones.dtSaldosVacaciones">
+	<summary>
+ Tabla que contiene todos los datos que se calcularon para 
+ el saldo finial de vacaciones
+ </summary>
+</member><member name="F:PIDA.CSaldoVacaciones.dtErrores">
+	<summary>
+ Tabla que contiene los errores generados al realizar
+ el proceso de obtencion de periodos y saldos de vacaiones
+ </summary>
+</member><member name="F:PIDA.CSaldoVacaciones.SaldoInicial">
+	<summary>
+ saldo inicial hasta el 16 de fecbrero 2018
+ </summary>
+</member><member name="F:PIDA.CSaldoVacaciones.SaldoFinal">
+	<summary>
+ saldo final al descontar los dias de vacaciones tomadas a la suma
+ de todas las proporciones de vacaciones
+ </summary>
+</member><member name="F:PIDA.CSaldoVacaciones.DiasVacacionesTomadas">
+	<summary>
+ Numero de dias de vacaciones tomadas hasta el ultimo periodo asentado
+ en nómina ó hasta el periodo anterior asentado en nómina seleccionado para el calculo
+ </summary>
+</member><member name="F:PIDA.CSaldoVacaciones.AcumuladoProporcion">
+	<summary>
+ Sumatoria de todas las proporciones de vacaciones
+ por cada periodo calculado
+ </summary>
+</member><member name="M:PIDA.frmSolVacKiosco.CancelaSolicitudesVencidas(System.Data.DataTable,System.Boolean@)">
+	<summary>
+ Cancelación de vacaciones de acuerdo a ciertos criterios como que hayan pasado 7 dias o la fecha de inicio haya pasado
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmInfoAPI.ParametrosAPI">
+	<summary>
+ Para acceder a la api se requieren 4 parametros que se encuentran encriptados por seguridad
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmInfoAPI.llamadaServicioPOST(System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+	<summary>
+ Método POST API
+ </summary>
+	<param name="data"></param>
+	<param name="RestURL"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmInfoAPI.Iniciar(System.DateTime)">
+	<summary>
+ Inicializa conexión a API
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmInfoAPI.ValoresConexion(System.DateTime)">
+	<summary>
+ Valores de parametros
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmInfoAPI.Conexion">
+	<summary>
+ Conexion con el API
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmInfoAPI.Limpiar">
+	<summary>
+ Limpiar controles
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmInfoAPI.cmbAno_SelectedIndexChanged(System.Object,System.EventArgs)">
+	<summary>
+ Selecciona el año del periodo
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmInfoAPI.btnNomina_Click(System.Object,System.EventArgs)">
+	<summary>
+ Se exporta el resultado a los ajustes de nómina
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmInfoAPI.lstDet_DrawItem(System.Object,System.Windows.Forms.DrawItemEventArgs)">
+	<summary>
+ 'Evento DrawItem del ListBox2 para pintar los items
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmInfoAPI.ExportarNomina">
+	<summary>
+ Exportación de registros a ajustesnom
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmInfoAPI.QuerysExistencia(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
+	<summary>
+ Función para comprobar si se agregaron los registros o si existen en ajustes nom
+ </summary>
+	<param name="baseDatos"></param>
+	<param name="tabla"></param>
+	<param name="dicInfo"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmInfoAPI.GuardaMovimientosTablaSQL(System.Collections.ArrayList)">
+	<summary>
+ Guarda los bloques de registros en sqlite -- Ernesto -- 18 dic 2023
+ </summary>
+	<param name="strQuerys">Querys que se ejecutarán</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.visualLocked(System.Boolean)">
+	<summary>
+ 'Función para bloquear los botones cuando el sistema está cargando datos
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.BackgroundWorker1_DoWork(System.Object,System.ComponentModel.DoWorkEventArgs)">
+	<summary>
+ 'Función DoWork del BackgroundWorker1 para ejecutar la carga de archivos en un hilo diferente
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.BackgroundWorker1_ProgressChanged(System.Object,System.ComponentModel.ProgressChangedEventArgs)">
+	<summary>
+ 'Evento ProgressChanged del BackgroundWorker1 para actualizar estatus 
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.LlenaDatagrids(System.Boolean,DevComponents.DotNetBar.Controls.DataGridViewX@,System.Data.DataTable,System.String)">
+	<summary>
+ 'Funcion para llenar todos los datagrids
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.BackgroundWorker1_RunWorkerCompleted(System.Object,System.ComponentModel.RunWorkerCompletedEventArgs)">
+	<summary>
+ 'Funcion RunWorkerCompleted del BackgroundWorker1 para cuando termina
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.MuestraColumnasDg(DevComponents.DotNetBar.Controls.DataGridViewX,System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+	<summary>
+ Muestra solo las columnas deseadas de un datagrid con los nombres asignados
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.Initilize">
+	<summary>
+ Inicializa todos los par[ametros para un nuevo proceso
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.ObtenerControles">
+	<summary>
+ Se obtienen todos los controles de la forma y se valida se están disponible o no
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.frmProcesoNomina_Load(System.Object,System.EventArgs)">
+	<summary>
+ Evento de carga del formulario -- Ernesto
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.tvStages_NodeMouseDoubleClick(System.Object,System.Windows.Forms.TreeNodeMouseClickEventArgs)">
+	<summary>
+ Evento doble click sobre cada paso, inicializa el paso -- Ernesto
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.ProcesoCalculo(System.Boolean)">
+	<summary>
+ Función para la acción del cálculo en interfaz
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.updateLogs">
+	<summary>
+ Función para actualizar listbox de logs visuales
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.getPeriodo(System.DateTime,System.String)">
+	<summary>
+ Función para obtener los datos del periodo a partir de la fecha seleccionada
+ </summary>
+	<param name="searchDate">Fecha seleccionada</param>
+	<param name="table">Tabla donde debe seleccionar, se define mediante la selección de si es semanal o quincenal</param>
+	<returns>Diccionario con los datos ano, periodo, fecha_ini, echa_fin</returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.btnReportes_Click(System.Object,System.EventArgs)">
+	<summary>
+ Botón que genera los reportes de prenómina -- Ernesto
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.getSelectedDataGrid">
+	<summary>
+ 'Funci[on que retorna cual DataGridViewX se encuentra seleccionado
+ </summary>
+	<returns>DataGridViewX seleccionado en el tab de la interfaz o Null en caso de que no exista un DataGridViewX en el tab seleccionado</returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.ListBox2_DrawItem(System.Object,System.Windows.Forms.DrawItemEventArgs)">
+	<summary>
+ 'Evento DrawItem del ListBox2 para pintar los items
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.GuardarEstadoDelProcesoToolStripMenuItem_Click(System.Object,System.EventArgs)">
+	<summary>
+ Función que se encarga de guardar el estado actual del proceso a la tabla nomina.dbo.bitacora_proceso -- Ernesto
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.BotonAjusteSubsidio">
+	<summary>
+ Deshabilitar el boton 'ajuste al subsidio' si no corresponde con el periodo -- Ernesto
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.OpcionesCRUD">
+	<summary>
+ Habilita la opciones CRUD del menu con el click derecho
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.AdicionarToolStripMenuItem1_Click(System.Object,System.EventArgs)">
+	<summary>
+ Agregar elementos por interfaz. -- Ernesto
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.EliminarToolStripMenuItem_Click(System.Object,System.EventArgs)">
+	<summary>
+ Eliminar elementos por interfaz -- Ernesto
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.CargaDataCrudProcess(System.String,System.String)">
+	<summary>
+ Se carga la ventana para editar o agregar registros. -- Ernesto
+ </summary>
+	<param name="tipoModificacion"></param>
+	<param name="filtroReloj"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.NombresColumnasGrid(System.String,System.String,System.String@)">
+	<summary>
+ Función para validar los campos que se utilizará para agregar o editar registros en la interfaz. -- Ernesto
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.TabControl1_SelectedIndexChanged(System.Object,System.EventArgs)">
+	<summary>
+ 'Eventos para actualizar las opciones de editar y eliminar en caso de que no tengan registros -- Ernesto
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.TabControl2_SelectedIndexChanged(System.Object,System.EventArgs)">
+	<summary>
+ 'Eventos para actualizar las opciones de editar y eliminar en caso de que no tengan registros -- Ernesto
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.TabControl3_SelectedIndexChanged(System.Object,System.EventArgs)">
+	<summary>
+ 'Eventos para actualizar las opciones de editar y eliminar en caso de que no tengan registros -- Ernesto
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.TabControl4_SelectedIndexChanged(System.Object,System.EventArgs)">
+	<summary>
+ 'Eventos para actualizar las opciones de editar y eliminar en caso de que no tengan registros -- Ernesto
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.CálculoIndividualToolStripMenuItem_Click(System.Object,System.EventArgs)">
+	<summary>
+ Agrega un reloj al cálculo personalizado -- Ernesto
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.EliminarToolStripMenuItem1_Click(System.Object,System.EventArgs)">
+	<summary>
+ Eliminar reloj de nodos para cálculo individual. -- Ernesto
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.calculoRelojes_NodeMouseClick(System.Object,System.Windows.Forms.TreeNodeMouseClickEventArgs)">
+	<summary>
+ Menú para eliminar el nodo del cálculo individual. -- Ernesto
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.HabilitaMenuEdicion">
+	<summary>
+ Se habilitan los botones de agregar, editar o borrar según sea válido. -- Ernesto
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.RelojDataGridSeleccionado(System.Object,System.Windows.Forms.DataGridViewCellMouseEventArgs)">
+	<summary>
+ Obtener el reloj del registro -- Ernesto
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.HabilitarMenuRegistros(System.Object,System.Windows.Forms.MouseEventArgs)">
+	<summary>
+ Se obtiene el id y reloj del registro seleccionado de algunos datagrids -- Ernesto
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.txtRelojBusq_KeyPress(System.Object,System.Windows.Forms.KeyPressEventArgs)">
+	<summary>
+ Solo se permiten números -- Ernesto
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.txtRelojBusq_KeyUp(System.Object,System.Windows.Forms.KeyEventArgs)">
+	<summary>
+ Se filtran los registros en base al reloj -- Ernesto
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.RefrescarDatagrid">
+	<summary>
+ Actualiza el datagrid de acuerdo a txtbox de búsqueda -- Ernesto
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.btnAjusteSubsidio_Click(System.Object,System.EventArgs)">
+	<summary>
+ Botón para realizar el cálculo de ajuste al subsidio -- Ernesto
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.AddRljsCalcIndv">
+	<summary>
+ Función para agregar un conjunto de relojes ingresados desde un textbox para el cálculo individual -- Ernesto
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.btnAgregaRelojes_Click(System.Object,System.EventArgs)">
+	<summary>
+ Conjuntos de relojes para cálculo individual -- Ernesto
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.btnLogAvisos_Click(System.Object,System.EventArgs)">
+	<summary>
+ Botón para exportar la información existente en el listbox de avisos a un txt -- Ernesto
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.ButtonX1_Click(System.Object,System.EventArgs)">
+	<summary>
+ Botón para generar los registros de movimientosPro y movimientos compensacion en un excel -- Ernesto
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.dgHistory_CellMouseEnter(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)">
+	<summary>
+ Aparece tooltip con información de las versiones de la bitacora del proceso -- Ernesto
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.btnEditcionManual_Click(System.Object,System.EventArgs)">
+	<summary>
+ Ventana para realizar modificaciones manuales a la base de datos sqlite -- Ernesto
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.EditarDobleClick(System.Object,System.Windows.Forms.DataGridViewCellMouseEventArgs)">
+	<summary>
+ Doble click en el registro para editar -- Ernesto
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.EditarToolStripMenuItem_Click(System.Object,System.EventArgs)">
+	<summary>
+ Edicion de registro -- Ernesto
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.rbE_CheckedChanged(System.Object,System.EventArgs)">
+	<summary>
+ Control para habilitar un periodo especial -- Ernesto -- 18 oct 2023
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.loadPeriodoEsp">
+	<summary>
+ Carga periodo especial  -- Ernesto -- 18 oct 2023
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.LimpiarNodosPanel">
+	<summary>
+ Se limpian los nodos del panel de selección dependiendo si trata de un periodo normal o especial [aguinaldo] -- Ernesto -- 19 oct 2023
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.TagNumRelojesCalculoIndividual">
+	<summary>
+ Leyenda de número de relojes que se encuentran en el cálculo individual -- Ernesto -- 29 nov 2023
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.MostrarVariables">
+	<summary>
+ Mostrar las variables del proceso en la interfaz
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.RecalcularToolStripMenuItem_Click(System.Object,System.EventArgs)">
+	<summary>
+ Recálculo rapido de empleado -- Ernesto - 14 marzo 2024
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.btnLimpiaRelojes_Click(System.Object,System.EventArgs)">
+	<summary>
+ Limpiar todos los relojes seleccionados -- Ernesto
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.btnLimpiaLista_Click(System.Object,System.EventArgs)">
+	<summary>
+ Limpiar lista de relojes para calculo del textbox -- Ernesto
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.btnBorrar_Click(System.Object,System.EventArgs)">
+	<summary>
+ Borra cuadro de búsqueda -- Ernesto
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.tvVariables_NodeMouseDoubleClick(System.Object,System.Windows.Forms.TreeNodeMouseClickEventArgs)">
+	<summary>
+ Treeview de variables del proceso -- Ernesto
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.btnAceptaVar_Click(System.Object,System.EventArgs)">
+	<summary>
+ Edicion de variable proceso -- Ernesto
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.VariablesProceso(System.String,System.String)">
+	<summary>
+ Valida las variables del proceso para el treeview -- Ernesto
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.ReestableceCtrlsVariables">
+	<summary>
+ Reestablecer controles de variables a su estado original -- Ernesto
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNomina.btnCancelaVar_Click(System.Object,System.EventArgs)">
+	<summary>
+ Cancela edicion de variable de proceso -- Ernesto
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmAjustesProcesoNom.dicTabla(System.Data.DataTable,System.Collections.Generic.Dictionary{System.String,System.String})">
+	<summary>
+ Convertir diccionario a datarow
+ </summary>
+	<param name="data">Datos generales.</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCrud.IncializaEmpleadoNomina(System.String)">
+	<summary>
+ Inicializar. Se agrega empleado a nominaPro. Se tomó solo el código necesario de "inicializar" para este paso.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCrud.Miscelaneos(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.String)">
+	<summary>
+ Miscelaneos. Se cargan los miscelaneos del empleado. Se tomará solo el código indispensable de la función original/
+ </summary>
+	<param name="data"></param>
+	<param name="relojManual"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCrud.Horas(System.Collections.Generic.Dictionary{System.String,System.String}@,System.String)">
+	<summary>
+ Horas. Se cargan las horas del empleado. Se tomará solo el código indispensable de la función original
+ </summary>
+	<param name="data"></param>
+	<param name="relojManual"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCrud.CalculaConceptoFiniquitosN(System.Boolean,System.String,System.String)">
+	<summary>
+ Conceptos. Recalcula los conceptos de un empleado que es finiquito [Ingreso a finiquitosN, actualizacion de campos de nominaPro, horas y ajustes]
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCrud.RespaldoRegistroFiniquitos(System.String,System.String)">
+	<summary>
+ Función para respaldar el registro, ya sea de finiquitos normales o especiales durante la edición 
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCrud.tableToDict(System.Data.DataTable)">
+	<summary>
+ Tabla a diccionario
+ </summary>
+	<param name="table"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCrud.NombresTitulos">
+	<summary>
+ Titulo de tabs
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCrud.EditaValidacionFiniquitos(System.Collections.Generic.Dictionary{System.String,System.Boolean}@,System.String)">
+	<summary>
+ Función que se encarga de validar y agregar la info. que corresponde al empleado en caso de que en el switch se haya marcado finiquito o finiquito especial, durante la edición
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCrud.AgregaInformacion(System.String)">
+	<summary>
+ Agrega nuevo registro
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCrud.AgregaRegistro">
+	<summary>
+ Función para agregar registros (a excepcion de nominaPro)
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCrud.AgregaEmpleado">
+	<summary>
+ Se agrega empleado a nómina de acuerdo a la opción seleccionada
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCrud.EditaInformacion">
+	<summary>
+ Edicion de registros
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCrud.ValoresAutomaticosCtrl(System.String)">
+	<summary>
+ Valores que se asignan de manera automatica al momento de agregar un nuevo registro
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCrud.InfoDatatables">
+	<summary>
+ Información que se requiere de la BD
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCrud.CargarInformacionAgregar(System.Data.DataTable,System.String,System.Data.DataTable)">
+	<summary>
+ Se cargan los controles para el formato de agregar registro
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCrud.AgregarItemsComboBox(DevComponents.DotNetBar.Controls.ComboBoxEx@,System.Data.DataTable,System.String)">
+	<summary>
+ Agrega elementos al combobox
+ </summary>
+	<param name="combo"></param>
+	<param name="dtInfo"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCrud.InfoControlUsuario">
+	<summary>
+ Se guarda la información ingresada por el usuario
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCrud.InfoValidacion">
+	<summary>
+ Validar los datos de los controles. Retorna false si validación es incorrecta
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCrud.ValidaTextbox(System.Object,System.Windows.Forms.KeyPressEventArgs)">
+	<summary>
+ Función para validar la teclas presionadas de los textbox
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCrud.DiccionarioInfo(System.Data.DataTable,System.Data.DataTable,System.String)">
+	<summary>
+ Diccionarios con la info original y estructura de diccionario con la info. de los controles
+ </summary>
+	<param name="dtInfo"></param>
+	<param name="dtCamposValidos"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCrud.ExcepVal(System.String,System.String,System.Object,System.String)">
+	<summary>
+ Función para regresar valores de excepciones bajo ciertas condiciones
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCrud.ctrlInterfaz(System.String)">
+	<summary>
+ Obtiene el control dinámico creado de acuerdo a su nombre
+ </summary>
+	<param name="strNomControl"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCrud.PanelesInformación(System.String)">
+	<summary>
+ Se obtienen los paneles principales de controles con los que se trabajarán
+ </summary>
+	<param name="nombreTabla"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCrud.InfoCambiaConcepto(System.Object,System.EventArgs)">
+	<summary>
+ Si cambia el concepto, se cambia la naturaleza y descripción de los respectivos controles
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCrud.btnAcept_Click(System.Object,System.EventArgs)">
+	<summary>
+ Aceptar cambios
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCrud.ValoresEstaticos(System.Object,System.EventArgs)">
+	<summary>
+ Al momento de agregar registro, agregar automáticamente ciertos datos de acuerdo al reloj ingresado
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmPresentacionQuejas.MostrarInformacion(System.String)">
+	<summary>
+ Muestra la información principal de la interfaz
+ </summary>
+	<param name="rl"></param>
+	<remarks></remarks>
+</member><member name="T:PIDA.frmPresentacionQuejas">
+	<summary>
+ Módulo de presentación de quejas a empleados [basado en el módulo de acción disciplinaria]
+ Ernesto  13feb2023
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.LibreriasVFP.CtoH(System.String)">
+	<summary>
+ Función para convertir caracter en formato de fecha, regresando tipo String
+ </summary>
+	<param name="_hora"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.LibreriasVFP.RestaHrs(System.String,System.String,System.Boolean)">
+	<summary>
+ Determinar la diferencia en horas, entre 2 horas dadas en formato string
+ </summary>
+</member><member name="M:PIDA.LibreriasVFP.RestaHrs(System.DateTime,System.String,System.DateTime,System.String)">
+	<summary>
+ Función que devuelve el tiempo transcurrido en horas, considerando fecha y hora
+ Las fechas son en formato Date, las horas en formato String. Devuelve un String con formato de hora
+ </summary>
+</member><member name="M:PIDA.LibreriasVFP.HtoS(System.String)">
+	<summary>
+ Determina cuántos segundos hay en la hora indicada
+ </summary>
+	<param name="Hora"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.LibreriasVFP.HtoD(System.String)">
+	<summary>
+  Convertir un hora en formato caracter a formato decimal
+ </summary>
+</member><member name="M:PIDA.LibreriasVFP.DtoH(System.Double)">
+	<summary>
+ Convertir una hora en formato decimal a formato caracter
+ </summary>
+</member><member name="M:PIDA.frmEditarDeducciones.ActualizaMtroDed(System.String,System.String,System.String)">
+	<summary>
+ Funcion para actualizar el mtro ded [Provisionalmente se utilizara el id para actualizar el registro, en vez de num. de crédito]
+ </summary>
+	<param name="Campo"></param>
+	<param name="Valor"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmImportaciondatos.ConsultaBitacora(System.Data.DataTable@,System.String,System.String)">
+	<summary>
+ Proceso para regresar la información al fin del periodo, revisando la bitácora
+ </summary>
+</member><member name="M:PIDA.frmPasarCursos.CargaInformacion(System.String)">
+	<summary>
+ Información de la interfaz.
+ </summary>
+	<param name="strReloj">Reloj de empleado</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmPasarCursos.ExplorarCtrl(System.Object@,System.Collections.Generic.KeyValuePair{System.String,System.String})">
+	<summary>
+ Explora dentro de los controles y asigna sus valores correspondientes.
+ </summary>
+	<param name="Ctrl">Nombre del control a explorar</param>
+	<param name="diccionario">Diccionario con valores definidos</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmPasarCursos.ControlesInfo(System.String)">
+	<summary>
+ Carga valores definidos desde la invocación de la forma en la ventana de consulta de cursos.
+ </summary>
+	<param name="strReloj"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmPasarCursos.btnBusqueda_Click(System.Object,System.EventArgs)">
+	<summary>
+ Búsqueda del empleado al que se asignarán los cursos.
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmPasarCursos.btnTraspasa_Click(System.Object,System.EventArgs)">
+	<summary>
+ Botón que transfiere los cursos tomados de un empleado a otro como planeados.
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="P:PIDA.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources._0820_image_02D45740">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources._1468299415_pen_red">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources._1469760469_kmenuedit">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources._1469761077_Space_Food">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources._1469761116_cmyk_04">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources._1469827778_Sync">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources._1470972262_schedule">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources._1471324111_table_edit">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources._1472007528_button_blue_repeat">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources._1472009258_FAQ">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources._1472009258_FAQ1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources._1472009531_camera_photo">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources._1472011640_Abort">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources._1477688541_Settings">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.abajo_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Accept32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.acept_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ActualizacionVariables24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ActualizaNomina32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Actualizar48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Add">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.add_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Add16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Add24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Add241">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Add242">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.AddList32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.AddOrder16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Address_book32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.agrupado">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.agrupado1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Aguinaldo24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ajustes_usuario_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.AjustesMasivos32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.AjustesNomina32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.All16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.alternado">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.alternado1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.analysis48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Analyze48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.api_icon">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Area22">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Areas">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.arriba_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.asterisk_yellow">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.AusentismoParcial32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Auxiliares24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Award32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.AyudaTextra">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Bancos24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.bitacora_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Bloqueado64">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Bold16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.BorrarNomina32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.brush">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.bullet_blue16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Busca48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.buscar_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.CalcFiniquito32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.calculate_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.calend_csv">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.calendar">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.calendar_32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.calendar_selection_week16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Calendario_2">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Calendario32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Calendario48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.CambiarClave32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.CambiarClave48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.CambiosMasivos16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Cancel">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.cancel_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Cancel16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Cancel2_16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.CancelX">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.candado">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Candado48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.CandadoAbierto48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Capture">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.capture_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.cards_128x128">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.CargaMasivaAux">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Carta32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.catalog24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.catalog32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Catalogo32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Categorias24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ccostos">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Center16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Cerrar16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Cerrar32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Certificate16B">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Certificate16B1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Checador32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.CheckAuthorization32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Checked16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.checklist">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.checklist_32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Ciudades24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Clasificacion24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Clasificacion24Cap">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Close48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Colonia24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Company24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Comparativo22">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Comparativo32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Compen1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.conclusion">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.condensado_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.condensados">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.consulta_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ConsultaEdicion32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ConsultaEmpleados32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ConsultaTAlloc32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.contact">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.content24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.content241">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Contrato24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.copy_16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.CorreccionTransacciones48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Courses24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Courses32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.csv_file">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.CursosEmpleado32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Delete">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Delete24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Delete241">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.DeleteOrder16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.DeleteRec">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Department24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Desbloqueado64">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Destinatario24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Documents32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.DoorOut16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Download32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Download48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.edicion_manual_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Edit">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.edit_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.EditGroup32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.EditList32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.EditPhoto">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ejemplo1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Empleados32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.empty_16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.entrevista">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Escuelas24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Especializacion32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Estado24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.EstadoCivil24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.estetos">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.EStilo32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Estilo48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Evaluation24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.excel_16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.excel_icono">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ExcelFirma">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.excepcion1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.export_file">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Export24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Export32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Factores24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.familia_16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.familia32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Family24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Favorite16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Festivo24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.filtro_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.filtro_quitar_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Filtro32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.FiltroHC">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Find16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.fini_64">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.first_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.First16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.flag">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.fonacot1_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.fondo_cafe_cinco">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.fondo_dos">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.fondo_tres">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.fondo_uno">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Font16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Font24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Food_Dome_128">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.FormaPago">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Gafete40">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.go_back48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.go_into48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.GreenMarker16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Grupos32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.GuardarMnto22">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Help_icon_16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Highlightmarker_green24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Horario24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.iconfinder_Finance_financial_planning_1889194">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Id16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ID32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Idea32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Idea321">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.idiomas">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.idiomas32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Import32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.imprime_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.IMSS24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Inbox32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.incidencias">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Information48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Insert24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Instituto24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Instituto32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Instructores24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Instructores32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Invoice16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Invoice32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ISR">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Italic16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Key_Login">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.key16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Knob_Pause">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.l_cancelado">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.l_disponible">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.l_ocupado">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Lapiz16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.LapizNvo16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.last_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Last16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.layout24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.left">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Left_align16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.license32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Limit16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.LimpiaFiltroHC">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Lineas24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.list_16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.list_error">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.llave">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.lock">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.lock_open">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.locker1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.locker2">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.logo_pida_nvo_plain">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Mantenimiento24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.massive_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.medal_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.medal_gold_1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.MedalBlueGold32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Medical_Bag">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Medios24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Mensaje24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Mensaje32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.MetroAbstract64">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.MetroCorrecciones">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.MetroExporta">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.MetroReloj64">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Minus16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.miscelaneos_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ModificacionesSueldo24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Modify_time48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ModSalTemp32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.moneybox">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.MotivosBaja24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.mtroded_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.MtroDed32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Multiforma1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.multiforma2">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Naturaleza24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.navigate_down16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.navigate_up16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.NewRecord">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.NewReport22">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.next_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Next16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Niveles24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.NoFoto">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.NoFoto1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.NoImagen">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.nomina_process">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Nomina32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Nurse_Female_Light">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Nurse_Female_Light_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Nurse_Female_Light1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Objective24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ObjectiveTA24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Ok16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.orden_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.outlook_calendar_day">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.outlook_calendar_month">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.outlook_calendar_week">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Password">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.PayIdea">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.PayIdea1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.PDFima">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Periodo24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Periodo32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.periodos_reportes_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.PIDALogin">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Pin16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Planeacion32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Plantas24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Plus16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.poliza_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Poliza32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.portfolio32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.preferences_desktop_notification">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Preferencias24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Preguntas64">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Prestamos32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.prev_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Prev16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Preview16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Preview32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Printer16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Printer32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Printer32White">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.PrintFolderLabel32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.procesar_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ProcesarHoras24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.process1_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Process32A">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Profile24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Profile32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Puesto24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.qr_code_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.qr_code26">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.qr_code32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Question16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Question24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.questionaire48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.refresh16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.refresh161">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.refresh32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.registro32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.reloj_ta">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Remitente32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Remote">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.remove_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Reporte16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Reporte32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Reporte48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ReporteAlta24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.reportes_prenom_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.representantes">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Reset32_BL">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.retardo_transporte_32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.RevisionPrestamos32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.revmedico">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.right">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Right_align16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.salir_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.save_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Save_as16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Save_as32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Save16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Save24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Save32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.scorm32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Search16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.search24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Seleccionar32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Set22">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Set32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Set32_GR">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Shirt24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Shirt32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Sintoma32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Sintoma321">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Sort16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Sort32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Star16Blank">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Star16Blank1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Star16ROver">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Star16ROver1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Star24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Star24Blank">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Star48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Stations24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Stations241">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Stations32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Stations321">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Submot">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Subscript16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.subsidio_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Sucursal">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Superscript16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Supervisor24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Suplente32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.surveys24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.TableReport">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Teclado1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.test_fon_tres">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.test_fon_uno">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.tests24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.tests48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ticket40">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Timer32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Timetable_48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.TipoEmp24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.tire_160182_1280">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.toggle">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.toggle_expand">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ToolBox32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Tools2_24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Tools2_32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Tools32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Total32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.touch_screen_kiosk_icon">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Transferencia22">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.TrashBlue24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.TrashBlue241">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.TrashBlue242">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.TrashBlue32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Turno24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Unckecked16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Underline16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Uniform32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.upload_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.UserName">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Users32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Users3227">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Users3227B">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Vacaciones24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Validar22">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ver">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.warning_16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Wizard">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Wizard16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.Wizard48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.WordFirma">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.WorkOrder24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.WorkOrder32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.WorkOrder321">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.x18">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.xml_new">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ZA24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PIDA.My.Resources.Resources.ZIP">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="T:PIDA.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:PIDA.frmProcesoNominaInicializarOpciones.ValidarRelojesDefuncion">
+	<summary>
+ Se valida el campo de empleado(s) asignado(s) al monto de defunción -- Ernesto
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmProcesoNominaInicializarOpciones.sbtnSindi_ValueChanged(System.Object,System.EventArgs)">
+	<summary>
+ Si se habilita descuento de defunción, habilitar textbox para ingresar empleados asignados. -- Ernesto
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmReporteadorTA.ConsultaBitacora(System.Data.DataTable,System.DateTime,System.Int32)">
+	<summary>
+ Proceso para actualizar datos antes de ejecutar reporte MCR (4/NOV/2015). Modificado 25nov2021  Ernesto
+ </summary>
+</member><member name="M:PIDA.Nomina.FlujoEfectivo(System.Data.DataTable@,System.Data.DataTable,System.String,System.String,System.String,System.String)">
+	<summary>
+ Reporte flujo efectivo basado en qro
+ </summary>
+	<param name="dtDatos"></param>
+	<param name="dtInformacion"></param>
+	<param name="nombre_archivo"></param>
+	<param name="_ano"></param>
+	<param name="_periodo"></param>
+	<param name="_inter"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.Nomina.PagosElectronicos(System.Data.DataTable@,System.Data.DataTable,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+	<summary>
+ Pagos electronicos (basado en qro)
+ </summary>
+	<param name="dtDatos"></param>
+	<param name="dtInformacion"></param>
+	<param name="nombre_archivo"></param>
+	<param name="_ano"></param>
+	<param name="_periodo"></param>
+	<param name="_inter"></param>
+	<param name="consecutivo"></param>
+	<param name="cod_comp"></param>
+	<param name="payment_day"></param>
+	<param name="_nombre_Reporte"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.Nomina.ReportePerTotEmpMensualQro(System.Data.DataTable@,System.Data.DataTable)">
+	<summary>
+ Reporte de acumulado mensual de cte -- Ernesto -- 16 oct 2024
+ </summary>
+	<param name="dtDatos"></param>
+	<param name="dtInformacion"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.Nomina.ReporteTiempoExtraBonosAdmin(System.Data.DataTable@,System.Data.DataTable)">
+	<summary>
+ Reporte de tiempos extras y bonos administrativos -- Ernesto - 23 oct 2024
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.TA.ConvertirExcelPDF(System.String)">
+	<summary>
+ Función que convierte un excel a pdf.
+ Autor: Ernesto G.  Fecha: 13 junio 2022.
+ </summary>
+	<param name="ruta">Ruta de guardado</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.TA.AsistenciaXDia(System.Data.DataTable@,System.Data.DataTable)">
+	<summary>
+ 'Método para generar reporte de asistencia por día
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.TA.AsistenciaSemanal(System.Data.DataTable@,System.Data.DataTable)">
+	<summary>
+ 'Método para generar reporte de asistencia semanal
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.TA.Metrico60Horas(System.Data.DataTable@,System.Data.DataTable)">
+	<summary>
+ 'Método para generar reporte de Métrico de 60 horas
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.TA.RepIncap(System.Data.DataTable@,System.Data.DataTable)">
+	<summary>
+ 'Método para generar reporte de incapacidades
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.TA.ExcelVacsProg(System.Data.DataTable@,System.Data.DataTable)">
+	<summary>
+ 'Método para generar reporte  en excel de las vacaciones programadas a futuro que se tengan
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.TA.ExcelDetalleVacacacionesProg(System.String,System.String,OfficeOpenXml.ExcelWorksheet@,System.Data.DataTable)">
+	<summary>
+ 'Método para escribir en la plantilla de excel el detalle por empleado de las vacaciones que se programaron durante ciertas fechas
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.TA.ExcelAsistVertical(System.Data.DataTable@,System.Data.DataTable)">
+	<summary>
+ 'Método para generar reporte  en excel de registro de asistencia diaria en forma vertical
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.TA.ExcelDetalleAsistVertical(System.String,System.String,OfficeOpenXml.ExcelWorksheet@,System.Data.DataTable)">
+	<summary>
+ 'Método para escribir en la plantilla de excel el detalle por empleado el detalle de asistencia Diaria en formato vertical
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.TA.AusentismoDiario(System.Data.DataTable@,System.Data.DataTable)">
+	<summary>
+ 'Método para generar reporte de ausentismo diario
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmConsulta.btnTraspasar_Click(System.Object,System.EventArgs)">
+	<summary>
+ Botón que se encarga de traspasar el historial de cursos de un empleado dado de baja a uno activo.
+ Ernesto G.  -- 16Junio22
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmAddVacsProg.btnAceptar_Click(System.Object,System.EventArgs)">
+	<summary>
+ 'Método que cargará guardará el registro en vacs_prog para que lo mande al grid principal de vacaciones programadas
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmPolizas.crear_excel_resumen(System.Data.DataTable@,System.String,System.String,System.String)">
+	<summary>
+ Excel de la poliza con cargos y abonos
+ </summary>
+	<param name="dtDatos"></param>
+	<param name="Ubicacion"></param>
+	<param name="AAAAPPT"></param>
+	<param name="nombre_archivo"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmEntrevistaRH.CrearEvaluaciones">
+	<summary>
+ Proceso para crear nodos de las evaluaciones del empleado
+ </summary>
+</member><member name="M:PIDA.frmEntrevistaRH.CrearNodo(System.Data.DataRow)">
+	<summary>
+ Proceso para crear los nodos de los cuestionarios para la evaluación indicada
+ </summary>
+</member><member name="M:PIDA.frmEvaluacionSolicitantes.CrearEvaluaciones">
+	<summary>
+ Proceso para crear nodos de las evaluaciones del empleado
+ </summary>
+</member><member name="M:PIDA.frmEvaluacionSolicitantes.CrearNodo(System.Data.DataRow)">
+	<summary>
+ Proceso para crear los nodos de los cuestionarios para la evaluación indicada
+ </summary>
+</member><member name="M:PIDA.RecursosHumanos.RegistroPersAct(System.Data.DataTable@,System.Data.DataTable@)">
+	<summary>
+ 'Método para generar reporte de Registro de personal Activo con fotografía
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.RecursosHumanos.ModSalRangoFec(System.Data.DataTable@,System.Data.DataTable@)">
+	<summary>
+ 'Método para generar reporte de Empleados con modificacion de salario en un rango de fechas
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.RecursosHumanos.DetSalVacas(System.Data.DataTable@,System.Data.DataTable@)">
+	<summary>
+ 'Método para generar reporte de detalle del saldo de vcaciones x empleado
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.RecursosHumanos.SUAInfonavit(System.Data.DataTable@,System.Data.DataTable)">
+	<summary>
+ 'Método para generar reporte de infonavit al SUA
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.RecursosHumanos.Create_Directory(System.String@)">
+	<summary>
+ 'Función para crear un directorio
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.FuncionesConceptos.dias_nomina(System.String,System.String)">
+	<summary>
+ 'Función para calcular los días de pago para nómina
+ </summary>
+	<remarks></remarks>
+</member><member name="P:PIDA.ProcesoNomina.Steps2">
+	<summary>
+ Propiedad para los pasos de periodo especial [aguinaldo] -- Ernesto -- 19 oct 2023
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.log_proceso(System.String,System.String,System.String)">
+	<summary>
+ Se almacena el msj del proceso de nomina en una tabla sql
+ </summary>
+	<param name="metodo">Origen del detalle</param>
+	<param name="msj">Comentario del detalle</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.freeMemory">
+	<summary>
+ Función para limpiar memoria 
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.addLog(System.String,PIDA.logType,System.Boolean)">
+	<summary>
+ Adicionar un log
+ </summary>
+	<param name="value">Texto del log.</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.clearData">
+	<summary>
+ Limpiar todos los datos
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.clearLog">
+	<summary>
+ Limpiar los logs
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.Exportar(System.Collections.Generic.Dictionary{System.String,System.String}@)">
+	<summary>
+ Se cargan los ajustes de ajustes_nom
+ </summary>
+	<param name="data">Variables del proceso</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.CargaFiniquitosEspeciales(System.Collections.Generic.Dictionary{System.String,System.String}@,System.String)">
+	<summary>
+ Cargar finiquitos especiales a nomina
+ </summary>
+	<param name="data"></param>
+	<param name="strFolio"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.CreaQuery(System.Collections.Generic.Dictionary{System.String,System.Object},System.String)">
+	<summary>
+ Se crea un query a partir de un diccionario con informacion -- Ernesto -- 14 dic 2023
+ </summary>
+	<param name="dicInfo">Diccionario con info. de registro para query</param>
+	<param name="tabla">Tabla donde se insertará</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.GuardaMovimientosTabla(System.String,System.Collections.Generic.Dictionary{System.String,System.String}@,System.Collections.ArrayList)">
+	<summary>
+ Guarda los bloques de registros en sqlite -- Ernesto -- 18 dic 2023
+ </summary>
+	<param name="strTitulo">Título de paso del proceso</param>
+	<param name="data">Variables de proceso</param>
+	<param name="strQuerys">Querys que se ejecutarán</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.CargaPrevia(System.Collections.Generic.Dictionary{System.String,System.String}@)">
+	<summary>
+ Carga de las tablas principales del proceso y finiquitos especiales -- Modif. 22 dic 2023
+ </summary>
+	<param name="data">Variables de proceso</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.restoreProcessStatus(System.Int32,System.Collections.Generic.Dictionary{System.String,System.String}@)">
+	<summary>
+ Cargar los datos de la base de datos para restaurar estado
+ </summary>
+	<param name="data">Datos generales.</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.dictToDatatable(System.Data.DataTable@,System.Collections.Generic.List{System.Collections.Generic.Dictionary{System.String,System.String}})">
+	<summary>
+ Convertir diccionario a datarow
+ </summary>
+	<param name="data">Datos generales.</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.dictsToSqlite(System.String,System.Collections.Generic.List{System.Collections.Generic.Dictionary{System.String,System.Object}})">
+	<summary>
+ Insertar lista de diccionarios a SQlite
+ </summary>
+	<param name="table">tabla sqlite.</param>
+	<param name="data">Datos generales.</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.Inicializar(System.Collections.Generic.Dictionary{System.String,System.String}@)">
+	<summary>
+ Inicialización de proceso: nominapro, ajustes a conceptos, etc
+ </summary>
+	<param name="data"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.RevisionInfoIncorrecta(System.Collections.Generic.Dictionary{System.String,System.String}@)">
+	<summary>
+ Se verifica info. no válida en nominaPro -- Ernesto -- 22 dic 2023
+ </summary>
+	<param name="data">Variables del proceso</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.AlertaEmpleadoBajaAntesPeriodo(System.String)">
+	<summary>
+ Importante. Aviso para empleados con bajas previas al inicio del periodo. [Saber que ya se le pago un finiquito y no se vuelva a procesar]
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.CambiarFormatoFechas(System.Boolean,System.String,System.Collections.ArrayList@)">
+	<summary>
+ Cambia el formato de las fechas de ciertas tablas como ajustesPro,ajustesLazy,horasPro,horasLazy,etc. -- Ernesto
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.DescripcionConceptos(System.Collections.Generic.Dictionary{System.String,System.String})">
+	<summary>
+ Agrega la descripcion de los conceptos de las tabla de ajustesPro,ajustesLazy,horasPro,horasLazy -- Ernesto
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.DiasAguinaldo(System.Collections.Generic.Dictionary{System.String,System.String},System.DateTime,System.DateTime,System.DateTime,System.String,System.String,System.String)">
+	<summary>
+ Función que se encarga de calcular los dias de aguinaldo [ya sea para finiquito o dias de aguinaldo proporcionales a final de año] -- Ernesto
+ </summary>
+	<param name="_alta"></param>
+	<param name="_baja"></param>
+	<param name="_altaAntig"></param>
+	<param name="codComp"></param>
+	<param name="codTipo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.CalculoDiasAguinaldoProporcionales(System.Collections.Generic.Dictionary{System.String,System.String})">
+	<summary>
+ Función que se encarga de calcular los dias de aguinaldo a las altas y bajas del periodo en curso -- Ernesto
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.SueldoConceptoTabla(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.Collections.ArrayList@)">
+	<summary>
+ Función que se encarga de revisar si el sueldo del concepto en la tabla de ajustesPro coincide con su periodo -- Ernesto
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.DepurarConceptos(System.String,System.Collections.ArrayList@)">
+	<summary>
+ Función que se encarga de remover los registros de conceptos que se dieron antes de una alta o después de la baja del empleado. -- Ernesto
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.ReversaDatosNominapro(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.Collections.ArrayList@)">
+	<summary>
+ Función para dar reversa a cambios que se realizaron despues del lunes del periodo en curso para nominaPro [sueldo,horario,supervisor,departamento,puesto,tipo,clase] -- Ernesto
+ </summary>
+	<param name="data">Variables del proceso</param>
+	<param name="relojManual">Reloj en caso de ingresar es caso de ingreso manual</param>
+	<param name="strQuerys">Arreglo de querys para insertar</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.empFiniquitosParaPersonal(System.Data.DataTable,System.Collections.Generic.Dictionary{System.String,System.String},System.Int32)">
+	<summary>
+ Ingresar empleados que estan en finiquitos pero no son tomados en cuenta durante la inicializacion -- Ernesto
+ </summary>
+	<param name="dtInfo"></param>
+	<param name="data"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.FactorFiniquito(System.String,System.Collections.ArrayList@)">
+	<summary>
+ Establece como factor 1 a todos los finiquitos [En ajustesPro y horasPro] -- Ernesto
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.ConceptosMontoNegativo(System.Collections.Generic.Dictionary{System.String,System.String}@)">
+	<summary>
+ Se identifican los montos negativos [si los hay] en movimientosPro después del cálculo -- Ernesto
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.DatatablesInfoProceso(System.Collections.Generic.Dictionary{System.String,System.String}@,System.Object)">
+	<summary>
+ Datatables con la información necesaria para iniciar el cálculo -- Ernesto -- 27 dic 2023
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.DatatableAQuerys(System.Collections.ArrayList@,System.Data.DataTable@,System.String)">
+	<summary>
+ Convierte un datatable a querys y los pasa a un arraylist -- Ernesto -- 27 dic 2023
+ </summary>
+	<param name="dtInfo"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.Proceso(System.Collections.Generic.Dictionary{System.String,System.String}@,System.Collections.Generic.List{System.String},System.Boolean)">
+	<summary>
+ Función principal para el proceso de calculo, calculo compensacion y registros a movimientosPro -- Ernesto
+ </summary>
+	<param name="data"></param>
+	<param name="calculoIndividual"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.IngresarConceptoHrsExtras(System.Collections.Generic.Dictionary{System.String,System.String}@,System.String)">
+	<summary>
+ Se ingresan en movimientos los registros de HR2SE1 Y HR3SE1 de empleados que tengan conceptos de HRSEX2 y HRSEX3 -- Ernesto
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.AnticipoAguinaldo(System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+	<summary>
+ Corrida de saldos de anticipo de aguinaldo-- Ernesto
+ </summary>
+	<param name="strFiltro"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.Asentar(System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.List{System.String})">
+	<summary>
+ Proceso en el cual se asentua la nómina en el proceso [tablas de nominaPro a nomina y movimientosPro a movimientos] -- Ernesto -- Modif. para aguinaldo 29 nov 2023
+ </summary>
+	<param name="data"></param>
+	<param name="calculoIndividual"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.AsentarEspecial(System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.List{System.String})">
+	<summary>
+ Funcion para asentar periodos especiales como aguinaldo -- Ernesto -- 29 nov 2023
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.AplicarDescuentosSaldos(System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+	<summary>
+ Función que se encarga de correr los descuentos de los saldos en las tablas de maestros de deducciones e infonavit -- Ernesto
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.RecalculoNeto(System.Decimal,System.String,System.Collections.Generic.Dictionary{System.String,System.String}@,System.Collections.Generic.Dictionary{System.String,System.Data.DataTable}@,System.Object)">
+	<summary>
+ Función para recalcular los montos de ADEINF y TIENDA en caso de neto igual o menor a 100 -- Ernesto
+ </summary>
+	<param name="decNeto"></param>
+	<param name="strReloj"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.puente(System.Decimal@,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Data.DataRow,System.Collections.Generic.Dictionary{System.String,System.Data.DataTable}@)">
+	<summary>
+ Se encarga de guardar los conceptos en movimientosPro
+ </summary>
+	<param name="_monto">Monto de concepto</param>
+	<param name="_concepto">Concepto</param>
+	<param name="data">Diccionario con info. de variables del periodo</param>
+	<param name="infoEmp">Registro con info. de empleado [nominaPro]</param>
+	<param name="dicInfoDt">Tablas de consulta</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.sumaMonto(System.String,System.String,System.Object,System.Int32)">
+	<summary>
+ Suma de montos de los conceptos de cálculo
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.SumarizarMontosDevoluciones(System.Data.DataTable,System.String,System.Decimal,System.Decimal)">
+	<summary>
+ Función especial para sumarizar los montos respetando los sueldos y factores de los conceptos de DEVFIN,DEVPSG,DEVFJU,DEVPSV en la parte del cálculo
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.AjusteSubsidioMensual(System.String,System.Collections.Generic.Dictionary{System.String,System.String}@,System.Collections.Generic.List{System.String})">
+	<summary>
+ 'Función Ajuste al subsidio mensual  2022-03-20 -- Ernesto
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.AgregaRegSubsidiosAjustesPro(System.Collections.Generic.Dictionary{System.String,System.String}@,System.Boolean@,System.Collections.Generic.List{System.String})">
+	<summary>
+ Función para agregar los registros de la tabla 'ajustesSubsidio' a 'ajustesPro' en caso de que el usuario lo decida en la pantalla para el cálculo.  2023-02-08 -- Ernesto
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.ProcesarHoras(System.Collections.Generic.Dictionary{System.String,System.String}@)">
+	<summary>
+ Horas de nomina 
+ </summary>
+	<param name="data"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.ConceptosHrsAsistQna(System.Collections.Generic.Dictionary{System.String,System.String}@,System.Data.DataTable,System.Collections.ArrayList@)">
+	<summary>
+ Se calculan conceptos de horasPro provenientes de asist para quincenales -- Ernesto -- 19 ene 2024
+ </summary>
+	<param name="data"></param>
+	<param name="row"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.FaltaChecadasProcesarHrs(System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.ArrayList@,System.String)">
+	<summary>
+ Falta checadas en funcion 'procesarHoras'
+ </summary>
+	<param name="data"></param>
+	<param name="strQuerys"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.ComedoresProcesarHrs(System.Collections.Generic.Dictionary{System.String,System.String},System.Data.DataRow@,System.Data.DataTable@,System.Data.DataRow@,System.Collections.ArrayList@,System.Data.DataTable)">
+	<summary>
+ Comedores en funcion de 'procesarHoras'
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.AsistenciasProcesarHrs(System.Collections.Generic.Dictionary{System.String,System.String},System.Data.DataRow@,System.Data.DataTable@,System.Data.DataRow@,System.Collections.ArrayList@,System.Data.DataTable)">
+	<summary>
+ Horas asistencias en funcion de 'procesarHoras'
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.AusentismosProcesarHrs(System.Collections.Generic.Dictionary{System.String,System.String},System.Data.DataRow@,System.Data.DataTable@,System.Data.DataRow@,System.Collections.ArrayList@,System.Data.DataTable)">
+	<summary>
+ Ausentismos en funcion de 'procesarHoras'
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.LlenarFilaArchivoHrs(System.Collections.Generic.Dictionary{System.String,System.String}@,System.Data.DataRow@,System.Data.DataTable@)">
+	<summary>
+ Se llena una fila en el datatble para la info. del archivo de horas en la funcion 'procesarHoras'
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.CrearDatatableArchivoHrs">
+	<summary>
+ Se crea el datatable para la info. del archivo de horas en la funcion 'procesarHoras'
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.CargarHoras(System.Collections.Generic.Dictionary{System.String,System.String}@)">
+	<summary>
+ Cargar horas al proceso
+ </summary>
+	<param name="data">Variables del proceso</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.CargarHorasSem(System.Collections.Generic.Dictionary{System.String,System.String}@)">
+	<summary>
+ Carga de horas al proceso
+ </summary>
+	<param name="data"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.CargarHorasQna(System.Collections.Generic.Dictionary{System.String,System.String}@)">
+	<summary>
+ Cargar los dias normales de periodo quincenal -- Ernesto -- 22 ene 2024
+ </summary>
+	<param name="data"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.ConceptosFiniquitosNormales(System.Collections.Generic.Dictionary{System.String,System.String}@,System.String,System.Boolean)">
+	<summary>
+ Función para calcular los conceptos de finiquitos -- Ernesto
+ </summary>
+	<param name="data"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.DiasAguiPagadas(System.String,System.String,System.String)">
+	<summary>
+ Días de aguinaldo pagados previamente
+ </summary>
+	<param name="param_rl"></param>
+	<param name="param_anio"></param>
+	<param name="param_tipo_periodo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.ExportarMiscelaneos(System.Collections.Generic.Dictionary{System.String,System.String}@)">
+	<summary>
+ Representa la funcionalidad de exportar miscelaneos de pida para ser cargados por fox -- Modif. 22 dic 2023
+ </summary>
+	<param name="data">Variables del proceso</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.ModificaDatatable(System.String,System.Data.DataTable@,System.Collections.Generic.Dictionary{System.String,System.Object},System.String,System.String,System.Object)">
+	<summary>
+ Funcion para hacer modificaciones a un dt -- Ernesto -- 14 dic 2023
+ </summary>
+	<param name="op">Opción</param>
+	<param name="dt">Datatable a modificar</param>
+	<param name="dicInfo">Diccionario con info. para agregar a dt</param>
+	<param name="filtro">Filtro de dt</param>
+	<param name="col">Nombre de columna</param>
+	<param name="valor">Valor a ingresar</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.CargarMiscelaneos(System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+	<summary>
+ Representa la funcionalidad de cargar miscelaneos de fox
+ </summary>
+	<param name="data">Variables del proceso</param>
+	<param name="relojManual">Reloj para ingreso manual</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.CargaFiniquitosNormales(System.Data.DataTable,System.Collections.Generic.Dictionary{System.String,System.String}@)">
+	<summary>
+ Carga los finiquitos normales a la tabla sqlite del proceso correspondiente
+ </summary>
+	<param name="finiq">Tabla de finiquitos a ingresar</param>
+	<param name="data">Variables del proceso</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.CalcSaldoVacFinNormal(System.Int32,System.String)">
+	<summary>
+ Cálcula el saldo total de vacaciones para finiquitos normales
+ </summary>
+	<param name="strReloj"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.ExportaRevisionExcel(System.Collections.Generic.Dictionary{System.String,System.String}@,System.Collections.Generic.Dictionary{System.String,System.Data.DataTable})">
+	<summary>
+ Exporta Recordset a excel SIN formato
+ </summary>
+</member><member name="M:PIDA.ProcesoNomina.infoTabla(System.String,System.Data.DataTable,System.String)">
+	<summary>
+ Función que se encargar de retornar un datatable con un filtro definido -- -- Ernesto
+ </summary>
+	<param name="filtro"></param>
+	<param name="dt"></param>
+	<param name="orden"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.TopeDiasAgui(System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.ArrayList@)">
+	<summary>
+ Se checa en movimientos anteriores y se ajusta el monto de dias aguinaldo [8 dias tope anual] en caso de que se requiera. -- Ernesto
+ </summary>
+	<param name="data"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.GuardaMovimientosTablaSQL(System.String,System.Collections.Generic.Dictionary{System.String,System.String}@,System.Collections.ArrayList)">
+	<summary>
+ Guarda los bloques de registros en sqlite -- Ernesto -- 18 dic 2023
+ </summary>
+	<param name="strTitulo">Título de paso del proceso</param>
+	<param name="data">Variables de proceso</param>
+	<param name="strQuerys">Querys que se ejecutarán</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.ExportarAjustes(System.Collections.Generic.Dictionary{System.String,System.String}@)">
+	<summary>
+ Se cargan los ajustes de ajustes_nom a la tabla correspondiente del proceso
+ </summary>
+	<param name="data">Variables del proceso</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.IniciaAguinaldoAnual(System.Collections.Generic.Dictionary{System.String,System.String}@)">
+	<summary>
+ Inicia proceso de aguinaldo anual
+ </summary>
+	<param name="data"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.AgregarAnticipoAguinaldo(System.Collections.Generic.Dictionary{System.String,System.String}@)">
+	<summary>
+ Se agrega el SAANAG del ultimo periodo
+ </summary>
+	<param name="data"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.CalculoAguinaldoDiasAnual(System.Collections.Generic.Dictionary{System.String,System.String}@)">
+	<summary>
+ Los días de aguinaldo anuales de todos los empleados activos de nómina -- Ernesto -- 23 oct 2023
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.CargarTablasAguinaldoAnual(System.Collections.Generic.Dictionary{System.String,System.String}@)">
+	<summary>
+ Tablas que se cargarán a sqlite para el aguinaldo anual -- Ernesto -- 18 oct 2023
+ </summary>
+	<param name="data"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.InicializacionNominaAguinaldo(System.Collections.Generic.Dictionary{System.String,System.String}@)">
+	<summary>
+ Función para cargar información de empleados y conceptos cuando se trate de aguinaldo anual -- Ernesto -- 18 oct 2023
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.CondensadoReportesNominaBRPQro(System.String,System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+	<summary>
+ Condensado donde se llaman los reportes para el proceso de nómina. -- Ernesto
+ </summary>
+	<param name="PerAño">Año y periodo del proceso.</param>
+	<param name="version">Versión del proceso ejecutándose</param>
+	<param name="fechaPago">Fecha de pago</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.ExcelReporteBonosDespensa(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Int32@)">
+	<summary>
+ Reporte de bonos de despensa -- Ernesto
+ </summary>
+	<param name="dirGuardar">Ruta de guardado</param>
+	<param name="verProc">Versión del proceso</param>
+	<param name="data">Diccionario con info. del periodo</param>
+	<param name="cont">Contador de no. reportes (si se generó)</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.ExcelReporteNetoMenorQuinientos(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Int32@)">
+	<summary>
+ Reporte de excel para obtener el neto menor a $500 por periodo (Emp. operativos y administrativos). -- Ernesto
+ </summary>
+	<param name="dirGuardar">Ruta de guardado</param>
+	<param name="verProc">Versión del proceso</param>
+	<param name="data">Diccionario con info. del periodo</param>
+	<param name="cont">Contador de no. reportes (si se generó)</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.ExcelReporteNetoMenorMilFonacot(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Int32@)">
+	<summary>
+ Reporte de excel con empleados que tengan fonacot y un neto menor a 1000 (Solo operativos). -- Ernesto
+ </summary>
+	<param name="dirGuardar">Ruta de guardado</param>
+	<param name="verProc">Versión del proceso</param>
+	<param name="data">Diccionario con info. del periodo</param>
+	<param name="cont">Contador de no. reportes (si se generó)</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.ExcelReporteFonacotObservaciones(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Int32@)">
+	<summary>
+ Reporte de excel con empleados que tengan fonacot (Solo operativos). -- Ernesto
+ </summary>
+	<param name="dirGuardar">Ruta de guardado</param>
+	<param name="verProc">Versión del proceso</param>
+	<param name="data">Diccionario con info. del periodo</param>
+	<param name="cont">Contador de no. reportes (si se generó)</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.ExcelReporteComparativoNomina(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Int32@)">
+	<summary>
+ Reporte de excel que compara las percepciones y deducciones del periodo actual y anterior (Operativos y administrativos). -- Ernesto
+ </summary>
+	<param name="dirGuardar">Ruta de guardado</param>
+	<param name="verProc">Versión del proceso</param>
+	<param name="data">Diccionario con info. del periodo</param>
+	<param name="cont">Contador de no. reportes (si se generó)</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.ExcelReportePrenomina(System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Int32@)">
+	<summary>
+ Reporte de excel para prenómina normal y finiquitos. -- Ernesto
+ </summary>
+	<param name="dirGuardar">Ruta de guardado</param>
+	<param name="verProc">Versión del proceso</param>
+	<param name="tipoPrenom">Si es normal o finiquito</param>
+	<param name="data">Diccionario con info. del periodo</param>
+	<param name="ct">Contador de no. reportes (si se generó)</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.ExcelReporteDiferenciasDetalle(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Int32@)">
+	<summary>
+ Reporte de excel para desglosar conceptos por renglones. -- Ernesto
+ </summary>
+	<param name="dirGuardar">Ruta de guardado</param>
+	<param name="verProc">Versión del proceso</param>
+	<param name="data">Diccionario con info. del periodo</param>
+	<param name="c">Contador de no. reportes (si se generó)</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.TextReportePensionesAlimenticias(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Int32@)">
+	<summary>
+ Reporte de pensiones alimenticias (en textfile). -- Ernesto
+ </summary>
+	<param name="dirGuardar">Ruta de guardado</param>
+	<param name="verProc">Versión del proceso</param>
+	<param name="data">Diccionario con info. del periodo</param>
+	<param name="cont">Contador de no. reportes (si se generó)</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.ExcelReporteHorasNoAplicadas(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Int32@)">
+	<summary>
+ Reporte de horas no aplicadas (horas_pro) (excel). -- Ernesto
+ </summary>
+	<param name="dirGuardar">Ruta de guardado</param>
+	<param name="verProc">Versión del proceso</param>
+	<param name="data">Diccionario con info. del periodo</param>
+	<param name="c">Contador de no. reportes (si se generó)</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.ExcelReporteMiscNoAplicados(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Int32@)">
+	<summary>
+ Reporte de miscelaneos no aplicados (horas_pro) (excel). -- Ernesto
+ </summary>
+	<param name="dirGuardar">Ruta de guardado</param>
+	<param name="verProc">Versión del proceso</param>
+	<param name="data">Diccionario con info. del periodo</param>
+	<param name="ct">Contador de no. reportes (si se generó)</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.ExcelReporteCompensacionTemp(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Int32@)">
+	<summary>
+ Reporte de compensaciones temporales. -- Ernesto
+ </summary>
+	<param name="dirGuardar">Ruta de guardado</param>
+	<param name="verProc">Versión del proceso</param>
+	<param name="data">Diccionario con info. del periodo</param>
+	<param name="ct">Contador de no. reportes (si se generó)</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.ExcelReportePensionesAlimentarias(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Int32@)">
+	<summary>
+ Reporte de pensiones alimenticias desglozado en excel -- Ernesto
+ </summary>
+	<param name="dirGuardar">Ruta de guardado</param>
+	<param name="verProc">Versión del proceso</param>
+	<param name="data">Diccionario con info. del periodo</param>
+	<param name="c">Contador de no. reportes (si se generó)</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.ConceptosRezagadosDt(System.Data.DataTable,System.String,System.String,System.String,System.String)">
+	<summary>
+ Función que inserta las horas y miscelaneos no aplicados en una tabla de respaldo para el siguiente proceso. -- Ernesto
+ </summary>
+	<param name="dtInfo">Registros a insertar</param>
+	<param name="origen">Tipo de concepto (hrs no aplicadas o misc no palicados)</param>
+	<param name="detalle">Columnas de la tabla</param>
+	<param name="aPer">Periodo y año</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.ComparativoNomPerDed(System.String,System.Collections.ArrayList,System.Collections.ArrayList@,System.String,System.Data.DataTable@)">
+	<summary>
+ Función para llenar los datatables con la información de percepciones y deducciones para el reporte de comparativo de nóminas (Operativos y administrativos). Retorna un valor tipo datatable. -- Ernesto
+ </summary>
+	<param name="infoOp">Tipo de concepto.</param>
+	<param name="infoAdicional">Información adicional (como info de columnas)</param>
+	<param name="netos">Netos totales</param>
+	<param name="aPer">Periodo y año del proceso</param>
+	<param name="dtTotal">Resultado final (datatable)</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.ComparativoNomAltasBajas(System.String,System.Collections.ArrayList)">
+	<summary>
+ Función para llenar los datatables con la información del altas y bajas para el reporte de comparativo de nóminas (Operativos y administrativos). Retorna un valor tipo datatable. -- Ernesto
+ </summary>
+	<param name="infoOp">Tipo de concepto.</param>
+	<param name="infoAdicional">Información adicional (como el periodo actual, anterior, etc)</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.ComparativoNomCambioSueldo(System.Collections.ArrayList)">
+	<summary>
+ Función para llenar los datatables con la información de cambio de sueldo para el reporte de comparativo de nóminas (Operativos y administrativos). Retorna un valor tipo datatable. -- Ernesto
+ </summary>
+	<param name="infoAdicional">Información adicional (como el periodo actual, anterior, etc)</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.creaDt(System.String,System.String)">
+	<summary>
+ Función para crear datatables (solo columnas sin información). Retorna un valor tipo datatable. -- Ernesto
+ </summary>
+	<param name="nombresCol">Nombres de las columnas</param>
+	<param name="tipoCol">Tipo de columnas</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.ConvertirExcelPDF(System.String)">
+	<summary>
+ Función que convierte un excel a pdf. -- Ernesto
+ </summary>
+	<param name="ruta">Ruta de guardado</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.ConsultasBDReportes(System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+	<summary>
+ Consultas a BD de reportes de proceso de nómina (Emp. operativos y administrativos). -- Ernesto
+ </summary>
+	<param name="PerAño">Año y periodo del proceso</param>
+	<param name="FechaPago">Fecha de pago del proceso</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.ResValDt(System.String,System.String,System.Data.DataTable,System.Boolean)">
+	<summary>
+ Recorre un datatable de acuerdo al filtro que se aplicó y retorna un resultado de cualquier tipo. -- Ernesto
+ </summary>
+	<param name="filtro">Filtro para resultados</param>
+	<param name="campo">Nombre de columna para el valor de retorno</param>
+	<param name="dtInfo">Datatable con la información a consultar</param>
+	<param name="primerRes">Para pbtener primer resultado</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.FiltraTabla(System.Data.DataTable,System.Data.DataTable)">
+	<summary>
+ Filtra los registros de una tabla en base de otra. -- Ernesto
+ </summary>
+	<param name="dtTablaInfo">Filtro para resultados</param>
+	<param name="dtTablaFiltro">Nombre de columna para el valor de retorno</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.RangoCeldasExcel(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+	<summary>
+ Obtiene el rango de celdas para reportes de excel. Retorna un valor tipo string. Ejem. A1:H1 -- Ernesto
+ </summary>
+	<param name="noFila">Número de la fila donde se situará el rango</param>
+	<param name="noIniCol">Número de columna donde inicia</param>
+	<param name="noFinCol">Número de columna donde finaliza</param>
+	<param name="noFilaIni">Número de fila donde inicia</param>
+	<param name="numReg">Número de registros del rango</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.PeriodoAnterior(System.String,System.Data.DataTable)">
+	<summary>
+ Obtiene el periodo anterior del que se esta trabajando. Retorna un valor tipo String. -- Ernesto
+ </summary>
+	<param name="periodoActual">El periodo con el que se está trabajando</param>
+	<param name="tabla">Tabla de consulta</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.ValNullStr(System.Object)">
+	<summary>
+ Si es valor null lo convierte en cadena. -- Ernesto
+ </summary>
+	<param name="valor">Dato a evaluar</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.GetExcelColumnName(System.Int32)">
+	<summary>
+ Obtiene la letra de la columna del excel de acuerdo a un parámetro de un número. -- Ernesto
+ </summary>
+	<param name="columnNumber">Número de columna</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.CrearRespaldoLocal(System.Collections.Generic.Dictionary{System.String,System.String}@)">
+	<summary>
+ Se hace una copia del archivo .sqlite del proceso en curso y se guarda de respaldo en una ruta predeterminada -- Ernesto -- 1 dic 2023
+ </summary>
+	<param name="data"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.ProcesoNomina.RestauraRespaldoLocal(System.Collections.Generic.Dictionary{System.String,System.String}@,System.Data.DataTable)">
+	<summary>
+ Se restaura archivo .sqlite de una ruta definida -- Ernesto -- 1 dic 2023
+ </summary>
+	<param name="data"></param>
+	<param name="dtBitacora"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:PIDA.ProcesoNomina">
+	<summary>
+ Clase contenedora del proceso de la nómina
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.Sqlite.RutasDefaultArchivos(System.String)">
+	<summary>
+ Rutas por default para el proceso en caso de no estar definidas
+ </summary>
+	<param name="opRuta"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PIDA.Sqlite.ValidacionesRutas(System.Boolean@)">
+	<summary>
+ Se validan rutas correctas para la corrida y respaldo del proceso
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.Sqlite.#ctor">
+	<summary>
+ Constructor de archivo .sqlite
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PIDA.Sqlite.ExecuteNonQueryFunc(System.String)">
+	<summary>
+ Funcion para ejecutar updates, insert y deletes en sqlite -- Ernesto -- 11 dic 2023
+ </summary>
+	<param name="sql"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.Sqlite.insert(System.Collections.Generic.Dictionary{System.String,System.Object},System.String)">
+	<summary>
+ Insertar registros a tablas sqlite -- Modif. 22 dic 2023
+ </summary>
+	<param name="row">Dic. con info de registro a ingresar</param>
+	<param name="name">Nom. de tabla</param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmEvaluacionEmpleados.CrearEvaluaciones">
+	<summary>
+ Proceso para crear nodos de las evaluaciones del empleado
+ </summary>
+</member><member name="M:PIDA.frmEvaluacionEmpleados.CrearNodo(System.Data.DataRow)">
+	<summary>
+ Proceso para crear los nodos de los cuestionarios para la evaluación indicada
+ </summary>
+</member><member name="M:PIDA.Importaciones.ImportacionManual(System.String)">
+	<summary>
+ Importación de archivo texto separado por comas, conteniendo GAFETE (O RELOJ),FECHA,HORA
+ </summary>
+	<param name="AnoPeriodo"></param>
+</member><member name="M:PIDA.frmCancelarDeducciones.chkDefinitivo_CheckedChanged(System.Object,System.EventArgs)">
+	<summary>
+ Campos para cancelar deducción
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCancelarDeducciones.chkTransferencia_CheckedChanged(System.Object,System.EventArgs)">
+	<summary>
+ Campos para cambiar las claves del registro
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:PIDA.frmCancelarDeducciones.btnAceptar_Click(System.Object,System.EventArgs)">
+	<summary>
+ Aceptar modificaciones
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member>
+</members>
+</doc>
