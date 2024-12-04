@@ -1884,7 +1884,7 @@ Module Nomina
                     Dim strTipoReg = "2" '-- Constante. Longitud 1. Siempre es 2
                     Dim strClaveOperacion = "1" '-- Si es abono o cargo. Longitud 1. Es cargo
                     Dim strClaveMoneda = "001" '-- Constante y siempre es 001. Longitud 3
-                    Dim strImporte = Total.ToString.Replace(".", "").PadLeft(18, "0") '-- Justificado a la derecha, no lleva decimal. Longitud 18.
+                    Dim strImporte = FormatNumber(Total, 2).Replace(",", "").Replace(".", "").PadLeft(18, "0") '-- Justificado a la derecha, no lleva decimal. Longitud 18.
                     Dim strTipoCta = "01" '-- Constante cheques. Longitud 2. 
                     Dim strNumSucursal = numcuenta.Substring(0, 3).PadLeft(4, "0") '-- Clave de sucursal, justificar a la derecha, completa con 0. Longitud 4
                     Dim strNumeroCuenta = numcuenta.Substring(3, numcuenta.Length - 3).PadLeft(20, "0") '-- Numero de cuenta de cargo, justificar a la derecha, completa con 0. Longitud 20
@@ -1979,9 +1979,9 @@ Module Nomina
                     strTipoReg = "4" '-- Tipo registro. Longitud 1
                     strClaveMoneda = "001" '-- Tipo moneda. Longitud 3
                     Dim strNumAbonos = Abonos.ToString.PadLeft(6, "0") '-- Número total de abonos del archivo. Longitud 6
-                    Dim strTotalAbonos = Total.ToString.Replace(".", "").PadLeft(18, "0") '-- Sumatoria de los abonos. Longitud 18
+                    Dim strTotalAbonos = FormatNumber(Total, 2).Replace(",", "").Replace(".", "").PadLeft(18, "0") '-- Sumatoria de los abonos. Longitud 18
                     Dim strNumCargos = Creditos.ToString.Replace(".", "").PadLeft(6, "0") '-- Número de cargos del archivo. Longitud 6
-                    Dim strSumCargos = Total.ToString.Replace(".", "").PadLeft(18, "0") '-- Sumatoria de los cargos. Longitud 18
+                    Dim strSumCargos = FormatNumber(Total, 2).Replace(",", "").Replace(".", "").PadLeft(18, "0")  '-- Sumatoria de los cargos. Longitud 18
 
                     Dim Footer = "select '" & strTipoReg & strClaveMoneda & strNumAbonos & strTotalAbonos & strNumCargos & strSumCargos & "'"
 
