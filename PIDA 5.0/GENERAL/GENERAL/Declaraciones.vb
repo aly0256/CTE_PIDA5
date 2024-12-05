@@ -441,7 +441,7 @@ Module Declaraciones
     Public Function ListaSucursales() As strucSucursales()
         Dim Sucursales(2) As strucSucursales
 
-        '===GIT COMMIT TEST
+        '===GIT COMMIT TEST NEW
 
         '---- Server CTE
         Sucursales(0).nombre = "CTE"
