@@ -4446,6 +4446,7 @@ salirEdicionInfonavit:
                 EditaPersonal(Reloj, "cod_mot_ba", "NULL")
                 EditaPersonal(Reloj, "cod_mot_im", "NULL")
                 sqlExecute("delete from saldos_vacaciones where reloj='" & Reloj & "'", "PERSONAL") '====Limpiar saldos de vacaciones
+                sqlExecute("update personal.dbo.personal set PRO_VAR=0.00 where reloj='" & Reloj & "'", "PERSONAL")
             End If
 
             DarDeBaja = False
