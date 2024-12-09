@@ -7652,8 +7652,20 @@ CalcSaldoDev:
             Try : diasPag = txtPagar.Value : Catch ex As Exception : diasPag = 0.0 : End Try
 
             '==Periodo del empleado     junio2021       Ernesto
-            tipo_per = cmbTipoPeriodo.SelectedValue          
-            ProcInsDiasVaAjNom(rl, diasPag, _fecha_ini, _fecha_fin, cmbTipoPeriodo.SelectedValue, seleccionado)
+            tipo_per = cmbTipoPeriodo.SelectedValue
+
+            '===2024-12-09:: Proceso para registrar en miscelaneos (ajustes_nom) un dia por vacación
+            Dim f_dia As Date = Date.Parse(_fecha_ini)
+
+            Do While f_dia <= Date.Parse(_fecha_fin)
+
+                _fecha_ini = f_dia
+                ' _fecha_fin = f_dia
+                ProcInsDiasVaAjNom(rl, diasPag, _fecha_ini, _fecha_ini, cmbTipoPeriodo.SelectedValue, seleccionado)
+                f_dia = f_dia.AddDays(1)
+            Loop
+
+            ' ProcInsDiasVaAjNom(rl, diasPag, _fecha_ini, _fecha_fin, cmbTipoPeriodo.SelectedValue, seleccionado)
 
             '-- HERE - AOS : Inserta en Miscelaenos (Ajustes_nom)
             '  For Each row As DataRow In dtperiodo_ajustesnom.Rows

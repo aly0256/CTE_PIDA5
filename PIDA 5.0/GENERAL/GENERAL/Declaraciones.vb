@@ -3664,7 +3664,7 @@ ErrS:
 
                 '---Se agregó la fecha de inicio y fin de las vacaciones en el campo de ajustes_nom llamado "numcredito con fines informativos      30/ene/21   Ernesto
                 Dim QInsert As String = "INSERT INTO ajustes_nom (reloj,ano,periodo,per_ded,clave,monto,comentario,concepto,usuario,fecha,numcredito) VALUES " & _
-    "('" & Reloj & "','" & anio1 & "','" & per1 & "','P','" & ClaveVa & "'," & cantDias1 & ",'" & Comentario & "','DIASVA','" & Usuario & "',GETDATE()," & "'" & cadenaVac & "')"
+    "('" & Reloj & "','" & anio1 & "','" & per1 & "','P','" & ClaveVa & "'," & cantDias1 & ",'" & Comentario & "','DIASVA','" & Usuario & "','" & FechaSQL(FFinPag) & "'," & "'" & cadenaVac & "')"
                 sqlExecute(QInsert, "NOMINA")
             End If
 
@@ -3687,7 +3687,7 @@ SigDia:
                 '---Se agregó la fecha de inicio y fin de las vacaciones en el campo de ajustes_nom llamado "numcredito con fines informativos      30/ene/21   Ernesto
                 '---Insertar en Ajustes_nom los dias para el anio y per correspondiente (periodo presente)
                 Dim Q1 As String = "INSERT INTO ajustes_nom (reloj,ano,periodo,per_ded,clave,monto,comentario,concepto,usuario,fecha,numcredito) VALUES " & _
-                    "('" & Reloj & "','" & anio1 & "','" & per1 & "','P','" & ClaveVa & "'," & cantDias1 & ",'" & Comentario & "','DIASVA','" & Usuario & "',GETDATE()," & "'" & cadenaVac & "')"
+                    "('" & Reloj & "','" & anio1 & "','" & per1 & "','P','" & ClaveVa & "'," & cantDias1 & ",'" & Comentario & "','DIASVA','" & Usuario & "','" & FechaSQL(FFinPag) & "'," & "'" & cadenaVac & "')"
                 sqlExecute(Q1, "NOMINA")
 
                 '--Evaluar el 2do Periodo
@@ -3715,7 +3715,7 @@ SigDia2:
                 '---Se agregó la fecha de inicio y fin de las vacaciones en el campo de ajustes_nom llamado "numcredito con fines informativos      30/ene/21   Ernesto
                 '---Insertar en Ajustes_nom los dias para el anio y per correspondiente (siguiente periodo)
                 Dim Q2 As String = "INSERT INTO ajustes_nom (reloj,ano,periodo,per_ded,clave,monto,comentario,concepto,usuario,fecha,numcredito) VALUES " & _
-                    "('" & Reloj & "','" & anio2 & "','" & per2 & "','P','" & ClaveVa & "'," & cantDias2 & ",'" & Comentario & "','DIASVA','" & Usuario & "',GETDATE()," & "'" & cadenaVac & "')"
+                    "('" & Reloj & "','" & anio2 & "','" & per2 & "','P','" & ClaveVa & "'," & cantDias2 & ",'" & Comentario & "','DIASVA','" & Usuario & "','" & FechaSQL(FFinPag) & "'," & "'" & cadenaVac & "')"
                 sqlExecute(Q2, "NOMINA")
             End If
 
