@@ -2449,4 +2449,16 @@ Public Class frmMain
         frmCalcFiniquito.Show()
         frmCalcFiniquito.Focus()
     End Sub
+
+    Private Sub frmMain_ResizeBegin(sender As Object, e As EventArgs) Handles MyBase.ResizeBegin
+        PermitirAccesosXperfil()
+    End Sub
+
+    Private Sub frmMain_ResizeEnd(sender As Object, e As EventArgs) Handles MyBase.ResizeEnd
+        PermitirAccesosXperfil()
+    End Sub
+
+    Private Sub frmMain_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
+        PermitirAccesosXperfil()
+    End Sub
 End Class
