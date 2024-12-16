@@ -568,6 +568,10 @@
             ElseIf Reporte = "Ausentismo diario" Then ' ---AO 2024-11-15
                 AusentismoDiario(dtDatos, dtInformacion)
 
+            ElseIf Reporte = "Incidencias semanal" Then '*--*-AO: 2024-12-10
+                IncidSemanal(dtDatos, dtInformacion)
+
+
                 '**** TIME ALLOCATION
             ElseIf Reporte = "Auditoria de horas" Then
                 AuditoriaHoras(dtDatos, dtInformacion)

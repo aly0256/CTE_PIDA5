@@ -8137,6 +8137,273 @@ sigRec:
 
     End Sub
 
+    ''' <summary>
+    ''' 'Método para generar reporte de incidencias semanal
+    ''' </summary>
+    ''' <remarks></remarks>
+    ''' 
+
+    Public Sub IncidSemanal(ByRef dtDatos As DataTable, ByVal dtInformacion As DataTable)
+        Try
+            Dim periodo As String = "", ENCABEZADO_EMPRESA As String = "", DIR_EMPRESA As String = "", query As String = ""
+            Dim dtAusentismo As New DataTable, dtVacPagadas As New DataTable
+            Dim FINI As String = FechaSQL(FechaInicial)
+            Dim FFIN As String = FechaSQL(FechaFinal)
+
+            periodo = AnoSelec & PeriodoSelec
+
+            dtDatos = New DataTable
+
+
+            If Not dtDatos.Columns.Contains("RELOJ") Then dtDatos.Columns.Add("RELOJ", Type.GetType("System.String"))
+            If Not dtDatos.Columns.Contains("NOMBRES") Then dtDatos.Columns.Add("NOMBRES", Type.GetType("System.String"))
+            If Not dtDatos.Columns.Contains("SEM_COMPLETA") Then dtDatos.Columns.Add("SEM_COMPLETA", Type.GetType("System.String"))
+            If Not dtDatos.Columns.Contains("SABADO") Then dtDatos.Columns.Add("SABADO", Type.GetType("System.String"))
+            If Not dtDatos.Columns.Contains("DETALLE") Then dtDatos.Columns.Add("DETALLE", Type.GetType("System.String"))
+            If Not dtDatos.Columns.Contains("PERIODO") Then dtDatos.Columns.Add("PERIODO", Type.GetType("System.String"))
+            If Not dtDatos.Columns.Contains("FINI") Then dtDatos.Columns.Add("FINI", Type.GetType("System.String"))
+            If Not dtDatos.Columns.Contains("FFIN") Then dtDatos.Columns.Add("FFIN", Type.GetType("System.String"))
+            If Not dtDatos.Columns.Contains("ENCABEZADO_EMPRESA") Then dtDatos.Columns.Add("ENCABEZADO_EMPRESA", Type.GetType("System.String"))
+            If Not dtDatos.Columns.Contains("DIR_EMPRESA") Then dtDatos.Columns.Add("DIR_EMPRESA", Type.GetType("System.String"))
+
+
+            '----Obtener Encabezado y direccion de la empresa
+            Dim dtCia As DataTable = sqlExecute("select * from PERSONAL.dbo.cias where CIA_DEFAULT=1", "PERSONAL")
+            If Not dtCia.Columns.Contains("Error") And dtCia.Rows.Count > 0 Then
+                Dim rep_legal As String = "", rfc As String = "", direccion As String = "", colonia As String = "", cod_postal As String = "", telefono1 As String = "", ciudad As String = "", estado As String = ""
+
+                Try : rep_legal = dtCia.Rows(0).Item("rep_legal").ToString.Trim.ToUpper : Catch ex As Exception : rep_legal = "" : End Try
+                Try : rfc = dtCia.Rows(0).Item("rfc").ToString.Trim.ToUpper : Catch ex As Exception : rfc = "" : End Try
+                Try : direccion = dtCia.Rows(0).Item("direccion").ToString.Trim.ToUpper : Catch ex As Exception : direccion = "" : End Try
+                Try : colonia = dtCia.Rows(0).Item("colonia").ToString.Trim.ToUpper : Catch ex As Exception : colonia = "" : End Try
+                Try : cod_postal = dtCia.Rows(0).Item("cod_postal").ToString.Trim.ToUpper : Catch ex As Exception : cod_postal = "" : End Try
+                Try : telefono1 = dtCia.Rows(0).Item("telefono1").ToString.Trim.ToUpper : Catch ex As Exception : telefono1 = "" : End Try
+                Try : ciudad = dtCia.Rows(0).Item("ciudad").ToString.Trim.ToUpper : Catch ex As Exception : ciudad = "" : End Try
+                Try : estado = dtCia.Rows(0).Item("estado").ToString.Trim.ToUpper : Catch ex As Exception : estado = "" : End Try
+
+                ENCABEZADO_EMPRESA = rep_legal & "  RFC:" & rfc
+                DIR_EMPRESA = "CALLE " & direccion & " " & colonia & " C.P." & cod_postal & ", TEL:" & telefono1 & " " & ciudad & ", " & estado
+
+            End If
+
+            '===Obtener ausentismo
+            query = "select * from ausentismo where  fecha between '" & FINI & "' and '" & FFIN & "' order by reloj asc, fecha asc"
+            dtAusentismo = sqlExecute(query, "TA")
+
+            '===Obtener vacaciones pagadas
+            query = "select reloj,ano,PERIODO,CONCEPTO,FECHA,MONTO,ENVIO_NOM from nomina.dbo.ajustes_nom where  CONCEPTO='DIASVA' and ano+PERIODO='" & periodo & "'  order by reloj asc, fecha asc "
+            dtVacPagadas = sqlExecute(query, "NOMINA")
+
+            '  select reloj,ano,PERIODO,CONCEPTO,FECHA,MONTO,ENVIO_NOM from nomina.dbo.ajustes_nom where  CONCEPTO='DIASVA' and ano+PERIODO='202452'  order by reloj asc, fecha asc 
+
+            '====Recorrer cada uno de los empleados
+            Dim reloj_tmp As String = ""
+            If Not dtInformacion.Columns.Contains("Error") And dtInformacion.Rows.Count > 0 Then
+
+                For Each dr As DataRow In dtInformacion.Select("", "reloj")
+                    'For Each dr As DataRow In dtInformacion.Select("reloj='00081'", "reloj") '== Solo prueba
+
+                    Dim reloj As String = "", nombres As String = "", sem_completa As String = "", sabado As String = "", detalle As String = "", vacaciones_pagadas As Boolean = False
+
+                    Try : reloj = dr("RELOJ").ToString.Trim : Catch ex As Exception : reloj = "" : End Try
+
+                    If reloj_tmp = reloj Then
+                        Continue For
+                    Else
+                        reloj_tmp = reloj
+                    End If
+
+                    Try : nombres = dr("NOMBRES").ToString.Trim : Catch ex As Exception : nombres = "" : End Try
+
+                    Dim tipo_aus_ant As String = ""
+                    If Not dtAusentismo.Columns.Contains("Error") And dtAusentismo.Select("reloj='" & reloj & "'").Count > 0 Then
+                        For Each drA As DataRow In dtAusentismo.Select("reloj='" & reloj & "'")
+                            Dim fecha As String = "", tipo_aus As String = "", dia_semana As Integer
+
+                            Try : fecha = FechaSQL(drA("FECHA")) : Catch ex As Exception : fecha = "" : End Try
+                            Try : tipo_aus = drA("TIPO_AUS").ToString.Trim.ToUpper : Catch ex As Exception : tipo_aus = "" : End Try
+                            dia_semana = Date.Parse(fecha).DayOfWeek + 1
+
+                            '===PEND: Llenar detalle
+                            ' detalle = "INCAPACIDAD 25/11, 26/11, 27/11, 28/11, 29/11, 30/11, 01/12"
+                            'CALCULO Y PAGO DE "2" DIAS DE VACACIONES CORRESPONDIENTE A LOS DIAS 06/12, 07/12
+                            ' VACACIONES 25/11, 26/11, 27/11, 28/11, 29/11, 30/11
+
+                            If dia_semana = 7 Then ' Si es sábado, mandarlo al campo de sabado
+                                sabado = tipo_aus
+                            Else ' si es de lunes a viernes
+                                If tipo_aus_ant <> tipo_aus Then ' Evaluar si el tipo de ausentismo es distinto al anterior
+                                    If sem_completa <> "" Then
+                                        sem_completa = sem_completa & "," & tipo_aus
+                                    Else
+                                        sem_completa = tipo_aus
+                                    End If
+                                End If
+                            End If
+
+                            tipo_aus_ant = tipo_aus
+
+                        Next
+                    End If
+
+                    If Not dtVacPagadas.Columns.Contains("Error") And dtVacPagadas.Select("reloj='" & reloj & "'").Count > 0 Then vacaciones_pagadas = True
+
+                    '========================Obtener detalle
+                    Dim dtDistTipoAus As New DataTable, dtDetalleAus As New DataTable, cadena As String = "", dtDescripAus As New DataTable
+
+
+                    If vacaciones_pagadas Then
+                        ' ====================Vacaciones pagadas, puede incluir otros ausentismos
+
+
+                        query = "select distinct tipo_aus from ausentismo where reloj='" & reloj & "' and TIPO_AUS<>'VAC' and fecha between '" & FINI & "' and '" & FFIN & "'"
+                        dtDistTipoAus = sqlExecute(query, "TA")
+
+                        Dim cadena_dias As String = "", tipoAus As String = "", descAus As String = ""
+
+                        If Not dtDistTipoAus.Columns.Contains("Error") And dtDistTipoAus.Rows.Count > 0 Then
+
+                            ' ==============================================================================================================================================================================================
+                            ' ==========================================================================SOLO AUSENTISMO=====================================================================================================
+                            ' ==============================================================================================================================================================================================
+                            ' ==============================================================================================================================================================================================
+
+                            For Each drAus As DataRow In dtDistTipoAus.Rows
+
+                                Try : tipoAus = drAus("tipo_aus").ToString.Trim.ToUpper : Catch ex As Exception : tipoAus = "" : End Try
+
+
+                                '=====Es otro ausentismo que no son vacaciones
+                                query = "select RELOJ,fecha,TIPO_AUS,REFERENCIA from ausentismo where reloj='" & reloj & "' and TIPO_AUS='" & tipoAus & "' and fecha between '" & FINI & "' and '" & FFIN & "' order by fecha asc "
+                                dtDetalleAus = sqlExecute(query, "TA")
+
+                                '===Descripción del tipo de ausentismo
+                                query = "select NOMBRE  from tipo_ausentismo  where TIPO_AUS='" & tipoAus & "'"
+                                dtDescripAus = sqlExecute(query, "TA")
+                                If dtDescripAus.Rows.Count > 0 Then Try : descAus = dtDescripAus.Rows(0).Item("NOMBRE").ToString.Trim : Catch ex As Exception : descAus = "" : End Try
+
+                                If dtDetalleAus.Rows.Count > 0 And Not dtDetalleAus.Columns.Contains("Error") Then
+                                    For Each drDetAus As DataRow In dtDetalleAus.Rows
+                                        Dim _fecha_aus As String = "", dia As String = "", mes As String = ""
+                                        Try : _fecha_aus = FechaSQL(drDetAus("FECHA")) : Catch ex As Exception : _fecha_aus = "" : End Try
+
+                                        If _fecha_aus <> "" Then
+                                            mes = _fecha_aus.Substring(5, 2) ' 2024-11-31
+                                            dia = _fecha_aus.Substring(8, 2)
+                                        End If
+
+                                        cadena_dias = cadena_dias & dia & "/" & mes & ","
+                                    Next
+
+                                End If
+
+
+
+                            Next
+
+                            cadena_dias = cadena_dias.TrimStart(",")
+                            cadena_dias = cadena_dias.TrimEnd(",")
+                            cadena &= descAus & " LOS DIAS " & cadena_dias & ","
+                            detalle = cadena
+
+                        End If
+
+                        ' ==============================================================================================================================================================================================
+                        ' ==========================================================================SOLO VACACIONES PAGADAS=============================================================================================
+                        ' ==============================================================================================================================================================================================
+                        ' ==============================================================================================================================================================================================
+                        Dim _tipo_aus As String = "VAC", descrip_aus As String = "VACACION(ES)", cant_dias As Integer = 0
+                        For Each drVP As DataRow In dtVacPagadas.Select("reloj='" & reloj & "'")
+                            '==Los dias de vacaciones se van a estar registrando 1 por fecha en ajustes_nom
+                            Dim _fecha_aus As String = "", dia As String = "", mes As String = ""
+
+                            _tipo_aus = "VAC" : descrip_aus = "VACACION(ES)"
+                            Try : _fecha_aus = FechaSQL(drVP("FECHA")) : Catch ex As Exception : _fecha_aus = "" : End Try
+                            If _fecha_aus <> "" Then
+                                mes = _fecha_aus.Substring(5, 2) ' 2024-11-31
+                                dia = _fecha_aus.Substring(8, 2)
+                            End If
+                            cadena_dias = cadena_dias & dia & "/" & mes & ","
+                            cant_dias += 1
+                        Next
+
+                        cadena_dias = cadena_dias.TrimStart(",")
+                        cadena_dias = cadena_dias.TrimEnd(",")
+
+                        If cadena <> "" Then cadena &= " / " ' Si ya vienen con ausentismo, agregar separación
+                        cadena &= "CÁLCULO  Y PAGO DE " & cant_dias & " DIA(S) DE " & descrip_aus & " EL(LOS) DIA(S) " & cadena_dias & ","
+
+                        
+                        cadena = cadena.TrimStart(",")
+                        cadena = cadena.TrimEnd(",")
+                        detalle = cadena
+
+
+                    Else
+
+                        ' ==============================================================================================================================================================================================
+                        ' ==========================================================================SOLO AUSENTISMO=====================================================================================================
+                        ' ==============================================================================================================================================================================================
+                        ' ==============================================================================================================================================================================================
+
+                        If (sem_completa <> "" Or sabado <> "") Then
+                            query = "select distinct tipo_aus from ausentismo where reloj='" & reloj & "' and fecha between '" & FINI & "' and '" & FFIN & "' "
+                            dtDistTipoAus = sqlExecute(query, "TA")
+                            If Not dtDistTipoAus.Columns.Contains("Error") And dtDistTipoAus.Rows.Count > 0 Then
+                                For Each drDTipoAus As DataRow In dtDistTipoAus.Rows
+                                    Dim _tipo_aus As String = "", descrip_aus As String = ""
+                                    Try : _tipo_aus = drDTipoAus("tipo_aus").ToString.Trim : Catch ex As Exception : _tipo_aus = "" : End Try
+                                    query = "select RELOJ,fecha,TIPO_AUS,REFERENCIA from ausentismo where reloj='" & reloj & "' and TIPO_AUS='" & _tipo_aus & "' and fecha between '" & FINI & "' and '" & FFIN & "' order by fecha asc "
+                                    dtDetalleAus = sqlExecute(query, "TA")
+
+                                    '===Descripción del tipo de ausentismo
+                                    query = "select NOMBRE  from tipo_ausentismo  where TIPO_AUS='" & _tipo_aus & "'"
+                                    dtDescripAus = sqlExecute(query, "TA")
+                                    If dtDescripAus.Rows.Count > 0 Then Try : descrip_aus = dtDescripAus.Rows(0).Item("NOMBRE").ToString.Trim : Catch ex As Exception : descrip_aus = "" : End Try
+
+                                    Dim cadena_dias As String = ""
+                                    If dtDetalleAus.Rows.Count > 0 And Not dtDetalleAus.Columns.Contains("Error") Then
+                                        For Each drDetAus As DataRow In dtDetalleAus.Rows
+                                            Dim _fecha_aus As String = "", dia As String = "", mes As String = ""
+                                            Try : _fecha_aus = FechaSQL(drDetAus("FECHA")) : Catch ex As Exception : _fecha_aus = "" : End Try
+
+                                            If _fecha_aus <> "" Then
+                                                mes = _fecha_aus.Substring(5, 2) ' 2024-11-31
+                                                dia = _fecha_aus.Substring(8, 2)
+                                            End If
+
+                                            cadena_dias = cadena_dias & dia & "/" & mes & ","
+                                        Next
+
+                                    End If
+                                    cadena_dias = cadena_dias.TrimStart(",")
+                                    cadena_dias = cadena_dias.TrimEnd(",")
+                                    cadena &= descrip_aus & " LOS DIAS " & cadena_dias & ","
+                                Next
+
+                                cadena = cadena.TrimStart(",")
+                                cadena = cadena.TrimEnd(",")
+                                detalle = cadena
+
+                            End If
+                        End If
+
+                    End If
+
+
+                    dtDatos.Rows.Add({reloj, nombres, sem_completa, sabado, detalle, periodo, FINI, FFIN, ENCABEZADO_EMPRESA, DIR_EMPRESA})
+
+                Next
+            End If
+
+
+
+
+        Catch ex As Exception
+            ErrorLog(Usuario, System.Reflection.MethodBase.GetCurrentMethod.Name(), "Reporte de incidencias semanal", ex.HResult, ex.Message)
+        End Try
+    End Sub
+
 
 
 End Module
