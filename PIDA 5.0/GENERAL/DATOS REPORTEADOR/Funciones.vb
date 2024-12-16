@@ -606,6 +606,9 @@
             ElseIf Reporte = "Reporte de movimientos mensual" Then
                 ReportePerTotEmpMensualQro(dtDatos, dtInformacion)
 
+            ElseIf Reporte = "Reporte totales por concepto" Then
+                ReporteTotalesConcepto(dtDatos, dtInformacion)
+
             ElseIf Reporte = "Reporte Percepciones Empleado" Then
                 ReportePerTotEmpAnual(dtDatos, dtInformacion)
 

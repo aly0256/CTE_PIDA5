@@ -13335,4 +13335,207 @@ Saltar1:
         Try : frmReporteTEBonosProd.Show() : Catch ex As Exception : End Try
     End Sub
 
+    ''' <summary>
+    ''' Se obtienen los totales por conceptos y periodos seleccionados por el usuario
+    ''' </summary>
+    ''' <param name="dtDatos"></param>
+    ''' <param name="dtInformacion"></param>
+    ''' <remarks></remarks>
+    Public Sub ReporteTotalesConcepto(ByRef dtDatos As DataTable, ByVal dtInformacion As DataTable)
+        Try
+            If dtInformacion.Rows.Count > 0 Then
+
+                Dim dtCias = sqlExecute("select rtrim(cod_comp) as comp from personal.dbo.cias where cia_default=1")
+                Dim strCias = If(dtCias.Rows.Count > 0, dtCias.Rows(0)("comp"), "")
+                Dim strReporte = strCias & " " & "Reporte totales por concepto"
+
+                Dim sfd As New SaveFileDialog
+                Dim NameFile As String = strReporte & "_" & FechaSQL(Date.Now)
+                sfd.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.Desktop
+                sfd.FileName = NameFile & ".xlsx"
+                sfd.Filter = "Archivo excel (xlsx)|*.xlsx"
+
+                If sfd.ShowDialog() = DialogResult.OK Then
+                    Dim lstPeriodos = String.Join(",", (From j In dtInformacion Select j("periodo").ToString.Trim).ToList.Distinct)
+                    Dim lstAnios = String.Join(",", (From j In dtInformacion Select j("ano").ToString.Trim).ToList.Distinct)
+
+                    '-- Conceptos de la informacion de nómina(s) seleccionada(s)
+                    Dim dtNomina = sqlExecute("DECLARE @columns AS NVARCHAR(MAX), @sql AS NVARCHAR(MAX);" &
+                                            "with percepciones AS (" &
+                                            "select distinct m.concepto from nomina.dbo.movimientos m " &
+                                            "left join nomina.dbo.conceptos c on c.concepto=m.concepto " &
+                                            "where ano in (" & lstAnios & ") and periodo in (" & lstPeriodos & ") and c.COD_NATURALEZA='P' " &
+                                            "UNION ALL SELECT 'TOTPER' " &
+                                            "), " &
+                                            "deducciones AS ( " &
+                                            "select distinct m.concepto from nomina.dbo.movimientos m " &
+                                            "left join nomina.dbo.conceptos c on c.concepto=m.concepto " &
+                                            "where ano in (" & lstAnios & ") and periodo in (" & lstPeriodos & ") and c.COD_NATURALEZA='D' " &
+                                            "UNION ALL SELECT 'TOTDED' UNION ALL SELECT 'NETO' " &
+                                            "), " &
+                                            "lstConcepto as ( " &
+                                            "(SELECT * FROM percepciones) UNION ALL (SELECT * FROM deducciones)) " &
+                                            " " &
+                                            "SELECT @columns = STRING_AGG(QUOTENAME(concepto), ', ')  " &
+                                            "FROM (select concepto from lstConcepto) AS concept; " &
+                                            " " &
+                                            "set @sql= N'SELECT reloj, nombres, cod_depto,nombre_depto,cod_puesto,  " &
+                                            "		 nombre_puesto,numero_seguro_social,alta,alta_antiguedad,baja,sueldo_actual,integrado,  " &
+                                            "		 tipo_credito,factor_infonavit,'+@columns+N' " &
+                                            "        FROM " &
+                                            "		 (SELECT rtrim(m.reloj) as RELOJ,rtrim(p.nombres) as NOMBRES,rtrim(p.cod_tipo) as COD_TIPO,rtrim(p.cod_clase) as COD_CLASE, " &
+                                            "		 rtrim(p.rfc) as RFC,rtrim(p.cod_depto) as COD_DEPTO,rtrim(p.nombre_depto) as NOMBRE_DEPTO,rtrim(p.cod_puesto) as COD_PUESTO,  " &
+                                            "		 rtrim(p.nombre_puesto) as NOMBRE_PUESTO,rtrim(p.imss) as NUMERO_SEGURO_SOCIAL, " &
+                                            "		 p.alta as ALTA,p.alta_vacacion as ALTA_ANTIGUEDAD,p.baja,p.sactual as SUELDO_ACTUAL,p.integrado as INTEGRADO,  " &
+                                            "		 p.tipo_cre as TIPO_CREDITO,p.PAGO_INF as FACTOR_INFONAVIT, " &
+                                            "		 RTRIM(concepto) AS CONCEPTO, monto " &
+                                            "		 FROM nomina.dbo.movimientos m  " &
+                                            "		 LEFT JOIN personal.dbo.personalvw p on p.reloj=m.reloj " &
+                                            "		 where ANO in (" & lstAnios & ") and periodo in (" & lstPeriodos & ")" &
+                                            "	 ) AS SourceTable " &
+                                            "                PIVOT " &
+                                            "    (SUM(monto) " &
+                                            "     FOR concepto IN ('+@columns+')) AS PivotTable;' " &
+                                            " " &
+                                            "EXEC sp_executesql @sql;")
+
+                    Dim dtConceptos = sqlExecute("select distinct concepto,nombre " &
+                                                 "from nomina.dbo.conceptos ")
+
+                    If dtNomina.Rows.Count > 0 Then
+
+                        Using archivo As ExcelPackage = New ExcelPackage
+                            Dim wb As ExcelWorkbook = archivo.Workbook
+                            Dim hoja_excel As ExcelWorksheet = wb.Worksheets.Add("ReporteTotales")
+
+                            '-- Encabezado
+                            hoja_excel.SelectedRange("A1:B1").Style.Fill.PatternType = Style.ExcelFillStyle.Solid
+                            hoja_excel.SelectedRange("A1:B1").Style.Fill.BackgroundColor.SetColor(Color.FromArgb(82, 169, 27))
+                            hoja_excel.Cells(1, 1).Value = "CTE Reporte nómina totales por concepto"
+                            hoja_excel.Cells(1, 1).Style.Font.Size = 14
+                            hoja_excel.Cells(1, 1).Style.Font.Color.SetColor(Color.FromArgb(255, 255, 255))
+                            hoja_excel.Row(1).Style.Font.Bold = True
+
+                            hoja_excel.SelectedRange("A2:B4").Style.Fill.PatternType = Style.ExcelFillStyle.Solid
+                            hoja_excel.SelectedRange("A2:B4").Style.Fill.BackgroundColor.SetColor(Color.FromArgb(226, 239, 218))
+                            hoja_excel.Cells(2, 1).Value = "Fecha:"
+                            hoja_excel.Cells(2, 1).Style.Font.Bold = True
+                            hoja_excel.Cells(2, 1).Style.Font.Size = 12
+                            hoja_excel.Cells(2, 2).Value = FechaSQL(Date.Now)
+                            hoja_excel.Cells(2, 2).Style.Font.Size = 12
+
+                            hoja_excel.Cells(3, 1).Value = "Año:"
+                            hoja_excel.Cells(3, 1).Style.Font.Bold = True
+                            hoja_excel.Cells(3, 1).Style.Font.Size = 12
+                            hoja_excel.Cells(3, 1).Style.VerticalAlignment = Style.ExcelVerticalAlignment.Top
+
+                            hoja_excel.Cells(3, 2).Value = lstAnios
+                            hoja_excel.Cells(3, 2).Style.Font.Size = 12
+                            hoja_excel.Cells(3, 2).Style.WrapText = True
+
+                            hoja_excel.Cells(4, 1).Value = "Periodo(s):"
+                            hoja_excel.Cells(4, 1).Style.Font.Bold = True
+                            hoja_excel.Cells(4, 1).Style.Font.Size = 12
+                            hoja_excel.Cells(4, 1).Style.VerticalAlignment = Style.ExcelVerticalAlignment.Top
+
+                            hoja_excel.Cells(4, 2).Value = lstPeriodos
+                            hoja_excel.Cells(4, 2).Style.Font.Size = 12
+                            hoja_excel.Cells(4, 2).Style.WrapText = True
+
+                            '-- Columnas
+                            Dim y = 1, x = 6
+                            Dim dicColSize As New Dictionary(Of String, Double)
+                            Dim colsTamDistinto = {"nombres", "nombre_depto", "nombre_puesto", "numero_seguro_social"}
+
+                            hoja_excel.Row(x).Style.Font.Bold = True
+                            hoja_excel.Row(x).Height = 50
+                            hoja_excel.Row(x + 1).Style.Font.Bold = True
+                            hoja_excel.Row(x + 1).Height = 20
+
+                            For Each emp As DataColumn In dtNomina.Columns
+                                Dim nomCol = emp.ColumnName
+                                hoja_excel.Column(y).Width = 19
+
+                                If y >= 15 Then
+                                    Dim nombreCol = dtConceptos.Select("concepto='" & nomCol.Trim.Replace("_", "") & "'").First.Item("nombre").ToString.Trim
+                                    hoja_excel.Cells(x, y).Value = nombreCol
+                                    hoja_excel.Cells(x, y).Style.Fill.PatternType = Style.ExcelFillStyle.Solid
+                                    hoja_excel.Cells(x, y).Style.Fill.BackgroundColor.SetColor(Color.FromArgb(146, 208, 80))
+                                    hoja_excel.Cells(x, y).Style.Font.Color.SetColor(Color.FromArgb(0, 0, 0))
+                                    hoja_excel.Cells(x, y).Style.HorizontalAlignment = Style.ExcelHorizontalAlignment.Center
+                                    hoja_excel.Cells(x, y).Style.VerticalAlignment = Style.ExcelVerticalAlignment.Center
+                                    hoja_excel.Cells(x, y).Style.WrapText = True
+                                End If
+
+                                If {"nombres", "nombre_depto", "nombre_puesto"}.Contains(nomCol) Then hoja_excel.Column(y).Width = 60
+                                If {"numero_seguro_social"}.Contains(nomCol) Then hoja_excel.Column(y).Width = 26
+
+                                hoja_excel.Cells(x + 1, y).Value = nomCol.ToUpper.Trim
+                                hoja_excel.Cells(x + 1, y).Style.Fill.PatternType = Style.ExcelFillStyle.Solid
+                                hoja_excel.Cells(x + 1, y).Style.Fill.BackgroundColor.SetColor(If(y >= 15, Color.FromArgb(0, 0, 0), Color.FromArgb(187, 188, 186)))
+                                hoja_excel.Cells(x + 1, y).Style.Font.Color.SetColor(If(y >= 15, Color.FromArgb(255, 255, 255), Color.FromArgb(0, 0, 0)))
+                                hoja_excel.Cells(x + 1, y).Style.VerticalAlignment = Style.ExcelVerticalAlignment.Center
+                                hoja_excel.Cells(x + 1, y).Style.HorizontalAlignment = If(y >= 15, Style.ExcelHorizontalAlignment.Center, Style.ExcelHorizontalAlignment.Left)
+
+                                y += 1
+                            Next
+
+                            '-- Filas
+                            x = 8 : y = 1
+
+                            For Each emp As DataRow In dtNomina.Rows
+                                For Each col As DataColumn In dtNomina.Columns
+                                    Dim colN = col.ColumnName
+                                    Dim val = If(y >= 15, If(IsDBNull(emp(colN)), 0.0, emp(colN)), If(IsDBNull(emp(colN)), "", emp(colN)))
+                                    Dim esNumero = val.GetType() Is GetType(Integer) Or val.GetType() Is GetType(Decimal) Or val.GetType() Is GetType(Double)
+                                    hoja_excel.Cells(x, y).Value = If({"alta", "alta_antiguedad", "baja"}.Contains(colN), If(val.ToString = "", "", FechaSQL(val)), val)
+                                    hoja_excel.Cells(x, y).Style.HorizontalAlignment = If(esNumero, Style.ExcelHorizontalAlignment.Right, Style.ExcelHorizontalAlignment.Left)
+                                    y += 1
+                                Next
+
+                                x += 1
+                                y = 1
+                            Next
+
+                            '-- Color de fondo de montos de conceptos
+                            Dim lastCol = GetExcelColumnName(15) & "8:" & GetExcelColumnName(dtNomina.Columns.Count) & x - 1
+                            hoja_excel.SelectedRange(lastCol).Style.Fill.PatternType = Style.ExcelFillStyle.Solid
+                            hoja_excel.SelectedRange(lastCol).Style.Fill.BackgroundColor.SetColor(Color.FromArgb(226, 239, 218))
+                            hoja_excel.SelectedRange(lastCol).Style.Numberformat.Format = "$ #,##0.00"
+
+                            archivo.SaveAs(New System.IO.FileInfo(sfd.FileName))
+                            Process.Start(sfd.FileName)
+                        End Using
+                    End If
+                End If
+            End If
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    ''' <summary>
+    ''' Obtiene la letra de la columna del excel de acuerdo a un parámetro de un número. -- Ernesto
+    ''' </summary>
+    ''' <param name="columnNumber">Número de columna</param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Private Function GetExcelColumnName(columnNumber As Integer) As String
+        Dim dividend As Integer = columnNumber
+        Dim columnName As String = String.Empty
+        Dim modulo As Integer
+
+        While dividend > 0
+            modulo = (dividend - 1) Mod 26
+            columnName = Convert.ToChar(65 + modulo).ToString() & columnName
+            dividend = CInt((dividend - modulo) / 26)
+        End While
+
+        Return columnName
+    End Function
+
+
+
+
 End Module
