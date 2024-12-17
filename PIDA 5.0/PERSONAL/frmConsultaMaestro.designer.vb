@@ -59,6 +59,8 @@ Partial Class frmConsultaMaestro
         Me.gpAvance = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.lblAvance = New System.Windows.Forms.Label()
         Me.pbAvance = New DevComponents.DotNetBar.Controls.CircularProgress()
+        Me.GridColumn8 = New DevComponents.DotNetBar.SuperGrid.GridColumn()
+        Me.GridColumn10 = New DevComponents.DotNetBar.SuperGrid.GridColumn()
         Me.pnlControles.SuspendLayout()
         Me.pnlCentrado.SuspendLayout()
         Me.mnuEditar.SuspendLayout()
@@ -320,6 +322,8 @@ Partial Class frmConsultaMaestro
         Me.dgMaestro.PrimaryGrid.Columns.Add(Me.GridColumn11)
         Me.dgMaestro.PrimaryGrid.Columns.Add(Me.GridColumn2)
         Me.dgMaestro.PrimaryGrid.Columns.Add(Me.GridColumn3)
+        Me.dgMaestro.PrimaryGrid.Columns.Add(Me.GridColumn8)
+        Me.dgMaestro.PrimaryGrid.Columns.Add(Me.GridColumn10)
         Me.dgMaestro.PrimaryGrid.Columns.Add(Me.GridColumn4)
         Me.dgMaestro.PrimaryGrid.Columns.Add(Me.GridColumn5)
         Me.dgMaestro.PrimaryGrid.Columns.Add(Me.GridColumn6)
@@ -467,6 +471,19 @@ Partial Class frmConsultaMaestro
         Me.pbAvance.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeXP
         Me.pbAvance.TabIndex = 270
         '
+        'GridColumn8
+        '
+        Me.GridColumn8.DataPropertyName = "cod_hora"
+        Me.GridColumn8.DefaultNewRowCellValue = ""
+        Me.GridColumn8.Name = "COD HORARIO"
+        Me.GridColumn8.Width = 80
+        '
+        'GridColumn10
+        '
+        Me.GridColumn10.DataPropertyName = "nombre_horario"
+        Me.GridColumn10.Name = "NOMBRE HORARIO"
+        Me.GridColumn10.Width = 200
+        '
         'frmConsultaMaestro
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -526,4 +543,6 @@ Partial Class frmConsultaMaestro
     Friend WithEvents GridColumn11 As DevComponents.DotNetBar.SuperGrid.GridColumn
     Friend WithEvents GridColumn12 As DevComponents.DotNetBar.SuperGrid.GridColumn
     Friend WithEvents GridColumn13 As DevComponents.DotNetBar.SuperGrid.GridColumn
+    Friend WithEvents GridColumn8 As DevComponents.DotNetBar.SuperGrid.GridColumn
+    Friend WithEvents GridColumn10 As DevComponents.DotNetBar.SuperGrid.GridColumn
 End Class
