@@ -13505,13 +13505,14 @@ Saltar1:
 
                             archivo.SaveAs(New System.IO.FileInfo(sfd.FileName))
                             Process.Start(sfd.FileName)
+                            MessageBox.Show("El reporte se ha generado", "Reporte generado", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         End Using
                     End If
                 End If
             End If
 
         Catch ex As Exception
-
+            ErrorLog("ReporteTotalesConcepto", System.Reflection.MethodBase.GetCurrentMethod.Name(), "", Err.Number, ex.Message)
         End Try
     End Sub
 
