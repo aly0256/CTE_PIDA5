@@ -8224,11 +8224,6 @@ sigRec:
                             Try : tipo_aus = drA("TIPO_AUS").ToString.Trim.ToUpper : Catch ex As Exception : tipo_aus = "" : End Try
                             dia_semana = Date.Parse(fecha).DayOfWeek + 1
 
-                            '===PEND: Llenar detalle
-                            ' detalle = "INCAPACIDAD 25/11, 26/11, 27/11, 28/11, 29/11, 30/11, 01/12"
-                            'CALCULO Y PAGO DE "2" DIAS DE VACACIONES CORRESPONDIENTE A LOS DIAS 06/12, 07/12
-                            ' VACACIONES 25/11, 26/11, 27/11, 28/11, 29/11, 30/11
-
                             If dia_semana = 7 Then ' Si es sábado, mandarlo al campo de sabado
                                 sabado = tipo_aus
                             Else ' si es de lunes a viernes
@@ -8268,43 +8263,45 @@ sigRec:
                             ' ==============================================================================================================================================================================================
                             ' ==============================================================================================================================================================================================
 
-                            For Each drAus As DataRow In dtDistTipoAus.Rows
+                            detalle = obtenerDetalleRepInciPer(reloj, dtDistTipoAus, FINI, FFIN)
 
-                                Try : tipoAus = drAus("tipo_aus").ToString.Trim.ToUpper : Catch ex As Exception : tipoAus = "" : End Try
+                            'For Each drAus As DataRow In dtDistTipoAus.Rows
 
-
-                                '=====Es otro ausentismo que no son vacaciones
-                                query = "select RELOJ,fecha,TIPO_AUS,REFERENCIA from ausentismo where reloj='" & reloj & "' and TIPO_AUS='" & tipoAus & "' and fecha between '" & FINI & "' and '" & FFIN & "' order by fecha asc "
-                                dtDetalleAus = sqlExecute(query, "TA")
-
-                                '===Descripción del tipo de ausentismo
-                                query = "select NOMBRE  from tipo_ausentismo  where TIPO_AUS='" & tipoAus & "'"
-                                dtDescripAus = sqlExecute(query, "TA")
-                                If dtDescripAus.Rows.Count > 0 Then Try : descAus = dtDescripAus.Rows(0).Item("NOMBRE").ToString.Trim : Catch ex As Exception : descAus = "" : End Try
-
-                                If dtDetalleAus.Rows.Count > 0 And Not dtDetalleAus.Columns.Contains("Error") Then
-                                    For Each drDetAus As DataRow In dtDetalleAus.Rows
-                                        Dim _fecha_aus As String = "", dia As String = "", mes As String = ""
-                                        Try : _fecha_aus = FechaSQL(drDetAus("FECHA")) : Catch ex As Exception : _fecha_aus = "" : End Try
-
-                                        If _fecha_aus <> "" Then
-                                            mes = _fecha_aus.Substring(5, 2) ' 2024-11-31
-                                            dia = _fecha_aus.Substring(8, 2)
-                                        End If
-
-                                        cadena_dias = cadena_dias & dia & "/" & mes & ","
-                                    Next
-
-                                End If
+                            '    Try : tipoAus = drAus("tipo_aus").ToString.Trim.ToUpper : Catch ex As Exception : tipoAus = "" : End Try
 
 
+                            '    '=====Es otro ausentismo que no son vacaciones
+                            '    query = "select RELOJ,fecha,TIPO_AUS,REFERENCIA from ausentismo where reloj='" & reloj & "' and TIPO_AUS='" & tipoAus & "' and fecha between '" & FINI & "' and '" & FFIN & "' order by fecha asc "
+                            '    dtDetalleAus = sqlExecute(query, "TA")
 
-                            Next
+                            '    '===Descripción del tipo de ausentismo
+                            '    query = "select NOMBRE  from tipo_ausentismo  where TIPO_AUS='" & tipoAus & "'"
+                            '    dtDescripAus = sqlExecute(query, "TA")
+                            '    If dtDescripAus.Rows.Count > 0 Then Try : descAus = dtDescripAus.Rows(0).Item("NOMBRE").ToString.Trim : Catch ex As Exception : descAus = "" : End Try
 
-                            cadena_dias = cadena_dias.TrimStart(",")
-                            cadena_dias = cadena_dias.TrimEnd(",")
-                            cadena &= descAus & " LOS DIAS " & cadena_dias & ","
-                            detalle = cadena
+                            '    If dtDetalleAus.Rows.Count > 0 And Not dtDetalleAus.Columns.Contains("Error") Then
+                            '        For Each drDetAus As DataRow In dtDetalleAus.Rows
+                            '            Dim _fecha_aus As String = "", dia As String = "", mes As String = ""
+                            '            Try : _fecha_aus = FechaSQL(drDetAus("FECHA")) : Catch ex As Exception : _fecha_aus = "" : End Try
+
+                            '            If _fecha_aus <> "" Then
+                            '                mes = _fecha_aus.Substring(5, 2) ' 2024-11-31
+                            '                dia = _fecha_aus.Substring(8, 2)
+                            '            End If
+
+                            '            cadena_dias = cadena_dias & dia & "/" & mes & ","
+                            '        Next
+
+                            '    End If
+
+
+
+                            'Next
+
+                            'cadena_dias = cadena_dias.TrimStart(",")
+                            'cadena_dias = cadena_dias.TrimEnd(",")
+                            'cadena &= descAus & " LOS DIAS " & cadena_dias & ","
+                            'detalle = cadena
 
                         End If
 
@@ -8350,40 +8347,43 @@ sigRec:
                             query = "select distinct tipo_aus from ausentismo where reloj='" & reloj & "' and fecha between '" & FINI & "' and '" & FFIN & "' "
                             dtDistTipoAus = sqlExecute(query, "TA")
                             If Not dtDistTipoAus.Columns.Contains("Error") And dtDistTipoAus.Rows.Count > 0 Then
-                                For Each drDTipoAus As DataRow In dtDistTipoAus.Rows
-                                    Dim _tipo_aus As String = "", descrip_aus As String = ""
-                                    Try : _tipo_aus = drDTipoAus("tipo_aus").ToString.Trim : Catch ex As Exception : _tipo_aus = "" : End Try
-                                    query = "select RELOJ,fecha,TIPO_AUS,REFERENCIA from ausentismo where reloj='" & reloj & "' and TIPO_AUS='" & _tipo_aus & "' and fecha between '" & FINI & "' and '" & FFIN & "' order by fecha asc "
-                                    dtDetalleAus = sqlExecute(query, "TA")
 
-                                    '===Descripción del tipo de ausentismo
-                                    query = "select NOMBRE  from tipo_ausentismo  where TIPO_AUS='" & _tipo_aus & "'"
-                                    dtDescripAus = sqlExecute(query, "TA")
-                                    If dtDescripAus.Rows.Count > 0 Then Try : descrip_aus = dtDescripAus.Rows(0).Item("NOMBRE").ToString.Trim : Catch ex As Exception : descrip_aus = "" : End Try
+                                detalle = obtenerDetalleRepInciPer(reloj, dtDistTipoAus, FINI, FFIN)
 
-                                    Dim cadena_dias As String = ""
-                                    If dtDetalleAus.Rows.Count > 0 And Not dtDetalleAus.Columns.Contains("Error") Then
-                                        For Each drDetAus As DataRow In dtDetalleAus.Rows
-                                            Dim _fecha_aus As String = "", dia As String = "", mes As String = ""
-                                            Try : _fecha_aus = FechaSQL(drDetAus("FECHA")) : Catch ex As Exception : _fecha_aus = "" : End Try
+                                'For Each drDTipoAus As DataRow In dtDistTipoAus.Rows
+                                '    Dim _tipo_aus As String = "", descrip_aus As String = ""
+                                '    Try : _tipo_aus = drDTipoAus("tipo_aus").ToString.Trim : Catch ex As Exception : _tipo_aus = "" : End Try
+                                '    query = "select RELOJ,fecha,TIPO_AUS,REFERENCIA from ausentismo where reloj='" & reloj & "' and TIPO_AUS='" & _tipo_aus & "' and fecha between '" & FINI & "' and '" & FFIN & "' order by fecha asc "
+                                '    dtDetalleAus = sqlExecute(query, "TA")
 
-                                            If _fecha_aus <> "" Then
-                                                mes = _fecha_aus.Substring(5, 2) ' 2024-11-31
-                                                dia = _fecha_aus.Substring(8, 2)
-                                            End If
+                                '    '===Descripción del tipo de ausentismo
+                                '    query = "select NOMBRE  from tipo_ausentismo  where TIPO_AUS='" & _tipo_aus & "'"
+                                '    dtDescripAus = sqlExecute(query, "TA")
+                                '    If dtDescripAus.Rows.Count > 0 Then Try : descrip_aus = dtDescripAus.Rows(0).Item("NOMBRE").ToString.Trim : Catch ex As Exception : descrip_aus = "" : End Try
 
-                                            cadena_dias = cadena_dias & dia & "/" & mes & ","
-                                        Next
+                                '    Dim cadena_dias As String = ""
+                                '    If dtDetalleAus.Rows.Count > 0 And Not dtDetalleAus.Columns.Contains("Error") Then
+                                '        For Each drDetAus As DataRow In dtDetalleAus.Rows
+                                '            Dim _fecha_aus As String = "", dia As String = "", mes As String = ""
+                                '            Try : _fecha_aus = FechaSQL(drDetAus("FECHA")) : Catch ex As Exception : _fecha_aus = "" : End Try
 
-                                    End If
-                                    cadena_dias = cadena_dias.TrimStart(",")
-                                    cadena_dias = cadena_dias.TrimEnd(",")
-                                    cadena &= descrip_aus & " LOS DIAS " & cadena_dias & ","
-                                Next
+                                '            If _fecha_aus <> "" Then
+                                '                mes = _fecha_aus.Substring(5, 2) ' 2024-11-31
+                                '                dia = _fecha_aus.Substring(8, 2)
+                                '            End If
 
-                                cadena = cadena.TrimStart(",")
-                                cadena = cadena.TrimEnd(",")
-                                detalle = cadena
+                                '            cadena_dias = cadena_dias & dia & "/" & mes & ","
+                                '        Next
+
+                                '    End If
+                                '    cadena_dias = cadena_dias.TrimStart(",")
+                                '    cadena_dias = cadena_dias.TrimEnd(",")
+                                '    cadena &= descrip_aus & " LOS DIAS " & cadena_dias & ","
+                                'Next
+
+                                'cadena = cadena.TrimStart(",")
+                                'cadena = cadena.TrimEnd(",")
+                                'detalle = cadena
 
                             End If
                         End If
@@ -8403,6 +8403,58 @@ sigRec:
             ErrorLog(Usuario, System.Reflection.MethodBase.GetCurrentMethod.Name(), "Reporte de incidencias semanal", ex.HResult, ex.Message)
         End Try
     End Sub
+
+    Public Function obtenerDetalleRepInciPer(ByVal _rj As String, _dtInfo As DataTable, _fini As String, _ffin As String) As String
+        Dim _detalle As String = "", query As String = "", dtTemp As New DataTable, dtTemp2 As New DataTable, cadena_dias As String = "", desc_aus As String = "", tipoAus As String = "", cadena As String = ""
+
+        Try
+
+            For Each drAus As DataRow In _dtInfo.Rows
+
+
+
+                Try : tipoAus = drAus("tipo_aus").ToString.Trim.ToUpper : Catch ex As Exception : tipoAus = "" : End Try
+
+
+                '=====Es otro ausentismo que no son vacaciones
+                query = "select RELOJ,fecha,TIPO_AUS,REFERENCIA from ausentismo where reloj='" & _rj & "' and TIPO_AUS='" & tipoAus & "' and fecha between '" & _fini & "' and '" & _ffin & "' order by fecha asc "
+                dtTemp = sqlExecute(query, "TA")
+
+                '===Descripción del tipo de ausentismo
+                query = "select NOMBRE  from tipo_ausentismo  where TIPO_AUS='" & tipoAus & "'"
+                dtTemp2 = sqlExecute(query, "TA")
+                If dtTemp2.Rows.Count > 0 Then Try : desc_aus = dtTemp2.Rows(0).Item("NOMBRE").ToString.Trim : Catch ex As Exception : desc_aus = "" : End Try
+
+                If dtTemp.Rows.Count > 0 And Not dtTemp.Columns.Contains("Error") Then
+                    For Each drDetAus As DataRow In dtTemp.Rows
+                        Dim _fecha_aus As String = "", dia As String = "", mes As String = ""
+                        Try : _fecha_aus = FechaSQL(drDetAus("FECHA")) : Catch ex As Exception : _fecha_aus = "" : End Try
+
+                        If _fecha_aus <> "" Then
+                            mes = _fecha_aus.Substring(5, 2) ' 2024-11-31
+                            dia = _fecha_aus.Substring(8, 2)
+                        End If
+
+                        cadena_dias = cadena_dias & dia & "/" & mes & ","
+                    Next
+
+                End If
+
+
+
+            Next
+
+            cadena_dias = cadena_dias.TrimStart(",")
+            cadena_dias = cadena_dias.TrimEnd(",")
+            cadena &= desc_aus & " LOS DIAS " & cadena_dias
+            _detalle = cadena
+
+
+            Return _detalle
+        Catch ex As Exception
+            Return _detalle
+        End Try
+    End Function
 
 
 
