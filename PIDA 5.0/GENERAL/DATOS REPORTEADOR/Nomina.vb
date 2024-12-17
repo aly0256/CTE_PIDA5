@@ -13360,8 +13360,8 @@ Saltar1:
                     Dim lstAnios = String.Join(",", (From j In dtInformacion Select j("ano").ToString.Trim).ToList.Distinct)
 
                     '-- Conceptos de la informacion de nómina(s) seleccionada(s)
-                    Dim dtNomina = sqlExecute("DECLARE @columns AS NVARCHAR(MAX), @sql AS NVARCHAR(MAX);" &
-                                            "with percepciones AS (" &
+                    Dim dtNomina = sqlExecute("DECLARE @columns AS NVARCHAR(MAX), @sql AS NVARCHAR(MAX); " &
+                                            "with percepciones AS ( " &
                                             "select distinct m.concepto from nomina.dbo.movimientos m " &
                                             "left join nomina.dbo.conceptos c on c.concepto=m.concepto " &
                                             "where ano in (" & lstAnios & ") and periodo in (" & lstPeriodos & ") and c.COD_NATURALEZA='P' " &
@@ -13375,10 +13375,12 @@ Saltar1:
                                             "), " &
                                             "lstConcepto as ( " &
                                             "(SELECT * FROM percepciones) UNION ALL (SELECT * FROM deducciones)) " &
-                                            " " &
-                                            "SELECT @columns = STRING_AGG(QUOTENAME(concepto), ', ')  " &
-                                            "FROM (select concepto from lstConcepto) AS concept; " &
-                                            " " &
+                                            "" &
+                                            "SELECT @columns = STUFF((" &
+                                            "    SELECT ',' + QUOTENAME(concepto) " &
+                                            "    FROM (SELECT DISTINCT concepto FROM lstConcepto) AS concept " &
+                                            "    FOR XML PATH('')), 1, 1, ''); " &
+                                            "" &
                                             "set @sql= N'SELECT reloj, nombres, cod_depto,nombre_depto,cod_puesto,  " &
                                             "		 nombre_puesto,numero_seguro_social,alta,alta_antiguedad,baja,sueldo_actual,integrado,  " &
                                             "		 tipo_credito,factor_infonavit,'+@columns+N' " &
@@ -13386,17 +13388,17 @@ Saltar1:
                                             "		 (SELECT rtrim(m.reloj) as RELOJ,rtrim(p.nombres) as NOMBRES,rtrim(p.cod_tipo) as COD_TIPO,rtrim(p.cod_clase) as COD_CLASE, " &
                                             "		 rtrim(p.rfc) as RFC,rtrim(p.cod_depto) as COD_DEPTO,rtrim(p.nombre_depto) as NOMBRE_DEPTO,rtrim(p.cod_puesto) as COD_PUESTO,  " &
                                             "		 rtrim(p.nombre_puesto) as NOMBRE_PUESTO,rtrim(p.imss) as NUMERO_SEGURO_SOCIAL, " &
-                                            "		 p.alta as ALTA,p.alta_vacacion as ALTA_ANTIGUEDAD,p.baja,p.sactual as SUELDO_ACTUAL,p.integrado as INTEGRADO,  " &
+                                            "		 p.alta as ALTA,p.alta_vacacion as ALTA_ANTIGUEDAD,p.baja,p.sactual as SUELDO_ACTUAL,p.integrado as INTEGRADO, " &
                                             "		 p.tipo_cre as TIPO_CREDITO,p.PAGO_INF as FACTOR_INFONAVIT, " &
                                             "		 RTRIM(concepto) AS CONCEPTO, monto " &
                                             "		 FROM nomina.dbo.movimientos m  " &
                                             "		 LEFT JOIN personal.dbo.personalvw p on p.reloj=m.reloj " &
-                                            "		 where ANO in (" & lstAnios & ") and periodo in (" & lstPeriodos & ")" &
+                                            "		 where ANO in (" & lstAnios & ") and periodo in (" & lstPeriodos & ") " &
                                             "	 ) AS SourceTable " &
                                             "                PIVOT " &
                                             "    (SUM(monto) " &
                                             "     FOR concepto IN ('+@columns+')) AS PivotTable;' " &
-                                            " " &
+                                            "" &
                                             "EXEC sp_executesql @sql;")
 
                     Dim dtConceptos = sqlExecute("select distinct concepto,nombre " &
