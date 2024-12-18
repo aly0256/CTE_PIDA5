@@ -6856,21 +6856,43 @@ salirEdicionInfonavit:
             Dim SaldoPendPagar As Double = 0.0
 
             '---AOS 2023-07-25 :: Que sea en base a lo último
-            Dim QSaldoDin As String = "SELECT TOP 1 saldo_dinero " & _
-  "FROM saldos_vacaciones WHERE reloj = '" & Rj.Trim & _
-"' ORDER BY fecha_captura DESC,fecha_fin DESC"
+            '            Dim QSaldoDin As String = "SELECT TOP 1 saldo_dinero " & _
+            '  "FROM saldos_vacaciones WHERE reloj = '" & Rj.Trim & _
+            '"' ORDER BY fecha_captura DESC,fecha_fin DESC"
 
-            Dim dtSaldoDin As DataTable = sqlExecute(QSaldoDin, "PERSONAL")
-            If ((dtSaldoDin.Columns.Contains("Error")) Or (Not dtSaldoDin.Columns.Contains("Error") And dtSaldoDin.Rows.Count = 0)) Then
-                SaldoPendPagar = 0.0
-            Else
+            '            Dim dtSaldoDin As DataTable = sqlExecute(QSaldoDin, "PERSONAL")
+            '            If ((dtSaldoDin.Columns.Contains("Error")) Or (Not dtSaldoDin.Columns.Contains("Error") And dtSaldoDin.Rows.Count = 0)) Then
+            '                SaldoPendPagar = 0.0
+            '            Else
 
-                'SaldoPendPagar = IIf(IsDBNull(dtSaldoDin.Rows(0).Item("saldo_dinero")), 0.0, dtSaldoDin.Rows(0).Item("saldo_dinero")) + _
-                '    IIf(IsDBNull(dtSaldoDin.Rows(0).Item("saldo_dinero_anterior")), 0.0, dtSaldoDin.Rows(0).Item("saldo_dinero_anterior")) + _
-                '    IIf(IsDBNull(dtSaldoDin.Rows(0).Item("saldo_dinero_anterior2")), 0.0, dtSaldoDin.Rows(0).Item("saldo_dinero_anterior2"))
+            '                'SaldoPendPagar = IIf(IsDBNull(dtSaldoDin.Rows(0).Item("saldo_dinero")), 0.0, dtSaldoDin.Rows(0).Item("saldo_dinero")) + _
+            '                '    IIf(IsDBNull(dtSaldoDin.Rows(0).Item("saldo_dinero_anterior")), 0.0, dtSaldoDin.Rows(0).Item("saldo_dinero_anterior")) + _
+            '                '    IIf(IsDBNull(dtSaldoDin.Rows(0).Item("saldo_dinero_anterior2")), 0.0, dtSaldoDin.Rows(0).Item("saldo_dinero_anterior2"))
 
-                SaldoPendPagar = IIf(IsDBNull(dtSaldoDin.Rows(0).Item("saldo_dinero")), 0.0, dtSaldoDin.Rows(0).Item("saldo_dinero"))
+            '                SaldoPendPagar = IIf(IsDBNull(dtSaldoDin.Rows(0).Item("saldo_dinero")), 0.0, dtSaldoDin.Rows(0).Item("saldo_dinero"))
+            '            End If
+
+            '===2024-12-18: Obtener saldo pendiente de pagar (Nueva forma)
+            Dim dtGanadas As New DataTable, dtPagadas As New DataTable, query As String = "", ganadas As Double = 0.0, pagadas As Double = 0.0
+
+            '==Ganadas
+            query = "SELECT ISNULL(SUM(convert(float,DIAS)),0) AS 'GANADAS' FROM saldos_vacaciones  where reloj='" & Rj & "'"
+            dtGanadas = sqlExecute(query, "PERSONAL")
+            If Not dtGanadas.Columns.Contains("Error") And dtGanadas.Rows.Count > 0 Then
+                Try : ganadas = Double.Parse(dtGanadas.Rows(0).Item("GANADAS")) : Catch ex As Exception : ganadas = 0.0 : End Try
             End If
+
+            '===Pagadas
+            query = "SELECT ISNULL(SUM(convert(float,dinero)),0) AS 'PAGADAS' FROM saldos_vacaciones where reloj='" & Rj & "'"
+            dtPagadas = sqlExecute(query, "PERSONAL")
+            If Not dtPagadas.Columns.Contains("Error") And dtPagadas.Rows.Count > 0 Then
+                Try : pagadas = Double.Parse(dtPagadas.Rows(0).Item("PAGADAS")) : Catch ex As Exception : pagadas = 0.0 : End Try
+            End If
+
+            SaldoPendPagar = ganadas - pagadas
+
+
+
 
             '*** LUA 2021-20-07
             Dim SaldoCancelado As Double = 0
