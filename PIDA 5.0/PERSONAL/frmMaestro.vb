@@ -6893,7 +6893,6 @@ salirEdicionInfonavit:
 
 
 
-
             '*** LUA 2021-20-07
             Dim SaldoCancelado As Double = 0
             If EsFiniquito Then
