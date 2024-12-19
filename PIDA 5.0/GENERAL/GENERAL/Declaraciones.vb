@@ -3658,7 +3658,13 @@ ErrS:
 
             If (Not EvaluaVariosPer) Then ' Si solo va evaluar un solo periodo
                 While FiniPag <= FFinPag
+
+                    If (dtFestivos.Select("DIA_FESTIV='" & FechaSQL(FiniPag) & "'").Count > 0) Then ' Evaluar si cae en día festivo
+                        GoTo NextRecord
+                    End If
+
                     cantDias1 += 1
+NextRecord:
                     FiniPag = FiniPag.AddDays(1)
                 End While
 
