@@ -7567,12 +7567,7 @@ CalcSaldoDev:
                     '--HERE INSERTA EL AUS - AOS
                     If InsertaVac Then
 
-                        'sqlExecute("INSERT INTO ausentismo (COD_COMP,RELOJ,FECHA,TIPO_AUS,PERIODO) VALUES ('" & _
-                        '           cmbCia.SelectedValue & "','" & _
-                        '           rl & "','" & _
-                        '           FechaSQL(_fecha) & "','" & _
-                        '           AusVac & "','" & _
-                        '           ObtenerPeriodo(_fecha) & "')", "TA")
+
 
                         '--- AO 2023-12-15: Agregar usuario y fecha hora de registro
                         sqlExecute("INSERT INTO ausentismo (COD_COMP,RELOJ,FECHA,TIPO_AUS,PERIODO,USUARIO,FECHA_HORA) VALUES ('" & _
@@ -7582,7 +7577,7 @@ CalcSaldoDev:
                   AusVac & "','" & _
                   ObtenerPeriodo(_fecha) & "','" & Usuario & "',getdate())", "TA")
 
-
+                        
                         _fecha_fin = _fecha
                         x = x + 1
 
@@ -7618,6 +7613,27 @@ CalcSaldoDev:
                 End If
                 _fecha = _fecha.AddDays(1)
                 InsertaVac = True
+            Loop
+
+            '===Hacer lo mismo para Miscelaneos (Ajustes_nom), registrar por día
+            _fecha = _fecha_ini
+            x = 1
+            Do Until x > _diasTiempo
+                If Not (Festivo(_fecha, rl) Or DiaDescanso(_fecha, rl)) Then
+
+                    dtTemp = sqlExecute("select * from nomina.dbo.ajustes_nom  where reloj='" & rl & "'  and CONCEPTO='DIASVA' and fecha='" & FechaSQL(_fecha) & "'", "NOMINA")
+                    If dtTemp.Rows.Count > 0 Then
+                        sqlExecute("DELETE FROM nomina.dbo.ajustes_nom  WHERE RELOJ = '" & rl & "' and CONCEPTO='DIASVA' AND fecha = '" & FechaSQL(_fecha) & "'", "NOMINA")
+                    End If
+
+                    '====Insertar en Miscelaneos detalle x dia
+                    Dim _diasPag_ As Double = 1.0, _comentario_ As String = "Días de vacaciones capturados desde MAESTRO"
+                    ProcInsDiasVaAjNom(rl, _diasPag_, FechaSQL(_fecha), FechaSQL(_fecha), cmbTipoPeriodo.SelectedValue, seleccionado, _comentario_, _fecha_ini, _fecha_fin)
+
+                    x = x + 1
+                End If
+
+                _fecha = _fecha.AddDays(1)
             Loop
 
 
@@ -7676,8 +7692,8 @@ CalcSaldoDev:
             tipo_per = cmbTipoPeriodo.SelectedValue
 
 
-            '=== Proceso anterior donde registra por fechas
-            ProcInsDiasVaAjNom(rl, diasPag, _fecha_ini, _fecha_fin, cmbTipoPeriodo.SelectedValue, seleccionado)
+            '=== Proceso Original Anterior donde registra por fechas
+            'ProcInsDiasVaAjNom(rl, diasPag, _fecha_ini, _fecha_fin, cmbTipoPeriodo.SelectedValue, seleccionado)
 
             '===2024-12-09:: Proceso para registrar en miscelaneos (ajustes_nom) un dia por vacación
             'Dim f_dia As Date = Date.Parse(_fecha_ini)
@@ -7687,19 +7703,6 @@ CalcSaldoDev:
             '    ProcInsDiasVaAjNom(rl, diasPag, _fecha_ini, _fecha_ini, cmbTipoPeriodo.SelectedValue, seleccionado)
             '    f_dia = f_dia.AddDays(1)
             'Loop
-
-
-            '-- HERE - AOS : Inserta en Miscelaenos (Ajustes_nom)
-            '  For Each row As DataRow In dtperiodo_ajustesnom.Rows
-            '      '--AOS: Para que inserte el periodo correcto en ajustes_nom de acuerdo a la ultima fecha que cae su vacaciones (Lo toma de la tabla periodos)
-            '      sqlExecute("INSERT INTO ajustes_nom (reloj,ano,periodo,per_ded,clave,monto,comentario,concepto,usuario,fecha) VALUES ('" & _
-            ' rl & "','" & _
-            ' row("ano") & "','" & _
-            'ObtenerPeriodo(_fecha) & "','P','" & _
-            ' ClaveVA & "'," & _
-            ' row("dias") & _
-            ' ",'Días de vacaciones capturados desde MAESTRO','DIASVA','" & Usuario & "', GETDATE())", "Nomina")
-            '  Next
 
 
             '*********************************************************************
@@ -7867,8 +7870,9 @@ CalcSaldoDev:
             End If
 
             _fecha = _fecha_ini
+            '===2024-12-20
             Do Until _fecha > _fecha_fin
-                sqlExecute("DELETE FROM ausentismo WHERE reloj = '" & Reloj & "' AND fecha = '" & FechaSQL(_fecha) & _
+                sqlExecute("DELETE FROM ausentismo WHERE reloj = '" & rl & "' AND fecha = '" & FechaSQL(_fecha) & _
                            "' AND tipo_aus = '" & AusVac & "'", "TA")
                 _fecha = DateAdd(DateInterval.Day, 1, _fecha)
             Loop
@@ -7876,7 +7880,11 @@ CalcSaldoDev:
 
             '---Modif.   30/ene/21     Ernesto
             '**********************AOS: Eliminar las vacaciones para el pago de nomina de Miscelaneos(de Ajustes_nom) (Funcionando actualmente)
-            Dim QElimVacAjnom As String = "delete from ajustes_nom where reloj='" & rl & "' and concepto='DIASVA' and comentario='Días de vacaciones capturados desde MAESTRO' and fecha='" & FechaSQL(FechaCaptura) & "' AND numcredito='" & cadenaVac & "'"
+            'Dim QElimVacAjnom As String = "delete from ajustes_nom where reloj='" & rl & "' and concepto='DIASVA' and comentario='Días de vacaciones capturados desde MAESTRO' and fecha='" & FechaSQL(FechaCaptura) & "' AND numcredito='" & cadenaVac & "'"
+            'sqlExecute(QElimVacAjnom, "NOMINA")
+
+            '===AO 2024-12-20: Eliminar en base al # de crédito
+            Dim QElimVacAjnom As String = "delete from ajustes_nom where reloj='" & rl & "' and concepto='DIASVA' and comentario='Días de vacaciones capturados desde MAESTRO' AND numcredito='" & cadenaVac & "'"
             sqlExecute(QElimVacAjnom, "NOMINA")
 
             '====2024-09-06: Tambien eliminar los comentarios de cancelados:

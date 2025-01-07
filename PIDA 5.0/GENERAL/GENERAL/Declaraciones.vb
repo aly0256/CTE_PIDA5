@@ -3586,7 +3586,7 @@ ErrS:
     End Sub
 
     '== Se agrego nuevo parametro       11junio2021     Ernesto
-    Public Sub ProcInsDiasVaAjNom(ByVal Reloj As String, DiasVa As Double, FiniPag As Date, FFinPag As Date, Optional tipoPer As String = "", Optional ByVal periodo_pago_nomina As String = "", Optional ByVal Comentario As String = "")
+    Public Sub ProcInsDiasVaAjNom(ByVal Reloj As String, DiasVa As Double, FiniPag As Date, FFinPag As Date, Optional tipoPer As String = "", Optional ByVal periodo_pago_nomina As String = "", Optional ByVal Comentario As String = "", Optional ByVal _finiReal As Date = Nothing, Optional ByVal _fFinReal As Date = Nothing)
         Dim anio1 As String = "", per1 As String = "", fini1 As String = "", ffin1 As String = "", cantDias1 As Integer = 0
         Dim anio2 As String = "", per2 As String = "", fini2 As String = "", ffin2 As String = "", cantDias2 As Integer = 0
         Dim ClaveVa = "006"
@@ -3605,7 +3605,12 @@ ErrS:
 
         '---Se agregó la fecha de inicio y fin de las vacaciones en el campo de ajustes_nom llamado "numcredito con fines informativos      30/ene/21   Ernesto
         Dim cadenaVac As String
-        cadenaVac = FechaSQL(FiniPag) & " al " & FechaSQL(FFinPag)
+        If (Not _finiReal = Nothing And Not _fFinReal = Nothing) Then 'Si vienen las fechas ini y fin real, que lo ponga en la cadena
+            cadenaVac = FechaSQL(_finiReal) & " al " & FechaSQL(_fFinReal)
+        Else
+            cadenaVac = FechaSQL(FiniPag) & " al " & FechaSQL(FFinPag)
+        End If
+
 
         Try
             '== Aqui se seleccciona el periodo correcto de acuerdo al tipo de nomina del empleado(solo catorcenales)       11junio2021     Ernesto
