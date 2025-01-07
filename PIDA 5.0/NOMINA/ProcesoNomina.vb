@@ -1238,7 +1238,7 @@ Public Class ProcesoNomina
                     aniversary = aniversary.AddMonths(-12)
                 End If
 
-                If (aniversary_antig >= fecha_ini And aniversary_antig <= fecha_fin) And Integer.Parse(period("periodo").ToString()) <= 52 And aniversary_antig <> item("alta_vacacion") And ((finiqN.Rows.Count > 0 And baja >= aniversary_antig) Or finiqN.Rows.Count = 0) Then
+                If (aniversary_antig >= fecha_ini And aniversary_antig <= fecha_fin) And Integer.Parse(period("periodo").ToString()) <= 53 And aniversary_antig <> item("alta_vacacion") And ((finiqN.Rows.Count > 0 And baja >= aniversary_antig) Or finiqN.Rows.Count = 0) Then
                     Dim anos = aniversary_antig.Year() - Convert.ToDateTime(item("alta_vacacion")).Year()
                     Dim vac = (From i In vacations Where i("COD_COMP").ToString.Trim = item("cod_comp").ToString.Trim And i("COD_TIPO").ToString.Trim = item("cod_tipo").ToString.Trim And i("ANOS") = anos).ToList()
                     If vac.Count > 0 Then
@@ -1690,13 +1690,13 @@ Public Class ProcesoNomina
 
             '== Sueldo del empleado en otro periodo de acuerdo a la fecha del concepto
             Dim strNomina = "select reloj,ano,periodo,sactual from nomina.dbo.nomina where ano+periodo in (select ano+periodo from ta.dbo." & IIf(data("tipoPeriodo") = "S", "periodos", "periodos_quincenal") & " " &
-                            "where '{0}'>=fecha_ini and '{0}'<=fecha_fin and periodo<=52) and reloj='{1}' and tipo_periodo='{2}'"
+                            "where '{0}'>=fecha_ini and '{0}'<=fecha_fin and periodo<=53) and reloj='{1}' and tipo_periodo='{2}'"
 
             '== Sueldo del empleado en otro periodo de acuerdo a su tipo [semanal o quincenal]
             Dim strTipoPeriodEmp = "select P.ano,P.periodo,P.fecha_ini,P.fecha_fin,P.tipo_periodo from " &
                                    "(select ano,periodo,fecha_ini,fecha_fin,'S' as 'tipo_periodo' from ta.dbo.periodos " &
                                    "union all select ano,periodo,fecha_ini,fecha_fin,'Q' as 'tipo_periodo' from ta.dbo.periodos_quincenal) as P " &
-                                   "where '{0}'>=P.fecha_ini and '{0}'<=P.fecha_fin AND P.PERIODO<=52 AND P.tipo_periodo<>'" & data("tipoPeriodo") & "'"
+                                   "where '{0}'>=P.fecha_ini and '{0}'<=P.fecha_fin AND P.PERIODO<=53 AND P.tipo_periodo<>'" & data("tipoPeriodo") & "'"
 
             If ajustesConceptos.Rows.Count > 0 And periodoInfo.Rows.Count > 0 Then
                 Dim iniPer = Convert.ToDateTime(periodoInfo.Rows(0)("fecha_ini"))
@@ -1978,7 +1978,7 @@ Public Class ProcesoNomina
                     '== Definir periodos para consulta en tabla de movimientos
                     strAnioAnt = IIf(data("periodo") = "01", CInt(data("ano")) - 1, data("ano"))
                     Select Case data("periodo") & data("tipoPeriodo")
-                        Case "01S" : strPerAnt = "52"
+                        Case "01S" : strPerAnt = "53"
                         Case "01Q" : strPerAnt = "24"
                         Case Else : strPerAnt = CStr(CInt(data("periodo")) - 1).PadLeft(2, "0")
                     End Select
@@ -2073,8 +2073,8 @@ Public Class ProcesoNomina
 
             '--- Tablas de consulta
             Dim sqlAguiExcento = sqlExecute("SELECT " & If(Me._options("aguinaldo_anual"), "top 0", "") & " reloj, ano, sum(monto) as monto FROM NOMINA.dbo.movimientos WHERE ano+periodo >='" &
-                             data("ano").Trim & "01' AND " & "periodo<='52' AND periodo<" & data("periodo") & " AND concepto='PEXAGI' " & strFiltroRelojes(1) & " group by reloj, ano")
-            Dim sqlVacDetalle = sqlExecute("SELECT reloj, ano, sum(monto) as monto FROM NOMINA.dbo.movimientos WHERE ano+periodo <='" & data("ano").Trim & "52' AND " &
+                             data("ano").Trim & "01' AND " & "periodo<='53' AND periodo<" & data("periodo") & " AND concepto='PEXAGI' " & strFiltroRelojes(1) & " group by reloj, ano")
+            Dim sqlVacDetalle = sqlExecute("SELECT reloj, ano, sum(monto) as monto FROM NOMINA.dbo.movimientos WHERE ano+periodo <='" & data("ano").Trim & "53' AND " &
                                        "ano='" & Integer.Parse(data("ano").Trim) & "' AND periodo<" & data("periodo") & " AND concepto='PEXVAC' " & strFiltroRelojes(1) & " group by reloj, ano")
             Dim sqlCias = sqlExecute("SELECT * FROM PERSONAL.dbo.cias WHERE cod_comp in (" & data("codComp") & ")")
             Dim sqlIsptMensual = sqlExecute("SELECT * FROM NOMINA.dbo.ispt_pro_mensual")
@@ -2375,7 +2375,7 @@ Public Class ProcesoNomina
                                  "INSERT INTO MOVIMIENTOS SELECT '" & data("ano") & "' as ANO,'" & data("periodo") & "' as PERIODO,'N' as TIPO_NOMINA,RELOJ,'ACUDAG' as concepto,sum(MONTO) as monto,PRIORIDAD,IMPORTAR,NUEVO," &
                                  "'S' as TIPO_PERIODO,PER_CALENDARIO,cod_comp FROM MOVIMIENTOS " &
                                  "WHERE ano='" & data("ano") & "' and periodo>='" & dtAntiAguinaldo.Rows(0)("anticipo_aguinaldo") & "' " & If(strActivos.Length > 0, strActivos, "") &
-                                 " AND PERIODO<='52' and tipo_periodo='S' and concepto='DIASAG' " &
+                                 " AND PERIODO<='53' and tipo_periodo='S' and concepto='DIASAG' " &
                                  "GROUP BY RELOj,prioridad,importar,nuevo,per_calendario,cod_comp"
 
                     sqlExecute(acudag)
@@ -2384,7 +2384,7 @@ Public Class ProcesoNomina
                                  "INSERT INTO MOVIMIENTOS SELECT '" & data("ano") & "' as ANO,'" & data("periodo") & "' as PERIODO,'N' as TIPO_NOMINA,RELOJ,'SAANAG' as concepto,sum(MONTO) as monto,PRIORIDAD,IMPORTAR,NUEVO," &
                                  "'S' as TIPO_PERIODO,PER_CALENDARIO,cod_comp FROM MOVIMIENTOS " &
                                  "WHERE ano='" & data("ano") & "' and periodo>='" & dtAntiAguinaldo.Rows(0)("anticipo_aguinaldo") & "' " & If(strActivos.Length > 0, strActivos, "") &
-                                 " AND PERIODO<='52' and tipo_periodo='S' and concepto='PERAGI' " &
+                                 " AND PERIODO<='53' and tipo_periodo='S' and concepto='PERAGI' " &
                                  "GROUP BY RELOj,prioridad,importar,nuevo,per_calendario,cod_comp"
 
                     sqlExecute(saanag)
@@ -6491,11 +6491,11 @@ NoInfonavit:
             Dim movs As New DataTable
 
             If data("periodo") <> "01" Then
-                movs = sqlExecute("SELECT * FROM NOMINA.dbo.movimientos WHERE concepto IN ('SAFAHE','SAFAHC','SALPRF','SAANAG') AND periodo<='52' and periodo<'" & data("periodo") & "' " &
+                movs = sqlExecute("SELECT * FROM NOMINA.dbo.movimientos WHERE concepto IN ('SAFAHE','SAFAHC','SALPRF','SAANAG') AND periodo<='53' and periodo<'" & data("periodo") & "' " &
                                   "AND ano IN ('" & filtroAno & "') and reloj in (" & String.Join(",", (From i In relojes Select "'" & i & "'")) & ") " &
                                   "ORDER BY ano+periodo desc")
             Else
-                movs = sqlExecute("SELECT * FROM NOMINA.dbo.movimientos WHERE concepto IN ('SAFAHE','SAFAHC','SALPRF','SAANAG') AND periodo IN (52,24) " &
+                movs = sqlExecute("SELECT * FROM NOMINA.dbo.movimientos WHERE concepto IN ('SAFAHE','SAFAHC','SALPRF','SAANAG') AND periodo IN (53,24) " &
                                   "AND ano IN ('" & filtroAno & "') and reloj in (" & String.Join(",", (From i In relojes Select "'" & i & "'")) & ") " &
                                   "ORDER BY ano+periodo desc")
             End If
@@ -6518,7 +6518,7 @@ NoInfonavit:
                     Else
                         periodosInfo = sqlExecute("SELECT S.ANO,S.PERIODO,S.FECHA_INI,S.FECHA_FIN," &
                                                   "(SELECT Q.ANO+Q.PERIODO FROM TA.DBO.periodos_quincenal Q WHERE S.FECHA_INI BETWEEN Q.FECHA_INI AND Q.FECHA_FIN AND Q.PERIODO<=24) as 'QUINCENAL' " &
-                                                  "FROM TA.DBO.periodos S WHERE S.ANO=" & CInt(data("ano")) - 1 & " AND S.PERIODO=52 ORDER BY ANO,PERIODO DESC")
+                                                  "FROM TA.DBO.periodos S WHERE S.ANO=" & CInt(data("ano")) - 1 & " AND S.PERIODO=53 ORDER BY ANO,PERIODO DESC")
                     End If
                 End If
 
@@ -6664,7 +6664,7 @@ NoInfonavit:
                             Else
                                 Try
                                     _filtro = "reloj='" & emp("reloj").Trim & "' and concepto in ('" & con.Substring(0, 6) & "') and " &
-                                        "periodo='" & IIf(data("tipoPeriodo") = "S", 52, 24) & "' and ano='" & CInt(data("ano")) - 1 & "' and tipo_periodo='S'"
+                                        "periodo='" & IIf(data("tipoPeriodo") = "S", 53, 24) & "' and ano='" & CInt(data("ano")) - 1 & "' and tipo_periodo='S'"
 
                                     _perMax = movs.Select(_filtro, "periodo desc")
                                 Catch ex As Exception : _perMax = Nothing : End Try
@@ -7651,7 +7651,7 @@ NoInfonavit:
             For Each agui In empDiasAgui.Rows
                 Dim r = agui("reloj").ToString.Trim
                 Dim strQry = "select top 1 monto from nomina.dbo.movimientos where ano='" & data("ano") & "' and concepto='ACUDAG' AND reloj='" & r & _
-                         "' and tipo_periodo='" & data("tipoPeriodo") & "' and periodo<='" & IIf(data("tipoPeriodo") = "S", 52, 24) & "' ORDER BY PERIODO DESC"
+                         "' and tipo_periodo='" & data("tipoPeriodo") & "' and periodo<='" & IIf(data("tipoPeriodo") = "S", 53, 24) & "' ORDER BY PERIODO DESC"
 
                 '== Si no hay movimientos anteriores, monto correcto.
                 Dim dtRes = sqlExecute(strQry)
@@ -7732,7 +7732,7 @@ NoInfonavit:
             Dim strQuerys As New ArrayList          'Almacenar querys para tabla de sqlite
 
             '--- IDEAS Y BONOS DE RECOMENDACION A AJUSTES
-            If Integer.Parse(data("periodo")) <= 52 Then
+            If Integer.Parse(data("periodo")) <= 53 Then
                 Dim dtConceptosMiscelaneos = sqlExecute("SELECT * FROM conceptos WHERE misce_clave IS NOT NULL", "NOMINA")
                 data("etapa") = "Insertando conceptos"
                 For Each row_i As DataRow In dtConceptosMiscelaneos.Rows
@@ -7839,7 +7839,7 @@ NoInfonavit:
                     For Each dRowDom In dtPrimDom.Rows
                         Dim Rj = IIf(IsDBNull(dRowDom("reloj")), "", dRowDom("reloj")).ToString.Trim
                         Dim fecha = IIf(IsDBNull(dRowDom("fecha")), "", dRowDom("fecha")).ToString.Trim
-                        If Rj.Length > 0 And fecha.Length > 0 Then : dtAjustesNo.Rows.Add({Rj, "52", "1", 0, "", "I", "DIADOM", FechaSQL(fecha), 0, 0, 0, ""}) : End If
+                        If Rj.Length > 0 And fecha.Length > 0 Then : dtAjustesNo.Rows.Add({Rj, "53", "1", 0, "", "I", "DIADOM", FechaSQL(fecha), 0, 0, 0, ""}) : End If
                         If Not Me.BgWorker Is Nothing Then : Me.BgWorker.ReportProgress(100 * counter / dtPrimDom.Rows.Count) : counter += 1 : End If
                     Next
                 End If
@@ -8201,7 +8201,7 @@ NoInfonavit:
             Dim dtAntAgui = sqlExecute("SELECT ANO+PERIODO AS PERIODO,RELOJ,CONCEPTO,MONTO," &
                                             "('INSERT INTO AJUSTESPRO (ANO,PERIODO,RELOJ,CONCEPTO,MONTO) VALUES ('''+ANO+''',''{0}'','''+RELOJ+''',''SAANAG'','+CONVERT(VARCHAR,MONTO)+');') as QUERY_SQLITE " &
                                             "FROM NOMINA.DBO.movimientos WHERE ANO='" & data("ano") & "' AND CONCEPTO='SAANAG' AND PERIODO IN (" &
-                                            "SELECT MAX(PERIODO) FROM NOMINA.DBO.movimientos WHERE ANO='" & data("ano") & "' AND PERIODO>=01 AND PERIODO<=52 AND tipo_periodo='" & data("tipoPeriodo") & "')")
+                                            "SELECT MAX(PERIODO) FROM NOMINA.DBO.movimientos WHERE ANO='" & data("ano") & "' AND PERIODO>=01 AND PERIODO<=53 AND tipo_periodo='" & data("tipoPeriodo") & "')")
 
             If dtAntAgui.Rows.Count > 0 Then
                 For Each saanag In dtAntAgui.Rows
