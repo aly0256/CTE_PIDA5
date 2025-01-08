@@ -416,7 +416,7 @@ Public Class frmPromediosVariables
                           .OrderBy(Function(row) Convert.ToInt32(row.Field(Of String)("periodo"))) _
                           .FirstOrDefault()
             Dim ultimaSemana = periodoSeleccionado.AsEnumerable() _
-                          .Where(Function(row) Convert.ToInt32(row.Field(Of String)("periodo")) <= 52) _
+                          .Where(Function(row) row.Field(Of Object)("PERIODO_ESPECIAL") <> 1) _
                           .OrderByDescending(Function(row) Convert.ToInt32(row.Field(Of String)("periodo"))) _
                           .FirstOrDefault()
 
@@ -630,11 +630,11 @@ Public Class frmPromediosVariables
     End Function
 
     Private Function GetPeriodoSeleccionado(selectedYear As String, selectedBimestre As Integer) As DataTable
-        Return sqlExecute("SELECT ano, periodo,FECHA_INI,FECHA_FIN,FECHA_PAGO FROM periodos WHERE bimestre_periodo = '" & selectedYear & selectedBimestre & "'", "TA")
+        Return sqlExecute("SELECT ano, periodo,FECHA_INI,FECHA_FIN,FECHA_PAGO,PERIODO_ESPECIAL FROM periodos WHERE bimestre_periodo = '" & selectedYear & selectedBimestre & "'", "TA")
     End Function
 
     Private Function GetPeriodoQuincenaSeleccionado(selectedYear As String, selectedBimestre As String) As DataTable
-        Return sqlExecute("SELECT ano,periodo,FECHA_INI,FECHA_FIN,FECHA_PAGO FROM periodos_quincenal where bimestre_periodo = '" & selectedYear & selectedBimestre & "'", "TA")
+        Return sqlExecute("SELECT ano,periodo,FECHA_INI,FECHA_FIN,FECHA_PAGO,PERIODO_ESPECIAL FROM periodos_quincenal where bimestre_periodo = '" & selectedYear & selectedBimestre & "'", "TA")
     End Function
 
     Private Function GetPersonalData(dtFechaLimiteBajas As DataTable, dtFechaLimiteAltas As DataRow) As DataTable
@@ -891,27 +891,44 @@ Public Class frmPromediosVariables
         Try
             ' Las columnas que quieres omitir
             Dim columnasOmitir As New List(Of String) From {
-                "curp", "apaterno", "umf", "amaterno", "nombre",
-                "COD_COMP", "IMSS", "dig_ver", "FHA_ULT_MO"
-            }
+            "curp", "apaterno", "umf", "amaterno", "nombre",
+            "COD_COMP", "FHA_ULT_MO"
+        }
 
+            ' Creamos una nueva lista de columnas para agregar la columna combinada "NSS"
             Dim dtFiltrado As New DataTable
 
             For Each col As DataColumn In dtPersonal.Columns
-                If Not columnasOmitir.Contains(col.ColumnName) Then
+                If Not columnasOmitir.Contains(col.ColumnName) AndAlso col.ColumnName <> "IMSS" AndAlso col.ColumnName <> "dig_ver" Then
                     dtFiltrado.Columns.Add(col.ColumnName, col.DataType)
                 End If
             Next
 
+            ' Agregar la nueva columna "NSS"
+            dtFiltrado.Columns.Add("NSS", GetType(String))
+            dtFiltrado.Columns("NSS").SetOrdinal(7)
+
+            ' Copiar los datos de las filas
             For Each row As DataRow In dtPersonal.Rows
                 Dim newRow As DataRow = dtFiltrado.NewRow()
 
                 For Each col As DataColumn In dtFiltrado.Columns
-                    newRow(col.ColumnName) = row(col.ColumnName)
+                    If col.ColumnName = "NSS" Then
+                        ' Combinar las columnas "IMSS" y "dig_ver"
+                        Dim imssValue As String = If(row("IMSS") IsNot DBNull.Value, row("IMSS").ToString(), String.Empty)
+                        Dim digVerValue As String = If(row("dig_ver") IsNot DBNull.Value, row("dig_ver").ToString(), String.Empty)
+
+                        ' Concatenar IMSS y dig_ver para crear el NSS
+                        newRow("NSS") = imssValue & digVerValue
+                    Else
+                        newRow(col.ColumnName) = row(col.ColumnName)
+                    End If
                 Next
 
                 dtFiltrado.Rows.Add(newRow)
             Next
+
+            ' Procedimiento para generar el archivo Excel (sin cambios)
 
             Dim fbd As New System.Windows.Forms.FolderBrowserDialog
             If fbd.ShowDialog() = Windows.Forms.DialogResult.OK Then
@@ -976,9 +993,34 @@ Public Class frmPromediosVariables
                 For Each row As DataRow In rows
                     dtProcesar.ImportRow(row)
                 Next
+
                 For Each row As DataRow In dtProcesar.Rows
-                    Dim reloj = row("reloj")
-                    sqlExecute("update personal set pro_var = " & row("nvo_pro_var") & ",factor_int = " & row("nvo_fct_int") & ",integrado = " & row("integrado_imss") & " where reloj='" & reloj & "'")
+                    Dim reloj As String = row("reloj").ToString()
+
+                    ' Obtén los datos actuales
+                    Dim queryDatosActuales As String = "SELECT TOP 1 pro_var, reloj, factor_int, integrado FROM personal WHERE reloj = '" & reloj & "'"
+                    Dim datosActuales As DataTable = sqlExecute(queryDatosActuales, "PERSONAL")
+
+                    If datosActuales.Rows.Count > 0 Then
+                        Dim datosActual As DataRow = datosActuales.Rows(0)
+
+                        ' Actualiza los datos en la tabla "personal"
+                        Dim queryUpdate As String = "UPDATE personal SET pro_var = " & row("nvo_pro_var") &
+                                    ", factor_int = " & row("nvo_fct_int") &
+                                    ", integrado = " & row("integrado_imss") &
+                                    " WHERE reloj = '" & reloj & "'"
+                        sqlExecute(queryUpdate, "PERSONAL")
+
+                        ' Inserta en la bitácora los cambios realizados
+                        Dim cadena1 As String = "INSERT INTO bitacora_personal (reloj, campo, valorAnterior, valorNuevo, usuario, fecha, tipo_movimiento) VALUES ('" & reloj & "', 'PRO_VAR', '" & datosActual("pro_var") & "', '" & row("nvo_pro_var") & "', '" & Usuario & "', GETDATE(), 'C')"
+                        sqlExecute(cadena1)
+
+                        Dim cadena2 As String = "INSERT INTO bitacora_personal (reloj, campo, valorAnterior, valorNuevo, usuario, fecha, tipo_movimiento) VALUES ('" & reloj & "', 'FACTOR_INT', '" & datosActual("factor_int") & "', '" & row("nvo_fct_int") & "', '" & Usuario & "', GETDATE(), 'C')"
+                        sqlExecute(cadena2)
+
+                        Dim cadena3 As String = "INSERT INTO bitacora_personal (reloj, campo, valorAnterior, valorNuevo, usuario, fecha, tipo_movimiento) VALUES ('" & reloj & "', 'INTEGRADO', '" & datosActual("integrado") & "', '" & row("integrado_imss") & "', '" & Usuario & "', GETDATE(), 'C')"
+                        sqlExecute(cadena3)
+                    End If
                 Next
                 MessageBox.Show("Los cambios han sido aplicados correctamente.")
             Catch ex As Exception
