@@ -451,6 +451,12 @@
     <Compile Include="CAPACITACION\frmReporteadorCapacitacion.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="CAPACITACION\frmRepositorioCursos.Designer.vb">
+      <DependentUpon>frmRepositorioCursos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CAPACITACION\frmRepositorioCursos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="CAPACITACION\frmRepresentantes.Designer.vb">
       <DependentUpon>frmRepresentantes.vb</DependentUpon>
     </Compile>
@@ -2662,6 +2668,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CAPACITACION\frmReporteadorCapacitacion.resx">
       <DependentUpon>frmReporteadorCapacitacion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CAPACITACION\frmRepositorioCursos.resx">
+      <DependentUpon>frmRepositorioCursos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CAPACITACION\frmRepresentantes.resx">
       <DependentUpon>frmRepresentantes.vb</DependentUpon>

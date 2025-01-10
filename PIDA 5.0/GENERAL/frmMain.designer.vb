@@ -20,6 +20,32 @@ Partial Class frmMain
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
         Me.rbGeneral = New DevComponents.DotNetBar.RibbonControl()
+        Me.rpCapacitacion = New DevComponents.DotNetBar.RibbonPanel()
+        Me.RibbonBar11 = New DevComponents.DotNetBar.RibbonBar()
+        Me.btnReporteadorCapacitacion = New DevComponents.DotNetBar.ButtonItem()
+        Me.RibbonBar12 = New DevComponents.DotNetBar.RibbonBar()
+        Me.btnHabilidades = New DevComponents.DotNetBar.ButtonItem()
+        Me.RibbonBar10 = New DevComponents.DotNetBar.RibbonBar()
+        Me.btnCursosEmpleado = New DevComponents.DotNetBar.ButtonItem()
+        Me.btnCargaGrupal = New DevComponents.DotNetBar.ButtonItem()
+        Me.btnPlaneacion = New DevComponents.DotNetBar.ButtonItem()
+        Me.btnEmpleadosCursos = New DevComponents.DotNetBar.ButtonItem()
+        Me.RibbonBar9 = New DevComponents.DotNetBar.RibbonBar()
+        Me.btnCatalogoCapacitacion = New DevComponents.DotNetBar.ButtonItem()
+        Me.btnArea = New DevComponents.DotNetBar.ButtonItem()
+        Me.btnClasificaciones = New DevComponents.DotNetBar.ButtonItem()
+        Me.btnCursos = New DevComponents.DotNetBar.ButtonItem()
+        Me.btnOrdenCategorias = New DevComponents.DotNetBar.ButtonItem()
+        Me.btnInstitutos = New DevComponents.DotNetBar.ButtonItem()
+        Me.btnInstructores = New DevComponents.DotNetBar.ButtonItem()
+        Me.mnuRepresentantes = New DevComponents.DotNetBar.ButtonItem()
+        Me.btnModalidades = New DevComponents.DotNetBar.ButtonItem()
+        Me.btnObjetivos = New DevComponents.DotNetBar.ButtonItem()
+        Me.Tipo_curso = New DevComponents.DotNetBar.ButtonItem()
+        Me.Clase_curso = New DevComponents.DotNetBar.ButtonItem()
+        Me.mnuCuestionarios = New DevComponents.DotNetBar.ButtonItem()
+        Me.mnuEvaluaciones = New DevComponents.DotNetBar.ButtonItem()
+        Me.mnuRespuestas = New DevComponents.DotNetBar.ButtonItem()
         Me.rpPersonal = New DevComponents.DotNetBar.RibbonPanel()
         Me.rbRHReporteador = New DevComponents.DotNetBar.RibbonBar()
         Me.btnRHReportes = New DevComponents.DotNetBar.ButtonItem()
@@ -81,38 +107,6 @@ Partial Class frmMain
         Me.mnuMensajesCartas = New DevComponents.DotNetBar.ButtonItem()
         Me.mnuRemitentes = New DevComponents.DotNetBar.ButtonItem()
         Me.btnMasivoGafetes = New DevComponents.DotNetBar.ButtonItem()
-        Me.rpNomina = New DevComponents.DotNetBar.RibbonPanel()
-        Me.RibbonBar8 = New DevComponents.DotNetBar.RibbonBar()
-        Me.btnReporteadorNomina = New DevComponents.DotNetBar.ButtonItem()
-        Me.btnRecibos = New DevComponents.DotNetBar.ButtonItem()
-        Me.btnRecibosCFDI = New DevComponents.DotNetBar.ButtonItem()
-        Me.ButtonItem10 = New DevComponents.DotNetBar.ButtonItem()
-        Me.ButtonItem19 = New DevComponents.DotNetBar.ButtonItem()
-        Me.RibbonBar7 = New DevComponents.DotNetBar.RibbonBar()
-        Me.btnAjustes = New DevComponents.DotNetBar.ButtonItem()
-        Me.ItemContainer1 = New DevComponents.DotNetBar.ItemContainer()
-        Me.btnAjustesNomina = New DevComponents.DotNetBar.ButtonItem()
-        Me.btnAjustesMasivos = New DevComponents.DotNetBar.ButtonItem()
-        Me.bntExportarAjustes = New DevComponents.DotNetBar.ButtonItem()
-        Me.btnPrestamos = New DevComponents.DotNetBar.ButtonItem()
-        Me.btnExportarPR = New DevComponents.DotNetBar.ButtonItem()
-        Me.btnConsultaRetFAH = New DevComponents.DotNetBar.ButtonItem()
-        Me.RibbonBar5 = New DevComponents.DotNetBar.RibbonBar()
-        Me.btnNomina = New DevComponents.DotNetBar.ButtonItem()
-        Me.ButtonItem8 = New DevComponents.DotNetBar.ButtonItem()
-        Me.ButtonItem18 = New DevComponents.DotNetBar.ButtonItem()
-        Me.mnuPoliza = New DevComponents.DotNetBar.ButtonItem()
-        Me.btnPromediosVariable = New DevComponents.DotNetBar.ButtonItem()
-        Me.ButtonItem15 = New DevComponents.DotNetBar.ButtonItem()
-        Me.btnmnuFiniquito = New DevComponents.DotNetBar.ButtonItem()
-        Me.btnmnuCapturados = New DevComponents.DotNetBar.ButtonItem()
-        Me.btnProcesoNomina = New DevComponents.DotNetBar.ButtonItem()
-        Me.btnApiInfo = New DevComponents.DotNetBar.ButtonItem()
-        Me.btnTimbrado = New DevComponents.DotNetBar.ButtonItem()
-        Me.RibbonBar6 = New DevComponents.DotNetBar.RibbonBar()
-        Me.btnCatalogoNomina = New DevComponents.DotNetBar.ButtonItem()
-        Me.mnuNaturalezaNomina = New DevComponents.DotNetBar.ButtonItem()
-        Me.mnuConceptosNomina = New DevComponents.DotNetBar.ButtonItem()
         Me.rpTA = New DevComponents.DotNetBar.RibbonPanel()
         Me.rbReportesTA = New DevComponents.DotNetBar.RibbonBar()
         Me.btnReporteadorTA = New DevComponents.DotNetBar.ButtonItem()
@@ -148,6 +142,38 @@ Partial Class frmMain
         Me.btnTipoAusentismo = New DevComponents.DotNetBar.ButtonItem()
         Me.btnOrdenesTrabajo = New DevComponents.DotNetBar.ButtonItem()
         Me.ButtonItem25 = New DevComponents.DotNetBar.ButtonItem()
+        Me.rpNomina = New DevComponents.DotNetBar.RibbonPanel()
+        Me.RibbonBar8 = New DevComponents.DotNetBar.RibbonBar()
+        Me.btnReporteadorNomina = New DevComponents.DotNetBar.ButtonItem()
+        Me.btnRecibos = New DevComponents.DotNetBar.ButtonItem()
+        Me.btnRecibosCFDI = New DevComponents.DotNetBar.ButtonItem()
+        Me.ButtonItem10 = New DevComponents.DotNetBar.ButtonItem()
+        Me.ButtonItem19 = New DevComponents.DotNetBar.ButtonItem()
+        Me.RibbonBar7 = New DevComponents.DotNetBar.RibbonBar()
+        Me.btnAjustes = New DevComponents.DotNetBar.ButtonItem()
+        Me.ItemContainer1 = New DevComponents.DotNetBar.ItemContainer()
+        Me.btnAjustesNomina = New DevComponents.DotNetBar.ButtonItem()
+        Me.btnAjustesMasivos = New DevComponents.DotNetBar.ButtonItem()
+        Me.bntExportarAjustes = New DevComponents.DotNetBar.ButtonItem()
+        Me.btnPrestamos = New DevComponents.DotNetBar.ButtonItem()
+        Me.btnExportarPR = New DevComponents.DotNetBar.ButtonItem()
+        Me.btnConsultaRetFAH = New DevComponents.DotNetBar.ButtonItem()
+        Me.RibbonBar5 = New DevComponents.DotNetBar.RibbonBar()
+        Me.btnNomina = New DevComponents.DotNetBar.ButtonItem()
+        Me.ButtonItem8 = New DevComponents.DotNetBar.ButtonItem()
+        Me.ButtonItem18 = New DevComponents.DotNetBar.ButtonItem()
+        Me.mnuPoliza = New DevComponents.DotNetBar.ButtonItem()
+        Me.btnPromediosVariable = New DevComponents.DotNetBar.ButtonItem()
+        Me.ButtonItem15 = New DevComponents.DotNetBar.ButtonItem()
+        Me.btnmnuFiniquito = New DevComponents.DotNetBar.ButtonItem()
+        Me.btnmnuCapturados = New DevComponents.DotNetBar.ButtonItem()
+        Me.btnProcesoNomina = New DevComponents.DotNetBar.ButtonItem()
+        Me.btnApiInfo = New DevComponents.DotNetBar.ButtonItem()
+        Me.btnTimbrado = New DevComponents.DotNetBar.ButtonItem()
+        Me.RibbonBar6 = New DevComponents.DotNetBar.RibbonBar()
+        Me.btnCatalogoNomina = New DevComponents.DotNetBar.ButtonItem()
+        Me.mnuNaturalezaNomina = New DevComponents.DotNetBar.ButtonItem()
+        Me.mnuConceptosNomina = New DevComponents.DotNetBar.ButtonItem()
         Me.rpSeguridad = New DevComponents.DotNetBar.RibbonPanel()
         Me.rbSegControl = New DevComponents.DotNetBar.RibbonBar()
         Me.btnEstilo = New DevComponents.DotNetBar.ButtonItem()
@@ -229,32 +255,6 @@ Partial Class frmMain
         Me.btnClasificacionHerramientas = New DevComponents.DotNetBar.ButtonItem()
         Me.btnHerramientas = New DevComponents.DotNetBar.ButtonItem()
         Me.btnUniformes = New DevComponents.DotNetBar.ButtonItem()
-        Me.rpCapacitacion = New DevComponents.DotNetBar.RibbonPanel()
-        Me.RibbonBar11 = New DevComponents.DotNetBar.RibbonBar()
-        Me.btnReporteadorCapacitacion = New DevComponents.DotNetBar.ButtonItem()
-        Me.RibbonBar12 = New DevComponents.DotNetBar.RibbonBar()
-        Me.btnHabilidades = New DevComponents.DotNetBar.ButtonItem()
-        Me.RibbonBar10 = New DevComponents.DotNetBar.RibbonBar()
-        Me.btnCursosEmpleado = New DevComponents.DotNetBar.ButtonItem()
-        Me.btnCargaGrupal = New DevComponents.DotNetBar.ButtonItem()
-        Me.btnPlaneacion = New DevComponents.DotNetBar.ButtonItem()
-        Me.btnEmpleadosCursos = New DevComponents.DotNetBar.ButtonItem()
-        Me.RibbonBar9 = New DevComponents.DotNetBar.RibbonBar()
-        Me.btnCatalogoCapacitacion = New DevComponents.DotNetBar.ButtonItem()
-        Me.btnArea = New DevComponents.DotNetBar.ButtonItem()
-        Me.btnClasificaciones = New DevComponents.DotNetBar.ButtonItem()
-        Me.btnCursos = New DevComponents.DotNetBar.ButtonItem()
-        Me.btnOrdenCategorias = New DevComponents.DotNetBar.ButtonItem()
-        Me.btnInstitutos = New DevComponents.DotNetBar.ButtonItem()
-        Me.btnInstructores = New DevComponents.DotNetBar.ButtonItem()
-        Me.mnuRepresentantes = New DevComponents.DotNetBar.ButtonItem()
-        Me.btnModalidades = New DevComponents.DotNetBar.ButtonItem()
-        Me.btnObjetivos = New DevComponents.DotNetBar.ButtonItem()
-        Me.Tipo_curso = New DevComponents.DotNetBar.ButtonItem()
-        Me.Clase_curso = New DevComponents.DotNetBar.ButtonItem()
-        Me.mnuCuestionarios = New DevComponents.DotNetBar.ButtonItem()
-        Me.mnuEvaluaciones = New DevComponents.DotNetBar.ButtonItem()
-        Me.mnuRespuestas = New DevComponents.DotNetBar.ButtonItem()
         Me.RibbonPanel3 = New DevComponents.DotNetBar.RibbonPanel()
         Me.rbAdmKiosco = New DevComponents.DotNetBar.RibbonBar()
         Me.btUsuariosAdmKiosco = New DevComponents.DotNetBar.ButtonItem()
@@ -332,17 +332,18 @@ Partial Class frmMain
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ButtonItem32 = New DevComponents.DotNetBar.ButtonItem()
         Me.ButtonItem34 = New DevComponents.DotNetBar.ButtonItem()
+        Me.btnRepDocCursos = New DevComponents.DotNetBar.ButtonItem()
         Me.rbGeneral.SuspendLayout()
+        Me.rpCapacitacion.SuspendLayout()
         Me.rpPersonal.SuspendLayout()
-        Me.rpNomina.SuspendLayout()
         Me.rpTA.SuspendLayout()
+        Me.rpNomina.SuspendLayout()
         Me.rpSeguridad.SuspendLayout()
         Me.RibbonPanel5.SuspendLayout()
         Me.RibbonPanel4.SuspendLayout()
         Me.RibbonPanel2.SuspendLayout()
         Me.RibbonPanel1.SuspendLayout()
         Me.rpHerramientas.SuspendLayout()
-        Me.rpCapacitacion.SuspendLayout()
         Me.RibbonPanel3.SuspendLayout()
         Me.RibbonPanel6.SuspendLayout()
         Me.SuspendLayout()
@@ -355,6 +356,7 @@ Partial Class frmMain
         '
         '
         Me.rbGeneral.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.rbGeneral.Controls.Add(Me.rpCapacitacion)
         Me.rbGeneral.Controls.Add(Me.rpPersonal)
         Me.rbGeneral.Controls.Add(Me.rpTA)
         Me.rbGeneral.Controls.Add(Me.rpNomina)
@@ -364,7 +366,6 @@ Partial Class frmMain
         Me.rbGeneral.Controls.Add(Me.RibbonPanel2)
         Me.rbGeneral.Controls.Add(Me.RibbonPanel1)
         Me.rbGeneral.Controls.Add(Me.rpHerramientas)
-        Me.rbGeneral.Controls.Add(Me.rpCapacitacion)
         Me.rbGeneral.Controls.Add(Me.RibbonPanel3)
         Me.rbGeneral.Controls.Add(Me.RibbonPanel6)
         Me.rbGeneral.Dock = System.Windows.Forms.DockStyle.Top
@@ -396,6 +397,343 @@ Partial Class frmMain
         Me.rbGeneral.TabGroupHeight = 14
         Me.rbGeneral.TabIndex = 1
         '
+        'rpCapacitacion
+        '
+        Me.rpCapacitacion.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.rpCapacitacion.Controls.Add(Me.RibbonBar11)
+        Me.rpCapacitacion.Controls.Add(Me.RibbonBar12)
+        Me.rpCapacitacion.Controls.Add(Me.RibbonBar10)
+        Me.rpCapacitacion.Controls.Add(Me.RibbonBar9)
+        Me.rpCapacitacion.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.rpCapacitacion.Location = New System.Drawing.Point(0, 25)
+        Me.rpCapacitacion.Name = "rpCapacitacion"
+        Me.rpCapacitacion.Padding = New System.Windows.Forms.Padding(3, 0, 3, 3)
+        Me.rpCapacitacion.Size = New System.Drawing.Size(1539, 94)
+        '
+        '
+        '
+        Me.rpCapacitacion.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.rpCapacitacion.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.rpCapacitacion.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.rpCapacitacion.TabIndex = 7
+        Me.rpCapacitacion.Tag = "Capacitación"
+        '
+        'RibbonBar11
+        '
+        Me.RibbonBar11.AutoOverflowEnabled = False
+        Me.RibbonBar11.AutoSizeItems = False
+        '
+        '
+        '
+        Me.RibbonBar11.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.RibbonBar11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.RibbonBar11.ContainerControlProcessDialogKey = True
+        Me.RibbonBar11.Dock = System.Windows.Forms.DockStyle.Left
+        Me.RibbonBar11.DragDropSupport = True
+        Me.RibbonBar11.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btnReporteadorCapacitacion})
+        Me.RibbonBar11.LicenseKey = "F962CEC7-CD8F-4911-A9E9-CAB39962FC1F"
+        Me.RibbonBar11.Location = New System.Drawing.Point(663, 0)
+        Me.RibbonBar11.Name = "RibbonBar11"
+        Me.RibbonBar11.Size = New System.Drawing.Size(98, 91)
+        Me.RibbonBar11.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.RibbonBar11.TabIndex = 7
+        Me.RibbonBar11.Text = "Reportes"
+        '
+        '
+        '
+        Me.RibbonBar11.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.RibbonBar11.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.RibbonBar11.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle
+        '
+        'btnReporteadorCapacitacion
+        '
+        Me.btnReporteadorCapacitacion.AutoExpandOnClick = True
+        Me.btnReporteadorCapacitacion.FixedSize = New System.Drawing.Size(90, 70)
+        Me.btnReporteadorCapacitacion.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnReporteadorCapacitacion.Image = Global.PIDA.My.Resources.Resources.Reporte32
+        Me.btnReporteadorCapacitacion.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
+        Me.btnReporteadorCapacitacion.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnReporteadorCapacitacion.Name = "btnReporteadorCapacitacion"
+        Me.btnReporteadorCapacitacion.SubItemsExpandWidth = 14
+        Me.btnReporteadorCapacitacion.Text = "Reporteador capacitación"
+        '
+        'RibbonBar12
+        '
+        Me.RibbonBar12.AutoOverflowEnabled = True
+        '
+        '
+        '
+        Me.RibbonBar12.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.RibbonBar12.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.RibbonBar12.ContainerControlProcessDialogKey = True
+        Me.RibbonBar12.Dock = System.Windows.Forms.DockStyle.Left
+        Me.RibbonBar12.DragDropSupport = True
+        Me.RibbonBar12.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btnHabilidades})
+        Me.RibbonBar12.LicenseKey = "F962CEC7-CD8F-4911-A9E9-CAB39962FC1F"
+        Me.RibbonBar12.Location = New System.Drawing.Point(558, 0)
+        Me.RibbonBar12.Name = "RibbonBar12"
+        Me.RibbonBar12.Size = New System.Drawing.Size(105, 91)
+        Me.RibbonBar12.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.RibbonBar12.TabIndex = 8
+        Me.RibbonBar12.Text = "Habilidades"
+        '
+        '
+        '
+        Me.RibbonBar12.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.RibbonBar12.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        'btnHabilidades
+        '
+        Me.btnHabilidades.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
+        Me.btnHabilidades.FixedSize = New System.Drawing.Size(90, 70)
+        Me.btnHabilidades.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnHabilidades.Image = Global.PIDA.My.Resources.Resources.Award32
+        Me.btnHabilidades.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
+        Me.btnHabilidades.ImagePaddingHorizontal = 20
+        Me.btnHabilidades.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnHabilidades.Name = "btnHabilidades"
+        Me.btnHabilidades.Text = "Certificaciones"
+        '
+        'RibbonBar10
+        '
+        Me.RibbonBar10.AutoOverflowEnabled = True
+        Me.RibbonBar10.AutoSizeItems = False
+        '
+        '
+        '
+        Me.RibbonBar10.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.RibbonBar10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.RibbonBar10.ContainerControlProcessDialogKey = True
+        Me.RibbonBar10.Dock = System.Windows.Forms.DockStyle.Left
+        Me.RibbonBar10.DragDropSupport = True
+        Me.RibbonBar10.ForeColor = System.Drawing.Color.Yellow
+        Me.RibbonBar10.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btnCursosEmpleado, Me.btnCargaGrupal, Me.btnPlaneacion, Me.btnEmpleadosCursos, Me.btnRepDocCursos})
+        Me.RibbonBar10.LicenseKey = "F962CEC7-CD8F-4911-A9E9-CAB39962FC1F"
+        Me.RibbonBar10.Location = New System.Drawing.Point(102, 0)
+        Me.RibbonBar10.Name = "RibbonBar10"
+        Me.RibbonBar10.ResizeItemsToFit = False
+        Me.RibbonBar10.ShowShortcutKeysInToolTips = True
+        Me.RibbonBar10.Size = New System.Drawing.Size(456, 91)
+        Me.RibbonBar10.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.RibbonBar10.TabIndex = 6
+        Me.RibbonBar10.Text = "Cursos"
+        '
+        '
+        '
+        Me.RibbonBar10.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.RibbonBar10.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.RibbonBar10.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle
+        '
+        'btnCursosEmpleado
+        '
+        Me.btnCursosEmpleado.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
+        Me.btnCursosEmpleado.FixedSize = New System.Drawing.Size(90, 70)
+        Me.btnCursosEmpleado.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnCursosEmpleado.Image = Global.PIDA.My.Resources.Resources.CursosEmpleado32
+        Me.btnCursosEmpleado.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
+        Me.btnCursosEmpleado.ImagePaddingHorizontal = 20
+        Me.btnCursosEmpleado.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnCursosEmpleado.Name = "btnCursosEmpleado"
+        Me.btnCursosEmpleado.Text = "Cursos por empleado"
+        '
+        'btnCargaGrupal
+        '
+        Me.btnCargaGrupal.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
+        Me.btnCargaGrupal.FixedSize = New System.Drawing.Size(90, 70)
+        Me.btnCargaGrupal.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnCargaGrupal.Image = Global.PIDA.My.Resources.Resources.Address_book32
+        Me.btnCargaGrupal.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
+        Me.btnCargaGrupal.ImagePaddingHorizontal = 20
+        Me.btnCargaGrupal.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnCargaGrupal.Name = "btnCargaGrupal"
+        Me.btnCargaGrupal.Text = "Capturar cursos por lista"
+        '
+        'btnPlaneacion
+        '
+        Me.btnPlaneacion.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
+        Me.btnPlaneacion.FixedSize = New System.Drawing.Size(90, 70)
+        Me.btnPlaneacion.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnPlaneacion.Image = Global.PIDA.My.Resources.Resources.Planeacion32
+        Me.btnPlaneacion.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
+        Me.btnPlaneacion.ImagePaddingHorizontal = 20
+        Me.btnPlaneacion.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnPlaneacion.Name = "btnPlaneacion"
+        Me.btnPlaneacion.Text = "Planeación" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
+        'btnEmpleadosCursos
+        '
+        Me.btnEmpleadosCursos.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
+        Me.btnEmpleadosCursos.FixedSize = New System.Drawing.Size(90, 70)
+        Me.btnEmpleadosCursos.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnEmpleadosCursos.Image = Global.PIDA.My.Resources.Resources.Multiforma1
+        Me.btnEmpleadosCursos.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
+        Me.btnEmpleadosCursos.ImagePaddingHorizontal = 20
+        Me.btnEmpleadosCursos.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnEmpleadosCursos.Name = "btnEmpleadosCursos"
+        Me.btnEmpleadosCursos.Text = "Empleados por curso"
+        '
+        'RibbonBar9
+        '
+        Me.RibbonBar9.AutoOverflowEnabled = True
+        Me.RibbonBar9.AutoSizeItems = False
+        '
+        '
+        '
+        Me.RibbonBar9.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.RibbonBar9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.RibbonBar9.ContainerControlProcessDialogKey = True
+        Me.RibbonBar9.Dock = System.Windows.Forms.DockStyle.Left
+        Me.RibbonBar9.DragDropSupport = True
+        Me.RibbonBar9.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btnCatalogoCapacitacion})
+        Me.RibbonBar9.LicenseKey = "F962CEC7-CD8F-4911-A9E9-CAB39962FC1F"
+        Me.RibbonBar9.Location = New System.Drawing.Point(3, 0)
+        Me.RibbonBar9.Name = "RibbonBar9"
+        Me.RibbonBar9.Size = New System.Drawing.Size(99, 91)
+        Me.RibbonBar9.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.RibbonBar9.TabIndex = 5
+        Me.RibbonBar9.Text = "Archivos de control"
+        '
+        '
+        '
+        Me.RibbonBar9.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.RibbonBar9.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.RibbonBar9.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle
+        '
+        'btnCatalogoCapacitacion
+        '
+        Me.btnCatalogoCapacitacion.AutoExpandOnClick = True
+        Me.btnCatalogoCapacitacion.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
+        Me.btnCatalogoCapacitacion.FixedSize = New System.Drawing.Size(90, 70)
+        Me.btnCatalogoCapacitacion.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnCatalogoCapacitacion.Image = Global.PIDA.My.Resources.Resources.Catalogo32
+        Me.btnCatalogoCapacitacion.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
+        Me.btnCatalogoCapacitacion.ImagePaddingHorizontal = 40
+        Me.btnCatalogoCapacitacion.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnCatalogoCapacitacion.Name = "btnCatalogoCapacitacion"
+        Me.btnCatalogoCapacitacion.OptionGroup = "C"
+        Me.btnCatalogoCapacitacion.SplitButton = True
+        Me.btnCatalogoCapacitacion.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btnArea, Me.btnClasificaciones, Me.btnCursos, Me.btnOrdenCategorias, Me.btnInstitutos, Me.btnInstructores, Me.mnuRepresentantes, Me.btnModalidades, Me.btnObjetivos, Me.Tipo_curso, Me.Clase_curso, Me.mnuCuestionarios, Me.mnuEvaluaciones, Me.mnuRespuestas})
+        Me.btnCatalogoCapacitacion.SubItemsExpandWidth = 14
+        Me.btnCatalogoCapacitacion.Text = "Catálogo"
+        '
+        'btnArea
+        '
+        Me.btnArea.Image = Global.PIDA.My.Resources.Resources.Area22
+        Me.btnArea.Name = "btnArea"
+        Me.btnArea.Text = "Áreas temáticas"
+        '
+        'btnClasificaciones
+        '
+        Me.btnClasificaciones.Image = Global.PIDA.My.Resources.Resources.Clasificacion24Cap
+        Me.btnClasificaciones.Name = "btnClasificaciones"
+        Me.btnClasificaciones.Text = "Clasificaciones"
+        '
+        'btnCursos
+        '
+        Me.btnCursos.Image = Global.PIDA.My.Resources.Resources.Courses24
+        Me.btnCursos.Name = "btnCursos"
+        Me.btnCursos.Text = "Cursos"
+        '
+        'btnOrdenCategorias
+        '
+        Me.btnOrdenCategorias.Image = Global.PIDA.My.Resources.Resources.Department24
+        Me.btnOrdenCategorias.Name = "btnOrdenCategorias"
+        Me.btnOrdenCategorias.Text = "Categorias cursos"
+        '
+        'btnInstitutos
+        '
+        Me.btnInstitutos.Image = Global.PIDA.My.Resources.Resources.Instituto24
+        Me.btnInstitutos.Name = "btnInstitutos"
+        Me.btnInstitutos.Text = "Institutos"
+        '
+        'btnInstructores
+        '
+        Me.btnInstructores.Image = Global.PIDA.My.Resources.Resources.Instructores24
+        Me.btnInstructores.Name = "btnInstructores"
+        Me.btnInstructores.Text = "Instructores"
+        '
+        'mnuRepresentantes
+        '
+        Me.mnuRepresentantes.Image = Global.PIDA.My.Resources.Resources.representantes
+        Me.mnuRepresentantes.ImageFixedSize = New System.Drawing.Size(24, 24)
+        Me.mnuRepresentantes.Name = "mnuRepresentantes"
+        Me.mnuRepresentantes.Text = "Representantes"
+        '
+        'btnModalidades
+        '
+        Me.btnModalidades.Image = Global.PIDA.My.Resources.Resources.Highlightmarker_green24
+        Me.btnModalidades.Name = "btnModalidades"
+        Me.btnModalidades.Text = "Modalidades"
+        '
+        'btnObjetivos
+        '
+        Me.btnObjetivos.Image = Global.PIDA.My.Resources.Resources.Objective24
+        Me.btnObjetivos.Name = "btnObjetivos"
+        Me.btnObjetivos.Text = "Objetivos"
+        '
+        'Tipo_curso
+        '
+        Me.Tipo_curso.Image = Global.PIDA.My.Resources.Resources.multiforma2
+        Me.Tipo_curso.Name = "Tipo_curso"
+        Me.Tipo_curso.Text = "Tipo"
+        '
+        'Clase_curso
+        '
+        Me.Clase_curso.Image = Global.PIDA.My.Resources.Resources.Comparativo22
+        Me.Clase_curso.Name = "Clase_curso"
+        Me.Clase_curso.NotificationMarkPosition = DevComponents.DotNetBar.eNotificationMarkPosition.BottomLeft
+        Me.Clase_curso.PersonalizedMenus = DevComponents.DotNetBar.ePersonalizedMenus.DisplayOnHover
+        Me.Clase_curso.Text = "Clase"
+        '
+        'mnuCuestionarios
+        '
+        Me.mnuCuestionarios.BeginGroup = True
+        Me.mnuCuestionarios.Image = Global.PIDA.My.Resources.Resources.surveys24
+        Me.mnuCuestionarios.Name = "mnuCuestionarios"
+        Me.mnuCuestionarios.Text = "Cuestionarios"
+        '
+        'mnuEvaluaciones
+        '
+        Me.mnuEvaluaciones.Image = Global.PIDA.My.Resources.Resources.tests24
+        Me.mnuEvaluaciones.Name = "mnuEvaluaciones"
+        Me.mnuEvaluaciones.Text = "Evaluaciones"
+        '
+        'mnuRespuestas
+        '
+        Me.mnuRespuestas.Image = Global.PIDA.My.Resources.Resources.Question24
+        Me.mnuRespuestas.Name = "mnuRespuestas"
+        Me.mnuRespuestas.Text = "Tipo de respuestas"
+        '
         'rpPersonal
         '
         Me.rpPersonal.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -421,6 +759,7 @@ Partial Class frmMain
         Me.rpPersonal.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.rpPersonal.TabIndex = 4
         Me.rpPersonal.Tag = "Recursos humanos"
+        Me.rpPersonal.Visible = False
         '
         'rbRHReporteador
         '
@@ -1005,486 +1344,6 @@ Partial Class frmMain
         Me.btnMasivoGafetes.Name = "btnMasivoGafetes"
         Me.btnMasivoGafetes.Text = "Masivo gafetes"
         '
-        'rpNomina
-        '
-        Me.rpNomina.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.rpNomina.Controls.Add(Me.RibbonBar8)
-        Me.rpNomina.Controls.Add(Me.RibbonBar7)
-        Me.rpNomina.Controls.Add(Me.RibbonBar5)
-        Me.rpNomina.Controls.Add(Me.RibbonBar6)
-        Me.rpNomina.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.rpNomina.Location = New System.Drawing.Point(0, 25)
-        Me.rpNomina.Name = "rpNomina"
-        Me.rpNomina.Padding = New System.Windows.Forms.Padding(3, 0, 3, 3)
-        Me.rpNomina.Size = New System.Drawing.Size(1539, 95)
-        '
-        '
-        '
-        Me.rpNomina.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.rpNomina.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.rpNomina.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.rpNomina.TabIndex = 5
-        Me.rpNomina.Tag = "Nómina"
-        Me.rpNomina.Visible = False
-        '
-        'RibbonBar8
-        '
-        Me.RibbonBar8.AutoOverflowEnabled = False
-        Me.RibbonBar8.AutoSizeItems = False
-        '
-        '
-        '
-        Me.RibbonBar8.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.RibbonBar8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.RibbonBar8.ContainerControlProcessDialogKey = True
-        Me.RibbonBar8.Dock = System.Windows.Forms.DockStyle.Left
-        Me.RibbonBar8.DragDropSupport = True
-        Me.RibbonBar8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.RibbonBar8.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btnReporteadorNomina, Me.btnRecibos, Me.btnRecibosCFDI, Me.ButtonItem10, Me.ButtonItem19})
-        Me.RibbonBar8.LicenseKey = "F962CEC7-CD8F-4911-A9E9-CAB39962FC1F"
-        Me.RibbonBar8.Location = New System.Drawing.Point(1133, 0)
-        Me.RibbonBar8.Name = "RibbonBar8"
-        Me.RibbonBar8.Size = New System.Drawing.Size(463, 92)
-        Me.RibbonBar8.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.RibbonBar8.TabIndex = 8
-        Me.RibbonBar8.Text = "Reportes"
-        '
-        '
-        '
-        Me.RibbonBar8.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.RibbonBar8.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.RibbonBar8.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle
-        '
-        'btnReporteadorNomina
-        '
-        Me.btnReporteadorNomina.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
-        Me.btnReporteadorNomina.FixedSize = New System.Drawing.Size(90, 70)
-        Me.btnReporteadorNomina.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnReporteadorNomina.Image = Global.PIDA.My.Resources.Resources.imprime_
-        Me.btnReporteadorNomina.ImageFixedSize = New System.Drawing.Size(32, 32)
-        Me.btnReporteadorNomina.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
-        Me.btnReporteadorNomina.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btnReporteadorNomina.Name = "btnReporteadorNomina"
-        Me.btnReporteadorNomina.Text = "Reporteador nómina"
-        '
-        'btnRecibos
-        '
-        Me.btnRecibos.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
-        Me.btnRecibos.FixedSize = New System.Drawing.Size(90, 70)
-        Me.btnRecibos.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnRecibos.Image = Global.PIDA.My.Resources.Resources.Printer32
-        Me.btnRecibos.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
-        Me.btnRecibos.ImagePaddingHorizontal = 20
-        Me.btnRecibos.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btnRecibos.Name = "btnRecibos"
-        Me.btnRecibos.Text = "Generar" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "recibos"
-        '
-        'btnRecibosCFDI
-        '
-        Me.btnRecibosCFDI.AutoExpandOnClick = True
-        Me.btnRecibosCFDI.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
-        Me.btnRecibosCFDI.FixedSize = New System.Drawing.Size(90, 70)
-        Me.btnRecibosCFDI.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnRecibosCFDI.Image = Global.PIDA.My.Resources.Resources.qr_code26
-        Me.btnRecibosCFDI.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
-        Me.btnRecibosCFDI.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btnRecibosCFDI.Name = "btnRecibosCFDI"
-        Me.btnRecibosCFDI.SubItemsExpandWidth = 14
-        Me.btnRecibosCFDI.Text = "Recibos CFDI"
-        '
-        'ButtonItem10
-        '
-        Me.ButtonItem10.AutoExpandOnClick = True
-        Me.ButtonItem10.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
-        Me.ButtonItem10.FixedSize = New System.Drawing.Size(90, 70)
-        Me.ButtonItem10.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.ButtonItem10.Image = Global.PIDA.My.Resources.Resources.condensado_
-        Me.ButtonItem10.ImageFixedSize = New System.Drawing.Size(32, 32)
-        Me.ButtonItem10.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
-        Me.ButtonItem10.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.ButtonItem10.Name = "ButtonItem10"
-        Me.ButtonItem10.SubItemsExpandWidth = 14
-        Me.ButtonItem10.Text = "Condensado de nómina"
-        '
-        'ButtonItem19
-        '
-        Me.ButtonItem19.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
-        Me.ButtonItem19.FixedSize = New System.Drawing.Size(90, 70)
-        Me.ButtonItem19.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.ButtonItem19.Image = Global.PIDA.My.Resources.Resources.fini_64
-        Me.ButtonItem19.ImageFixedSize = New System.Drawing.Size(50, 50)
-        Me.ButtonItem19.ImagePaddingHorizontal = 20
-        Me.ButtonItem19.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.ButtonItem19.Name = "ButtonItem19"
-        Me.ButtonItem19.Text = "Finiquitos"
-        '
-        'RibbonBar7
-        '
-        Me.RibbonBar7.AutoOverflowEnabled = True
-        '
-        '
-        '
-        Me.RibbonBar7.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.RibbonBar7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.RibbonBar7.ContainerControlProcessDialogKey = True
-        Me.RibbonBar7.Dock = System.Windows.Forms.DockStyle.Left
-        Me.RibbonBar7.DragDropSupport = True
-        Me.RibbonBar7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.RibbonBar7.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btnAjustes, Me.btnPrestamos, Me.btnExportarPR, Me.btnConsultaRetFAH})
-        Me.RibbonBar7.LicenseKey = "F962CEC7-CD8F-4911-A9E9-CAB39962FC1F"
-        Me.RibbonBar7.Location = New System.Drawing.Point(855, 0)
-        Me.RibbonBar7.Name = "RibbonBar7"
-        Me.RibbonBar7.Size = New System.Drawing.Size(278, 92)
-        Me.RibbonBar7.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.RibbonBar7.TabIndex = 7
-        Me.RibbonBar7.Text = "Deducciones"
-        '
-        '
-        '
-        Me.RibbonBar7.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.RibbonBar7.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        'btnAjustes
-        '
-        Me.btnAjustes.AutoExpandOnClick = True
-        Me.btnAjustes.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
-        Me.btnAjustes.FixedSize = New System.Drawing.Size(90, 70)
-        Me.btnAjustes.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnAjustes.Image = Global.PIDA.My.Resources.Resources.capture_
-        Me.btnAjustes.ImageFixedSize = New System.Drawing.Size(32, 32)
-        Me.btnAjustes.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
-        Me.btnAjustes.ImagePaddingHorizontal = 20
-        Me.btnAjustes.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btnAjustes.Name = "btnAjustes"
-        Me.btnAjustes.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.ItemContainer1})
-        Me.btnAjustes.SubItemsExpandWidth = 20
-        Me.btnAjustes.Text = "Ajustes misceláneos"
-        '
-        'ItemContainer1
-        '
-        '
-        '
-        '
-        Me.ItemContainer1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.ItemContainer1.Name = "ItemContainer1"
-        Me.ItemContainer1.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btnAjustesNomina, Me.btnAjustesMasivos, Me.bntExportarAjustes})
-        '
-        '
-        '
-        Me.ItemContainer1.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        'btnAjustesNomina
-        '
-        Me.btnAjustesNomina.FixedSize = New System.Drawing.Size(90, 70)
-        Me.btnAjustesNomina.Image = Global.PIDA.My.Resources.Resources.consulta_
-        Me.btnAjustesNomina.ImageFixedSize = New System.Drawing.Size(32, 32)
-        Me.btnAjustesNomina.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
-        Me.btnAjustesNomina.ImagePaddingHorizontal = 20
-        Me.btnAjustesNomina.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btnAjustesNomina.Name = "btnAjustesNomina"
-        Me.btnAjustesNomina.Stretch = True
-        Me.btnAjustesNomina.Text = "Captura y" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "consulta"
-        '
-        'btnAjustesMasivos
-        '
-        Me.btnAjustesMasivos.FixedSize = New System.Drawing.Size(90, 70)
-        Me.btnAjustesMasivos.Image = Global.PIDA.My.Resources.Resources.massive_
-        Me.btnAjustesMasivos.ImageFixedSize = New System.Drawing.Size(32, 32)
-        Me.btnAjustesMasivos.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
-        Me.btnAjustesMasivos.ImagePaddingHorizontal = 20
-        Me.btnAjustesMasivos.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btnAjustesMasivos.Name = "btnAjustesMasivos"
-        Me.btnAjustesMasivos.Stretch = True
-        Me.btnAjustesMasivos.Text = "Ajustes" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "masivos"
-        '
-        'bntExportarAjustes
-        '
-        Me.bntExportarAjustes.FixedSize = New System.Drawing.Size(90, 70)
-        Me.bntExportarAjustes.Image = Global.PIDA.My.Resources.Resources.save_
-        Me.bntExportarAjustes.ImageFixedSize = New System.Drawing.Size(32, 32)
-        Me.bntExportarAjustes.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
-        Me.bntExportarAjustes.ImagePaddingHorizontal = 20
-        Me.bntExportarAjustes.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.bntExportarAjustes.Name = "bntExportarAjustes"
-        Me.bntExportarAjustes.Stretch = True
-        Me.bntExportarAjustes.Text = "Exportar"
-        '
-        'btnPrestamos
-        '
-        Me.btnPrestamos.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
-        Me.btnPrestamos.FixedSize = New System.Drawing.Size(90, 70)
-        Me.btnPrestamos.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnPrestamos.Image = Global.PIDA.My.Resources.Resources.mtroded_
-        Me.btnPrestamos.ImageFixedSize = New System.Drawing.Size(32, 32)
-        Me.btnPrestamos.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
-        Me.btnPrestamos.ImagePaddingHorizontal = 20
-        Me.btnPrestamos.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btnPrestamos.Name = "btnPrestamos"
-        Me.btnPrestamos.Text = "Maestro de deducciones"
-        '
-        'btnExportarPR
-        '
-        Me.btnExportarPR.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
-        Me.btnExportarPR.FixedSize = New System.Drawing.Size(90, 70)
-        Me.btnExportarPR.ForeColor = System.Drawing.Color.Black
-        Me.btnExportarPR.Image = CType(resources.GetObject("btnExportarPR.Image"), System.Drawing.Image)
-        Me.btnExportarPR.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
-        Me.btnExportarPR.ImagePaddingHorizontal = 20
-        Me.btnExportarPR.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btnExportarPR.Name = "btnExportarPR"
-        Me.btnExportarPR.Text = "Exportación de descuentos"
-        '
-        'btnConsultaRetFAH
-        '
-        Me.btnConsultaRetFAH.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
-        Me.btnConsultaRetFAH.FixedSize = New System.Drawing.Size(90, 70)
-        Me.btnConsultaRetFAH.ForeColor = System.Drawing.Color.Black
-        Me.btnConsultaRetFAH.Image = Global.PIDA.My.Resources.Resources.ModSalTemp32
-        Me.btnConsultaRetFAH.ImagePaddingHorizontal = 20
-        Me.btnConsultaRetFAH.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btnConsultaRetFAH.Name = "btnConsultaRetFAH"
-        Me.btnConsultaRetFAH.SubItemsExpandWidth = 14
-        Me.btnConsultaRetFAH.Text = "Consulta de" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "retiros FAH"
-        '
-        'RibbonBar5
-        '
-        Me.RibbonBar5.AutoOverflowEnabled = True
-        Me.RibbonBar5.AutoSizeItems = False
-        '
-        '
-        '
-        Me.RibbonBar5.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.RibbonBar5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.RibbonBar5.ContainerControlProcessDialogKey = True
-        Me.RibbonBar5.Dock = System.Windows.Forms.DockStyle.Left
-        Me.RibbonBar5.DragDropSupport = True
-        Me.RibbonBar5.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btnNomina, Me.ButtonItem8, Me.ButtonItem18, Me.mnuPoliza, Me.btnPromediosVariable, Me.ButtonItem15, Me.btnProcesoNomina, Me.btnApiInfo, Me.btnTimbrado})
-        Me.RibbonBar5.LicenseKey = "F962CEC7-CD8F-4911-A9E9-CAB39962FC1F"
-        Me.RibbonBar5.Location = New System.Drawing.Point(100, 0)
-        Me.RibbonBar5.Name = "RibbonBar5"
-        Me.RibbonBar5.ResizeItemsToFit = False
-        Me.RibbonBar5.ShowShortcutKeysInToolTips = True
-        Me.RibbonBar5.Size = New System.Drawing.Size(755, 92)
-        Me.RibbonBar5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.RibbonBar5.TabIndex = 5
-        Me.RibbonBar5.Text = "Procesos"
-        '
-        '
-        '
-        Me.RibbonBar5.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.RibbonBar5.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.RibbonBar5.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle
-        '
-        'btnNomina
-        '
-        Me.btnNomina.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
-        Me.btnNomina.FixedSize = New System.Drawing.Size(90, 70)
-        Me.btnNomina.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnNomina.Image = Global.PIDA.My.Resources.Resources.Nomina32
-        Me.btnNomina.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
-        Me.btnNomina.ImagePaddingHorizontal = 20
-        Me.btnNomina.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btnNomina.Name = "btnNomina"
-        Me.btnNomina.Text = "Consulta de nómina"
-        '
-        'ButtonItem8
-        '
-        Me.ButtonItem8.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
-        Me.ButtonItem8.FixedSize = New System.Drawing.Size(90, 70)
-        Me.ButtonItem8.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.ButtonItem8.Image = Global.PIDA.My.Resources.Resources.ActualizaNomina32
-        Me.ButtonItem8.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
-        Me.ButtonItem8.ImagePaddingHorizontal = 20
-        Me.ButtonItem8.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.ButtonItem8.Name = "ButtonItem8"
-        Me.ButtonItem8.Text = "Importación de datos"
-        '
-        'ButtonItem18
-        '
-        Me.ButtonItem18.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
-        Me.ButtonItem18.FixedSize = New System.Drawing.Size(90, 70)
-        Me.ButtonItem18.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.ButtonItem18.Image = Global.PIDA.My.Resources.Resources.Comparativo32
-        Me.ButtonItem18.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
-        Me.ButtonItem18.ImagePaddingHorizontal = 20
-        Me.ButtonItem18.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.ButtonItem18.Name = "ButtonItem18"
-        Me.ButtonItem18.Text = "Comparativo" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "de nóminas"
-        '
-        'mnuPoliza
-        '
-        Me.mnuPoliza.BeginGroup = True
-        Me.mnuPoliza.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
-        Me.mnuPoliza.FixedSize = New System.Drawing.Size(90, 70)
-        Me.mnuPoliza.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.mnuPoliza.Image = Global.PIDA.My.Resources.Resources.poliza_
-        Me.mnuPoliza.ImageFixedSize = New System.Drawing.Size(32, 32)
-        Me.mnuPoliza.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
-        Me.mnuPoliza.ImagePaddingHorizontal = 20
-        Me.mnuPoliza.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.mnuPoliza.Name = "mnuPoliza"
-        Me.mnuPoliza.Text = "Pólizas"
-        '
-        'btnPromediosVariable
-        '
-        Me.btnPromediosVariable.FixedSize = New System.Drawing.Size(90, 70)
-        Me.btnPromediosVariable.ForeColor = System.Drawing.Color.Black
-        Me.btnPromediosVariable.Image = Global.PIDA.My.Resources.Resources._1469760469_kmenuedit
-        Me.btnPromediosVariable.ImageFixedSize = New System.Drawing.Size(32, 32)
-        Me.btnPromediosVariable.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
-        Me.btnPromediosVariable.ImagePaddingHorizontal = 20
-        Me.btnPromediosVariable.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btnPromediosVariable.Name = "btnPromediosVariable"
-        Me.btnPromediosVariable.Text = "Promedios Variables"
-        '
-        'ButtonItem15
-        '
-        Me.ButtonItem15.FixedSize = New System.Drawing.Size(90, 70)
-        Me.ButtonItem15.ForeColor = System.Drawing.Color.Black
-        Me.ButtonItem15.Image = Global.PIDA.My.Resources.Resources.CalcFiniquito32
-        Me.ButtonItem15.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
-        Me.ButtonItem15.ImagePaddingHorizontal = 20
-        Me.ButtonItem15.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.ButtonItem15.Name = "ButtonItem15"
-        Me.ButtonItem15.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btnmnuFiniquito, Me.btnmnuCapturados})
-        Me.ButtonItem15.Text = "Calculo de Finiquito"
-        '
-        'btnmnuFiniquito
-        '
-        Me.btnmnuFiniquito.Name = "btnmnuFiniquito"
-        Me.btnmnuFiniquito.Text = "Finiquito"
-        '
-        'btnmnuCapturados
-        '
-        Me.btnmnuCapturados.Name = "btnmnuCapturados"
-        Me.btnmnuCapturados.Text = "Capturados"
-        '
-        'btnProcesoNomina
-        '
-        Me.btnProcesoNomina.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
-        Me.btnProcesoNomina.FixedSize = New System.Drawing.Size(90, 70)
-        Me.btnProcesoNomina.ForeColor = System.Drawing.Color.Black
-        Me.btnProcesoNomina.Image = Global.PIDA.My.Resources.Resources.process1_
-        Me.btnProcesoNomina.ImageFixedSize = New System.Drawing.Size(32, 32)
-        Me.btnProcesoNomina.ImagePaddingHorizontal = 20
-        Me.btnProcesoNomina.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btnProcesoNomina.Name = "btnProcesoNomina"
-        Me.btnProcesoNomina.SubItemsExpandWidth = 14
-        Me.btnProcesoNomina.Text = "Proceso de nómina"
-        '
-        'btnApiInfo
-        '
-        Me.btnApiInfo.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
-        Me.btnApiInfo.FixedSize = New System.Drawing.Size(90, 70)
-        Me.btnApiInfo.ForeColor = System.Drawing.Color.Black
-        Me.btnApiInfo.Image = Global.PIDA.My.Resources.Resources.api_icon
-        Me.btnApiInfo.ImageFixedSize = New System.Drawing.Size(32, 32)
-        Me.btnApiInfo.ImagePaddingHorizontal = 20
-        Me.btnApiInfo.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btnApiInfo.Name = "btnApiInfo"
-        Me.btnApiInfo.SubItemsExpandWidth = 14
-        Me.btnApiInfo.Text = "API Bonos"
-        '
-        'btnTimbrado
-        '
-        Me.btnTimbrado.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
-        Me.btnTimbrado.FixedSize = New System.Drawing.Size(90, 70)
-        Me.btnTimbrado.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnTimbrado.Image = Global.PIDA.My.Resources.Resources.qr_code_
-        Me.btnTimbrado.ImageFixedSize = New System.Drawing.Size(32, 32)
-        Me.btnTimbrado.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
-        Me.btnTimbrado.ImagePaddingHorizontal = 20
-        Me.btnTimbrado.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btnTimbrado.Name = "btnTimbrado"
-        Me.btnTimbrado.SubItemsExpandWidth = 14
-        Me.btnTimbrado.Text = "Timbrado"
-        '
-        'RibbonBar6
-        '
-        Me.RibbonBar6.AutoOverflowEnabled = True
-        Me.RibbonBar6.AutoSizeItems = False
-        '
-        '
-        '
-        Me.RibbonBar6.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.RibbonBar6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.RibbonBar6.ContainerControlProcessDialogKey = True
-        Me.RibbonBar6.Dock = System.Windows.Forms.DockStyle.Left
-        Me.RibbonBar6.DragDropSupport = True
-        Me.RibbonBar6.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btnCatalogoNomina})
-        Me.RibbonBar6.LicenseKey = "F962CEC7-CD8F-4911-A9E9-CAB39962FC1F"
-        Me.RibbonBar6.Location = New System.Drawing.Point(3, 0)
-        Me.RibbonBar6.Name = "RibbonBar6"
-        Me.RibbonBar6.Size = New System.Drawing.Size(97, 92)
-        Me.RibbonBar6.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.RibbonBar6.TabIndex = 4
-        Me.RibbonBar6.Text = "Archivos de control"
-        '
-        '
-        '
-        Me.RibbonBar6.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.RibbonBar6.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.RibbonBar6.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle
-        '
-        'btnCatalogoNomina
-        '
-        Me.btnCatalogoNomina.AutoExpandOnClick = True
-        Me.btnCatalogoNomina.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
-        Me.btnCatalogoNomina.FixedSize = New System.Drawing.Size(90, 70)
-        Me.btnCatalogoNomina.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnCatalogoNomina.Image = Global.PIDA.My.Resources.Resources.Catalogo32
-        Me.btnCatalogoNomina.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
-        Me.btnCatalogoNomina.ImagePaddingHorizontal = 40
-        Me.btnCatalogoNomina.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btnCatalogoNomina.Name = "btnCatalogoNomina"
-        Me.btnCatalogoNomina.OptionGroup = "C"
-        Me.btnCatalogoNomina.SplitButton = True
-        Me.btnCatalogoNomina.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.mnuNaturalezaNomina, Me.mnuConceptosNomina})
-        Me.btnCatalogoNomina.SubItemsExpandWidth = 14
-        Me.btnCatalogoNomina.Text = "Catálogo"
-        '
-        'mnuNaturalezaNomina
-        '
-        Me.mnuNaturalezaNomina.Image = Global.PIDA.My.Resources.Resources.Naturaleza24
-        Me.mnuNaturalezaNomina.Name = "mnuNaturalezaNomina"
-        Me.mnuNaturalezaNomina.Text = "Naturalezas"
-        '
-        'mnuConceptosNomina
-        '
-        Me.mnuConceptosNomina.Image = Global.PIDA.My.Resources.Resources.catalog24
-        Me.mnuConceptosNomina.Name = "mnuConceptosNomina"
-        Me.mnuConceptosNomina.Text = "Conceptos"
-        '
         'rpTA
         '
         Me.rpTA.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -1975,6 +1834,486 @@ Partial Class frmMain
         Me.ButtonItem25.Name = "ButtonItem25"
         Me.ButtonItem25.SubItemsExpandWidth = 14
         Me.ButtonItem25.Text = "Checador"
+        '
+        'rpNomina
+        '
+        Me.rpNomina.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.rpNomina.Controls.Add(Me.RibbonBar8)
+        Me.rpNomina.Controls.Add(Me.RibbonBar7)
+        Me.rpNomina.Controls.Add(Me.RibbonBar5)
+        Me.rpNomina.Controls.Add(Me.RibbonBar6)
+        Me.rpNomina.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.rpNomina.Location = New System.Drawing.Point(0, 25)
+        Me.rpNomina.Name = "rpNomina"
+        Me.rpNomina.Padding = New System.Windows.Forms.Padding(3, 0, 3, 3)
+        Me.rpNomina.Size = New System.Drawing.Size(1539, 95)
+        '
+        '
+        '
+        Me.rpNomina.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.rpNomina.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.rpNomina.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.rpNomina.TabIndex = 5
+        Me.rpNomina.Tag = "Nómina"
+        Me.rpNomina.Visible = False
+        '
+        'RibbonBar8
+        '
+        Me.RibbonBar8.AutoOverflowEnabled = False
+        Me.RibbonBar8.AutoSizeItems = False
+        '
+        '
+        '
+        Me.RibbonBar8.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.RibbonBar8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.RibbonBar8.ContainerControlProcessDialogKey = True
+        Me.RibbonBar8.Dock = System.Windows.Forms.DockStyle.Left
+        Me.RibbonBar8.DragDropSupport = True
+        Me.RibbonBar8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.RibbonBar8.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btnReporteadorNomina, Me.btnRecibos, Me.btnRecibosCFDI, Me.ButtonItem10, Me.ButtonItem19})
+        Me.RibbonBar8.LicenseKey = "F962CEC7-CD8F-4911-A9E9-CAB39962FC1F"
+        Me.RibbonBar8.Location = New System.Drawing.Point(1133, 0)
+        Me.RibbonBar8.Name = "RibbonBar8"
+        Me.RibbonBar8.Size = New System.Drawing.Size(463, 92)
+        Me.RibbonBar8.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.RibbonBar8.TabIndex = 8
+        Me.RibbonBar8.Text = "Reportes"
+        '
+        '
+        '
+        Me.RibbonBar8.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.RibbonBar8.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.RibbonBar8.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle
+        '
+        'btnReporteadorNomina
+        '
+        Me.btnReporteadorNomina.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
+        Me.btnReporteadorNomina.FixedSize = New System.Drawing.Size(90, 70)
+        Me.btnReporteadorNomina.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnReporteadorNomina.Image = Global.PIDA.My.Resources.Resources.imprime_
+        Me.btnReporteadorNomina.ImageFixedSize = New System.Drawing.Size(32, 32)
+        Me.btnReporteadorNomina.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
+        Me.btnReporteadorNomina.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnReporteadorNomina.Name = "btnReporteadorNomina"
+        Me.btnReporteadorNomina.Text = "Reporteador nómina"
+        '
+        'btnRecibos
+        '
+        Me.btnRecibos.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
+        Me.btnRecibos.FixedSize = New System.Drawing.Size(90, 70)
+        Me.btnRecibos.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnRecibos.Image = Global.PIDA.My.Resources.Resources.Printer32
+        Me.btnRecibos.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
+        Me.btnRecibos.ImagePaddingHorizontal = 20
+        Me.btnRecibos.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnRecibos.Name = "btnRecibos"
+        Me.btnRecibos.Text = "Generar" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "recibos"
+        '
+        'btnRecibosCFDI
+        '
+        Me.btnRecibosCFDI.AutoExpandOnClick = True
+        Me.btnRecibosCFDI.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
+        Me.btnRecibosCFDI.FixedSize = New System.Drawing.Size(90, 70)
+        Me.btnRecibosCFDI.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnRecibosCFDI.Image = Global.PIDA.My.Resources.Resources.qr_code26
+        Me.btnRecibosCFDI.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
+        Me.btnRecibosCFDI.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnRecibosCFDI.Name = "btnRecibosCFDI"
+        Me.btnRecibosCFDI.SubItemsExpandWidth = 14
+        Me.btnRecibosCFDI.Text = "Recibos CFDI"
+        '
+        'ButtonItem10
+        '
+        Me.ButtonItem10.AutoExpandOnClick = True
+        Me.ButtonItem10.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
+        Me.ButtonItem10.FixedSize = New System.Drawing.Size(90, 70)
+        Me.ButtonItem10.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.ButtonItem10.Image = Global.PIDA.My.Resources.Resources.condensado_
+        Me.ButtonItem10.ImageFixedSize = New System.Drawing.Size(32, 32)
+        Me.ButtonItem10.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
+        Me.ButtonItem10.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.ButtonItem10.Name = "ButtonItem10"
+        Me.ButtonItem10.SubItemsExpandWidth = 14
+        Me.ButtonItem10.Text = "Condensado de nómina"
+        '
+        'ButtonItem19
+        '
+        Me.ButtonItem19.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
+        Me.ButtonItem19.FixedSize = New System.Drawing.Size(90, 70)
+        Me.ButtonItem19.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.ButtonItem19.Image = Global.PIDA.My.Resources.Resources.fini_64
+        Me.ButtonItem19.ImageFixedSize = New System.Drawing.Size(50, 50)
+        Me.ButtonItem19.ImagePaddingHorizontal = 20
+        Me.ButtonItem19.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.ButtonItem19.Name = "ButtonItem19"
+        Me.ButtonItem19.Text = "Finiquitos"
+        '
+        'RibbonBar7
+        '
+        Me.RibbonBar7.AutoOverflowEnabled = True
+        '
+        '
+        '
+        Me.RibbonBar7.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.RibbonBar7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.RibbonBar7.ContainerControlProcessDialogKey = True
+        Me.RibbonBar7.Dock = System.Windows.Forms.DockStyle.Left
+        Me.RibbonBar7.DragDropSupport = True
+        Me.RibbonBar7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.RibbonBar7.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btnAjustes, Me.btnPrestamos, Me.btnExportarPR, Me.btnConsultaRetFAH})
+        Me.RibbonBar7.LicenseKey = "F962CEC7-CD8F-4911-A9E9-CAB39962FC1F"
+        Me.RibbonBar7.Location = New System.Drawing.Point(855, 0)
+        Me.RibbonBar7.Name = "RibbonBar7"
+        Me.RibbonBar7.Size = New System.Drawing.Size(278, 92)
+        Me.RibbonBar7.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.RibbonBar7.TabIndex = 7
+        Me.RibbonBar7.Text = "Deducciones"
+        '
+        '
+        '
+        Me.RibbonBar7.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.RibbonBar7.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        'btnAjustes
+        '
+        Me.btnAjustes.AutoExpandOnClick = True
+        Me.btnAjustes.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
+        Me.btnAjustes.FixedSize = New System.Drawing.Size(90, 70)
+        Me.btnAjustes.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnAjustes.Image = Global.PIDA.My.Resources.Resources.capture_
+        Me.btnAjustes.ImageFixedSize = New System.Drawing.Size(32, 32)
+        Me.btnAjustes.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
+        Me.btnAjustes.ImagePaddingHorizontal = 20
+        Me.btnAjustes.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnAjustes.Name = "btnAjustes"
+        Me.btnAjustes.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.ItemContainer1})
+        Me.btnAjustes.SubItemsExpandWidth = 20
+        Me.btnAjustes.Text = "Ajustes misceláneos"
+        '
+        'ItemContainer1
+        '
+        '
+        '
+        '
+        Me.ItemContainer1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.ItemContainer1.Name = "ItemContainer1"
+        Me.ItemContainer1.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btnAjustesNomina, Me.btnAjustesMasivos, Me.bntExportarAjustes})
+        '
+        '
+        '
+        Me.ItemContainer1.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        'btnAjustesNomina
+        '
+        Me.btnAjustesNomina.FixedSize = New System.Drawing.Size(90, 70)
+        Me.btnAjustesNomina.Image = Global.PIDA.My.Resources.Resources.consulta_
+        Me.btnAjustesNomina.ImageFixedSize = New System.Drawing.Size(32, 32)
+        Me.btnAjustesNomina.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
+        Me.btnAjustesNomina.ImagePaddingHorizontal = 20
+        Me.btnAjustesNomina.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnAjustesNomina.Name = "btnAjustesNomina"
+        Me.btnAjustesNomina.Stretch = True
+        Me.btnAjustesNomina.Text = "Captura y" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "consulta"
+        '
+        'btnAjustesMasivos
+        '
+        Me.btnAjustesMasivos.FixedSize = New System.Drawing.Size(90, 70)
+        Me.btnAjustesMasivos.Image = Global.PIDA.My.Resources.Resources.massive_
+        Me.btnAjustesMasivos.ImageFixedSize = New System.Drawing.Size(32, 32)
+        Me.btnAjustesMasivos.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
+        Me.btnAjustesMasivos.ImagePaddingHorizontal = 20
+        Me.btnAjustesMasivos.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnAjustesMasivos.Name = "btnAjustesMasivos"
+        Me.btnAjustesMasivos.Stretch = True
+        Me.btnAjustesMasivos.Text = "Ajustes" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "masivos"
+        '
+        'bntExportarAjustes
+        '
+        Me.bntExportarAjustes.FixedSize = New System.Drawing.Size(90, 70)
+        Me.bntExportarAjustes.Image = Global.PIDA.My.Resources.Resources.save_
+        Me.bntExportarAjustes.ImageFixedSize = New System.Drawing.Size(32, 32)
+        Me.bntExportarAjustes.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
+        Me.bntExportarAjustes.ImagePaddingHorizontal = 20
+        Me.bntExportarAjustes.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.bntExportarAjustes.Name = "bntExportarAjustes"
+        Me.bntExportarAjustes.Stretch = True
+        Me.bntExportarAjustes.Text = "Exportar"
+        '
+        'btnPrestamos
+        '
+        Me.btnPrestamos.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
+        Me.btnPrestamos.FixedSize = New System.Drawing.Size(90, 70)
+        Me.btnPrestamos.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnPrestamos.Image = Global.PIDA.My.Resources.Resources.mtroded_
+        Me.btnPrestamos.ImageFixedSize = New System.Drawing.Size(32, 32)
+        Me.btnPrestamos.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
+        Me.btnPrestamos.ImagePaddingHorizontal = 20
+        Me.btnPrestamos.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnPrestamos.Name = "btnPrestamos"
+        Me.btnPrestamos.Text = "Maestro de deducciones"
+        '
+        'btnExportarPR
+        '
+        Me.btnExportarPR.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
+        Me.btnExportarPR.FixedSize = New System.Drawing.Size(90, 70)
+        Me.btnExportarPR.ForeColor = System.Drawing.Color.Black
+        Me.btnExportarPR.Image = CType(resources.GetObject("btnExportarPR.Image"), System.Drawing.Image)
+        Me.btnExportarPR.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
+        Me.btnExportarPR.ImagePaddingHorizontal = 20
+        Me.btnExportarPR.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnExportarPR.Name = "btnExportarPR"
+        Me.btnExportarPR.Text = "Exportación de descuentos"
+        '
+        'btnConsultaRetFAH
+        '
+        Me.btnConsultaRetFAH.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
+        Me.btnConsultaRetFAH.FixedSize = New System.Drawing.Size(90, 70)
+        Me.btnConsultaRetFAH.ForeColor = System.Drawing.Color.Black
+        Me.btnConsultaRetFAH.Image = Global.PIDA.My.Resources.Resources.ModSalTemp32
+        Me.btnConsultaRetFAH.ImagePaddingHorizontal = 20
+        Me.btnConsultaRetFAH.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnConsultaRetFAH.Name = "btnConsultaRetFAH"
+        Me.btnConsultaRetFAH.SubItemsExpandWidth = 14
+        Me.btnConsultaRetFAH.Text = "Consulta de" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "retiros FAH"
+        '
+        'RibbonBar5
+        '
+        Me.RibbonBar5.AutoOverflowEnabled = True
+        Me.RibbonBar5.AutoSizeItems = False
+        '
+        '
+        '
+        Me.RibbonBar5.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.RibbonBar5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.RibbonBar5.ContainerControlProcessDialogKey = True
+        Me.RibbonBar5.Dock = System.Windows.Forms.DockStyle.Left
+        Me.RibbonBar5.DragDropSupport = True
+        Me.RibbonBar5.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btnNomina, Me.ButtonItem8, Me.ButtonItem18, Me.mnuPoliza, Me.btnPromediosVariable, Me.ButtonItem15, Me.btnProcesoNomina, Me.btnApiInfo, Me.btnTimbrado})
+        Me.RibbonBar5.LicenseKey = "F962CEC7-CD8F-4911-A9E9-CAB39962FC1F"
+        Me.RibbonBar5.Location = New System.Drawing.Point(100, 0)
+        Me.RibbonBar5.Name = "RibbonBar5"
+        Me.RibbonBar5.ResizeItemsToFit = False
+        Me.RibbonBar5.ShowShortcutKeysInToolTips = True
+        Me.RibbonBar5.Size = New System.Drawing.Size(755, 92)
+        Me.RibbonBar5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.RibbonBar5.TabIndex = 5
+        Me.RibbonBar5.Text = "Procesos"
+        '
+        '
+        '
+        Me.RibbonBar5.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.RibbonBar5.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.RibbonBar5.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle
+        '
+        'btnNomina
+        '
+        Me.btnNomina.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
+        Me.btnNomina.FixedSize = New System.Drawing.Size(90, 70)
+        Me.btnNomina.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnNomina.Image = Global.PIDA.My.Resources.Resources.Nomina32
+        Me.btnNomina.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
+        Me.btnNomina.ImagePaddingHorizontal = 20
+        Me.btnNomina.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnNomina.Name = "btnNomina"
+        Me.btnNomina.Text = "Consulta de nómina"
+        '
+        'ButtonItem8
+        '
+        Me.ButtonItem8.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
+        Me.ButtonItem8.FixedSize = New System.Drawing.Size(90, 70)
+        Me.ButtonItem8.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.ButtonItem8.Image = Global.PIDA.My.Resources.Resources.ActualizaNomina32
+        Me.ButtonItem8.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
+        Me.ButtonItem8.ImagePaddingHorizontal = 20
+        Me.ButtonItem8.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.ButtonItem8.Name = "ButtonItem8"
+        Me.ButtonItem8.Text = "Importación de datos"
+        '
+        'ButtonItem18
+        '
+        Me.ButtonItem18.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
+        Me.ButtonItem18.FixedSize = New System.Drawing.Size(90, 70)
+        Me.ButtonItem18.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.ButtonItem18.Image = Global.PIDA.My.Resources.Resources.Comparativo32
+        Me.ButtonItem18.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
+        Me.ButtonItem18.ImagePaddingHorizontal = 20
+        Me.ButtonItem18.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.ButtonItem18.Name = "ButtonItem18"
+        Me.ButtonItem18.Text = "Comparativo" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "de nóminas"
+        '
+        'mnuPoliza
+        '
+        Me.mnuPoliza.BeginGroup = True
+        Me.mnuPoliza.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
+        Me.mnuPoliza.FixedSize = New System.Drawing.Size(90, 70)
+        Me.mnuPoliza.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.mnuPoliza.Image = Global.PIDA.My.Resources.Resources.poliza_
+        Me.mnuPoliza.ImageFixedSize = New System.Drawing.Size(32, 32)
+        Me.mnuPoliza.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
+        Me.mnuPoliza.ImagePaddingHorizontal = 20
+        Me.mnuPoliza.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.mnuPoliza.Name = "mnuPoliza"
+        Me.mnuPoliza.Text = "Pólizas"
+        '
+        'btnPromediosVariable
+        '
+        Me.btnPromediosVariable.FixedSize = New System.Drawing.Size(90, 70)
+        Me.btnPromediosVariable.ForeColor = System.Drawing.Color.Black
+        Me.btnPromediosVariable.Image = Global.PIDA.My.Resources.Resources._1469760469_kmenuedit
+        Me.btnPromediosVariable.ImageFixedSize = New System.Drawing.Size(32, 32)
+        Me.btnPromediosVariable.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
+        Me.btnPromediosVariable.ImagePaddingHorizontal = 20
+        Me.btnPromediosVariable.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnPromediosVariable.Name = "btnPromediosVariable"
+        Me.btnPromediosVariable.Text = "Promedios Variables"
+        '
+        'ButtonItem15
+        '
+        Me.ButtonItem15.FixedSize = New System.Drawing.Size(90, 70)
+        Me.ButtonItem15.ForeColor = System.Drawing.Color.Black
+        Me.ButtonItem15.Image = Global.PIDA.My.Resources.Resources.CalcFiniquito32
+        Me.ButtonItem15.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
+        Me.ButtonItem15.ImagePaddingHorizontal = 20
+        Me.ButtonItem15.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.ButtonItem15.Name = "ButtonItem15"
+        Me.ButtonItem15.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btnmnuFiniquito, Me.btnmnuCapturados})
+        Me.ButtonItem15.Text = "Calculo de Finiquito"
+        '
+        'btnmnuFiniquito
+        '
+        Me.btnmnuFiniquito.Name = "btnmnuFiniquito"
+        Me.btnmnuFiniquito.Text = "Finiquito"
+        '
+        'btnmnuCapturados
+        '
+        Me.btnmnuCapturados.Name = "btnmnuCapturados"
+        Me.btnmnuCapturados.Text = "Capturados"
+        '
+        'btnProcesoNomina
+        '
+        Me.btnProcesoNomina.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
+        Me.btnProcesoNomina.FixedSize = New System.Drawing.Size(90, 70)
+        Me.btnProcesoNomina.ForeColor = System.Drawing.Color.Black
+        Me.btnProcesoNomina.Image = Global.PIDA.My.Resources.Resources.process1_
+        Me.btnProcesoNomina.ImageFixedSize = New System.Drawing.Size(32, 32)
+        Me.btnProcesoNomina.ImagePaddingHorizontal = 20
+        Me.btnProcesoNomina.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnProcesoNomina.Name = "btnProcesoNomina"
+        Me.btnProcesoNomina.SubItemsExpandWidth = 14
+        Me.btnProcesoNomina.Text = "Proceso de nómina"
+        '
+        'btnApiInfo
+        '
+        Me.btnApiInfo.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
+        Me.btnApiInfo.FixedSize = New System.Drawing.Size(90, 70)
+        Me.btnApiInfo.ForeColor = System.Drawing.Color.Black
+        Me.btnApiInfo.Image = Global.PIDA.My.Resources.Resources.api_icon
+        Me.btnApiInfo.ImageFixedSize = New System.Drawing.Size(32, 32)
+        Me.btnApiInfo.ImagePaddingHorizontal = 20
+        Me.btnApiInfo.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnApiInfo.Name = "btnApiInfo"
+        Me.btnApiInfo.SubItemsExpandWidth = 14
+        Me.btnApiInfo.Text = "API Bonos"
+        '
+        'btnTimbrado
+        '
+        Me.btnTimbrado.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
+        Me.btnTimbrado.FixedSize = New System.Drawing.Size(90, 70)
+        Me.btnTimbrado.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnTimbrado.Image = Global.PIDA.My.Resources.Resources.qr_code_
+        Me.btnTimbrado.ImageFixedSize = New System.Drawing.Size(32, 32)
+        Me.btnTimbrado.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
+        Me.btnTimbrado.ImagePaddingHorizontal = 20
+        Me.btnTimbrado.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnTimbrado.Name = "btnTimbrado"
+        Me.btnTimbrado.SubItemsExpandWidth = 14
+        Me.btnTimbrado.Text = "Timbrado"
+        '
+        'RibbonBar6
+        '
+        Me.RibbonBar6.AutoOverflowEnabled = True
+        Me.RibbonBar6.AutoSizeItems = False
+        '
+        '
+        '
+        Me.RibbonBar6.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.RibbonBar6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.RibbonBar6.ContainerControlProcessDialogKey = True
+        Me.RibbonBar6.Dock = System.Windows.Forms.DockStyle.Left
+        Me.RibbonBar6.DragDropSupport = True
+        Me.RibbonBar6.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btnCatalogoNomina})
+        Me.RibbonBar6.LicenseKey = "F962CEC7-CD8F-4911-A9E9-CAB39962FC1F"
+        Me.RibbonBar6.Location = New System.Drawing.Point(3, 0)
+        Me.RibbonBar6.Name = "RibbonBar6"
+        Me.RibbonBar6.Size = New System.Drawing.Size(97, 92)
+        Me.RibbonBar6.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.RibbonBar6.TabIndex = 4
+        Me.RibbonBar6.Text = "Archivos de control"
+        '
+        '
+        '
+        Me.RibbonBar6.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.RibbonBar6.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.RibbonBar6.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle
+        '
+        'btnCatalogoNomina
+        '
+        Me.btnCatalogoNomina.AutoExpandOnClick = True
+        Me.btnCatalogoNomina.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
+        Me.btnCatalogoNomina.FixedSize = New System.Drawing.Size(90, 70)
+        Me.btnCatalogoNomina.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnCatalogoNomina.Image = Global.PIDA.My.Resources.Resources.Catalogo32
+        Me.btnCatalogoNomina.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
+        Me.btnCatalogoNomina.ImagePaddingHorizontal = 40
+        Me.btnCatalogoNomina.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnCatalogoNomina.Name = "btnCatalogoNomina"
+        Me.btnCatalogoNomina.OptionGroup = "C"
+        Me.btnCatalogoNomina.SplitButton = True
+        Me.btnCatalogoNomina.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.mnuNaturalezaNomina, Me.mnuConceptosNomina})
+        Me.btnCatalogoNomina.SubItemsExpandWidth = 14
+        Me.btnCatalogoNomina.Text = "Catálogo"
+        '
+        'mnuNaturalezaNomina
+        '
+        Me.mnuNaturalezaNomina.Image = Global.PIDA.My.Resources.Resources.Naturaleza24
+        Me.mnuNaturalezaNomina.Name = "mnuNaturalezaNomina"
+        Me.mnuNaturalezaNomina.Text = "Naturalezas"
+        '
+        'mnuConceptosNomina
+        '
+        Me.mnuConceptosNomina.Image = Global.PIDA.My.Resources.Resources.catalog24
+        Me.mnuConceptosNomina.Name = "mnuConceptosNomina"
+        Me.mnuConceptosNomina.Text = "Conceptos"
         '
         'rpSeguridad
         '
@@ -3268,344 +3607,6 @@ Partial Class frmMain
         Me.btnUniformes.Name = "btnUniformes"
         Me.btnUniformes.Text = "Uniformes"
         '
-        'rpCapacitacion
-        '
-        Me.rpCapacitacion.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.rpCapacitacion.Controls.Add(Me.RibbonBar11)
-        Me.rpCapacitacion.Controls.Add(Me.RibbonBar12)
-        Me.rpCapacitacion.Controls.Add(Me.RibbonBar10)
-        Me.rpCapacitacion.Controls.Add(Me.RibbonBar9)
-        Me.rpCapacitacion.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.rpCapacitacion.Location = New System.Drawing.Point(0, 25)
-        Me.rpCapacitacion.Name = "rpCapacitacion"
-        Me.rpCapacitacion.Padding = New System.Windows.Forms.Padding(3, 0, 3, 3)
-        Me.rpCapacitacion.Size = New System.Drawing.Size(1539, 95)
-        '
-        '
-        '
-        Me.rpCapacitacion.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.rpCapacitacion.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.rpCapacitacion.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.rpCapacitacion.TabIndex = 7
-        Me.rpCapacitacion.Tag = "Capacitación"
-        Me.rpCapacitacion.Visible = False
-        '
-        'RibbonBar11
-        '
-        Me.RibbonBar11.AutoOverflowEnabled = False
-        Me.RibbonBar11.AutoSizeItems = False
-        '
-        '
-        '
-        Me.RibbonBar11.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.RibbonBar11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.RibbonBar11.ContainerControlProcessDialogKey = True
-        Me.RibbonBar11.Dock = System.Windows.Forms.DockStyle.Left
-        Me.RibbonBar11.DragDropSupport = True
-        Me.RibbonBar11.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btnReporteadorCapacitacion})
-        Me.RibbonBar11.LicenseKey = "F962CEC7-CD8F-4911-A9E9-CAB39962FC1F"
-        Me.RibbonBar11.Location = New System.Drawing.Point(579, 0)
-        Me.RibbonBar11.Name = "RibbonBar11"
-        Me.RibbonBar11.Size = New System.Drawing.Size(98, 92)
-        Me.RibbonBar11.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.RibbonBar11.TabIndex = 7
-        Me.RibbonBar11.Text = "Reportes"
-        '
-        '
-        '
-        Me.RibbonBar11.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.RibbonBar11.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.RibbonBar11.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle
-        '
-        'btnReporteadorCapacitacion
-        '
-        Me.btnReporteadorCapacitacion.AutoExpandOnClick = True
-        Me.btnReporteadorCapacitacion.FixedSize = New System.Drawing.Size(90, 70)
-        Me.btnReporteadorCapacitacion.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnReporteadorCapacitacion.Image = Global.PIDA.My.Resources.Resources.Reporte32
-        Me.btnReporteadorCapacitacion.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
-        Me.btnReporteadorCapacitacion.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btnReporteadorCapacitacion.Name = "btnReporteadorCapacitacion"
-        Me.btnReporteadorCapacitacion.SubItemsExpandWidth = 14
-        Me.btnReporteadorCapacitacion.Text = "Reporteador capacitación"
-        '
-        'RibbonBar12
-        '
-        Me.RibbonBar12.AutoOverflowEnabled = True
-        '
-        '
-        '
-        Me.RibbonBar12.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.RibbonBar12.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.RibbonBar12.ContainerControlProcessDialogKey = True
-        Me.RibbonBar12.Dock = System.Windows.Forms.DockStyle.Left
-        Me.RibbonBar12.DragDropSupport = True
-        Me.RibbonBar12.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btnHabilidades})
-        Me.RibbonBar12.LicenseKey = "F962CEC7-CD8F-4911-A9E9-CAB39962FC1F"
-        Me.RibbonBar12.Location = New System.Drawing.Point(474, 0)
-        Me.RibbonBar12.Name = "RibbonBar12"
-        Me.RibbonBar12.Size = New System.Drawing.Size(105, 92)
-        Me.RibbonBar12.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.RibbonBar12.TabIndex = 8
-        Me.RibbonBar12.Text = "Habilidades"
-        '
-        '
-        '
-        Me.RibbonBar12.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.RibbonBar12.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        'btnHabilidades
-        '
-        Me.btnHabilidades.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
-        Me.btnHabilidades.FixedSize = New System.Drawing.Size(90, 70)
-        Me.btnHabilidades.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnHabilidades.Image = Global.PIDA.My.Resources.Resources.Award32
-        Me.btnHabilidades.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
-        Me.btnHabilidades.ImagePaddingHorizontal = 20
-        Me.btnHabilidades.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btnHabilidades.Name = "btnHabilidades"
-        Me.btnHabilidades.Text = "Certificaciones"
-        '
-        'RibbonBar10
-        '
-        Me.RibbonBar10.AutoOverflowEnabled = True
-        Me.RibbonBar10.AutoSizeItems = False
-        '
-        '
-        '
-        Me.RibbonBar10.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.RibbonBar10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.RibbonBar10.ContainerControlProcessDialogKey = True
-        Me.RibbonBar10.Dock = System.Windows.Forms.DockStyle.Left
-        Me.RibbonBar10.DragDropSupport = True
-        Me.RibbonBar10.ForeColor = System.Drawing.Color.Yellow
-        Me.RibbonBar10.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btnCursosEmpleado, Me.btnCargaGrupal, Me.btnPlaneacion, Me.btnEmpleadosCursos})
-        Me.RibbonBar10.LicenseKey = "F962CEC7-CD8F-4911-A9E9-CAB39962FC1F"
-        Me.RibbonBar10.Location = New System.Drawing.Point(102, 0)
-        Me.RibbonBar10.Name = "RibbonBar10"
-        Me.RibbonBar10.ResizeItemsToFit = False
-        Me.RibbonBar10.ShowShortcutKeysInToolTips = True
-        Me.RibbonBar10.Size = New System.Drawing.Size(372, 92)
-        Me.RibbonBar10.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.RibbonBar10.TabIndex = 6
-        Me.RibbonBar10.Text = "Cursos"
-        '
-        '
-        '
-        Me.RibbonBar10.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.RibbonBar10.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.RibbonBar10.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle
-        '
-        'btnCursosEmpleado
-        '
-        Me.btnCursosEmpleado.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
-        Me.btnCursosEmpleado.FixedSize = New System.Drawing.Size(90, 70)
-        Me.btnCursosEmpleado.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnCursosEmpleado.Image = Global.PIDA.My.Resources.Resources.CursosEmpleado32
-        Me.btnCursosEmpleado.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
-        Me.btnCursosEmpleado.ImagePaddingHorizontal = 20
-        Me.btnCursosEmpleado.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btnCursosEmpleado.Name = "btnCursosEmpleado"
-        Me.btnCursosEmpleado.Text = "Cursos por empleado"
-        '
-        'btnCargaGrupal
-        '
-        Me.btnCargaGrupal.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
-        Me.btnCargaGrupal.FixedSize = New System.Drawing.Size(90, 70)
-        Me.btnCargaGrupal.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnCargaGrupal.Image = Global.PIDA.My.Resources.Resources.Address_book32
-        Me.btnCargaGrupal.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
-        Me.btnCargaGrupal.ImagePaddingHorizontal = 20
-        Me.btnCargaGrupal.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btnCargaGrupal.Name = "btnCargaGrupal"
-        Me.btnCargaGrupal.Text = "Capturar cursos por lista"
-        '
-        'btnPlaneacion
-        '
-        Me.btnPlaneacion.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
-        Me.btnPlaneacion.FixedSize = New System.Drawing.Size(90, 70)
-        Me.btnPlaneacion.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnPlaneacion.Image = Global.PIDA.My.Resources.Resources.Planeacion32
-        Me.btnPlaneacion.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
-        Me.btnPlaneacion.ImagePaddingHorizontal = 20
-        Me.btnPlaneacion.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btnPlaneacion.Name = "btnPlaneacion"
-        Me.btnPlaneacion.Text = "Planeación" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        '
-        'btnEmpleadosCursos
-        '
-        Me.btnEmpleadosCursos.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
-        Me.btnEmpleadosCursos.FixedSize = New System.Drawing.Size(90, 70)
-        Me.btnEmpleadosCursos.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnEmpleadosCursos.Image = Global.PIDA.My.Resources.Resources.Multiforma1
-        Me.btnEmpleadosCursos.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
-        Me.btnEmpleadosCursos.ImagePaddingHorizontal = 20
-        Me.btnEmpleadosCursos.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btnEmpleadosCursos.Name = "btnEmpleadosCursos"
-        Me.btnEmpleadosCursos.Text = "Empleados por curso"
-        '
-        'RibbonBar9
-        '
-        Me.RibbonBar9.AutoOverflowEnabled = True
-        Me.RibbonBar9.AutoSizeItems = False
-        '
-        '
-        '
-        Me.RibbonBar9.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.RibbonBar9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.RibbonBar9.ContainerControlProcessDialogKey = True
-        Me.RibbonBar9.Dock = System.Windows.Forms.DockStyle.Left
-        Me.RibbonBar9.DragDropSupport = True
-        Me.RibbonBar9.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btnCatalogoCapacitacion})
-        Me.RibbonBar9.LicenseKey = "F962CEC7-CD8F-4911-A9E9-CAB39962FC1F"
-        Me.RibbonBar9.Location = New System.Drawing.Point(3, 0)
-        Me.RibbonBar9.Name = "RibbonBar9"
-        Me.RibbonBar9.Size = New System.Drawing.Size(99, 92)
-        Me.RibbonBar9.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.RibbonBar9.TabIndex = 5
-        Me.RibbonBar9.Text = "Archivos de control"
-        '
-        '
-        '
-        Me.RibbonBar9.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.RibbonBar9.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.RibbonBar9.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle
-        '
-        'btnCatalogoCapacitacion
-        '
-        Me.btnCatalogoCapacitacion.AutoExpandOnClick = True
-        Me.btnCatalogoCapacitacion.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
-        Me.btnCatalogoCapacitacion.FixedSize = New System.Drawing.Size(90, 70)
-        Me.btnCatalogoCapacitacion.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnCatalogoCapacitacion.Image = Global.PIDA.My.Resources.Resources.Catalogo32
-        Me.btnCatalogoCapacitacion.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
-        Me.btnCatalogoCapacitacion.ImagePaddingHorizontal = 40
-        Me.btnCatalogoCapacitacion.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btnCatalogoCapacitacion.Name = "btnCatalogoCapacitacion"
-        Me.btnCatalogoCapacitacion.OptionGroup = "C"
-        Me.btnCatalogoCapacitacion.SplitButton = True
-        Me.btnCatalogoCapacitacion.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btnArea, Me.btnClasificaciones, Me.btnCursos, Me.btnOrdenCategorias, Me.btnInstitutos, Me.btnInstructores, Me.mnuRepresentantes, Me.btnModalidades, Me.btnObjetivos, Me.Tipo_curso, Me.Clase_curso, Me.mnuCuestionarios, Me.mnuEvaluaciones, Me.mnuRespuestas})
-        Me.btnCatalogoCapacitacion.SubItemsExpandWidth = 14
-        Me.btnCatalogoCapacitacion.Text = "Catálogo"
-        '
-        'btnArea
-        '
-        Me.btnArea.Image = Global.PIDA.My.Resources.Resources.Area22
-        Me.btnArea.Name = "btnArea"
-        Me.btnArea.Text = "Áreas temáticas"
-        '
-        'btnClasificaciones
-        '
-        Me.btnClasificaciones.Image = Global.PIDA.My.Resources.Resources.Clasificacion24Cap
-        Me.btnClasificaciones.Name = "btnClasificaciones"
-        Me.btnClasificaciones.Text = "Clasificaciones"
-        '
-        'btnCursos
-        '
-        Me.btnCursos.Image = Global.PIDA.My.Resources.Resources.Courses24
-        Me.btnCursos.Name = "btnCursos"
-        Me.btnCursos.Text = "Cursos"
-        '
-        'btnOrdenCategorias
-        '
-        Me.btnOrdenCategorias.Image = Global.PIDA.My.Resources.Resources.Department24
-        Me.btnOrdenCategorias.Name = "btnOrdenCategorias"
-        Me.btnOrdenCategorias.Text = "Categorias cursos"
-        '
-        'btnInstitutos
-        '
-        Me.btnInstitutos.Image = Global.PIDA.My.Resources.Resources.Instituto24
-        Me.btnInstitutos.Name = "btnInstitutos"
-        Me.btnInstitutos.Text = "Institutos"
-        '
-        'btnInstructores
-        '
-        Me.btnInstructores.Image = Global.PIDA.My.Resources.Resources.Instructores24
-        Me.btnInstructores.Name = "btnInstructores"
-        Me.btnInstructores.Text = "Instructores"
-        '
-        'mnuRepresentantes
-        '
-        Me.mnuRepresentantes.Image = Global.PIDA.My.Resources.Resources.representantes
-        Me.mnuRepresentantes.ImageFixedSize = New System.Drawing.Size(24, 24)
-        Me.mnuRepresentantes.Name = "mnuRepresentantes"
-        Me.mnuRepresentantes.Text = "Representantes"
-        '
-        'btnModalidades
-        '
-        Me.btnModalidades.Image = Global.PIDA.My.Resources.Resources.Highlightmarker_green24
-        Me.btnModalidades.Name = "btnModalidades"
-        Me.btnModalidades.Text = "Modalidades"
-        '
-        'btnObjetivos
-        '
-        Me.btnObjetivos.Image = Global.PIDA.My.Resources.Resources.Objective24
-        Me.btnObjetivos.Name = "btnObjetivos"
-        Me.btnObjetivos.Text = "Objetivos"
-        '
-        'Tipo_curso
-        '
-        Me.Tipo_curso.Image = Global.PIDA.My.Resources.Resources.multiforma2
-        Me.Tipo_curso.Name = "Tipo_curso"
-        Me.Tipo_curso.Text = "Tipo"
-        '
-        'Clase_curso
-        '
-        Me.Clase_curso.Image = Global.PIDA.My.Resources.Resources.Comparativo22
-        Me.Clase_curso.Name = "Clase_curso"
-        Me.Clase_curso.NotificationMarkPosition = DevComponents.DotNetBar.eNotificationMarkPosition.BottomLeft
-        Me.Clase_curso.PersonalizedMenus = DevComponents.DotNetBar.ePersonalizedMenus.DisplayOnHover
-        Me.Clase_curso.Text = "Clase"
-        '
-        'mnuCuestionarios
-        '
-        Me.mnuCuestionarios.BeginGroup = True
-        Me.mnuCuestionarios.Image = Global.PIDA.My.Resources.Resources.surveys24
-        Me.mnuCuestionarios.Name = "mnuCuestionarios"
-        Me.mnuCuestionarios.Text = "Cuestionarios"
-        '
-        'mnuEvaluaciones
-        '
-        Me.mnuEvaluaciones.Image = Global.PIDA.My.Resources.Resources.tests24
-        Me.mnuEvaluaciones.Name = "mnuEvaluaciones"
-        Me.mnuEvaluaciones.Text = "Evaluaciones"
-        '
-        'mnuRespuestas
-        '
-        Me.mnuRespuestas.Image = Global.PIDA.My.Resources.Resources.Question24
-        Me.mnuRespuestas.Name = "mnuRespuestas"
-        Me.mnuRespuestas.Text = "Tipo de respuestas"
-        '
         'RibbonPanel3
         '
         Me.RibbonPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -4219,7 +4220,6 @@ Partial Class frmMain
         '
         'RecursosHumanos
         '
-        Me.RecursosHumanos.Checked = True
         Me.RecursosHumanos.Name = "RecursosHumanos"
         Me.RecursosHumanos.Panel = Me.rpPersonal
         Me.RecursosHumanos.Tag = "personal"
@@ -4255,6 +4255,7 @@ Partial Class frmMain
         '
         'Capacitacion
         '
+        Me.Capacitacion.Checked = True
         Me.Capacitacion.Name = "Capacitacion"
         Me.Capacitacion.Panel = Me.rpCapacitacion
         Me.Capacitacion.Tag = "capacitacion"
@@ -4399,6 +4400,18 @@ Partial Class frmMain
         Me.ButtonItem34.SubItemsExpandWidth = 14
         Me.ButtonItem34.Text = "Rastreo Candidatos"
         '
+        'btnRepDocCursos
+        '
+        Me.btnRepDocCursos.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue
+        Me.btnRepDocCursos.FixedSize = New System.Drawing.Size(90, 70)
+        Me.btnRepDocCursos.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnRepDocCursos.Image = Global.PIDA.My.Resources.Resources.Download32
+        Me.btnRepDocCursos.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium
+        Me.btnRepDocCursos.ImagePaddingHorizontal = 20
+        Me.btnRepDocCursos.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnRepDocCursos.Name = "btnRepDocCursos"
+        Me.btnRepDocCursos.Text = "Repositorio de cursos" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -4416,16 +4429,16 @@ Partial Class frmMain
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.rbGeneral.ResumeLayout(False)
         Me.rbGeneral.PerformLayout()
+        Me.rpCapacitacion.ResumeLayout(False)
         Me.rpPersonal.ResumeLayout(False)
-        Me.rpNomina.ResumeLayout(False)
         Me.rpTA.ResumeLayout(False)
+        Me.rpNomina.ResumeLayout(False)
         Me.rpSeguridad.ResumeLayout(False)
         Me.RibbonPanel5.ResumeLayout(False)
         Me.RibbonPanel4.ResumeLayout(False)
         Me.RibbonPanel2.ResumeLayout(False)
         Me.RibbonPanel1.ResumeLayout(False)
         Me.rpHerramientas.ResumeLayout(False)
-        Me.rpCapacitacion.ResumeLayout(False)
         Me.RibbonPanel3.ResumeLayout(False)
         Me.RibbonPanel6.ResumeLayout(False)
         Me.ResumeLayout(False)
@@ -4745,4 +4758,5 @@ Partial Class frmMain
     Friend WithEvents ButtonItem15 As DevComponents.DotNetBar.ButtonItem
     Friend WithEvents btnmnuFiniquito As DevComponents.DotNetBar.ButtonItem
     Friend WithEvents btnmnuCapturados As DevComponents.DotNetBar.ButtonItem
+    Friend WithEvents btnRepDocCursos As DevComponents.DotNetBar.ButtonItem
 End Class

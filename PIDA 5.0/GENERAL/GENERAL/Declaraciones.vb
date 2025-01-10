@@ -286,6 +286,7 @@ Module Declaraciones
     Public FechaInicial As Date
     Public FechaFinal As Date
     Public DireccionReportes As String
+    Public DireccionDocsCapacCursos As String = ""
 
     Public PlantaReporteDiario As String = "***"
 

@@ -2461,4 +2461,15 @@ Public Class frmMain
     Private Sub frmMain_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
         PermitirAccesosXperfil()
     End Sub
+
+    Private Sub btnRepDocCursos_Click(sender As Object, e As EventArgs) Handles btnRepDocCursos.Click
+        Try
+            frmRepositorioCursos.MdiParent = Me
+            frmRepositorioCursos.WindowState = FormWindowState.Maximized
+            frmRepositorioCursos.Show()
+            frmRepositorioCursos.Focus()
+        Catch ex As Exception
+
+        End Try
+    End Sub
 End Class

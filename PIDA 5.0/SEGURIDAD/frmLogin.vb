@@ -483,6 +483,10 @@ Public Class frmLogin
                             ErrorLog(Usuario, System.Reflection.MethodBase.GetCurrentMethod.Name(), Me.Name, ex.HResult, ex.Message)
                         End Try
 
+                        '===2024-12-16:  Dirección para guardar los documentos de los cursos de capacitación
+                        Try : DireccionDocsCapacCursos = dtParametros.Rows(0).Item("path_archivos").ToString.Trim : Catch ex As Exception : DireccionDocsCapacCursos = "" : End Try
+                        If DireccionDocsCapacCursos <> "" Then DireccionDocsCapacCursos &= "CAPACITACION\CURSOS\"
+
                         DireccionReportes = IIf(IsDBNull(dtParametros.Rows(0).Item("path_reportes")), "", dtParametros.Rows(0).Item("path_reportes")).ToString.Trim
                         If DireccionReportes.Length > 0 Then
                             DireccionReportes = DireccionReportes & IIf(DireccionReportes.Substring(DireccionReportes.Trim.Length - 1) = "\", "", "\")
