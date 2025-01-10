@@ -724,10 +724,7 @@ Module Declaraciones
                 End If
             Next
 
-            'frmMain.RecursosHumanos.Visible = RevisarAccesos(frmMain.rpPersonal)
-            'frmMain.TiempoAsistencia.Visible = RevisarAccesos(frmMain.rpTA)
-            'frmMain.Nomina.Visible = RevisarAccesos(frmMain.rpNomina)
-            'frmMain.Seguridad.Visible = RevisarAccesos(frmMain.rpSeguridad)
+            frmMain.HabDeshabTabsMainGral()
 
         Catch ex As Exception
             ErrorLog(Usuario, System.Reflection.MethodBase.GetCurrentMethod.Name(), "Declaraciones", ex.HResult, ex.Message)

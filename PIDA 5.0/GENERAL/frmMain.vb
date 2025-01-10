@@ -45,7 +45,7 @@ Public Class frmMain
                 Next
             End If
 
-            HabDeshabTabsMainGral() '---Habilitar o Deshabilitar Tabs que no debe de tener nadie    
+            HabDeshabTabsMainGral() '---Tabs habilitados por cierto criterio
 
             '== 28ene2022
             '== Mostrar el botón para validar registros de info. de los XMLs timbrados
@@ -67,20 +67,19 @@ Public Class frmMain
     End Sub
 
     '== MODIFICADO          3MAR22          Ernesto
-    Private Sub HabDeshabTabsMainGral()
-        '===No visibles para nadie
+    Public Sub HabDeshabTabsMainGral()
+        '===No visibles para nadie a menos que se indique
         rbRHReclutamiento.Visible = False ' Reclutamiento
         RibbonTabItem4.Visible = False ' Ideas
         RibbonTabItem1.Visible = False ' Servicios Medicos
-        rbAdmKiosco.Visible = False
-        RibbonBar1.Visible = False
+        Herramientas.Visible = False ' Herramientas
+        Cafeteria.Visible = False ' Cafetería
+        procesonomina.Visible = False ' Proceso de nómina
 
         '== Habilitar pestañas para ciertos perfiles nada mas
-        Kiosco.Visible = IIf(Perfil.Contains("WME_AD") Or Perfil.Contains("ADMINISTRADOR") Or Perfil.Contains("RH"), True, False)
+        Kiosco.Visible = IIf(Perfil.Contains("ADMINISTRADOR"), True, False)
 
 
-        '----AO 2023-09-21: Solo perfil de adminstrador PIDA puede accesar al proceso de nomina
-        procesonomina.Visible = IIf(Perfil.Contains("ADMINISTRADOR"), True, False)
     End Sub
 
     Public Sub analisis_auto(analisis_f As Date)
