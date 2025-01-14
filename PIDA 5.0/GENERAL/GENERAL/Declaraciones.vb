@@ -83,6 +83,7 @@ Module Declaraciones
     Public FormaOrigen As String
 
     Public addInfoFirstTime As Boolean = False ' Agregar infonavit la primera vez en RH
+    Public _tipoFiltroRangoRepTA As String = "" ' Tipo de filtro que se seleccona en el reporteador de TA
 
     '----Para carga de documentos de personal
     Public PathArchivos As String       'Ubicaci n de los archivos del personal
@@ -724,7 +725,7 @@ Module Declaraciones
                 End If
             Next
 
-            frmMain.HabDeshabTabsMainGral()
+            frmMain.HabDeshabTabsMainGral() ' Opciones deshabilitadas o habilitadas por cierto criterio
 
         Catch ex As Exception
             ErrorLog(Usuario, System.Reflection.MethodBase.GetCurrentMethod.Name(), "Declaraciones", ex.HResult, ex.Message)

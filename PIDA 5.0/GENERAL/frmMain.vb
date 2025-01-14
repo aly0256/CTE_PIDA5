@@ -45,7 +45,7 @@ Public Class frmMain
                 Next
             End If
 
-            HabDeshabTabsMainGral() '---Tabs habilitados por cierto criterio
+            HabDeshabTabsMainGral() '---Opciones/Tabs deshabilitados o habilitados por cierto criterio
 
             '== 28ene2022
             '== Mostrar el botón para validar registros de info. de los XMLs timbrados
@@ -66,7 +66,7 @@ Public Class frmMain
 
     End Sub
 
-    '== MODIFICADO          3MAR22          Ernesto
+    '===Método para habilitar o deshabilitar opciones generales del sistema de forma fija
     Public Sub HabDeshabTabsMainGral()
         '===No visibles para nadie a menos que se indique
         rbRHReclutamiento.Visible = False ' Reclutamiento
@@ -76,7 +76,7 @@ Public Class frmMain
         Cafeteria.Visible = False ' Cafetería
         procesonomina.Visible = False ' Proceso de nómina
 
-        '== Habilitar pestañas para ciertos perfiles nada mas
+        '== Habilitar opciones(pestañas) para ciertos perfiles nada mas
         Kiosco.Visible = IIf(Perfil.Contains("ADMINISTRADOR"), True, False)
 
 
@@ -2429,17 +2429,7 @@ Public Class frmMain
         frmListInciPers.Focus()
     End Sub
 
-    'Private Sub btnmnuFiniquito_Click(sender As Object, e As EventArgs) Handles btnmnuFiniquito.Click
-
-    'End Sub
-
-    Private Sub btnmnuCapturados_Click(sender As Object, e As EventArgs) Handles btnmnuCapturados.Click
-        On Error Resume Next
-        frmDemoFiniquitosCapturados.MdiParent = Me
-        frmDemoFiniquitosCapturados.WindowState = FormWindowState.Maximized
-        frmDemoFiniquitosCapturados.Show()
-        frmDemoFiniquitosCapturados.Focus()
-    End Sub
+ 
 
     Private Sub btnCalcFiniquito_Click(sender As Object, e As EventArgs) Handles btnmnuFiniquito.Click
         On Error Resume Next
@@ -2471,4 +2461,6 @@ Public Class frmMain
 
         End Try
     End Sub
+
+
 End Class
