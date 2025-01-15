@@ -2552,7 +2552,7 @@
                 sfd.Title = "Guardar en"
                 sfd.OverwritePrompt = True
                 sfd.RestoreDirectory = True
-                sfd.FileName = "BRP QRO Finiquito " & txtReloj.Text.Trim & " " & txtNombre.Text.Trim & ".PDF"
+                sfd.FileName = "CTE Finiquito " & txtReloj.Text.Trim & " " & txtNombre.Text.Trim & ".PDF"
 
                 If sfd.ShowDialog = Windows.Forms.DialogResult.OK Then
                     frmVistaPrevia.LlamarReporte("Finiquito", dtDatos, , , False, sfd.FileName.ToString)
