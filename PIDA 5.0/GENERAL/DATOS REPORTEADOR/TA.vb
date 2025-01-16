@@ -8010,6 +8010,7 @@ sigRec:
 
                     '==Recorrer cada supervisor
                     For Each drS As DataRow In dtSuper.Rows
+                        'For Each drS As DataRow In dtSuper.Select("cod_super='003'") ' Prueba
                         Dim cod_super As String = "", nombre_super As String = "", reloj_super As String = "", dtPersonal As New DataTable
 
                         Try : cod_super = drS("cod_super").ToString.Trim : Catch ex As Exception : cod_super = "" : End Try
@@ -8026,6 +8027,7 @@ sigRec:
 
                             '==Recorrer cada empleado
                             For Each drP As DataRow In dtPersonal.Rows
+                                'For Each drP As DataRow In dtPersonal.Select("reloj='00144'") ' ==Prueba
                                 Dim rj As String = "", cod_tipo As String = "", ruta_cliente As String = "", observaciones As String = "", nombre_empleado As String = "", tipo_aus As String = ""
                                 Dim alta As String = "", baja As String = "", fecha_dia As String = "", hc As Integer = 1, aus_injus As Integer = 0, aus_jus As Integer = 0, bajas As Integer = 0, altas As Integer = 0
 
@@ -8050,8 +8052,33 @@ sigRec:
 
 
                                 If dtFalInjus.Select("reloj='" & rj & "' and FHA_ENT_HOR='" & fecha_dia & "'").Count > 0 Then
-                                    aus_injus = 1
-                                    tipo_aus = "FIN"
+
+                                    '===Evaluar si su horario es de tarde, y aun no se analiza porque aun no tiene checadas, no debe de contablizar como FI
+                                    Dim _fecha_analisis As Date, _fecha_entra_hor As Date, _hora_analisis As String = "", _hora_entra As String = ""
+                                    Dim _hora_analisis_dbl As Double = 0.0, _horario_ent_dbl As Double = 0.0
+
+                                    Dim myRow() As DataRow = Nothing
+                                    myRow = dtFalInjus.Select("reloj='" & rj & "' and FHA_ENT_HOR='" & fecha_dia & "'")
+                                    Try : _fecha_analisis = Date.Parse(myRow(0)("FECHA")) : Catch ex As Exception : _fecha_analisis = Date.Now : End Try
+                                    Try : _fecha_entra_hor = Date.Parse(myRow(0)("FHA_ENT_HOR")) : Catch ex As Exception : _fecha_entra_hor = Date.Now : End Try
+                                    Try : _hora_analisis = myRow(0)("HORA").ToString.Trim : Catch ex As Exception : _hora_analisis = "" : End Try
+                                    Try : _hora_entra = myRow(0)("HORARIO_ENT").ToString.Trim : Catch ex As Exception : _hora_entra = "" : End Try
+
+                                    Try : _hora_analisis_dbl = HtoD(_hora_analisis) : Catch ex As Exception : _hora_analisis_dbl = 0.0 : End Try
+                                    Try : _horario_ent_dbl = HtoD(MerMilitar(_hora_entra)) : Catch ex As Exception : _horario_ent_dbl = 0.0 : End Try
+
+                                    '  si la fecha de análisis es igual o menor al dia de entrada, y la hora de análisis es menor a la hora de entrada de ese día, eliminarlo y no incluir la Falta FI
+                                    If ((_fecha_analisis <= _fecha_entra_hor) And (_hora_analisis_dbl <= _horario_ent_dbl)) Then
+                                        Dim dElimina() As DataRow
+                                        dElimina = dtFalInjus.Select("reloj='" & rj & "' and FHA_ENT_HOR='" & fecha_dia & "'")
+                                        For Each dEl As DataRow In dElimina
+                                            dtFalInjus.Rows.Remove(dEl)
+                                        Next
+                                    Else
+                                        aus_injus = 1
+                                        tipo_aus = "FIN"
+                                    End If
+
                                 End If
 
                                 If dtFalJus.Select("reloj='" & rj & "' and FHA_ENT_HOR='" & fecha_dia & "'").Count > 0 Then

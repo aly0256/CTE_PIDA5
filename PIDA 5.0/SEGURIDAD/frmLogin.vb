@@ -397,6 +397,17 @@ Public Class frmLogin
 
             dtUsuarios = sqlExecute("SELECT * FROM appuser WHERE username = '" & txtUsuario.Text & "'", "Seguridad")
             If dtUsuarios.Rows.Count > 0 Then
+
+                '===Revisar si el usario está activo
+                Dim activo As Integer = 0
+                Try : activo = dtUsuarios.Rows(0).Item("activo") : Catch ex As Exception : activo = 0 : End Try
+                If activo = 0 Then
+                    MessageBox.Show("El usuario se encuentra inactivo, no podrá acceder al sistema, favor de contactar al administrador del sistema", "P.I.D.A.", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    ErrorLogin = True
+                    Exit Sub
+                End If
+
+
                 'Revisar si la clave de usuario = encriptar la clave dada
                 If dtUsuarios.Rows.Item(0).Item("userpass").ToString.Trim = getMD5Hash(txtClave.Text) Then
                     ErrorLogin = False
