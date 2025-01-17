@@ -7938,6 +7938,7 @@ sigRec:
             Dim dKey As DataRow
             dtDatos = New DataTable
 
+
             If Not dtDatos.Columns.Contains("FECHA_DIA") Then dtDatos.Columns.Add("FECHA_DIA", Type.GetType("System.String"))
             If Not dtDatos.Columns.Contains("COD_TIPO") Then dtDatos.Columns.Add("COD_TIPO", Type.GetType("System.String"))
             If Not dtDatos.Columns.Contains("SUPERV") Then dtDatos.Columns.Add("SUPERV", Type.GetType("System.String"))
@@ -8457,6 +8458,94 @@ sigRec:
             Return _detalle
         End Try
     End Function
+
+    ''' <summary>
+    ''' 'Método para generar reporte de faltas injustificadas cambiadas por vacaciones
+    ''' </summary>
+    ''' <remarks></remarks>
+    ''' 
+    Public Sub FIXVAC(ByRef dtDatos As DataTable, ByVal dtInformacion As DataTable)
+        Try
+
+            '===Fechas mandadas segun el filtro del reporteador de TA
+            Dim fecha_ini As Date = RangoFInicial
+            Dim fecha_fin As Date = RangoFFinal
+
+            '===Variables generales
+            Dim ENCABEZADO_EMPRESA As String = "", DIR_EMPRESA As String = "", query As String = "", cod_comp As String = "", dtRegistros As New DataTable
+
+            '===Creacion de columnas
+            Dim dKey As DataRow
+            dtDatos = New DataTable
+
+            If Not dtDatos.Columns.Contains("FECHA_DIA") Then dtDatos.Columns.Add("FECHA_DIA", Type.GetType("System.String"))
+            If Not dtDatos.Columns.Contains("COD_TIPO") Then dtDatos.Columns.Add("COD_TIPO", Type.GetType("System.String"))
+            If Not dtDatos.Columns.Contains("RELOJ") Then dtDatos.Columns.Add("RELOJ", Type.GetType("System.String"))
+            If Not dtDatos.Columns.Contains("NOMBRES") Then dtDatos.Columns.Add("NOMBRES", Type.GetType("System.String"))
+            If Not dtDatos.Columns.Contains("TIPO_AUS") Then dtDatos.Columns.Add("TIPO_AUS", Type.GetType("System.String"))
+            If Not dtDatos.Columns.Contains("USUARIO_MODIFICO") Then dtDatos.Columns.Add("USUARIO_MODIFICO", Type.GetType("System.String"))
+            If Not dtDatos.Columns.Contains("FECHA_MODIFICO") Then dtDatos.Columns.Add("FECHA_MODIFICO", Type.GetType("System.String"))
+
+
+            '===Columnas del Encabezado
+            If Not dtDatos.Columns.Contains("ENCABEZADO_EMPRESA") Then dtDatos.Columns.Add("ENCABEZADO_EMPRESA", Type.GetType("System.String"))
+            If Not dtDatos.Columns.Contains("DIR_EMPRESA") Then dtDatos.Columns.Add("DIR_EMPRESA", Type.GetType("System.String"))
+
+            '===Llave primaria del datatable
+            dtDatos.PrimaryKey = New DataColumn() {dtDatos.Columns("FECHA_DIA"), dtDatos.Columns("COD_TIPO"), dtDatos.Columns("RELOJ")}
+
+            '----Obtener Encabezado y direccion de la empresa
+            Dim dtCia As DataTable = sqlExecute("select * from PERSONAL.dbo.cias where CIA_DEFAULT=1", "PERSONAL")
+            If Not dtCia.Columns.Contains("Error") And dtCia.Rows.Count > 0 Then
+                Dim rep_legal As String = "", rfc As String = "", direccion As String = "", colonia As String = "", cod_postal As String = "", telefono1 As String = "", ciudad As String = "", estado As String = ""
+
+                Try : cod_comp = dtCia.Rows(0).Item("cod_comp").ToString.Trim.ToUpper : Catch ex As Exception : cod_comp = "" : End Try
+                Try : rep_legal = dtCia.Rows(0).Item("rep_legal").ToString.Trim.ToUpper : Catch ex As Exception : rep_legal = "" : End Try
+                Try : rfc = dtCia.Rows(0).Item("rfc").ToString.Trim.ToUpper : Catch ex As Exception : rfc = "" : End Try
+                Try : direccion = dtCia.Rows(0).Item("direccion").ToString.Trim.ToUpper : Catch ex As Exception : direccion = "" : End Try
+                Try : colonia = dtCia.Rows(0).Item("colonia").ToString.Trim.ToUpper : Catch ex As Exception : colonia = "" : End Try
+                Try : cod_postal = dtCia.Rows(0).Item("cod_postal").ToString.Trim.ToUpper : Catch ex As Exception : cod_postal = "" : End Try
+                Try : telefono1 = dtCia.Rows(0).Item("telefono1").ToString.Trim.ToUpper : Catch ex As Exception : telefono1 = "" : End Try
+                Try : ciudad = dtCia.Rows(0).Item("ciudad").ToString.Trim.ToUpper : Catch ex As Exception : ciudad = "" : End Try
+                Try : estado = dtCia.Rows(0).Item("estado").ToString.Trim.ToUpper : Catch ex As Exception : estado = "" : End Try
+
+                ENCABEZADO_EMPRESA = rep_legal & "  RFC:" & rfc
+                DIR_EMPRESA = "CALLE " & direccion & " " & colonia & " C.P." & cod_postal & ", TEL:" & telefono1 & " " & ciudad & ", " & estado
+
+            End If
+
+            query = "select a.*,p.nombres,p.cod_tipo,p.nombre_tipoEmp,CONVERT(date,a.fecha_hora) as 'fecha_modif' from ausentismo a left outer join PERSONAL.dbo.personalvw p  on a.reloj=p.reloj " & _
+                "where a.tipo_aus='VAC' and isnull(a.DETALLE_AUS,'')='FI' and a.fecha between '" & FechaSQL(fecha_ini) & "' and '" & FechaSQL(fecha_fin) & "' order by a.reloj asc, a.fecha asc"
+
+            dtRegistros = sqlExecute(query, "TA")
+            If Not dtRegistros.Columns.Contains("Error") And dtRegistros.Rows.Count > 0 Then
+                For Each dr As DataRow In dtRegistros.Rows
+                    Dim reloj As String = "", fecha_dia As String = "", cod_tipo As String = "", nombres As String = "", tipo_aus As String = "", usuario_modifico As String = "", fecha_modifico As String = ""
+
+                    Try : reloj = dr("RELOJ").ToString.Trim : Catch ex As Exception : reloj = "" : End Try
+                    Try : fecha_dia = FechaSQL(dr("FECHA")) : Catch ex As Exception : fecha_dia = "" : End Try
+                    Try : cod_tipo = dr("nombre_tipoEmp").ToString.Trim : Catch ex As Exception : cod_tipo = "" : End Try
+                    Try : nombres = dr("nombres").ToString.Trim : Catch ex As Exception : nombres = "" : End Try
+                    Try : tipo_aus = dr("TIPO_AUS").ToString.Trim : Catch ex As Exception : tipo_aus = "" : End Try
+                    Try : usuario_modifico = dr("USUARIO").ToString.Trim : Catch ex As Exception : usuario_modifico = "" : End Try
+                    Try : fecha_modifico = FechaSQL(dr("fecha_modif")) : Catch ex As Exception : fecha_modifico = "" : End Try
+
+                    '===Validar que el registro no exista
+                    dKey = dtDatos.Rows.Find({fecha_dia, cod_tipo, reloj})
+
+                    If dKey Is Nothing Then
+                        dtDatos.Rows.Add({fecha_dia, cod_tipo, reloj, nombres, tipo_aus, usuario_modifico, fecha_modifico, ENCABEZADO_EMPRESA, DIR_EMPRESA})
+                    End If
+                Next
+            End If
+
+        Catch ex As Exception
+            ErrorLog(Usuario, System.Reflection.MethodBase.GetCurrentMethod.Name(), "Reporte FIXVAC", ex.HResult, ex.Message)
+        End Try
+
+  
+
+    End Sub
 
 
 

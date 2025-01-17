@@ -7458,6 +7458,7 @@ CalcSaldoDev:
         Dim x As Integer
         Dim AusVac As String = ""
         Dim InsertaVac As Boolean = True
+        Dim insertaDetalleAus As Boolean = False
         Dim Respuesta As DialogResult
         Dim _aus_natural As String = ""
         Dim _devengadas As Double = txtDevengadas.Text
@@ -7548,14 +7549,30 @@ CalcSaldoDev:
                 If Not (Festivo(_fecha, rl) Or DiaDescanso(_fecha, rl)) Then
                     dtTemp = sqlExecute("SELECT TIPO_NATURALEZA,ausentismo.TIPO_AUS,NOMBRE FROM AUSENTISMO LEFT JOIN TIPO_AUSENTISMO ON ausentismo.TIPO_AUS = tipo_ausentismo.TIPO_AUS WHERE RELOJ = '" & rl & "' AND fecha = '" & FechaSQL(_fecha) & "'", "TA")
                     If dtTemp.Rows.Count > 0 Then
+                        Dim _tipo_aus As String = "", _fecha_hoy As Date = Now()
+                        Try : _tipo_aus = dtTemp.Rows(0).Item("tipo_aus").ToString.Trim : Catch ex As Exception : _tipo_aus = "" : End Try
+
+
                         If dtTemp.Rows(0).Item("tipo_aus") = _aus_natural Then
                             sqlExecute("DELETE FROM ausentismo  WHERE RELOJ = '" & rl & "' AND fecha = '" & FechaSQL(_fecha) & "'", "TA")
                             InsertaVac = True
+
+                            '==CTE: AO: Validar si es tipo FI, y si la fecha en la que se va a cambiar por vacación, es menor al día en que se está capturando, si insertar que se cambió FI por VAC para el reporte
+                            If _tipo_aus = "FI" Then
+                                If _fecha.ToShortDateString() < _fecha_hoy.ToShortDateString() Then insertaDetalleAus = True
+                            End If
+
                         Else
                             Respuesta = MessageBox.Show("Existe ausentismo registrado para el día " & FechaMediaLetra(_fecha) & " (" & dtTemp.Rows(0).Item("nombre") & "). ¿Desea sobrescribirlo?", "Ausentismo", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information)
                             If Respuesta = Windows.Forms.DialogResult.Yes Then
                                 sqlExecute("DELETE FROM ausentismo  WHERE RELOJ = '" & rl & "' AND fecha = '" & FechaSQL(_fecha) & "'", "TA")
                                 InsertaVac = True
+
+                                '==CTE: AO: Validar si es tipo FI, y si la fecha en la que se va a cambiar por vacación, es menor al día en que se está capturando, si insertar que se cambió FI por VAC para el reporte
+                                If _tipo_aus = "FI" Then
+                                    If _fecha.ToShortDateString() < _fecha_hoy.ToShortDateString() Then insertaDetalleAus = True
+                                End If
+
                             ElseIf Respuesta = Windows.Forms.DialogResult.No Then
                                 InsertaVac = False
                             Else
@@ -7567,17 +7584,18 @@ CalcSaldoDev:
                     '--HERE INSERTA EL AUS - AOS
                     If InsertaVac Then
 
-
-
                         '--- AO 2023-12-15: Agregar usuario y fecha hora de registro
-                        sqlExecute("INSERT INTO ausentismo (COD_COMP,RELOJ,FECHA,TIPO_AUS,PERIODO,USUARIO,FECHA_HORA) VALUES ('" & _
+                        '===Agregar detalle aus como FI si aneriormente era FI y se cambió por VAC
+                        Dim _detalle_aus As String = ""
+                        If insertaDetalleAus Then _detalle_aus = "FI"
+                        sqlExecute("INSERT INTO ausentismo (COD_COMP,RELOJ,FECHA,TIPO_AUS,PERIODO,USUARIO,FECHA_HORA,DETALLE_AUS) VALUES ('" & _
                   cmbCia.SelectedValue & "','" & _
                   rl & "','" & _
                   FechaSQL(_fecha) & "','" & _
                   AusVac & "','" & _
-                  ObtenerPeriodo(_fecha) & "','" & Usuario & "',getdate())", "TA")
+                  ObtenerPeriodo(_fecha) & "','" & Usuario & "',getdate(),'" & _detalle_aus & "')", "TA")
 
-                        
+
                         _fecha_fin = _fecha
                         x = x + 1
 

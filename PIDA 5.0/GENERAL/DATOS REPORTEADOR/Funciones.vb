@@ -570,7 +570,8 @@
 
             ElseIf Reporte = "Incidencias semanal" Then '*--*-AO: 2024-12-10
                 IncidSemanal(dtDatos, dtInformacion)
-
+            ElseIf Reporte = "Faltas injustificadas por vacaciones" Then ' ---AO 2025-01-17
+                FIXVAC(dtDatos, dtInformacion)
 
                 '**** TIME ALLOCATION
             ElseIf Reporte = "Auditoria de horas" Then

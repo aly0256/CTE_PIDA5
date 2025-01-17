@@ -3527,7 +3527,8 @@ Public Class frmTA
 
                         '==AQUI SE AGREGA UNA LINEA DE CODIGO PARA QUE EL MOTIVO DEL AUSENTISMO SELECCIONADO (FALTA JUSTIFICADA O INJUSTIFICADA) APAREZCA
                         '==EN EL COMBOBOX ULTIMO        3SEP2021
-                        Dim clasificacion_faltas As String = IIf(IsDBNull(dtAusNotas.Rows(0)("detalle_aus")), "", dtAusNotas.Rows(0)("detalle_aus").ToString)
+                        ' Dim clasificacion_faltas As String = IIf(IsDBNull(dtAusNotas.Rows(0)("detalle_aus")), "", dtAusNotas.Rows(0)("detalle_aus").ToString) ' SE Deshabilita
+                        Dim clasificacion_faltas As String = ""
                         cmbClasFalta.SelectedValue = clasificacion_faltas
                     Else
                         txtNotasAusentismo.Text = ""
@@ -4715,15 +4716,15 @@ Public Class frmTA
 
                                             '== En esta parte del código, se insertará el campo de 'DETALLE_AUS' de la tabla 'ausentismo' ya que actualmente no está en uso, y 
                                             '== se utilizaró para anexar la clasificación de las faltas justificadas e injustificadas            Abril 2021      Ernesto
+                                            '== ao 2025-01-16: Se desahbilita campo 'DETALLE_AUS' para que ya no se registre, ya que se utilizará para validar quien tenía FI, y se le cambió por VAC, solicitado por CTE
 
-                                            sqlExecute("insert into ausentismo (cod_comp, reloj, fecha, tipo_aus, periodo, subclasi,detalle_aus,usuario,fecha_hora) values  ('" & _
+                                            sqlExecute("insert into ausentismo (cod_comp, reloj, fecha, tipo_aus, periodo, subclasi,usuario,fecha_hora) values  ('" & _
                                                        drEmpleado("cod_comp") & "', '" & _
                                                        drEmpleado("reloj") & "', '" & _
                                                        FechaSQL(fecha) & "', '" & _
                                                        tipo_aus & "', '" & _
                                                        dtPeriodo.Rows(0)("periodo") & "', '" & _
                                                        txtNotasAusentismo.Text.Replace("'", "") & "', '" & _
-                                                       tipo_falta.Trim & "','" & _
                                                        Usuario & "'," & _
                                                        "GETDATE())", "TA")
 
