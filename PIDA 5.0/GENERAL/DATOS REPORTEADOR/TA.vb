@@ -8171,6 +8171,8 @@ sigRec:
     ''' <remarks></remarks>
     ''' 
 
+
+
     Public Sub IncidSemanal(ByRef dtDatos As DataTable, ByVal dtInformacion As DataTable)
         Try
             Dim periodo As String = "", ENCABEZADO_EMPRESA As String = "", DIR_EMPRESA As String = "", query As String = ""
@@ -8546,7 +8548,6 @@ sigRec:
   
 
     End Sub
-
 
 
 End Module
