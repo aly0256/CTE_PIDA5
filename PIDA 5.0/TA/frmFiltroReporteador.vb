@@ -83,10 +83,13 @@
 
                 FechaInicial = RangoFInicial
                 FechaFinal = RangoFFinal
+
+                _tipoFiltroRangoRepTA = "x periodo"
             ElseIf optRango.Checked Then
 
                 RangoFInicial = txtFecha1.Value
                 RangoFFinal = txtFecha2.Value
+                _tipoFiltroRangoRepTA = "x rango"
             Else
                 Dim tempIni As Int16
                 tempIni = cmbAno.SelectedValue - 1
