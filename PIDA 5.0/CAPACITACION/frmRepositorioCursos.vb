@@ -71,14 +71,14 @@ Public Class frmRepositorioCursos
             '===Cod temporal por mi para cargar solo el de 1 empleado, solo necesito:   cod_documento,extension,nombre,  nom_archivo y fecha
             Dim extension As String = "", cod_documento As String = "", archivo As Integer = 1, nombre As String = "", nom_archivo As String = "", fecha As String = "", fecha_date As Date = Now
             Cadena = "select * from archivos  where id='" & id_curso & "' order by consec asc"
-            dtDocumentos = sqlExecute(Cadena, "PERSONAL")
+            dtDocumentos = sqlExecute(Cadena, "CAPACITACION")
 
             If Not dtDocumentos.Columns.Contains("Error") And dtDocumentos.Rows.Count > 0 Then
                 For Each doc In dtDocumentos.Rows
                     Try : extension = doc("tipo_arch").ToString.Trim : Catch ex As Exception : extension = "" : End Try
                     Try : cod_documento = doc("consec").ToString.Trim : Catch ex As Exception : cod_documento = "" : End Try
                     Try : nombre = doc("desc_arch").ToString.Trim : Catch ex As Exception : nombre = "" : End Try
-                    Try : fecha = FechaSQL(doc("fecha").ToString.Trim) : Catch ex As Exception : fecha = "" : End Try
+                    Try : fecha = FechaSQL(doc("fecha_hora").ToString.Trim) : Catch ex As Exception : fecha = "" : End Try
                     fecha_date = Date.Parse(fecha)
 
                     '===Validar si existe el archivo
@@ -155,11 +155,11 @@ Public Class frmRepositorioCursos
                 consec = doc.Substring(3).ToString.Trim
 
                 query = "select * from archivos  where id='" & txtCodigo.Text.Trim & "' and consec='" & consec & "'"
-                dtDocumento = sqlExecute(query, "PERSONAL")
+                dtDocumento = sqlExecute(query, "CAPACITACION")
                 If Not dtDocumento.Columns.Contains("Error") And dtDocumento.Rows.Count > 0 Then
                     Try : nombre_arch = dtDocumento.Rows(0).Item("nombre_arch").ToString.Trim : Catch ex As Exception : nombre_arch = "" : End Try
                     Try : extension = dtDocumento.Rows(0).Item("tipo_arch").ToString.Trim : Catch ex As Exception : nombre_arch = "" : End Try
-                    Try : fecha = FechaSQL(dtDocumento.Rows(0).Item("fecha")) : Catch ex As Exception : fecha = "" : End Try
+                    Try : fecha = FechaSQL(dtDocumento.Rows(0).Item("fecha_hora")) : Catch ex As Exception : fecha = "" : End Try
                 Else
                     webPreview.Navigate("about:blank")
                     Exit Sub
@@ -224,7 +224,7 @@ Public Class frmRepositorioCursos
                 extension_archivo = NombreArchivo.Split(".")(1).ToUpper '==Solo da la extensión del archivo
 
                 '===Obtener el cod_doc consecutivo para guardarlo
-                Dim dtConsec As DataTable = sqlExecute("SELECT  TOP 1 ISNULL(MAX(consec),0) AS consec  FROM archivos", "PERSONAL")
+                Dim dtConsec As DataTable = sqlExecute("SELECT  TOP 1 ISNULL(MAX(consec),0) AS consec  FROM archivos", "CAPACITACION")
                 If (Not dtConsec.Columns.Contains("ERROR") And dtConsec.Rows.Count > 0) Then
                     Dim UltRStr As String = IIf(IsDBNull(dtConsec.Rows(0).Item("consec")), "", dtConsec.Rows(0).Item("consec"))
                     If (UltRStr.Trim = "0") Then UltRStr = "00000" ' Ponemos la cantidad de dig que deseamos manejar para todos los empleados, puede variar para cada empresa
@@ -235,12 +235,18 @@ Public Class frmRepositorioCursos
 
                 _nombre_arch_guardar = _nombreArchivo_Fuente & "_" & Reloj & "." & extension_archivo
                 DirTemp = DirTemp2 & _nombre_arch_guardar
-                File.Copy(NombreArchivo, DirTemp)
-                MessageBox.Show("El archivo " & vbCrLf & NombreArchivo & " fue guardado exitosamente. ", "Pida", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                If Not System.IO.File.Exists(DirTemp) Then
+                    File.Copy(NombreArchivo, DirTemp)
+                    MessageBox.Show("El archivo " & vbCrLf & NombreArchivo & " fue guardado exitosamente. ", "Pida", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Else
+                    MessageBox.Show("El archivo '" & _nombre_arch_guardar & "' ya existe en la ruta de archivos guardados, favor de seleccionar otro o renombrarlo con otro nombre", "P.I.D.A.", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    Exit Sub
+                End If
+                
 
                 '===Actualizar tabla de archivos
                 query = "insert into archivos values ('" & id_curso & "','" & consec & "','" & _nombre_arch_guardar & "','" & _nombre_arch_guardar & "','" & extension_archivo & "',getdate(),'" & DirTemp & "')"
-                sqlExecute(query, "PERSONAL")
+                sqlExecute(query, "CAPACITACION")
 
                 '===Volver a llamar a la funcion de recargar los documentos
                 CargarDocumentos(id_curso)
@@ -278,7 +284,7 @@ Public Class frmRepositorioCursos
                     D = DocsNodoActivo.Name.Replace("doc", "")
 
                     query = "select * from archivos  where id='" & cod_curso & "' and consec='" & D & "'"
-                    dtDocumento = sqlExecute(query, "PERSONAL")
+                    dtDocumento = sqlExecute(query, "CAPACITACION")
 
                     If Not dtDocumento.Columns.Contains("Error") And dtDocumento.Rows.Count > 0 Then
                         nombre_archivo = dtDocumento.Rows(0).Item("nombre_arch").ToString.Trim
@@ -289,10 +295,10 @@ Public Class frmRepositorioCursos
                     If File.Exists(DirTemp & nombre_archivo) Then
 
                         FileSystem.Kill(DirTemp & nombre_archivo)
-                        sqlExecute("DELETE FROM archivos WHERE id = '" & cod_curso & "' AND consec = '" & D & "'", "PERSONAL")
+                        sqlExecute("DELETE FROM archivos WHERE id = '" & cod_curso & "' AND consec = '" & D & "'", "CAPACITACION")
                         MessageBox.Show("El elemento seleccionado fué eliminado de forma exitosa", "P.I.D.A.", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Else
-                        sqlExecute("DELETE FROM archivos WHERE id = '" & cod_curso & "' AND consec = '" & D & "'", "PERSONAL")
+                        sqlExecute("DELETE FROM archivos WHERE id = '" & cod_curso & "' AND consec = '" & D & "'", "CAPACITACION")
                         MessageBox.Show("El elemento seleccionado fué eliminado de forma exitosa", "P.I.D.A.", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     End If
 
