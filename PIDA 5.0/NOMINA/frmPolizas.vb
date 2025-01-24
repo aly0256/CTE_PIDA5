@@ -25,7 +25,7 @@ Public Class frmPolizas
 
             'Periodo activo
             'Marcar como activo el ultimo periodo semanal con informacion | ACASAS 20180122
-            dtTemp = sqlExecute("SELECT MAX(ano+periodo) as AnoPeriodo FROM nomina WHERE periodo<='53' and tipo_periodo = 'S'", "NOMINA")
+            dtTemp = sqlExecute("SELECT MAX(ano+periodo) as AnoPeriodo FROM nomina WHERE tipo_periodo = 'S'", "NOMINA")
             If dtTemp.Rows.Count > 0 Then
                 If IsDBNull(dtTemp.Rows(0).Item("anoperiodo")) Then
                     AnoSelec = ""
