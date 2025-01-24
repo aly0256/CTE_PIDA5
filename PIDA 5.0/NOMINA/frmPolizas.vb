@@ -1136,8 +1136,17 @@ Public Class frmPolizas
                 For Each rowT As DataRow In dtTotales.Select(filtro, strOrden)
 
                     If Not lstCuentas.Contains(rowT("cuenta").ToString.Trim) Then lstCuentas.Add(rowT("cuenta").ToString.Trim) Else Continue For
-                    Dim debe = 0.0, haber = 0.0
-                    Dim total = 0.0
+                    Dim debe = 0.0, haber = 0.0, total = 0.0
+
+                    If filtro.Contains("<>") Then
+                        Dim tieneDEBE = 0.0
+                        Try : tieneDEBE = dtDatos.Compute("sum(debe)", "nombre_cta='" & rowT("nombre_cta").ToString.Trim & "'") : Catch ex As Exception : End Try
+                        Dim tieneHABER = 0.0
+                        Try : tieneHABER = dtDatos.Compute("sum(haber)", "nombre_cta='" & rowT("nombre_cta").ToString.Trim & "'") : Catch ex As Exception : End Try
+
+                        If tieneDEBE = 0.0 And tieneHABER = 0.0 Then Continue For
+                    End If
+
 
                     hoja_excel.Cells(x, 1).Value = i
                     hoja_excel.Cells(x, 2).Value = ""
