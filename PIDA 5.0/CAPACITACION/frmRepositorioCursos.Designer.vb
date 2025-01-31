@@ -25,6 +25,10 @@ Partial Class frmRepositorioCursos
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRepositorioCursos))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.txtNombre = New DevComponents.DotNetBar.Controls.TextBoxX()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtCodigo = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.dlgSave = New System.Windows.Forms.SaveFileDialog()
         Me.opnArchivo = New System.Windows.Forms.OpenFileDialog()
@@ -38,6 +42,12 @@ Partial Class frmRepositorioCursos
         Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripSeparator()
         Me.CerrarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btnCerrar = New DevComponents.DotNetBar.ButtonX()
+        Me.btnPrimero = New DevComponents.DotNetBar.ButtonX()
+        Me.btnAnterior = New DevComponents.DotNetBar.ButtonX()
+        Me.btnSiguiente = New DevComponents.DotNetBar.ButtonX()
+        Me.btnUltimo = New DevComponents.DotNetBar.ButtonX()
+        Me.btnBuscar = New DevComponents.DotNetBar.ButtonX()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.CollapsibleSplitContainer1 = New DevComponents.DotNetBar.Controls.CollapsibleSplitContainer()
         Me.treeDocs = New DevComponents.AdvTree.AdvTree()
@@ -62,16 +72,9 @@ Partial Class frmRepositorioCursos
         Me.ElementStyle4 = New DevComponents.DotNetBar.ElementStyle()
         Me.webPreview = New System.Windows.Forms.WebBrowser()
         Me.imgDocs = New System.Windows.Forms.ImageList(Me.components)
-        Me.txtCodigo = New DevComponents.DotNetBar.Controls.TextBoxX()
-        Me.btnCerrar = New DevComponents.DotNetBar.ButtonX()
-        Me.btnPrimero = New DevComponents.DotNetBar.ButtonX()
-        Me.btnAnterior = New DevComponents.DotNetBar.ButtonX()
-        Me.btnSiguiente = New DevComponents.DotNetBar.ButtonX()
-        Me.btnUltimo = New DevComponents.DotNetBar.ButtonX()
-        Me.btnBuscar = New DevComponents.DotNetBar.ButtonX()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtNombre = New DevComponents.DotNetBar.Controls.TextBoxX()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.ReflectionLabel1 = New DevComponents.DotNetBar.Controls.ReflectionLabel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel1.SuspendLayout()
         Me.mnuDocs.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -81,20 +84,71 @@ Partial Class frmRepositorioCursos
         Me.CollapsibleSplitContainer1.Panel2.SuspendLayout()
         Me.CollapsibleSplitContainer1.SuspendLayout()
         CType(Me.treeDocs, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel4.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.Control
-        Me.Panel1.Controls.Add(Me.txtNombre)
-        Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Controls.Add(Me.txtCodigo)
+        Me.Panel1.Controls.Add(Me.Panel4)
+        Me.Panel1.Controls.Add(Me.PictureBox1)
+        Me.Panel1.Controls.Add(Me.ReflectionLabel1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1070, 76)
+        Me.Panel1.Size = New System.Drawing.Size(1070, 79)
         Me.Panel1.TabIndex = 0
+        '
+        'txtNombre
+        '
+        '
+        '
+        '
+        Me.txtNombre.Border.Class = "TextBoxBorder"
+        Me.txtNombre.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.txtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtNombre.Location = New System.Drawing.Point(63, 30)
+        Me.txtNombre.MaxLength = 150
+        Me.txtNombre.Name = "txtNombre"
+        Me.txtNombre.Size = New System.Drawing.Size(386, 21)
+        Me.txtNombre.TabIndex = 82
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.SystemColors.Control
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(5, 35)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(52, 15)
+        Me.Label2.TabIndex = 83
+        Me.Label2.Text = "Nombre"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.SystemColors.Control
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(9, 5)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(46, 15)
+        Me.Label1.TabIndex = 81
+        Me.Label1.Text = "Código"
+        '
+        'txtCodigo
+        '
+        '
+        '
+        '
+        Me.txtCodigo.Border.Class = "TextBoxBorder"
+        Me.txtCodigo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.txtCodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCodigo.Location = New System.Drawing.Point(63, 3)
+        Me.txtCodigo.MaxLength = 5
+        Me.txtCodigo.Name = "txtCodigo"
+        Me.txtCodigo.Size = New System.Drawing.Size(136, 21)
+        Me.txtCodigo.TabIndex = 2
         '
         'opnArchivo
         '
@@ -105,7 +159,7 @@ Partial Class frmRepositorioCursos
         Me.mnuDocs.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.mnuDocs.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DocToolStripMenuItem, Me.AgregarDocumentoToolStripMenuItem, Me.EliminarDocumentoToolStripMenuItem, Me.ToolStripMenuItem2, Me.GuardarArchivoToolStripMenuItem, Me.ImprimirArchivoToolStripMenuItem, Me.ToolStripMenuItem3, Me.CerrarToolStripMenuItem})
         Me.mnuDocs.Name = "mnuDocs"
-        Me.mnuDocs.Size = New System.Drawing.Size(229, 148)
+        Me.mnuDocs.Size = New System.Drawing.Size(218, 170)
         '
         'DocToolStripMenuItem
         '
@@ -117,8 +171,8 @@ Partial Class frmRepositorioCursos
         'AgregarDocumentoToolStripMenuItem
         '
         Me.AgregarDocumentoToolStripMenuItem.Name = "AgregarDocumentoToolStripMenuItem"
-        Me.AgregarDocumentoToolStripMenuItem.Size = New System.Drawing.Size(228, 22)
-        Me.AgregarDocumentoToolStripMenuItem.Text = "Agregar/Guardar documento"
+        Me.AgregarDocumentoToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
+        Me.AgregarDocumentoToolStripMenuItem.Text = "Agregar nuevo documento"
         '
         'EliminarDocumentoToolStripMenuItem
         '
@@ -169,14 +223,92 @@ Partial Class frmRepositorioCursos
         Me.Panel2.Size = New System.Drawing.Size(1070, 54)
         Me.Panel2.TabIndex = 3
         '
+        'btnCerrar
+        '
+        Me.btnCerrar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.btnCerrar.CausesValidation = False
+        Me.btnCerrar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
+        Me.btnCerrar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCerrar.Image = Global.PIDA.My.Resources.Resources.Cerrar16
+        Me.btnCerrar.ImageFixedSize = New System.Drawing.Size(16, 16)
+        Me.btnCerrar.Location = New System.Drawing.Point(697, 17)
+        Me.btnCerrar.Name = "btnCerrar"
+        Me.btnCerrar.Size = New System.Drawing.Size(73, 25)
+        Me.btnCerrar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.btnCerrar.TabIndex = 15
+        Me.btnCerrar.Text = "Salir"
+        '
+        'btnPrimero
+        '
+        Me.btnPrimero.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.btnPrimero.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
+        Me.btnPrimero.Image = Global.PIDA.My.Resources.Resources.First16
+        Me.btnPrimero.Location = New System.Drawing.Point(310, 17)
+        Me.btnPrimero.Name = "btnPrimero"
+        Me.btnPrimero.Size = New System.Drawing.Size(73, 25)
+        Me.btnPrimero.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.btnPrimero.TabIndex = 10
+        Me.btnPrimero.Text = "Inicio"
+        '
+        'btnAnterior
+        '
+        Me.btnAnterior.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.btnAnterior.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
+        Me.btnAnterior.Image = Global.PIDA.My.Resources.Resources.Prev16
+        Me.btnAnterior.Location = New System.Drawing.Point(387, 17)
+        Me.btnAnterior.Name = "btnAnterior"
+        Me.btnAnterior.Size = New System.Drawing.Size(73, 25)
+        Me.btnAnterior.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.btnAnterior.TabIndex = 11
+        Me.btnAnterior.Text = "Anterior"
+        '
+        'btnSiguiente
+        '
+        Me.btnSiguiente.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.btnSiguiente.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
+        Me.btnSiguiente.Image = Global.PIDA.My.Resources.Resources.Next16
+        Me.btnSiguiente.Location = New System.Drawing.Point(464, 17)
+        Me.btnSiguiente.Name = "btnSiguiente"
+        Me.btnSiguiente.Size = New System.Drawing.Size(73, 25)
+        Me.btnSiguiente.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.btnSiguiente.TabIndex = 12
+        Me.btnSiguiente.Text = "Siguiente"
+        '
+        'btnUltimo
+        '
+        Me.btnUltimo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.btnUltimo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
+        Me.btnUltimo.Image = Global.PIDA.My.Resources.Resources.Last16
+        Me.btnUltimo.Location = New System.Drawing.Point(541, 17)
+        Me.btnUltimo.Name = "btnUltimo"
+        Me.btnUltimo.Size = New System.Drawing.Size(73, 25)
+        Me.btnUltimo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.btnUltimo.TabIndex = 13
+        Me.btnUltimo.Text = "Final"
+        '
+        'btnBuscar
+        '
+        Me.btnBuscar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.btnBuscar.CausesValidation = False
+        Me.btnBuscar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
+        Me.btnBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBuscar.Image = Global.PIDA.My.Resources.Resources.Search16
+        Me.btnBuscar.Location = New System.Drawing.Point(618, 17)
+        Me.btnBuscar.Name = "btnBuscar"
+        Me.btnBuscar.Size = New System.Drawing.Size(73, 25)
+        Me.btnBuscar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.btnBuscar.TabIndex = 14
+        Me.btnBuscar.Text = "Buscar"
+        Me.btnBuscar.Tooltip = "Buscar"
+        '
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.White
         Me.Panel3.Controls.Add(Me.CollapsibleSplitContainer1)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel3.Location = New System.Drawing.Point(0, 76)
+        Me.Panel3.Location = New System.Drawing.Point(0, 79)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1070, 470)
+        Me.Panel3.Size = New System.Drawing.Size(1070, 467)
         Me.Panel3.TabIndex = 4
         '
         'CollapsibleSplitContainer1
@@ -192,7 +324,7 @@ Partial Class frmRepositorioCursos
         'CollapsibleSplitContainer1.Panel2
         '
         Me.CollapsibleSplitContainer1.Panel2.Controls.Add(Me.webPreview)
-        Me.CollapsibleSplitContainer1.Size = New System.Drawing.Size(1070, 470)
+        Me.CollapsibleSplitContainer1.Size = New System.Drawing.Size(1070, 467)
         Me.CollapsibleSplitContainer1.SplitterDistance = 312
         Me.CollapsibleSplitContainer1.SplitterWidth = 20
         Me.CollapsibleSplitContainer1.TabIndex = 0
@@ -218,7 +350,7 @@ Partial Class frmRepositorioCursos
         Me.treeDocs.NodesConnector = Me.NodeConnector2
         Me.treeDocs.NodeStyle = Me.ElementStyle1
         Me.treeDocs.PathSeparator = ";"
-        Me.treeDocs.Size = New System.Drawing.Size(312, 470)
+        Me.treeDocs.Size = New System.Drawing.Size(312, 467)
         Me.treeDocs.Styles.Add(Me.ElementStyle1)
         Me.treeDocs.Styles.Add(Me.ElementStyle3)
         Me.treeDocs.Styles.Add(Me.ElementStyle4)
@@ -402,7 +534,7 @@ Partial Class frmRepositorioCursos
         Me.webPreview.Location = New System.Drawing.Point(0, 0)
         Me.webPreview.MinimumSize = New System.Drawing.Size(20, 20)
         Me.webPreview.Name = "webPreview"
-        Me.webPreview.Size = New System.Drawing.Size(738, 470)
+        Me.webPreview.Size = New System.Drawing.Size(738, 467)
         Me.webPreview.TabIndex = 8
         '
         'imgDocs
@@ -425,133 +557,40 @@ Partial Class frmRepositorioCursos
         Me.imgDocs.Images.SetKeyName(13, "UND")
         Me.imgDocs.Images.SetKeyName(14, "DOCX")
         '
-        'txtCodigo
+        'ReflectionLabel1
         '
         '
         '
         '
-        Me.txtCodigo.Border.Class = "TextBoxBorder"
-        Me.txtCodigo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.txtCodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCodigo.Location = New System.Drawing.Point(310, 12)
-        Me.txtCodigo.MaxLength = 5
-        Me.txtCodigo.Name = "txtCodigo"
-        Me.txtCodigo.Size = New System.Drawing.Size(136, 21)
-        Me.txtCodigo.TabIndex = 2
+        Me.ReflectionLabel1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.ReflectionLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ReflectionLabel1.Location = New System.Drawing.Point(43, 12)
+        Me.ReflectionLabel1.Name = "ReflectionLabel1"
+        Me.ReflectionLabel1.Size = New System.Drawing.Size(269, 61)
+        Me.ReflectionLabel1.TabIndex = 84
+        Me.ReflectionLabel1.Text = "<font color=""#1F497D""><b>REPOSITORIO DE CURSOS</b></font>"
         '
-        'btnCerrar
+        'PictureBox1
         '
-        Me.btnCerrar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
-        Me.btnCerrar.CausesValidation = False
-        Me.btnCerrar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
-        Me.btnCerrar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCerrar.Image = Global.PIDA.My.Resources.Resources.Cerrar16
-        Me.btnCerrar.ImageFixedSize = New System.Drawing.Size(16, 16)
-        Me.btnCerrar.Location = New System.Drawing.Point(697, 17)
-        Me.btnCerrar.Name = "btnCerrar"
-        Me.btnCerrar.Size = New System.Drawing.Size(73, 25)
-        Me.btnCerrar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.btnCerrar.TabIndex = 15
-        Me.btnCerrar.Text = "Salir"
+        Me.PictureBox1.Image = Global.PIDA.My.Resources.Resources.Download32
+        Me.PictureBox1.Location = New System.Drawing.Point(12, 12)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(26, 40)
+        Me.PictureBox1.TabIndex = 85
+        Me.PictureBox1.TabStop = False
         '
-        'btnPrimero
+        'Panel4
         '
-        Me.btnPrimero.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
-        Me.btnPrimero.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
-        Me.btnPrimero.Image = Global.PIDA.My.Resources.Resources.First16
-        Me.btnPrimero.Location = New System.Drawing.Point(310, 17)
-        Me.btnPrimero.Name = "btnPrimero"
-        Me.btnPrimero.Size = New System.Drawing.Size(73, 25)
-        Me.btnPrimero.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.btnPrimero.TabIndex = 10
-        Me.btnPrimero.Text = "Inicio"
-        '
-        'btnAnterior
-        '
-        Me.btnAnterior.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
-        Me.btnAnterior.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
-        Me.btnAnterior.Image = Global.PIDA.My.Resources.Resources.Prev16
-        Me.btnAnterior.Location = New System.Drawing.Point(387, 17)
-        Me.btnAnterior.Name = "btnAnterior"
-        Me.btnAnterior.Size = New System.Drawing.Size(73, 25)
-        Me.btnAnterior.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.btnAnterior.TabIndex = 11
-        Me.btnAnterior.Text = "Anterior"
-        '
-        'btnSiguiente
-        '
-        Me.btnSiguiente.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
-        Me.btnSiguiente.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
-        Me.btnSiguiente.Image = Global.PIDA.My.Resources.Resources.Next16
-        Me.btnSiguiente.Location = New System.Drawing.Point(464, 17)
-        Me.btnSiguiente.Name = "btnSiguiente"
-        Me.btnSiguiente.Size = New System.Drawing.Size(73, 25)
-        Me.btnSiguiente.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.btnSiguiente.TabIndex = 12
-        Me.btnSiguiente.Text = "Siguiente"
-        '
-        'btnUltimo
-        '
-        Me.btnUltimo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
-        Me.btnUltimo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
-        Me.btnUltimo.Image = Global.PIDA.My.Resources.Resources.Last16
-        Me.btnUltimo.Location = New System.Drawing.Point(541, 17)
-        Me.btnUltimo.Name = "btnUltimo"
-        Me.btnUltimo.Size = New System.Drawing.Size(73, 25)
-        Me.btnUltimo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.btnUltimo.TabIndex = 13
-        Me.btnUltimo.Text = "Final"
-        '
-        'btnBuscar
-        '
-        Me.btnBuscar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
-        Me.btnBuscar.CausesValidation = False
-        Me.btnBuscar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
-        Me.btnBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBuscar.Image = Global.PIDA.My.Resources.Resources.Search16
-        Me.btnBuscar.Location = New System.Drawing.Point(618, 17)
-        Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(73, 25)
-        Me.btnBuscar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.btnBuscar.TabIndex = 14
-        Me.btnBuscar.Text = "Buscar"
-        Me.btnBuscar.Tooltip = "Buscar"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.SystemColors.Control
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(256, 14)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(46, 15)
-        Me.Label1.TabIndex = 81
-        Me.Label1.Text = "Código"
-        '
-        'txtNombre
-        '
-        '
-        '
-        '
-        Me.txtNombre.Border.Class = "TextBoxBorder"
-        Me.txtNombre.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.txtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNombre.Location = New System.Drawing.Point(513, 12)
-        Me.txtNombre.MaxLength = 150
-        Me.txtNombre.Name = "txtNombre"
-        Me.txtNombre.Size = New System.Drawing.Size(438, 21)
-        Me.txtNombre.TabIndex = 82
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.SystemColors.Control
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(455, 17)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(52, 15)
-        Me.Label2.TabIndex = 83
-        Me.Label2.Text = "Nombre"
+        Me.Panel4.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Panel4.Controls.Add(Me.txtCodigo)
+        Me.Panel4.Controls.Add(Me.Label1)
+        Me.Panel4.Controls.Add(Me.Label2)
+        Me.Panel4.Controls.Add(Me.txtNombre)
+        Me.Panel4.Location = New System.Drawing.Point(332, 11)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(463, 62)
+        Me.Panel4.TabIndex = 86
         '
         'frmRepositorioCursos
         '
@@ -566,7 +605,6 @@ Partial Class frmRepositorioCursos
         Me.Text = "Repositorio de cursos"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
         Me.mnuDocs.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
@@ -575,6 +613,9 @@ Partial Class frmRepositorioCursos
         CType(Me.CollapsibleSplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.CollapsibleSplitContainer1.ResumeLayout(False)
         CType(Me.treeDocs, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel4.ResumeLayout(False)
+        Me.Panel4.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -626,4 +667,7 @@ Partial Class frmRepositorioCursos
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents txtNombre As DevComponents.DotNetBar.Controls.TextBoxX
     Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents ReflectionLabel1 As DevComponents.DotNetBar.Controls.ReflectionLabel
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents Panel4 As System.Windows.Forms.Panel
 End Class
