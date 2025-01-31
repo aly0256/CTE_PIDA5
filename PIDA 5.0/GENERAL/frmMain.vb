@@ -2462,5 +2462,11 @@ Public Class frmMain
         End Try
     End Sub
 
-
+    Private Sub btnmnuCapturados_Click(sender As Object, e As EventArgs) Handles btnmnuCapturados.Click
+        On Error Resume Next
+        frmDemoFiniquitosCapturados.MdiParent = Me
+        frmDemoFiniquitosCapturados.WindowState = FormWindowState.Maximized
+        frmDemoFiniquitosCapturados.Show()
+        frmDemoFiniquitosCapturados.Focus()
+    End Sub
 End Class

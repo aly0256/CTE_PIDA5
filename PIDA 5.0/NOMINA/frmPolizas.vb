@@ -25,7 +25,7 @@ Public Class frmPolizas
 
             'Periodo activo
             'Marcar como activo el ultimo periodo semanal con informacion | ACASAS 20180122
-            dtTemp = sqlExecute("SELECT MAX(ano+periodo) as AnoPeriodo FROM nomina WHERE periodo<='53' and tipo_periodo = 'S'", "NOMINA")
+            dtTemp = sqlExecute("SELECT MAX(ano+periodo) as AnoPeriodo FROM nomina WHERE tipo_periodo = 'S'", "NOMINA")
             If dtTemp.Rows.Count > 0 Then
                 If IsDBNull(dtTemp.Rows(0).Item("anoperiodo")) Then
                     AnoSelec = ""
@@ -1136,8 +1136,17 @@ Public Class frmPolizas
                 For Each rowT As DataRow In dtTotales.Select(filtro, strOrden)
 
                     If Not lstCuentas.Contains(rowT("cuenta").ToString.Trim) Then lstCuentas.Add(rowT("cuenta").ToString.Trim) Else Continue For
-                    Dim debe = 0.0, haber = 0.0
-                    Dim total = 0.0
+                    Dim debe = 0.0, haber = 0.0, total = 0.0
+
+                    If filtro.Contains("<>") Then
+                        Dim tieneDEBE = 0.0
+                        Try : tieneDEBE = dtDatos.Compute("sum(debe)", "nombre_cta='" & rowT("nombre_cta").ToString.Trim & "'") : Catch ex As Exception : End Try
+                        Dim tieneHABER = 0.0
+                        Try : tieneHABER = dtDatos.Compute("sum(haber)", "nombre_cta='" & rowT("nombre_cta").ToString.Trim & "'") : Catch ex As Exception : End Try
+
+                        If tieneDEBE = 0.0 And tieneHABER = 0.0 Then Continue For
+                    End If
+
 
                     hoja_excel.Cells(x, 1).Value = i
                     hoja_excel.Cells(x, 2).Value = ""
