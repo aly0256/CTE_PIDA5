@@ -5702,7 +5702,7 @@ salirEdicionInfonavit:
     End Sub
 
     '--- 
-    '---TEST 2023-12-19
+    '---TEST
     Private Sub btnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click
         Dim Cadena As String = ""
         Dim codigo As String
@@ -5762,6 +5762,7 @@ salirEdicionInfonavit:
                 Cadena = Cadena & Reloj & "','" & Usuario & "',GETDATE(),'E')"
                 sqlExecute(Cadena)
                 btnNext.PerformClick()
+
             End If
 
         Catch ex As Exception
