@@ -8989,7 +8989,9 @@ SalirCicloInsert:
         'pnlRecuperacion.Visible = False
 
         Try
-            If Not (Editar Or Nuevo) Or cmbTipoMovInfonavit.SelectedValue Is Nothing Then Exit Sub
+            If Not cmbTipoInfonavit.Visible Then cmbTipoMovInfonavit.SelectedValue = "" ' Si no está visible las opciones de mov de infonavit, el valor debe de ser ""
+
+            If Not (Editar Or Nuevo) Or cmbTipoMovInfonavit.SelectedValue Is Nothing Or Not cmbTipoInfonavit.Visible Then Exit Sub
             'BorraInfonavit = False
             Mov = cmbTipoMovInfonavit.SelectedValue
             'MCR 20210629
