@@ -622,8 +622,9 @@ Module FuncionesTA
             '***********************************************************
 
 
-
-            ChecaTarjeta = IIf(IsDBNull(drEmpleado("checa_tarjeta")), True, drEmpleado("checa_tarjeta"))
+            '==2025-02-06: Si esta en NULL, no checa tarjeta, es como si estuviera en 0
+            Try : ChecaTarjeta = drEmpleado("checa_tarjeta") : Catch ex As Exception : ChecaTarjeta = False : End Try
+            'ChecaTarjeta = IIf(IsDBNull(drEmpleado("checa_tarjeta")), True, drEmpleado("checa_tarjeta")) ' Anterior
             'If Not ChecaTarjeta And Not DesdeAsistenciaPerfecta Then
             '    'Si el empleado no checa tarjeta, poner asistencia perfecta
             '    AsistenciaPerfecta(drEmpleado, Fecha, Ano & Periodo, _pri_ent_ult_sal)
@@ -1378,7 +1379,10 @@ Module FuncionesTA
                     If (noAplicaRet) Then HrsNor = horas_dia_esperadas '  AOS - Si no aplica el retardo, que horas normales ponga las que espera de acuerdo a su dia y horario
 
                     ' Si el empleado tiene sus 2 checadas y es de tipo periodo catorcenal, se le pondra tiempo completo en caso de alguna incidencia(no ausentismo)
-                    If HoraEntro <> "" And HoraSalio <> "" And _comentario <> "" And drEmpleado("tipo_periodo") = "C" Then
+                    '===2025-02-06
+                    Dim _tipo_per As String = ""
+                    Try : _tipo_per = drEmpleado("tipo_periodo").ToString.Trim : Catch ex As Exception : _tipo_per = "" : End Try
+                    If HoraEntro <> "" And HoraSalio <> "" And _comentario <> "" And _tipo_per = "C" Then
                         Dim dtHayTiempoCompleto_C As DataTable = sqlExecute("select * from ta.dbo.TiempoCompleto where reloj = '" & reloj & "' AND fecha = '" & FechaSQL(Fecha) & "'")
                         If Not dtHayTiempoCompleto_C.Rows.Count > 0 Then
                             sqlExecute("insert into ta.dbo.TiempoCompleto (reloj, fecha, usuario, registro) values ('" & reloj & "', '" & FechaSQL(Fecha) & "', '" & Usuario & "', getdate())")
