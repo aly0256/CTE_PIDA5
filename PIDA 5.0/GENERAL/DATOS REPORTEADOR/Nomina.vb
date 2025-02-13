@@ -13382,13 +13382,13 @@ Saltar1:
                                             "    FOR XML PATH('')), 1, 1, ''); " &
                                             "" &
                                             "set @sql= N'SELECT reloj, nombres, cod_depto,nombre_depto,cod_puesto,  " &
-                                            "		 nombre_puesto,numero_seguro_social,alta,alta_antiguedad,baja,sueldo_actual,integrado,  " &
+                                            "		 nombre_puesto,numero_seguro_social,rfc,curp,alta,alta_antiguedad,baja,sueldo_actual,integrado,  " &
                                             "		 tipo_credito,factor_infonavit,'+@columns+N' " &
                                             "        FROM " &
                                             "		 (SELECT rtrim(m.reloj) as RELOJ,rtrim(p.nombres) as NOMBRES,rtrim(p.cod_tipo) as COD_TIPO,rtrim(p.cod_clase) as COD_CLASE, " &
                                             "		 rtrim(p.rfc) as RFC,rtrim(p.cod_depto) as COD_DEPTO,rtrim(p.nombre_depto) as NOMBRE_DEPTO,rtrim(p.cod_puesto) as COD_PUESTO,  " &
                                             "		 rtrim(p.nombre_puesto) as NOMBRE_PUESTO,rtrim(p.imss) as NUMERO_SEGURO_SOCIAL, " &
-                                            "		 p.alta as ALTA,p.alta_vacacion as ALTA_ANTIGUEDAD,p.baja,p.sactual as SUELDO_ACTUAL,p.integrado as INTEGRADO, " &
+                                            "		 rtrim(p.curp) as curp,p.alta as ALTA,p.alta_vacacion as ALTA_ANTIGUEDAD,p.baja,p.sactual as SUELDO_ACTUAL,p.integrado as INTEGRADO, " &
                                             "		 p.tipo_cre as TIPO_CREDITO,p.PAGO_INF as FACTOR_INFONAVIT, " &
                                             "		 RTRIM(concepto) AS CONCEPTO, monto " &
                                             "		 FROM nomina.dbo.movimientos m  " &
@@ -13458,7 +13458,7 @@ Saltar1:
                                 Dim nomCol = emp.ColumnName
                                 hoja_excel.Column(y).Width = 19
 
-                                If y >= 15 Then
+                                If y >= 17 Then
                                     Dim nombreCol = dtConceptos.Select("concepto='" & nomCol.Trim.Replace("_", "") & "'").First.Item("nombre").ToString.Trim
                                     hoja_excel.Cells(x, y).Value = nombreCol
                                     hoja_excel.Cells(x, y).Style.Fill.PatternType = Style.ExcelFillStyle.Solid
@@ -13474,10 +13474,10 @@ Saltar1:
 
                                 hoja_excel.Cells(x + 1, y).Value = nomCol.ToUpper.Trim
                                 hoja_excel.Cells(x + 1, y).Style.Fill.PatternType = Style.ExcelFillStyle.Solid
-                                hoja_excel.Cells(x + 1, y).Style.Fill.BackgroundColor.SetColor(If(y >= 15, Color.FromArgb(0, 0, 0), Color.FromArgb(187, 188, 186)))
-                                hoja_excel.Cells(x + 1, y).Style.Font.Color.SetColor(If(y >= 15, Color.FromArgb(255, 255, 255), Color.FromArgb(0, 0, 0)))
+                                hoja_excel.Cells(x + 1, y).Style.Fill.BackgroundColor.SetColor(If(y >= 17, Color.FromArgb(0, 0, 0), Color.FromArgb(187, 188, 186)))
+                                hoja_excel.Cells(x + 1, y).Style.Font.Color.SetColor(If(y >= 17, Color.FromArgb(255, 255, 255), Color.FromArgb(0, 0, 0)))
                                 hoja_excel.Cells(x + 1, y).Style.VerticalAlignment = Style.ExcelVerticalAlignment.Center
-                                hoja_excel.Cells(x + 1, y).Style.HorizontalAlignment = If(y >= 15, Style.ExcelHorizontalAlignment.Center, Style.ExcelHorizontalAlignment.Left)
+                                hoja_excel.Cells(x + 1, y).Style.HorizontalAlignment = If(y >= 17, Style.ExcelHorizontalAlignment.Center, Style.ExcelHorizontalAlignment.Left)
 
                                 y += 1
                             Next
@@ -13488,7 +13488,7 @@ Saltar1:
                             For Each emp As DataRow In dtNomina.Rows
                                 For Each col As DataColumn In dtNomina.Columns
                                     Dim colN = col.ColumnName
-                                    Dim val = If(y >= 15, If(IsDBNull(emp(colN)), 0.0, emp(colN)), If(IsDBNull(emp(colN)), "", emp(colN)))
+                                    Dim val = If(y >= 17, If(IsDBNull(emp(colN)), 0.0, emp(colN)), If(IsDBNull(emp(colN)), "", emp(colN)))
                                     Dim esNumero = val.GetType() Is GetType(Integer) Or val.GetType() Is GetType(Decimal) Or val.GetType() Is GetType(Double)
                                     hoja_excel.Cells(x, y).Value = If({"alta", "alta_antiguedad", "baja"}.Contains(colN), If(val.ToString = "", "", FechaSQL(val)), val)
                                     hoja_excel.Cells(x, y).Style.HorizontalAlignment = If(esNumero, Style.ExcelHorizontalAlignment.Right, Style.ExcelHorizontalAlignment.Left)
@@ -13500,7 +13500,7 @@ Saltar1:
                             Next
 
                             '-- Color de fondo de montos de conceptos
-                            Dim lastCol = GetExcelColumnName(15) & "8:" & GetExcelColumnName(dtNomina.Columns.Count) & x - 1
+                            Dim lastCol = GetExcelColumnName(17) & "8:" & GetExcelColumnName(dtNomina.Columns.Count) & x - 1
                             hoja_excel.SelectedRange(lastCol).Style.Fill.PatternType = Style.ExcelFillStyle.Solid
                             hoja_excel.SelectedRange(lastCol).Style.Fill.BackgroundColor.SetColor(Color.FromArgb(226, 239, 218))
                             hoja_excel.SelectedRange(lastCol).Style.Numberformat.Format = "$ #,##0.00"
