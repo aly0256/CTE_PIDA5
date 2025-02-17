@@ -3975,7 +3975,7 @@ integ,
 
                 '===AO: 2024-11-06: Que las bajas no dependan del filtro del reporteador, que se haga de acuerdo a las bajas que hubo en las fechas enviadas
                 Dim dtBajas As New DataTable, query As String = ""
-                query = "select reloj,imss,DIG_VER,baja,integrado,nombres,reloj,curp, motivo_baja_im from  personalvw where baja between '" & FechaSQL(FechaInicial) & "' and '" & FechaSQL(FechaFinal) & "'"
+                query = "select reloj,imss,DIG_VER,baja,integrado,nombres,reloj,curp, motivo_baja_im from  personalvw where cod_comp in ('" & lclCompania & "') and baja between '" & FechaSQL(FechaInicial) & "' and '" & FechaSQL(FechaFinal) & "'"
                 dtBajas = sqlExecute(query, "PERSONAL")
                 If Not dtBajas.Columns.Contains("Error") And dtBajas.Rows.Count > 0 Then
                     For Each dRow As DataRow In dtBajas.Rows
@@ -4008,7 +4008,7 @@ integ,
 
             If (_index_tipo_mov_sel = 0 Or _index_tipo_mov_sel = 5) Then
 
-                Dim dtReingresos As DataTable = sqlExecute("select reloj,alta from personalvw where  isnull(baja,'')=''  and ALTA between '" & FechaSQL(FechaInicial) & "' and '" & FechaSQL(FechaFinal) & "' order by reloj asc", "PERSONAL")
+                Dim dtReingresos As DataTable = sqlExecute("select reloj,alta from personalvw where cod_comp in ('" & lclCompania & "') and  isnull(baja,'')=''  and ALTA between '" & FechaSQL(FechaInicial) & "' and '" & FechaSQL(FechaFinal) & "' order by reloj asc", "PERSONAL")
                 ' Dim dtReingresos As DataTable = sqlExecute("Select reloj, alta From reingresos where alta between '" & FechaSQL(FechaInicial) & "' and '" & FechaSQL(FechaFinal) & "' order by reloj", "PERSONAL")
                 _x = 1
                 _CountReg = dtReingresos.Rows.Count
@@ -4039,7 +4039,7 @@ integ,
 
             If (_index_tipo_mov_sel = 2 Or _index_tipo_mov_sel = 5) Then
 
-                Dim dtModiSalario As DataTable = sqlExecute("Select * from personalvw where fha_ult_mo is not null and fha_ult_mo between '" & FechaSQL(FechaInicial) & "' and '" & FechaSQL(FechaFinal) & "'")
+                Dim dtModiSalario As DataTable = sqlExecute("Select * from personalvw where cod_comp in ('" & lclCompania & "') and fha_ult_mo is not null and fha_ult_mo between '" & FechaSQL(FechaInicial) & "' and '" & FechaSQL(FechaFinal) & "'")
                 _x = 1
                 _CountReg = dtModiSalario.Rows.Count
                 For Each dRow As DataRowView In dtModiSalario.DefaultView
@@ -4135,7 +4135,7 @@ integ,
 
                 Dim dtAusentismo As DataTable = sqlExecute("SELECT RELOJ, count(distinct(fecha)) as DIAS " & _
                                             "FROM ausentismo left join tipo_ausentismo ON tipo_ausentismo.TIPO_AUS = ausentismo.TIPO_AUS " & _
-                                            "WHERE (ausentismo.FECHA BETWEEN '" & FechaSQL(FechaInicial) & "' AND '" & FechaSQL(FechaFinal) & "') AND " & _
+                                            "WHERE ausentismo.cod_comp in ('" & lclCompania & "') and (ausentismo.FECHA BETWEEN '" & FechaSQL(FechaInicial) & "' AND '" & FechaSQL(FechaFinal) & "') AND " & _
                                             "(ausentismo.TIPO_AUS IN (SELECT TIPO_AUS FROM tipo_ausentismo AS tipo_ausentismo_1 " & _
                                             "WHERE (AFECTA_SUA = 1) AND (TIPO_NATURALEZA <> 'I') AND (NOT(RELOJ LIKE 'X1')) AND (NOT(dbo.ausentismo.RELOJ LIKE 'X2')))) " & _
                                             "GROUP BY RELOJ " & _

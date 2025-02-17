@@ -14,7 +14,8 @@ Public Class frmReporteador
         Try
             lstFiltros.Items.Clear()
 
-            If NFiltros <= 0 And Filtros.Length > 0 Then NFiltros = 1 '==AO: Arregla detalle de cargar bajas en la primera vez que se accesa al server
+            If NFiltros <= 0 And Filtros.Length > 0 And Not chkTodos.Checked Then NFiltros = 1 '==AO: Arregla detalle de cargar bajas en la primera vez que se accesa al server
+
 
             For i = 0 To NFiltros - 1
                 FL = FL & IIf(i > 0, " AND (", "(") & Filtros(2, i) & ")"
