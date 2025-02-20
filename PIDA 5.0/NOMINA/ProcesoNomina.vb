@@ -2298,7 +2298,7 @@ Public Class ProcesoNomina
                 '--- Revisión de montos negativos en conceptos de movimientosPro [sqlite]
                 ConceptosMontoNegativo(data)
                 '--- Corrida de saldo de fondo de ahorro [sqlite]
-                CorridaSaldosFondoAhorro(data, strFiltroRelojes(1))
+                'CorridaSaldosFondoAhorro(data, strFiltroRelojes(1))
                 '--- Registros de horas extras [sqlite]
                 IngresarConceptoHrsExtras(data, strFiltroRelojes(1))
             End If
@@ -4286,25 +4286,25 @@ ContinuarConPorcentaje:
             Me.puente(vars("_dias_pagados"), "DIASPA", data, infoEmp, dicInfoDt)
 
             '--------------------------------------------------------------------- Cálculo de liquidación fondo de ahorro
-            If _finiquito Then
-                vars("_fahorro") = (Me._globalVars("_acum_base_pago") - IIf(_finiquito, vars("_vacaciones"), 0)) * vars("_por_fah") / 100
-                vars("_tope_ahorro") = _uma * vars("_dias_pagados") * 1.3
+            'If _finiquito Then
+            '    vars("_fahorro") = (Me._globalVars("_acum_base_pago") - IIf(_finiquito, vars("_vacaciones"), 0)) * vars("_por_fah") / 100
+            '    vars("_tope_ahorro") = _uma * vars("_dias_pagados") * 1.3
 
-                If vars("_fahorro") > vars("_tope_ahorro") Then : vars("_fahorro") = vars("_tope_ahorro") : End If
+            '    If vars("_fahorro") > vars("_tope_ahorro") Then : vars("_fahorro") = vars("_tope_ahorro") : End If
 
-                vars("_fahorro") = IIf(vars("_fahorro") < 0, 0, vars("_fahorro"))
-                vars("_fahorro") += sumaMonto(strReloj, "APOFAH", ajustesProC)
-                Me.puente(vars("_fahorro"), "APOFAH", data, infoEmp, dicInfoDt)
-                Me.puente(vars("_fahorro"), "APOCIA", data, infoEmp, dicInfoDt)
+            '    vars("_fahorro") = IIf(vars("_fahorro") < 0, 0, vars("_fahorro"))
+            '    vars("_fahorro") += sumaMonto(strReloj, "APOFAH", ajustesProC)
+            '    Me.puente(vars("_fahorro"), "APOFAH", data, infoEmp, dicInfoDt)
+            '    Me.puente(vars("_fahorro"), "APOCIA", data, infoEmp, dicInfoDt)
 
-                'LIFAHE - Liquidación de fondo de ahorro de empleado
-                vars("_liq_fa_empleado") = sumaMonto(strReloj, "LIFAHE", ajustesProC) + IIf(_finiquito, vars("_fahorro"), 0)
-                Me.puente(vars("_liq_fa_empleado"), "LIFAHE", data, infoEmp, dicInfoDt)
+            '    'LIFAHE - Liquidación de fondo de ahorro de empleado
+            '    vars("_liq_fa_empleado") = sumaMonto(strReloj, "LIFAHE", ajustesProC) + IIf(_finiquito, vars("_fahorro"), 0)
+            '    Me.puente(vars("_liq_fa_empleado"), "LIFAHE", data, infoEmp, dicInfoDt)
 
-                'LIFAHC - Liquidación de fondo de ahorro de empresa
-                vars("_liq_fa_empresa") = sumaMonto(strReloj, "LIFAHC", ajustesProC) + IIf(_finiquito, vars("_fahorro"), 0)
-                Me.puente(vars("_liq_fa_empresa"), "LIFAHC", data, infoEmp, dicInfoDt)
-            End If
+            '    'LIFAHC - Liquidación de fondo de ahorro de empresa
+            '    vars("_liq_fa_empresa") = sumaMonto(strReloj, "LIFAHC", ajustesProC) + IIf(_finiquito, vars("_fahorro"), 0)
+            '    Me.puente(vars("_liq_fa_empresa"), "LIFAHC", data, infoEmp, dicInfoDt)
+            'End If
 
 
             '********************************************************************* DEDUCCIONES ********************************************************************
@@ -6482,23 +6482,23 @@ NoInfonavit:
             Dim periodosInfo = Nothing
 
             '== Revisar si inicia fondo de ahorro [19 junio 2023]
-            Dim inicia_fondo = False
-            Try : inicia_fondo = sqlExecute("SELECT inicia_fondo FROM ta.dbo." & If(data("tipoPeriodo") = "S", "periodos", "periodos_quincenal") & " WHERE ano='" & data("ano") & "' and periodo='" & data("periodo") & "' and inicia_fondo='1'").Rows.Count > 0
-            Catch ex As Exception : inicia_fondo = False : End Try
+            'Dim inicia_fondo = False
+            'Try : inicia_fondo = sqlExecute("SELECT inicia_fondo FROM ta.dbo." & If(data("tipoPeriodo") = "S", "periodos", "periodos_quincenal") & " WHERE ano='" & data("ano") & "' and periodo='" & data("periodo") & "' and inicia_fondo='1'").Rows.Count > 0
+            'Catch ex As Exception : inicia_fondo = False : End Try
 
             Dim relojes = (From i In nomPro.Rows Select i("reloj").ToString.Trim).ToList()
             Dim vacDatos = sqlExecute("SELECT * FROM PERSONAL.dbo.vacaciones")
-            Dim movs As New DataTable
+            'Dim movs As New DataTable
 
-            If data("periodo") <> "01" Then
-                movs = sqlExecute("SELECT * FROM NOMINA.dbo.movimientos WHERE concepto IN ('SAFAHE','SAFAHC','SALPRF','SAANAG') AND periodo<='53' and periodo<'" & data("periodo") & "' " &
-                                  "AND ano IN ('" & filtroAno & "') and reloj in (" & String.Join(",", (From i In relojes Select "'" & i & "'")) & ") " &
-                                  "ORDER BY ano+periodo desc")
-            Else
-                movs = sqlExecute("SELECT * FROM NOMINA.dbo.movimientos WHERE concepto IN ('SAFAHE','SAFAHC','SALPRF','SAANAG') AND periodo IN (53,24) " &
-                                  "AND ano IN ('" & filtroAno & "') and reloj in (" & String.Join(",", (From i In relojes Select "'" & i & "'")) & ") " &
-                                  "ORDER BY ano+periodo desc")
-            End If
+            'If data("periodo") <> "01" Then
+            '    movs = sqlExecute("SELECT * FROM NOMINA.dbo.movimientos WHERE concepto IN ('SAFAHE','SAFAHC','SALPRF','SAANAG') AND periodo<='53' and periodo<'" & data("periodo") & "' " &
+            '                      "AND ano IN ('" & filtroAno & "') and reloj in (" & String.Join(",", (From i In relojes Select "'" & i & "'")) & ") " &
+            '                      "ORDER BY ano+periodo desc")
+            'Else
+            '    movs = sqlExecute("SELECT * FROM NOMINA.dbo.movimientos WHERE concepto IN ('SAFAHE','SAFAHC','SALPRF','SAANAG') AND periodo IN (53,24) " &
+            '                      "AND ano IN ('" & filtroAno & "') and reloj in (" & String.Join(",", (From i In relojes Select "'" & i & "'")) & ") " &
+            '                      "ORDER BY ano+periodo desc")
+            'End If
 
 
             Dim mtroDed = sqlExecute("SELECT * FROM NOMINA.dbo.mtro_ded WHERE activo=1 and " &
@@ -6510,17 +6510,17 @@ NoInfonavit:
 
             For Each emp In nomPro.Rows
 
-                If emp("cod_tipo") = "A" Then
-                    If data("periodo") <> "01" Then
-                        periodosInfo = sqlExecute("SELECT TOP 1 S.ANO,S.PERIODO,S.FECHA_INI,S.FECHA_FIN," &
-                                                  "(SELECT Q.ANO+Q.PERIODO FROM TA.DBO.periodos_quincenal Q WHERE S.FECHA_INI BETWEEN Q.FECHA_INI AND Q.FECHA_FIN AND Q.PERIODO<=24) as 'QUINCENAL' " &
-                                                  "FROM TA.DBO.periodos S WHERE S.ANO='" & data("ano") & "' AND S.PERIODO=" & data("periodo") & " ORDER BY ANO,PERIODO DESC")
-                    Else
-                        periodosInfo = sqlExecute("SELECT S.ANO,S.PERIODO,S.FECHA_INI,S.FECHA_FIN," &
-                                                  "(SELECT Q.ANO+Q.PERIODO FROM TA.DBO.periodos_quincenal Q WHERE S.FECHA_INI BETWEEN Q.FECHA_INI AND Q.FECHA_FIN AND Q.PERIODO<=24) as 'QUINCENAL' " &
-                                                  "FROM TA.DBO.periodos S WHERE S.ANO=" & CInt(data("ano")) - 1 & " AND S.PERIODO=53 ORDER BY ANO,PERIODO DESC")
-                    End If
-                End If
+                'If emp("cod_tipo") = "A" Then
+                '    If data("periodo") <> "01" Then
+                '        periodosInfo = sqlExecute("SELECT TOP 1 S.ANO,S.PERIODO,S.FECHA_INI,S.FECHA_FIN," &
+                '                                  "(SELECT Q.ANO+Q.PERIODO FROM TA.DBO.periodos_quincenal Q WHERE S.FECHA_INI BETWEEN Q.FECHA_INI AND Q.FECHA_FIN AND Q.PERIODO<=24) as 'QUINCENAL' " &
+                '                                  "FROM TA.DBO.periodos S WHERE S.ANO='" & data("ano") & "' AND S.PERIODO=" & data("periodo") & " ORDER BY ANO,PERIODO DESC")
+                '    Else
+                '        periodosInfo = sqlExecute("SELECT S.ANO,S.PERIODO,S.FECHA_INI,S.FECHA_FIN," &
+                '                                  "(SELECT Q.ANO+Q.PERIODO FROM TA.DBO.periodos_quincenal Q WHERE S.FECHA_INI BETWEEN Q.FECHA_INI AND Q.FECHA_FIN AND Q.PERIODO<=24) as 'QUINCENAL' " &
+                '                                  "FROM TA.DBO.periodos S WHERE S.ANO=" & CInt(data("ano")) - 1 & " AND S.PERIODO=53 ORDER BY ANO,PERIODO DESC")
+                '    End If
+                'End If
 
                 '==================================== Vacaciones 
                 For Each rvac In vacFin.Select("reloj='" & emp("reloj").Trim & "'")
@@ -6636,65 +6636,65 @@ NoInfonavit:
                     Catch ex As Exception : End Try
                 End If
 
-                Dim _conceptos = {"SAFAHE:LIFAHE", "SAFAHC:LIFAHC", "SALPRF:RETIRO", "SAANAG:SAANAG"}
+                'Dim _conceptos = {"SAFAHE:LIFAHE", "SAFAHC:LIFAHC", "SALPRF:RETIRO", "SAANAG:SAANAG"}
 
-                For Each con In _conceptos
-                    Dim _perMax = Nothing
-                    Dim _monto = Nothing : Dim _montoValor = 0.0
-                    Dim _filtro = ""
+                'For Each con In _conceptos
+                '    Dim _perMax = Nothing
+                '    Dim _monto = Nothing : Dim _montoValor = 0.0
+                '    Dim _filtro = ""
 
-                    If con.Substring(0, 6) = "SAFAHE" Or con.Substring(0, 6) = "SAANAG" Or con.Substring(0, 6) = "SAFAHC" Or con.Substring(0, 6) = "SALPRF" Then
+                '    If con.Substring(0, 6) = "SAFAHE" Or con.Substring(0, 6) = "SAANAG" Or con.Substring(0, 6) = "SAFAHC" Or con.Substring(0, 6) = "SALPRF" Then
 
-                        '-- Validacion de aguinaldo. Si ya se pago aguinaldo anual ya no incluir SAANAG
-                        If con.Substring(0, 6) = "SAANAG" And seCalculoAguiAnual Then
-                            Continue For
-                        End If
+                '        '-- Validacion de aguinaldo. Si ya se pago aguinaldo anual ya no incluir SAANAG
+                '        If con.Substring(0, 6) = "SAANAG" And seCalculoAguiAnual Then
+                '            Continue For
+                '        End If
 
-                        '== Si es administrativo
-                        If emp("cod_tipo") = "A" Then
-                            _filtro = "reloj='" & emp("reloj").Trim & "' and concepto in ('" & con.Substring(0, 6) & "') and " & "ano+periodo='" & periodosInfo.rows(0)("quincenal") & "' and tipo_periodo='Q'"
-                            _perMax = movs.Select(_filtro, "periodo desc")
-                        Else
-                            '== Si no es el primer periodo del año
-                            If data("periodo") <> "01" Then
-                                Try
-                                    _filtro = "reloj='" & emp("reloj").Trim & "' and concepto in ('" & con.Substring(0, 6) & "') and periodo=" & CInt(data("periodo")) - 1 & " and ano='" & data("ano") & "' and tipo_periodo='S'"
-                                    _perMax = movs.Select(_filtro, "periodo desc")
-                                Catch ex As Exception : _perMax = Nothing : End Try
-                            Else
-                                Try
-                                    _filtro = "reloj='" & emp("reloj").Trim & "' and concepto in ('" & con.Substring(0, 6) & "') and " &
-                                        "periodo='" & IIf(data("tipoPeriodo") = "S", 53, 24) & "' and ano='" & CInt(data("ano")) - 1 & "' and tipo_periodo='S'"
+                '        '== Si es administrativo
+                '        If emp("cod_tipo") = "A" Then
+                '            _filtro = "reloj='" & emp("reloj").Trim & "' and concepto in ('" & con.Substring(0, 6) & "') and " & "ano+periodo='" & periodosInfo.rows(0)("quincenal") & "' and tipo_periodo='Q'"
+                '            _perMax = movs.Select(_filtro, "periodo desc")
+                '        Else
+                '            '== Si no es el primer periodo del año
+                '            If data("periodo") <> "01" Then
+                '                Try
+                '                    _filtro = "reloj='" & emp("reloj").Trim & "' and concepto in ('" & con.Substring(0, 6) & "') and periodo=" & CInt(data("periodo")) - 1 & " and ano='" & data("ano") & "' and tipo_periodo='S'"
+                '                    _perMax = movs.Select(_filtro, "periodo desc")
+                '                Catch ex As Exception : _perMax = Nothing : End Try
+                '            Else
+                '                Try
+                '                    _filtro = "reloj='" & emp("reloj").Trim & "' and concepto in ('" & con.Substring(0, 6) & "') and " &
+                '                        "periodo='" & IIf(data("tipoPeriodo") = "S", 53, 24) & "' and ano='" & CInt(data("ano")) - 1 & "' and tipo_periodo='S'"
 
-                                    _perMax = movs.Select(_filtro, "periodo desc")
-                                Catch ex As Exception : _perMax = Nothing : End Try
-                            End If
-                        End If
-                    End If
+                '                    _perMax = movs.Select(_filtro, "periodo desc")
+                '                Catch ex As Exception : _perMax = Nothing : End Try
+                '            End If
+                '        End If
+                '    End If
 
-                    Try : _montoValor = _perMax(0)("monto") : Catch ex As Exception : _montoValor = 0.0 : End Try
+                '    Try : _montoValor = _perMax(0)("monto") : Catch ex As Exception : _montoValor = 0.0 : End Try
 
-                    Sqlite.getInstance().insert(New Dictionary(Of String, Object) From {{"ano", data("ano")},
-                                                                                                {"periodo", data("periodo")},
-                                                                                                {"reloj", emp("reloj").Trim},
-                                                                                                {"per_ded", "P"},
-                                                                                                {"concepto", con.Substring(7, 6)},
-                                                                                                {"descripcion", ""},
-                                                                                                {"monto", _montoValor},
-                                                                                                {"clave", Nothing},
-                                                                                                {"origen", IIf(relojManual = "", "Finiquitos", "MiscelaneoCRUDFiniquito")},
-                                                                                                {"usuario", Usuario},
-                                                                                                {"datetime", Now},
-                                                                                                {"afecta_vac", False},
-                                                                                                {"factor", emp("factor_dias")},
-                                                                                                {"fecha", Nothing},
-                                                                                                {"sueldo", 0},
-                                                                                                {"fecha_fox", Nothing},
-                                                                                                {"per_aplica", data("periodo")},
-                                                                                                {"ano_aplica", data("ano")},
-                                                                                                {"saldo", 0}}, "ajustesPro")
+                '    Sqlite.getInstance().insert(New Dictionary(Of String, Object) From {{"ano", data("ano")},
+                '                                                                                {"periodo", data("periodo")},
+                '                                                                                {"reloj", emp("reloj").Trim},
+                '                                                                                {"per_ded", "P"},
+                '                                                                                {"concepto", con.Substring(7, 6)},
+                '                                                                                {"descripcion", ""},
+                '                                                                                {"monto", _montoValor},
+                '                                                                                {"clave", Nothing},
+                '                                                                                {"origen", IIf(relojManual = "", "Finiquitos", "MiscelaneoCRUDFiniquito")},
+                '                                                                                {"usuario", Usuario},
+                '                                                                                {"datetime", Now},
+                '                                                                                {"afecta_vac", False},
+                '                                                                                {"factor", emp("factor_dias")},
+                '                                                                                {"fecha", Nothing},
+                '                                                                                {"sueldo", 0},
+                '                                                                                {"fecha_fox", Nothing},
+                '                                                                                {"per_aplica", data("periodo")},
+                '                                                                                {"ano_aplica", data("ano")},
+                '                                                                                {"saldo", 0}}, "ajustesPro")
 
-                Next
+                'Next
 
                 '==================================== Deducciones pendientes
 
@@ -6782,12 +6782,12 @@ NoInfonavit:
                 Next
 
                 '== Si es inicio de semana de fondo de ahorro, se eliminan los conceptos de LIFAHE, LIFAHC y RETIRO de ajustesPro del finiquito [19 junio 2023]
-                If inicia_fondo Then
-                    ajustesProFiniquito = Sqlite.getInstance.sqliteExecute("SELECT id,reloj,concepto FROM ajustesPro WHERE reloj='" & emp("reloj").Trim & "' and concepto in ('LIFAHE','LIFAHC','RETIRO')")
-                    For Each con In ajustesProFiniquito.Rows
-                        Sqlite.getInstance.ExecuteNonQueryFunc("DELETE FROM ajustesPro WHERE id='" & con("id") & "'")
-                    Next
-                End If
+                'If inicia_fondo Then
+                '    ajustesProFiniquito = Sqlite.getInstance.sqliteExecute("SELECT id,reloj,concepto FROM ajustesPro WHERE reloj='" & emp("reloj").Trim & "' and concepto in ('LIFAHE','LIFAHC','RETIRO')")
+                '    For Each con In ajustesProFiniquito.Rows
+                '        Sqlite.getInstance.ExecuteNonQueryFunc("DELETE FROM ajustesPro WHERE id='" & con("id") & "'")
+                '    Next
+                'End If
             Next
 
         Catch ex As Exception
