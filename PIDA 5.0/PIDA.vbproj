@@ -28,9 +28,9 @@
     <InstallUrl>\\192.168.1.4\PIDA\PIDA_5\</InstallUrl>
     <UpdateUrl>\\192.168.1.4\PIDA\PIDA_5\</UpdateUrl>
     <PublisherName>PIDA</PublisherName>
-    <MinimumRequiredVersion>5.0.1.121</MinimumRequiredVersion>
-    <ApplicationRevision>121</ApplicationRevision>
-    <ApplicationVersion>5.0.1.121</ApplicationVersion>
+    <MinimumRequiredVersion>5.0.1.122</MinimumRequiredVersion>
+    <ApplicationRevision>122</ApplicationRevision>
+    <ApplicationVersion>5.0.1.122</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
