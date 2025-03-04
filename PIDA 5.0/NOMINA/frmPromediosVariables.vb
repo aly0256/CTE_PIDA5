@@ -1043,7 +1043,7 @@ Public Class frmPromediosVariables
                     Next
 
                     ' TÍTULO PRINCIPAL
-                    worksheet.Cells("A1").Value = "Express Tres Fronteras"
+                    worksheet.Cells("A1").Value = "CTE Transporte"
                     worksheet.Cells("A1").Style.Font.Bold = True
                     worksheet.Cells("A1").Style.Font.Size = 16
                     worksheet.Cells("A1").Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Left
