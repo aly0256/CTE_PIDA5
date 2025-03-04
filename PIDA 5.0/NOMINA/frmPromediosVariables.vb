@@ -4,6 +4,7 @@ Imports Newtonsoft.Json
 
 Public Class frmPromediosVariables
     Dim FechaProyeccion As String = ""
+    Dim FechaProyeccionINI As String = ""
     Dim dtPersonal As New DataTable
     Dim dtHistory As New DataTable
     Dim cellX As Integer = 0
@@ -412,18 +413,22 @@ Public Class frmPromediosVariables
 
             'Obtener fecha primer semana y ultima semana
             Dim primeraSemana = periodoSeleccionado.AsEnumerable() _
-                          .Where(Function(row) Convert.ToInt32(row.Field(Of String)("periodo")) <= 52) _
-                          .OrderBy(Function(row) Convert.ToInt32(row.Field(Of String)("periodo"))) _
+              .Where(Function(row) row.Field(Of Object)("PERIODO_ESPECIAL") <> 1) _
+              .OrderBy(Function(row) Convert.ToDateTime(row.Field(Of Date)("FECHA_INI"))) _
                           .FirstOrDefault()
             Dim ultimaSemana = periodoSeleccionado.AsEnumerable() _
                           .Where(Function(row) row.Field(Of Object)("PERIODO_ESPECIAL") <> 1) _
-                          .OrderByDescending(Function(row) Convert.ToInt32(row.Field(Of String)("periodo"))) _
+                          .OrderByDescending(Function(row) Convert.ToDateTime(row.Field(Of Date)("FECHA_INI"))) _
                           .FirstOrDefault()
+            Dim semanasEspeciales = periodoSeleccionado.AsEnumerable() _
+                          .Where(Function(row) row.Field(Of Object)("PERIODO_ESPECIAL") = 1) _
+                          .OrderBy(Function(row) Convert.ToDateTime(row.Field(Of Date)("FECHA_INI")))
 
             'Calcular fecha de proyeccion
 
             Dim proximoBimestre = ObtenerFechasBimestre(selectedYear, selectedBimestre + 1)
             Try : FechaProyeccion = proximoBimestre.Rows(0)("FECHA_FIN") : Catch ex As Exception : FechaProyeccion = "" : End Try
+            Try : FechaProyeccionINI = proximoBimestre.Rows(0)("FECHA_INI") : Catch ex As Exception : FechaProyeccionINI = "" : End Try
 
             'Seccion 1 - Datos del personal
             dtPersonal = GetPersonalData(mesNatural, ultimaSemana)
@@ -891,9 +896,41 @@ Public Class frmPromediosVariables
         Try
             ' Las columnas que quieres omitir
             Dim columnasOmitir As New List(Of String) From {
-            "curp", "apaterno", "umf", "amaterno", "nombre",
-            "COD_COMP", "FHA_ULT_MO"
-        }
+                "curp", "apaterno", "umf", "amaterno", "nombre",
+                "FHA_ULT_MO"
+            }
+
+            'Datos encabezados
+            Dim selectedYear As String = cmbAnos.SelectedValue.ToString.Trim
+            Dim selectedBimestre As String = cmbBimestre.SelectedValue.ToString.Trim
+
+            Dim periodoSeleccionado = GetPeriodoSeleccionado(selectedYear, selectedBimestre)
+            Dim periodoQuincenaSeleccionado = GetPeriodoQuincenaSeleccionado(selectedYear, selectedBimestre)
+
+            'Obtener fecha primer semana y ultima semana
+            Dim primeraSemana = periodoSeleccionado.AsEnumerable() _
+              .Where(Function(row) row.Field(Of Object)("PERIODO_ESPECIAL") <> 1) _
+              .OrderBy(Function(row) Convert.ToDateTime(row.Field(Of Date)("FECHA_INI"))) _
+                          .FirstOrDefault()
+            Dim ultimaSemana = periodoSeleccionado.AsEnumerable() _
+                          .Where(Function(row) row.Field(Of Object)("PERIODO_ESPECIAL") <> 1) _
+                          .OrderByDescending(Function(row) Convert.ToDateTime(row.Field(Of Date)("FECHA_INI"))) _
+                          .FirstOrDefault()
+            Dim semanasEspeciales = periodoSeleccionado.AsEnumerable() _
+                          .Where(Function(row) row.Field(Of Object)("PERIODO_ESPECIAL") = 1) _
+                          .OrderBy(Function(row) Convert.ToDateTime(row.Field(Of Date)("FECHA_INI")))
+
+            Dim periodosConcatenados As String = String.Join(", ", semanasEspeciales.Select(Function(row) row.Field(Of String)("periodo")))
+
+            Dim fechaInicioPeriodo As String = primeraSemana("periodo")
+            Dim fechaFinPeriodo As String = ultimaSemana("periodo")
+
+            Dim dtNombresConceptos = sqlExecute("select Concepto,nombre from conceptos", "NOMINA")
+            Dim dtRegistrosPatronales = sqlExecute("select * from cias", "personal")
+
+            ' Crear un diccionario para acceder rápido a los reg_pat por cod_comp
+            Dim dicRegPat As Dictionary(Of String, String) = dtRegistrosPatronales.AsEnumerable() _
+                .ToDictionary(Function(row) row("cod_comp").ToString(), Function(row) row("reg_pat").ToString())
 
             ' Creamos una nueva lista de columnas para agregar la columna combinada "NSS"
             Dim dtFiltrado As New DataTable
@@ -906,7 +943,11 @@ Public Class frmPromediosVariables
 
             ' Agregar la nueva columna "NSS"
             dtFiltrado.Columns.Add("NSS", GetType(String))
-            dtFiltrado.Columns("NSS").SetOrdinal(7)
+            dtFiltrado.Columns("NSS").SetOrdinal(7) ' Colocar NSS en la posición deseada
+
+            ' Agregar la nueva columna "reg_pat"
+            dtFiltrado.Columns.Add("reg_pat", GetType(String))
+            dtFiltrado.Columns("reg_pat").SetOrdinal(8) ' Colocar reg_pat justo después de NSS
 
             ' Copiar los datos de las filas
             For Each row As DataRow In dtPersonal.Rows
@@ -917,9 +958,15 @@ Public Class frmPromediosVariables
                         ' Combinar las columnas "IMSS" y "dig_ver"
                         Dim imssValue As String = If(row("IMSS") IsNot DBNull.Value, row("IMSS").ToString(), String.Empty)
                         Dim digVerValue As String = If(row("dig_ver") IsNot DBNull.Value, row("dig_ver").ToString(), String.Empty)
-
-                        ' Concatenar IMSS y dig_ver para crear el NSS
                         newRow("NSS") = imssValue & digVerValue
+                    ElseIf col.ColumnName = "reg_pat" Then
+                        ' Obtener el reg_pat utilizando el cod_comp de la fila actual
+                        Dim codCompValue As String = If(row("cod_comp") IsNot DBNull.Value, row("cod_comp").ToString().Trim(), String.Empty)
+                        If dicRegPat.ContainsKey(codCompValue) Then
+                            newRow("reg_pat") = dicRegPat(codCompValue)
+                        Else
+                            newRow("reg_pat") = "No encontrado"
+                        End If
                     Else
                         newRow(col.ColumnName) = row(col.ColumnName)
                     End If
@@ -928,32 +975,96 @@ Public Class frmPromediosVariables
                 dtFiltrado.Rows.Add(newRow)
             Next
 
-            ' Procedimiento para generar el archivo Excel (sin cambios)
-
+            ' Procedimiento para generar el archivo Excel
             Dim fbd As New System.Windows.Forms.FolderBrowserDialog
             If fbd.ShowDialog() = Windows.Forms.DialogResult.OK Then
                 Dim PathSel = fbd.SelectedPath
-                Dim FileName As String = "CTE - PromedioVariable.xlsx"
-                Dim FullPathSaveFile = PathSel + "\" + FileName
+                Dim FileName As String = "CTE - PromedioVariable(" & selectedYear & "-" & selectedBimestre & ").xlsx"
+                Dim FullPathSaveFile = PathSel & "\" & FileName
 
                 Using package As New ExcelPackage()
+                    ' Crear hoja de Excel
                     Dim worksheet As ExcelWorksheet = package.Workbook.Worksheets.Add("Promedios Variables")
 
-                    worksheet.Cells("A1").LoadFromDataTable(dtFiltrado, True)
 
+                    ' Agregar la fila de descripciones en la fila 4
+                    For colIndex As Integer = 0 To dtFiltrado.Columns.Count - 1
+                        Dim columnName As String = dtFiltrado.Columns(colIndex).ColumnName
+                        Dim descripcion As String = ""
+
+                        ' Buscar si el nombre de la columna coincide con algún concepto
+                        Dim filasCoincidentes = dtNombresConceptos.Select("Concepto = '" & columnName & "'")
+                        If filasCoincidentes.Length > 0 Then
+                            descripcion = filasCoincidentes(0)("nombre").ToString()
+                        End If
+
+                        ' Colocar la descripción en la fila 4
+                        worksheet.Cells(5, colIndex + 1).Value = descripcion
+                    Next
+
+                    ' Cargar el DataTable en la fila 5 (dejando 4 filas vacías)
+                    worksheet.Cells("A6").LoadFromDataTable(dtFiltrado, True)
+
+                    ' Formatear la fila de descripciones
+                    Using range As ExcelRange = worksheet.Cells(5, 1, 5, dtFiltrado.Columns.Count)
+                        range.Style.Font.Bold = True
+                        range.Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center
+                        range.Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center
+                        range.Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid
+                        range.Style.Fill.BackgroundColor.SetColor(Color.LightGray)
+                        range.Style.WrapText = True
+                    End Using
+
+                    ' Formatear el encabezado
+                    Using headerRange As ExcelRange = worksheet.Cells(6, 1, 6, dtFiltrado.Columns.Count)
+                        headerRange.Style.Font.Bold = True
+                        headerRange.Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center
+                        headerRange.Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center
+                        headerRange.Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid
+                        headerRange.Style.Fill.BackgroundColor.SetColor(Color.LightBlue)
+                        headerRange.Style.WrapText = True
+                    End Using
+
+                    ' Ajuste manual del ancho de columnas
+                    For colIndex As Integer = 1 To dtFiltrado.Columns.Count
+                        worksheet.Column(colIndex).AutoFit()
+                        worksheet.Column(colIndex).Width += 5
+                    Next
+
+                    ' Formatear las columnas de fecha
                     Dim rowCount As Integer = dtFiltrado.Rows.Count
                     Dim colCount As Integer = dtFiltrado.Columns.Count
 
                     For colIndex As Integer = 0 To colCount - 1
-                        Dim columnName As String = dtFiltrado.Columns(colIndex).ColumnName
-
-                        ' Verificar si la columna es de tipo fecha
                         If dtFiltrado.Columns(colIndex).DataType Is GetType(Date) Then
-                            ' Formatear la columna como fecha
-                            Dim cellAddress As String = Chr(65 + colIndex) & "2:" & Chr(65 + colIndex) & (rowCount + 1)
+                            Dim cellAddress As String = Chr(65 + colIndex) & "5:" & Chr(65 + colIndex) & (rowCount + 4)
                             worksheet.Cells(cellAddress).Style.Numberformat.Format = "yyyy-MM-dd"
                         End If
                     Next
+
+                    ' TÍTULO PRINCIPAL
+                    worksheet.Cells("A1").Value = "Express Tres Fronteras"
+                    worksheet.Cells("A1").Style.Font.Bold = True
+                    worksheet.Cells("A1").Style.Font.Size = 16
+                    worksheet.Cells("A1").Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Left
+
+                    ' SUBTÍTULO
+                    worksheet.Cells("A2").Value = "Promedios Variables bimestre " & selectedBimestre & " año " & selectedYear & ", efectivos al " & FechaProyeccionINI & " (S" & primeraSemana("periodo") & " - S" & ultimaSemana("periodo") & ", " & periodosConcatenados & " )"
+                    worksheet.Cells("A2").Style.Font.Bold = True
+                    worksheet.Cells("A2").Style.Font.Size = 14
+                    worksheet.Cells("A2").Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Left
+
+                    ' DATO: Fecha de Proyección
+                    worksheet.Cells("A3").Value = "Fecha proyección = " & FechaProyeccion & ""
+                    worksheet.Cells("A3").Style.Font.Bold = False
+                    worksheet.Cells("A3").Style.Font.Size = 11
+                    worksheet.Cells("A3").Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Left
+
+                    ' DATO: Fecha de Proyección
+                    worksheet.Cells("D3").Value = "Tope= 25 UMA's"
+                    worksheet.Cells("D3").Style.Font.Bold = False
+                    worksheet.Cells("D3").Style.Font.Size = 11
+                    worksheet.Cells("D3").Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Left
 
                     ' Guardar el archivo
                     package.SaveAs(New System.IO.FileInfo(FullPathSaveFile))
