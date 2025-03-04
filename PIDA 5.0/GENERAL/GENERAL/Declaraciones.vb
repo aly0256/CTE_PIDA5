@@ -9,6 +9,7 @@ Imports System.Runtime.CompilerServices
 
 Imports System.Security.Cryptography
 Imports System.Text
+Imports OfficeOpenXml
 
 Module Declaraciones
 
@@ -4483,6 +4484,46 @@ Fin:
         Catch ex As Exception
 
         End Try
+    End Sub
+
+    ''' <summary>
+    ''' Funcion para guardar un archivo de excel
+    ''' </summary>
+    ''' <param name="formaActiva"></param>
+    ''' <remarks></remarks>
+    Public Sub guardarArchivo(NameFile As String, archivo As ExcelPackage,
+                           Optional initialize As Boolean = True,
+                           Optional tipoExcel As String = ".xlsx",
+                           Optional filtro As String = "Archivo excel (xlsx)|*.xlsx",
+                           Optional rutaGuardar As String = "")
+        Try
+            If rutaGuardar <> "" Then
+                Dim sfd2 As New SaveFileDialog
+
+                sfd2.FileName = rutaGuardar & NameFile & tipoExcel
+                'sfd2.InitialDirectory = rutaGuardar
+
+                archivo.SaveAs(New System.IO.FileInfo(sfd2.FileName))
+                Exit Sub
+            End If
+
+            Dim sfd As New SaveFileDialog
+            sfd.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.Desktop
+
+            sfd.FileName = NameFile & tipoExcel
+            sfd.Filter = filtro
+            If sfd.ShowDialog() = DialogResult.OK Then
+
+                archivo.SaveAs(New System.IO.FileInfo(sfd.FileName))
+                If initialize Then
+                    MessageBox.Show("Archivo generado correctamente.", "Reporte Excel", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    System.Diagnostics.Process.Start(sfd.FileName)
+                End If
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Error al generar archivo. Verifique que no está en uso.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
     End Sub
 
 #Region "Funciones para encriptar y desencriptar -- AES"

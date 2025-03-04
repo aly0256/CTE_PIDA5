@@ -13539,6 +13539,122 @@ Saltar1:
     End Function
 
 
+    ''' <summary>
+    ''' Reporte de gráficas del desglose de pago de extras de cte -- AOS -- 2025-03-04
+    ''' </summary>
+    ''' <param name="dtDatos"></param>
+    ''' <param name="dtInformacion"></param>
+    ''' <remarks></remarks>
+    Public Sub ReporteGraficaDesgloseTExtra(ByRef dtDatos As DataTable, ByVal dtInformacion As DataTable)
+        Try
+            Dim Query As String = ""
+            '====Seleccionar ruta de guardado
+            Dim fbd As New System.Windows.Forms.FolderBrowserDialog, pathSelec As String = ""
+            If fbd.ShowDialog() = Windows.Forms.DialogResult.OK Then pathSelec = fbd.SelectedPath ' fbd.SelectedPath  ' Contiene la ruta seleccionada, ejemplo: C:\Users\aosw8\OneDrive\Documents\PIDA_TEMP_AOS
+
+            If pathSelec.ToString.Trim = "" Then
+                MessageBox.Show("No se seleccionó una ruta de guardado para el archivo a generar", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            End If
+
+            '====Generar archivo con mas de una hoja
+            Dim path_reportes As String = "", plantilla_excel As String = "", dtPathReportes As New DataTable
+
+            Query = "select path_reportes from PERSONAL.dbo.parametros"
+            dtPathReportes = sqlExecute(Query, "PERSONAL")
+            If Not dtPathReportes.Columns.Contains("Error") And dtPathReportes.Rows.Count > 0 Then
+                Try : path_reportes = dtPathReportes.Rows(0).Item("path_reportes").ToString.Trim : Catch ex As Exception : path_reportes = "" : End Try
+            End If
+
+            plantilla_excel = path_reportes + "plantilla_reporte_graficas.xlsx"
+
+            Dim archivo As ExcelPackage = New ExcelPackage(New FileInfo(plantilla_excel))
+            Dim wb As ExcelWorkbook = archivo.Workbook
+            Dim workSheet As ExcelWorksheet
+            Dim filename As String = ""
+
+            For x = 1 To 3
+                Select Case x
+                    Case 1
+                        workSheet = wb.Worksheets("Hoja1")
+                    Case 2
+                        workSheet = wb.Worksheets("Hoja2")
+                    Case 3
+                        workSheet = wb.Worksheets("Hoja3")
+
+                End Select
+                llenarExcelInfoDesglosePExtrasGrafica(workSheet, x)
+            Next
+
+            filename = "pendiente"
+
+            '---- Guardar archivo en ruta especificada
+            If (pathSelec.Substring(pathSelec.Length() - 1) <> "\") Then pathSelec = pathSelec + "\"
+            guardarArchivo(filename, archivo, , ".xlsx", "Archivo excel (xlsx)|*.xlsx", pathSelec) 'Guardar archivo en el path que se indicó
+
+        Catch ex As Exception
+            ErrorLog("Graficas desglose de pago de extras", System.Reflection.MethodBase.GetCurrentMethod.Name(), "", Err.Number, ex.Message)
+        End Try
+    End Sub
+
+
+    ''' <summary>
+    ''' Método para llenar el excel con la información de desglose de pago de extras y generar gráfica
+    ''' </summary>
+    ''' <param name="_wsheet"></param>
+    ''' <remarks></remarks>
+    Private Sub llenarExcelInfoDesglosePExtrasGrafica(_wsheet As ExcelWorksheet, ByVal numHoja As Integer)
+        Try
+            Dim x As Integer = 0, y As Integer = 0, anio_actual As Integer = Date.Now.Year(), query As String = ""
+            Dim dtPeriodos As New DataTable
+
+            '==============================================HOJA 1: Acumulado de bono de prod
+            If numHoja = 1 Then
+
+                '=== Recorrer cada uno de los periodos, solo los que ya están asentados, por eso se toma de Nomina
+                query = "select distinct ano,periodo from nomina.dbo.nomina where ano=" & anio_actual & " and periodo<='53' order by periodo asc"
+                dtPeriodos = sqlExecute(query, "NOMINA")
+                If Not dtPeriodos.Columns.Contains("Error") And dtPeriodos.Rows.Count > 0 Then
+
+                    x = 3 : y = 1
+                    For Each drP As DataRow In dtPeriodos.Rows
+                        Dim dtMontosPeriodo As New DataTable, anoPer As String = "", periodo As String = ""
+
+                        Try : anoPer = drP("ano").ToString.Trim & drP("periodo").ToString.Trim : Catch ex As Exception : anoPer = "" : End Try
+                        query = "select concepto,ISNULL(SUM(convert(float,MONTO)),0) as 'cantidad' from movimientos where ano+periodo='" & anoPer & "' group by concepto "
+                        dtMontosPeriodo = sqlExecute(query, "NOMINA")
+
+                        '===Columna semana                    
+                        Try : periodo = drP("periodo").ToString.Trim : Catch ex As Exception : periodo = "" : End Try
+                        _wsheet.Cells(x, y).Value = periodo
+
+                        '===Columna Nómina
+                        Dim totper As Double = 0.0
+                        Dim itNom = (From z In dtMontosPeriodo.Rows Where z("concepto").ToString.Trim = "TOTPER").ToList()
+                        If itNom.Count > 0 Then Try : totper = Double.Parse(itNom.First()("cantidad")) : Catch ex As Exception : totper = 0.0 : End Try
+                        _wsheet.Cells(x, y + 1).Value = totper
+
+                        '====Extras operadores:: BONPRO filtrado con O
+
+
+                        x += 1
+                    Next
+                End If
+
+
+
+
+            End If
+
+
+
+
+        Catch ex As Exception
+            ErrorLog("Método para llenar info de extras para gráficas", System.Reflection.MethodBase.GetCurrentMethod.Name(), "", Err.Number, ex.Message)
+        End Try
+    End Sub
+
+
 
 
 End Module

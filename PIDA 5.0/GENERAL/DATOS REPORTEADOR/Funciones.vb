@@ -607,6 +607,9 @@
             ElseIf Reporte = "Reporte de movimientos mensual" Then
                 ReportePerTotEmpMensualQro(dtDatos, dtInformacion)
 
+            ElseIf Reporte = "Gráfica con desglose de pago de extras" Then ' 2025-03-04
+                ReporteGraficaDesgloseTExtra(dtDatos, dtInformacion)
+
             ElseIf Reporte = "Reporte totales por concepto" Then
                 ReporteTotalesConcepto(dtDatos, dtInformacion)
 
