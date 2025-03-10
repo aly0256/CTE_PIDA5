@@ -1541,9 +1541,9 @@ Totales:
             r.BodyFormat = Web.Mail.MailFormat.Text
 
             r.Subject = Asunto
-            r.From = "enviorecibos@ctemex.mx" ' Cuenta del cliente 1
-            'r.From = "no-reply@wollsdorf.com" ' Cuenta del cliente 2
-            '  r.From = "sistema.pida@gmail.com" ' Cuenta de PIDA de Gmail para pruebas
+            ' r.From = "enviorecibos@ctemex.mx" ' Cuenta del cliente 1
+            r.From = "trafico4@ctemex.mx"
+           
             If Archivo.Trim <> "" Then
                 r.Attachments.Add(New System.Web.Mail.MailAttachment(Archivo))
             End If
@@ -1580,17 +1580,22 @@ Totales:
             'r.Fields("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "Wollsdorf.2019"
 
             '---- Cuenta del cliente 2
-            r.Fields("http://schemas.microsoft.com/cdo/configuration/smtsperver") = "smtp.mandrillapp.com"
-            r.Fields("http://schemas.microsoft.com/cdo/configuration/smtpserverport") = 587 ' Es para SSL el mas utilizado es el 25 y con el que se ha probado el envío
+            'r.Fields("http://schemas.microsoft.com/cdo/configuration/smtsperver") = "smtp.mandrillapp.com"
+            'r.Fields("http://schemas.microsoft.com/cdo/configuration/smtpserverport") = 587 ' Es para SSL el mas utilizado es el 25 y con el que se ha probado el envío
+            'r.Fields("http://schemas.microsoft.com/cdo/configuration/sendusing") = 2 ' El original es 2; CdoSendUsingPort, valor 2 para enviar el mensaje utilizando la red. Ejemplo: 2
+            'r.Fields("http://schemas.microsoft.com/cdo/configuration/smtpauthenticate") = 1  ' El original es 0 :: 0= No autentifica; 1= utilizar autent, con user y pass; 2= El current process security context se utiliza para autenticación con el servicio.
+            '' r.Fields("http://schemas.microsoft.com/cdo/configuration/smtpusessl") = True ' El orginal está deshabilitado y es True
+            'r.Fields("http://schemas.microsoft.com/cdo/configuration/sendusername") = "enviorecibos@ctemex.mx"
+            'r.Fields("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "xJCxZP-2hMAK16Deh-Kutw"
+
+            '---- Cuenta del cliente 2
+            r.Fields("http://schemas.microsoft.com/cdo/configuration/smtsperver") = "mail.smtp2go.com"
+            r.Fields("http://schemas.microsoft.com/cdo/configuration/smtpserverport") = 465 ' Es para SSL el mas utilizado es el 25 y con el que se ha probado el envío
             r.Fields("http://schemas.microsoft.com/cdo/configuration/sendusing") = 2 ' El original es 2; CdoSendUsingPort, valor 2 para enviar el mensaje utilizando la red. Ejemplo: 2
             r.Fields("http://schemas.microsoft.com/cdo/configuration/smtpauthenticate") = 1  ' El original es 0 :: 0= No autentifica; 1= utilizar autent, con user y pass; 2= El current process security context se utiliza para autenticación con el servicio.
-            ' r.Fields("http://schemas.microsoft.com/cdo/configuration/smtpusessl") = True ' El orginal está deshabilitado y es True
-            r.Fields("http://schemas.microsoft.com/cdo/configuration/sendusername") = "enviorecibos@ctemex.mx"
-            r.Fields("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "xJCxZP-2hMAK16Deh-Kutw"
+            r.Fields("http://schemas.microsoft.com/cdo/configuration/sendusername") = "trafico4@ctemex.mx"
+            r.Fields("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "KPv3mlePZGiLEIE3"
 
-
-            'r.Fields("http://schemas.microsoft.com/cdo/configuration/sendusername") = "sistema.pida@gmail.com"
-            'r.Fields("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "Resultados1"
             r.To() = Destinatario
 
 
@@ -1599,7 +1604,8 @@ Totales:
             'End If
             '   System.Web.Mail.SmtpMail.SmtpServer = "smtp.pida.com.mx" ' SMTP Server de PIDA que funciona
             '  System.Web.Mail.SmtpMail.SmtpServer = "smtp.gmail.com" ' SMTP Server de Gmail y es la que usaba el cliente 1
-            System.Web.Mail.SmtpMail.SmtpServer = "smtp.mandrillapp.com" ' SMTP Server de Gmail y es la que usaba el cliente 2
+            ' System.Web.Mail.SmtpMail.SmtpServer = "smtp.mandrillapp.com" ' SMTP Server de Gmail y es la que usaba el cliente 2
+            System.Web.Mail.SmtpMail.SmtpServer = "mail.smtp2go.com" ' SMTP Server de Gmail y es la que usaba el cliente 2
             System.Web.Mail.SmtpMail.Send(r)
             Return True
 

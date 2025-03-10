@@ -408,6 +408,10 @@ Public Class frmLogin
                 End If
 
 
+                Dim contrasenaBase64 As String = Base64Helper.CodificarBase64("miPasswordSeguro") ' Convertir a 64 bytes
+                Dim contrasenaDecodificadaBase64 As String = Base64Helper.DecodificarBase64(contrasenaBase64) ' devuelve la contraseña original
+
+
                 'Revisar si la clave de usuario = encriptar la clave dada
                 If dtUsuarios.Rows.Item(0).Item("userpass").ToString.Trim = getMD5Hash(txtClave.Text) Then
                     ErrorLogin = False

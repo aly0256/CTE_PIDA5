@@ -4584,6 +4584,33 @@ Fin:
 
         Catch ex As Exception : End Try
     End Function
+
+
+
+    Public Class Base64Helper
+
+        ' Función para codificar una contraseña en Base64
+        Public Shared Function CodificarBase64(contrasena As String) As String
+            ' Convertir la contraseña a un arreglo de bytes usando la codificación UTF-8
+            Dim bytes As Byte() = Encoding.UTF8.GetBytes(contrasena)
+
+            ' Codificar el arreglo de bytes en Base64
+            Return Convert.ToBase64String(bytes)
+        End Function
+
+
+        ' Función para decodificar una contraseña codificada en Base64
+        Public Shared Function DecodificarBase64(base64 As String) As String
+            ' Convertir la cadena Base64 a un arreglo de bytes
+            Dim bytes As Byte() = Convert.FromBase64String(base64)
+
+            ' Convertir los bytes de vuelta a una cadena (usando la codificación UTF-8)
+            Return Encoding.UTF8.GetString(bytes)
+        End Function
+
+    End Class
+
+
 #End Region
 
 End Module

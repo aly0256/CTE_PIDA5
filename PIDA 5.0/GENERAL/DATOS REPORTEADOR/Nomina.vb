@@ -13635,6 +13635,25 @@ Saltar1:
                         _wsheet.Cells(x, y + 1).Value = totper
 
                         '====Extras operadores:: BONPRO filtrado con O
+                        Dim extrOper As Double = 0.0
+
+
+                        '===Extras administrativos:: BONPRO filtrado con A
+
+                        '===Bono de permanencia:: BONPER
+
+                        '=== BONO X CONTINGENCIA DE PUENTES:: PEND de dar de alta y que lo separen en nomina
+
+                        '=== BONO X CIERRE DE EATON:: PEND de dar de alta y que lo separen en nomina
+
+                        '=== BONO X CIERRE DE 4to.  SCHENKER ==> el concepto es BONSCH 
+
+                        '=== T.E. X  CIERRE DE 4TO. DE SCHENKER ==> el concepto es BONTES
+
+                        '=== LIQUIDACIONES FORANEOS ==> PEND de dar de alta y que lo separen en nomina
+
+                        '=== Importe total a pagar de extras (Suma de todas las columnas, excepto la de nomina)
+
 
 
                         x += 1
