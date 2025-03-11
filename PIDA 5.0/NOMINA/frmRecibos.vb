@@ -1581,7 +1581,7 @@ Totales:
 
             '---- Cuenta del cliente 2
             'r.Fields("http://schemas.microsoft.com/cdo/configuration/smtsperver") = "smtp.mandrillapp.com"
-            'r.Fields("http://schemas.microsoft.com/cdo/configuration/smtpserverport") = 587 ' Es para SSL el mas utilizado es el 25 y con el que se ha probado el envío
+            'r.Fields("http://schemas.microsoft.com/cdo/configuration/smtpserverport") = 587 ' Es para TSL el mas utilizado es el 25 y con el que se ha probado el envío
             'r.Fields("http://schemas.microsoft.com/cdo/configuration/sendusing") = 2 ' El original es 2; CdoSendUsingPort, valor 2 para enviar el mensaje utilizando la red. Ejemplo: 2
             'r.Fields("http://schemas.microsoft.com/cdo/configuration/smtpauthenticate") = 1  ' El original es 0 :: 0= No autentifica; 1= utilizar autent, con user y pass; 2= El current process security context se utiliza para autenticación con el servicio.
             '' r.Fields("http://schemas.microsoft.com/cdo/configuration/smtpusessl") = True ' El orginal está deshabilitado y es True
@@ -1593,6 +1593,7 @@ Totales:
             r.Fields("http://schemas.microsoft.com/cdo/configuration/smtpserverport") = 465 ' Es para SSL el mas utilizado es el 25 y con el que se ha probado el envío
             r.Fields("http://schemas.microsoft.com/cdo/configuration/sendusing") = 2 ' El original es 2; CdoSendUsingPort, valor 2 para enviar el mensaje utilizando la red. Ejemplo: 2
             r.Fields("http://schemas.microsoft.com/cdo/configuration/smtpauthenticate") = 1  ' El original es 0 :: 0= No autentifica; 1= utilizar autent, con user y pass; 2= El current process security context se utiliza para autenticación con el servicio.
+            r.Fields("http://schemas.microsoft.com/cdo/configuration/smtpusessl") = True
             r.Fields("http://schemas.microsoft.com/cdo/configuration/sendusername") = "trafico4@ctemex.mx"
             r.Fields("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "KPv3mlePZGiLEIE3"
 

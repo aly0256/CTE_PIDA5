@@ -13606,7 +13606,7 @@ Saltar1:
     Private Sub llenarExcelInfoDesglosePExtrasGrafica(_wsheet As ExcelWorksheet, ByVal numHoja As Integer)
         Try
             Dim x As Integer = 0, y As Integer = 0, anio_actual As Integer = Date.Now.Year(), query As String = ""
-            Dim dtPeriodos As New DataTable
+            Dim dtPeriodos As New DataTable, dtTemp As New DataTable
 
             '==============================================HOJA 1: Acumulado de bono de prod
             If numHoja = 1 Then
@@ -13635,33 +13635,71 @@ Saltar1:
                         _wsheet.Cells(x, y + 1).Value = totper
 
                         '====Extras operadores:: BONPRO filtrado con O
+                        query = "select m.concepto,ISNULL(SUM(convert(float,m.MONTO)),0) as 'cantidad' from movimientos m left outer join nomina n on m.reloj=n.reloj " & _
+                            "where m.ano+m.periodo='" & anoPer & "' and n.ano+n.PERIODO='" & anoPer & "' and m.concepto='BONPRO' and n.cod_tipo='O' group by m.concepto"
+                        dtTemp = sqlExecute(query, "NOMINA")
                         Dim extrOper As Double = 0.0
+                        If Not dtTemp.Columns.Contains("Error") And dtTemp.Rows.Count > 0 Then
+                            Try : extrOper = Double.Parse(dtTemp.Rows(0).Item("cantidad")) : Catch ex As Exception : extrOper = 0.0 : End Try
+                        End If
+                        _wsheet.Cells(x, y + 2).Value = extrOper
+                        dtTemp.Clear()
 
 
                         '===Extras administrativos:: BONPRO filtrado con A
+                        query = "select m.concepto,ISNULL(SUM(convert(float,m.MONTO)),0) as 'cantidad' from movimientos m left outer join nomina n on m.reloj=n.reloj " & _
+                        "where m.ano+m.periodo='" & anoPer & "' and n.ano+n.PERIODO='" & anoPer & "' and m.concepto='BONPRO' and n.cod_tipo='A' group by m.concepto"
+                        dtTemp = sqlExecute(query, "NOMINA")
+                        Dim extrAdmin As Double = 0.0
+                        If Not dtTemp.Columns.Contains("Error") And dtTemp.Rows.Count > 0 Then
+                            Try : extrAdmin = Double.Parse(dtTemp.Rows(0).Item("cantidad")) : Catch ex As Exception : extrAdmin = 0.0 : End Try
+                        End If
+                        _wsheet.Cells(x, y + 3).Value = extrAdmin
+                        dtTemp.Clear()
 
                         '===Bono de permanencia:: BONPER
+                        Dim bonper As Double = 0.0
+                        Dim itNomBonPer = (From z In dtMontosPeriodo.Rows Where z("concepto").ToString.Trim = "BONPER").ToList()
+                        If itNomBonPer.Count > 0 Then Try : bonper = Double.Parse(itNomBonPer.First()("cantidad")) : Catch ex As Exception : bonper = 0.0 : End Try
+                        _wsheet.Cells(x, y + 4).Value = bonper
 
                         '=== BONO X CONTINGENCIA DE PUENTES:: PEND de dar de alta y que lo separen en nomina
+                        Dim bonoXContigPuentes As Double = 0.0
+                        _wsheet.Cells(x, y + 5).Value = bonoXContigPuentes
 
                         '=== BONO X CIERRE DE EATON:: PEND de dar de alta y que lo separen en nomina
+                        Dim bonoXCierreEaton As Double = 0.0
+                        _wsheet.Cells(x, y + 6).Value = bonoXCierreEaton
 
                         '=== BONO X CIERRE DE 4to.  SCHENKER ==> el concepto es BONSCH 
+                        Dim bonsch As Double = 0.0
+                        Dim itNomBonsch = (From z In dtMontosPeriodo.Rows Where z("concepto").ToString.Trim = "BONSCH").ToList()
+                        If itNomBonsch.Count > 0 Then Try : bonsch = Double.Parse(itNomBonsch.First()("cantidad")) : Catch ex As Exception : bonsch = 0.0 : End Try
+                        _wsheet.Cells(x, y + 7).Value = bonsch
 
                         '=== T.E. X  CIERRE DE 4TO. DE SCHENKER ==> el concepto es BONTES
+                        Dim BONTES As Double = 0.0
+                        Dim itNomBontes = (From z In dtMontosPeriodo.Rows Where z("concepto").ToString.Trim = "BONTES").ToList()
+                        If itNomBontes.Count > 0 Then Try : BONTES = Double.Parse(itNomBontes.First()("cantidad")) : Catch ex As Exception : BONTES = 0.0 : End Try
+                        _wsheet.Cells(x, y + 8).Value = BONTES
 
                         '=== LIQUIDACIONES FORANEOS ==> PEND de dar de alta y que lo separen en nomina
+                        Dim liqForaneos As Double = 0.0
+                        _wsheet.Cells(x, y + 9).Value = liqForaneos
 
                         '=== Importe total a pagar de extras (Suma de todas las columnas, excepto la de nomina)
-
-
+                        Dim sumaTotPagExtras As Double = 0.0
+                        sumaTotPagExtras = extrOper + extrAdmin + bonper + bonoXContigPuentes + bonoXCierreEaton + bonsch + BONTES + liqForaneos
+                        _wsheet.Cells(x, y + 10).Value = sumaTotPagExtras
 
                         x += 1
                     Next
                 End If
 
+            End If
 
-
+            '====================================================Comparativo de bono de productividad por semana
+            If numHoja = 2 Then
 
             End If
 
