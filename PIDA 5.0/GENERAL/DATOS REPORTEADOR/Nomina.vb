@@ -13616,6 +13616,8 @@ Saltar1:
                 dtPeriodos = sqlExecute(query, "NOMINA")
                 If Not dtPeriodos.Columns.Contains("Error") And dtPeriodos.Rows.Count > 0 Then
 
+                    '===NOTA: Los periodos  a recorrer son los del anio actual y los recorre del 1 hasta el que este asentado, y no de acuerdo al periodo seleccionado que se le indique en el reporteador
+
                     x = 3 : y = 1
                     For Each drP As DataRow In dtPeriodos.Rows
                         Dim dtMontosPeriodo As New DataTable, anoPer As String = "", periodo As String = ""
@@ -13700,7 +13702,142 @@ Saltar1:
 
             '====================================================Comparativo de bono de productividad por semana
             If numHoja = 2 Then
+                Dim ano_ant As String = "", periodo_ant As String = "", dtMovBonProExtAnioAnt As New DataTable, anoPerActual As String = "", dtMontosExtPeriodoActual As New DataTable
+                query = ""
 
+                '===Obtener el último periodo en nómina:  select top 1 * from nomina  where ano='2025' and  periodo <='53' order by periodo desc
+                '===NOTA: Lo obtiene en base al ultimo periodo asentado y no de acuerdo al filtro que manda
+
+                ano_ant = "2024"
+                periodo_ant = "07"
+                anoPerActual = anio_actual.ToString & periodo_ant
+
+                '===Obtener los movimientos extras del anio pasado:
+
+                query = "select * from mov_extr_bon_prod where ano+periodo='" & ano_ant & periodo_ant & "'"
+                dtMovBonProExtAnioAnt = sqlExecute(query, "NOMINA")
+
+                '====Obtener los montos del periodo actual
+                query = "select concepto,ISNULL(SUM(convert(float,MONTO)),0) as 'cantidad' from movimientos where ano+periodo='" & anoPerActual & "' group by concepto "
+                dtMontosExtPeriodoActual = sqlExecute(query, "NOMINA")
+
+                If Not dtMovBonProExtAnioAnt.Columns.Contains("Error") And dtMovBonProExtAnioAnt.Rows.Count > 0 Then
+
+                    x = 3 : y = 1
+
+                    '=================================================================================
+                    '=================================================================================Columna periodo/EJERCICIO
+                    '=================================================================================
+                    _wsheet.Cells(x, y).Value = periodo_ant & "-" & ano_ant
+                    _wsheet.Cells(x + 1, y).Value = periodo_ant & "-" & anio_actual.ToString
+
+
+                    '=================================================================================
+                    '=================================================================================Columna EXTRAS OPERADORES
+                    '=================================================================================
+
+                    '===Extras Operadores: anio Anterior 2024
+                    Dim BONPRO_O_Ant As Double = 0.0
+                    Dim itBonProO = (From z In dtMovBonProExtAnioAnt.Rows Where z("concepto").ToString.Trim = "BONPRO_O").ToList()
+                    If itBonProO.Count > 0 Then Try : BONPRO_O_Ant = Double.Parse(itBonProO.First()("MONTO")) : Catch ex As Exception : BONPRO_O_Ant = 0.0 : End Try
+                    _wsheet.Cells(x, y + 1).Value = BONPRO_O_Ant
+
+                    '===Extras Operadores: Anio Actual
+                    Dim BONPRO_O_Act As Double = 0.0
+                    dtTemp.Clear()
+                    query = "select m.concepto,ISNULL(SUM(convert(float,m.MONTO)),0) as 'cantidad' from movimientos m left outer join nomina n on m.reloj=n.reloj " & _
+                            "where m.ano+m.periodo='" & anoPerActual & "' and n.ano+n.PERIODO='" & anoPerActual & "' and m.concepto='BONPRO' and n.cod_tipo='O' group by m.concepto"
+                    dtTemp = sqlExecute(query, "NOMINA")
+                    If Not dtTemp.Columns.Contains("Error") And dtTemp.Rows.Count > 0 Then
+                        Try : BONPRO_O_Act = Double.Parse(dtTemp.Rows(0).Item("cantidad")) : Catch ex As Exception : BONPRO_O_Act = 0.0 : End Try
+
+                    End If
+                    _wsheet.Cells(x + 1, y + 1).Value = BONPRO_O_Act
+
+                    '=================================================================================
+                    '=================================================================================Columna EXTRAS ADMINISTRATIVOS
+                    '=================================================================================
+
+                    '====Extras Admin: Anio Ant
+                    Dim BONPRO_A_Ant As Double = 0.0
+                    Dim itBonProA = (From z In dtMovBonProExtAnioAnt.Rows Where z("concepto").ToString.Trim = "BONPRO_A").ToList()
+                    If itBonProA.Count > 0 Then Try : BONPRO_A_Ant = Double.Parse(itBonProA.First()("MONTO")) : Catch ex As Exception : BONPRO_A_Ant = 0.0 : End Try
+                    _wsheet.Cells(x, y + 2).Value = BONPRO_A_Ant
+
+                    '====Extras Admin: Anio actual
+                    Dim BONPRO_A_Act As Double = 0.0
+                    dtTemp.Clear()
+                    query = "select m.concepto,ISNULL(SUM(convert(float,m.MONTO)),0) as 'cantidad' from movimientos m left outer join nomina n on m.reloj=n.reloj " & _
+                            "where m.ano+m.periodo='" & anoPerActual & "' and n.ano+n.PERIODO='" & anoPerActual & "' and m.concepto='BONPRO' and n.cod_tipo='A' group by m.concepto"
+
+                    If Not dtTemp.Columns.Contains("Error") And dtTemp.Rows.Count > 0 Then
+                        Try : BONPRO_A_Act = Double.Parse(dtTemp.Rows(0).Item("cantidad")) : Catch ex As Exception : BONPRO_A_Act = 0.0 : End Try
+
+                    End If
+                    _wsheet.Cells(x + 1, y + 2).Value = BONPRO_O_Act
+
+                    '=================================================================================
+                    '=================================================================================Columna BONO DE PERMANENCIA
+                    '=================================================================================
+
+                    '=====BONPER  Anio Anterior
+                    Dim BONPER_Ant As Double = 0.0
+                    Dim itBonPerAnt = (From z In dtMovBonProExtAnioAnt.Rows Where z("concepto").ToString.Trim = "BONPER").ToList()
+                    If itBonPerAnt.Count > 0 Then Try : BONPER_Ant = Double.Parse(itBonPerAnt.First()("MONTO")) : Catch ex As Exception : BONPER_Ant = 0.0 : End Try
+                    _wsheet.Cells(x, y + 3).Value = BONPER_Ant
+
+                    '=====BONPER Anio Actual
+                    Dim BONPER_Act As Double = 0.0
+                    Dim itBonPerAct = (From z In dtMontosExtPeriodoActual.Rows Where z("concepto").ToString.Trim = "BONPER").ToList()
+                    If itBonPerAct.Count > 0 Then Try : BONPER_Act = Double.Parse(itBonPerAct.First()("cantidad")) : Catch ex As Exception : BONPER_Act = 0.0 : End Try
+                    _wsheet.Cells(x + 1, y + 3).Value = BONPER_Act
+
+
+                    '=================================================================================
+                    '=================================================================================Columna BONO X CONTINGENCIA DE PUENTES
+                    '=================================================================================
+
+                    '====BONXCP Anio Ant
+                    Dim BONXCP_ant As Double = 0.0
+                    Dim itBONXCP_ant = (From z In dtMovBonProExtAnioAnt.Rows Where z("concepto").ToString.Trim = "BONXCP").ToList()
+                    If itBONXCP_ant.Count > 0 Then Try : BONXCP_ant = Double.Parse(itBONXCP_ant.First()("MONTO")) : Catch ex As Exception : BONXCP_ant = 0.0 : End Try
+                    _wsheet.Cells(x, y + 4).Value = BONXCP_ant
+
+                    '====BONXCP Anio Actual
+                    Dim BONXCP_act As Double = 0.0
+                    Dim itBONXCP_act = (From z In dtMontosExtPeriodoActual.Rows Where z("concepto").ToString.Trim = "BONXCP").ToList()
+                    If itBONXCP_act.Count > 0 Then Try : BONXCP_act = Double.Parse(itBONXCP_act.First()("cantidad")) : Catch ex As Exception : BONXCP_act = 0.0 : End Try
+                    _wsheet.Cells(x + 1, y + 4).Value = BONXCP_act
+
+
+                    '=================================================================================
+                    '=================================================================================Columna BONO BRP
+                    '=================================================================================
+
+                    '====BONBRP -- Anio Anterior (Solo aplica para el 2024)
+
+                    '====BONBRP -- Ano Actual (No se paga, solo fue en el 2024)
+
+
+                    '=== BONEAT -- BONO POR CIERRE EATON
+
+                    '=== BONSCH    	BONO CIERRE 4TO SCHENKER
+
+                    '=== BONTES    	BONO T.E. CIERRE 4TO SCHENKER
+
+
+                    '=== LIQFOR    	LIQUIDACIONES FORANEOS
+
+                    '=== 8ISPT      MAS 8 ISPT
+
+                    '==== TOTAL  
+
+
+
+
+
+
+                End If
             End If
 
 

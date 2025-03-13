@@ -1542,7 +1542,7 @@ Totales:
 
             r.Subject = Asunto
             ' r.From = "enviorecibos@ctemex.mx" ' Cuenta del cliente 1
-            r.From = "trafico4@ctemex.mx"
+            r.From = "enviorecibos@ctemex.mx"
            
             If Archivo.Trim <> "" Then
                 r.Attachments.Add(New System.Web.Mail.MailAttachment(Archivo))
@@ -1594,10 +1594,11 @@ Totales:
             r.Fields("http://schemas.microsoft.com/cdo/configuration/sendusing") = 2 ' El original es 2; CdoSendUsingPort, valor 2 para enviar el mensaje utilizando la red. Ejemplo: 2
             r.Fields("http://schemas.microsoft.com/cdo/configuration/smtpauthenticate") = 1  ' El original es 0 :: 0= No autentifica; 1= utilizar autent, con user y pass; 2= El current process security context se utiliza para autenticación con el servicio.
             r.Fields("http://schemas.microsoft.com/cdo/configuration/smtpusessl") = True
-            r.Fields("http://schemas.microsoft.com/cdo/configuration/sendusername") = "trafico4@ctemex.mx"
-            r.Fields("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "KPv3mlePZGiLEIE3"
+            r.Fields("http://schemas.microsoft.com/cdo/configuration/sendusername") = "enviorecibos@ctemex.mx"
+            r.Fields("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "hk5uwkkHmlrMO5NE"
 
             r.To() = Destinatario
+
 
 
             'If CC.Trim <> "" Then
