@@ -3483,8 +3483,8 @@ ContinuarConPorcentaje:
         Dim concept = infoTabla("concepto='" & _concepto.Trim & "'", dicInfoDt("dtConceptosPro"))
         Dim incap_7 = If(IsDBNull(concept.Rows(0)("incap_7")), 0, 1)
         Dim activo = If(IsDBNull(concept.Rows(0)("activo")), 0, 1)
-        Dim suma_neto = If(IsDBNull(concept.Rows(0)("suma_neto")), 0, 1)
-        Dim base_pago = If(IsDBNull(concept.Rows(0)("base_pago")), 0, 1)
+        Dim suma_neto = If(IsDBNull(concept.Rows(0)("suma_neto")), 0, concept.Rows(0)("suma_neto"))
+        Dim base_pago = If(IsDBNull(concept.Rows(0)("base_pago")), 0, concept.Rows(0)("base_pago"))
 
         Dim incapacidad = IIf(IsDBNull(infoEmp("incapacidad")), 0, infoEmp("incapacidad"))
         Dim _sobrepasa_incapacidad As Boolean = incapacidad > 0 And incapacidad + IIf(IsDBNull(infoEmp("faltas")), 0, infoEmp("faltas")) >= 7
@@ -4167,8 +4167,17 @@ ContinuarConPorcentaje:
             vars("_bono_cierre_eaton") = sumaMonto(strReloj, "BONEAT", ajustesProC)
             vars("_bono_cierre_schenker") = sumaMonto(strReloj, "BONSCH", ajustesProC)
             vars("_bono_cierre_te_schenker") = sumaMonto(strReloj, "BONTES", ajustesProC)
+            vars("_bono_contingencia_puentes") = sumaMonto(strReloj, "BONXCP", ajustesProC)
+            vars("_liquidaciones_foraneos") = sumaMonto(strReloj, "LIQFOR", ajustesProC)
 
-            vars("_bono_productividad") = vars("_bono_cierre_eaton") + vars("_bono_cierre_schenker") + vars("_bono_cierre_te_schenker") + vars("_bono_permanencia")
+            Me.puente(vars("_bono_cierre_eaton"), "BONEAT", data, infoEmp, dicInfoDt)
+            Me.puente(vars("_bono_cierre_schenker"), "BONSCH", data, infoEmp, dicInfoDt)
+            Me.puente(vars("_bono_cierre_te_schenker"), "BONTES", data, infoEmp, dicInfoDt)
+            Me.puente(vars("_bono_contingencia_puentes"), "BONXCP", data, infoEmp, dicInfoDt)
+            Me.puente(vars("_liquidaciones_foraneos"), "LIQFOR", data, infoEmp, dicInfoDt)
+
+            vars("_bono_productividad") = vars("_bono_cierre_eaton") + vars("_bono_cierre_schenker") + vars("_bono_cierre_te_schenker") +
+                                          vars("_bono_permanencia") + vars("_bono_contingencia_puentes") + vars("_liquidaciones_foraneos")
             vars("_bono_productividad") += sumaMonto(strReloj, "BONPRO", ajustesProC)
             Me.puente(vars("_bono_productividad"), "BONPRO", data, infoEmp, dicInfoDt)
 
