@@ -4504,6 +4504,10 @@ Fin:
                 'sfd2.InitialDirectory = rutaGuardar
 
                 archivo.SaveAs(New System.IO.FileInfo(sfd2.FileName))
+                If initialize Then
+                    MessageBox.Show("Archivo generado correctamente.", "Reporte Excel", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    System.Diagnostics.Process.Start(sfd2.FileName)
+                End If
                 Exit Sub
             End If
 

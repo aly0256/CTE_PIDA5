@@ -4039,7 +4039,16 @@ integ,
 
             If (_index_tipo_mov_sel = 2 Or _index_tipo_mov_sel = 5) Then
 
-                Dim dtModiSalario As DataTable = sqlExecute("Select * from personalvw where cod_comp in ('" & lclCompania & "') and fha_ult_mo is not null and fha_ult_mo between '" & FechaSQL(FechaInicial) & "' and '" & FechaSQL(FechaFinal) & "'")
+                '===Lo toma solo de personal
+                ' Dim dtModiSalario As DataTable = sqlExecute("Select * from personalvw where fha_ult_mo is not null and fha_ult_mo between '" & FechaSQL(FechaInicial) & "' and '" & FechaSQL(FechaFinal) & "'")
+
+                '===Lo toma de acuerdo o por registro personal en modsal
+                ' Dim dtModiSalario As DataTable = sqlExecute("SelecT A.*, B.IMSS, B.DIG_VER, B.CURP, B.NOMBRES from MOD_SAL A LEFT JOIN personalVW B on A.RELOJ = B.RELOJ where A.fecha is not null and A.fecha between '" & FechaSQL(FechaInicial) & "' and '" & FechaSQL(FechaFinal) & "' AND A.COD_COMP IN (SELECT COD_COMP FROM CIAS WHERE REG_PAT = '" & lclCompania & "')")
+
+                '===Lo toma de compañia en modsal (el mas usual)
+                Dim dtModiSalario As DataTable = sqlExecute("SelecT A.*, B.IMSS, B.DIG_VER, B.CURP, B.NOMBRES from MOD_SAL A LEFT JOIN personalVW B on A.RELOJ = B.RELOJ where A.fecha is not null and A.fecha between '" & FechaSQL(FechaInicial) & "' and '" & FechaSQL(FechaFinal) & "' AND A.COD_COMP IN (SELECT COD_COMP FROM CIAS WHERE COD_COMP = '" & lclCompania & "')")
+
+
                 _x = 1
                 _CountReg = dtModiSalario.Rows.Count
                 For Each dRow As DataRowView In dtModiSalario.DefaultView

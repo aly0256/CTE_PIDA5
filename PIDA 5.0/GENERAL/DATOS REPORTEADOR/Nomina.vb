@@ -13586,7 +13586,7 @@ Saltar1:
                 llenarExcelInfoDesglosePExtrasGrafica(workSheet, x)
             Next
 
-            filename = "pendiente"
+            filename = "Desglose de pago de extras sem_" & PeriodoSelec
 
             '---- Guardar archivo en ruta especificada
             If (pathSelec.Substring(pathSelec.Length() - 1) <> "\") Then pathSelec = pathSelec + "\"
@@ -13617,6 +13617,9 @@ Saltar1:
                 If Not dtPeriodos.Columns.Contains("Error") And dtPeriodos.Rows.Count > 0 Then
 
                     '===NOTA: Los periodos  a recorrer son los del anio actual y los recorre del 1 hasta el que este asentado, y no de acuerdo al periodo seleccionado que se le indique en el reporteador
+
+                    '===Titulo:
+                    _wsheet.Cells(1, 1).Value = "ACUMULADO DE BONO DE PRODUCTIVIDAD " & anio_actual.ToString & "/ COMPARATIVO SEMANA INMEDIATA ANTERIOR"
 
                     x = 3 : y = 1
                     For Each drP As DataRow In dtPeriodos.Rows
@@ -13665,13 +13668,17 @@ Saltar1:
                         If itNomBonPer.Count > 0 Then Try : bonper = Double.Parse(itNomBonPer.First()("cantidad")) : Catch ex As Exception : bonper = 0.0 : End Try
                         _wsheet.Cells(x, y + 4).Value = bonper
 
-                        '=== BONO X CONTINGENCIA DE PUENTES:: PEND de dar de alta y que lo separen en nomina
-                        Dim bonoXContigPuentes As Double = 0.0
-                        _wsheet.Cells(x, y + 5).Value = bonoXContigPuentes
+                        '=== BONO X CONTINGENCIA DE PUENTES:: BONXCP
+                        Dim BONXCP As Double = 0.0
+                        Dim itBONXCP = (From z In dtMontosPeriodo.Rows Where z("concepto").ToString.Trim = "BONXCP").ToList()
+                        If itBONXCP.Count > 0 Then Try : BONXCP = Double.Parse(itBONXCP.First()("cantidad")) : Catch ex As Exception : BONXCP = 0.0 : End Try
+                        _wsheet.Cells(x, y + 5).Value = BONXCP
 
-                        '=== BONO X CIERRE DE EATON:: PEND de dar de alta y que lo separen en nomina
-                        Dim bonoXCierreEaton As Double = 0.0
-                        _wsheet.Cells(x, y + 6).Value = bonoXCierreEaton
+                        '=== BONO X CIERRE DE EATON:: BONEAT    
+                        Dim BONEAT As Double = 0.0
+                        Dim itBONEAT = (From z In dtMontosPeriodo.Rows Where z("concepto").ToString.Trim = "BONEAT").ToList()
+                        If itBONEAT.Count > 0 Then Try : BONEAT = Double.Parse(itBONEAT.First()("cantidad")) : Catch ex As Exception : BONEAT = 0.0 : End Try
+                        _wsheet.Cells(x, y + 6).Value = BONEAT
 
                         '=== BONO X CIERRE DE 4to.  SCHENKER ==> el concepto es BONSCH 
                         Dim bonsch As Double = 0.0
@@ -13685,13 +13692,15 @@ Saltar1:
                         If itNomBontes.Count > 0 Then Try : BONTES = Double.Parse(itNomBontes.First()("cantidad")) : Catch ex As Exception : BONTES = 0.0 : End Try
                         _wsheet.Cells(x, y + 8).Value = BONTES
 
-                        '=== LIQUIDACIONES FORANEOS ==> PEND de dar de alta y que lo separen en nomina
-                        Dim liqForaneos As Double = 0.0
-                        _wsheet.Cells(x, y + 9).Value = liqForaneos
+                        '=== LIQUIDACIONES FORANEOS ==>LIQFOR    
+                        Dim LIQFOR As Double = 0.0
+                        Dim itLIQFOR = (From z In dtMontosPeriodo.Rows Where z("concepto").ToString.Trim = "LIQFOR").ToList()
+                        If itLIQFOR.Count > 0 Then Try : LIQFOR = Double.Parse(itLIQFOR.First()("cantidad")) : Catch ex As Exception : LIQFOR = 0.0 : End Try
+                        _wsheet.Cells(x, y + 9).Value = LIQFOR
 
                         '=== Importe total a pagar de extras (Suma de todas las columnas, excepto la de nomina)
                         Dim sumaTotPagExtras As Double = 0.0
-                        sumaTotPagExtras = extrOper + extrAdmin + bonper + bonoXContigPuentes + bonoXCierreEaton + bonsch + BONTES + liqForaneos
+                        sumaTotPagExtras = extrOper + extrAdmin + bonper + BONXCP + BONEAT + bonsch + BONTES + LIQFOR
                         _wsheet.Cells(x, y + 10).Value = sumaTotPagExtras
 
                         x += 1
@@ -13703,26 +13712,48 @@ Saltar1:
             '====================================================Comparativo de bono de productividad por semana
             If numHoja = 2 Then
                 Dim ano_ant As String = "", periodo_ant As String = "", dtMovBonProExtAnioAnt As New DataTable, anoPerActual As String = "", dtMontosExtPeriodoActual As New DataTable
+                Dim dtTotalesBonProd As New DataTable
                 query = ""
 
-                '===Obtener el último periodo en nómina:  select top 1 * from nomina  where ano='2025' and  periodo <='53' order by periodo desc
-                '===NOTA: Lo obtiene en base al ultimo periodo asentado y no de acuerdo al filtro que manda
 
-                ano_ant = "2024"
-                periodo_ant = "07"
+                '===NOTA: El anio y periodo es el que seleccionen de acuerdo al filtro del reporteador, si seleccionan varios, solo tomará el último
+                Dim A As String = "", P As String = ""
+                For Each I In PeriodosReporteador
+                    A = I.Substring(0, 4)
+                    P = I.Substring(4, 2)
+                Next
+                
+
+
+                ano_ant = (Convert.ToInt32(A) - 1).ToString
+                periodo_ant = P
                 anoPerActual = anio_actual.ToString & periodo_ant
 
                 '===Obtener los movimientos extras del anio pasado:
 
-                query = "select * from mov_extr_bon_prod where ano+periodo='" & ano_ant & periodo_ant & "'"
-                dtMovBonProExtAnioAnt = sqlExecute(query, "NOMINA")
+                If Convert.ToInt32(ano_ant) <= 2024 Then
+                    '==Si el año anterior es 2024 o menor, tomarlo de la tabla  'mov_extr_bon_prod'
+                    query = "select * from mov_extr_bon_prod where ano+periodo='" & ano_ant & periodo_ant & "'"
+                    dtMovBonProExtAnioAnt = sqlExecute(query, "NOMINA")
+                Else
+                    '==Si es del 2025 en adelante, tomarlo de la tabla de movimiewntos, a excepcion de la columna TOTAL
+                    query = "select concepto,ISNULL(SUM(convert(float,MONTO)),0) as 'MONTO' from movimientos where ano+periodo='" & anoPerActual & "' group by concepto "
+                    dtMovBonProExtAnioAnt = sqlExecute(query, "NOMINA")
+                End If
+                
 
                 '====Obtener los montos del periodo actual
-                query = "select concepto,ISNULL(SUM(convert(float,MONTO)),0) as 'cantidad' from movimientos where ano+periodo='" & anoPerActual & "' group by concepto "
+                query = "select concepto,ISNULL(SUM(convert(float,MONTO)),0) as 'MONTO' from movimientos where ano+periodo='" & anoPerActual & "' group by concepto "
                 dtMontosExtPeriodoActual = sqlExecute(query, "NOMINA")
 
-                If Not dtMovBonProExtAnioAnt.Columns.Contains("Error") And dtMovBonProExtAnioAnt.Rows.Count > 0 Then
+                '===Obtener los datos para la columan de "TOTALES"
+                dtTotalesBonProd = sqlExecute("select * from mov_extr_bon_prod where CONCEPTO in ('TOTAL') and  ano in ('" & ano_ant.ToString & "','" & anio_actual.ToString & "')", "NOMINA")
 
+                '===Titulo:
+                _wsheet.Cells(1, 1).Value = "COMPARATIVO POR SEMANA DE BONO DE PRODUCTIVIDAD " & ano_ant.ToString & " & " & anio_actual.ToString
+
+                If Not dtMontosExtPeriodoActual.Columns.Contains("Error") And dtMontosExtPeriodoActual.Rows.Count > 0 Then
+                    Dim TOTAL_Act As Double = 0.0
                     x = 3 : y = 1
 
                     '=================================================================================
@@ -13738,21 +13769,37 @@ Saltar1:
 
                     '===Extras Operadores: anio Anterior 2024
                     Dim BONPRO_O_Ant As Double = 0.0
-                    Dim itBonProO = (From z In dtMovBonProExtAnioAnt.Rows Where z("concepto").ToString.Trim = "BONPRO_O").ToList()
-                    If itBonProO.Count > 0 Then Try : BONPRO_O_Ant = Double.Parse(itBonProO.First()("MONTO")) : Catch ex As Exception : BONPRO_O_Ant = 0.0 : End Try
+                    If Convert.ToInt32(ano_ant) <= 2024 Then
+                        '===si el año anterior es 2024 o menor
+                        Dim itBonProO = (From z In dtMovBonProExtAnioAnt.Rows Where z("concepto").ToString.Trim = "BONPRO_O").ToList()
+                        If itBonProO.Count > 0 Then Try : BONPRO_O_Ant = Double.Parse(itBonProO.First()("MONTO")) : Catch ex As Exception : BONPRO_O_Ant = 0.0 : End Try
+                    Else
+                        '===Si el año anterior es a partir del 2025 en adelante, tomarlo de la tabla de movimientos
+                        dtTemp.Clear()
+                        query = "select m.concepto,ISNULL(SUM(convert(float,m.MONTO)),0) as 'MONTO' from movimientos m left outer join nomina n on m.reloj=n.reloj " & _
+                                "where m.ano+m.periodo='" & ano_ant & periodo_ant & "' and n.ano+n.PERIODO='" & ano_ant & periodo_ant & "' and m.concepto='BONPRO' and n.cod_tipo='O' group by m.concepto"
+                        dtTemp = sqlExecute(query, "NOMINA")
+                        If Not dtTemp.Columns.Contains("Error") And dtTemp.Rows.Count > 0 Then
+                            Try : BONPRO_O_Ant = Double.Parse(dtTemp.Rows(0).Item("MONTO")) : Catch ex As Exception : BONPRO_O_Ant = 0.0 : End Try
+
+                        End If
+
+                    End If
+                    
                     _wsheet.Cells(x, y + 1).Value = BONPRO_O_Ant
 
                     '===Extras Operadores: Anio Actual
                     Dim BONPRO_O_Act As Double = 0.0
                     dtTemp.Clear()
-                    query = "select m.concepto,ISNULL(SUM(convert(float,m.MONTO)),0) as 'cantidad' from movimientos m left outer join nomina n on m.reloj=n.reloj " & _
+                    query = "select m.concepto,ISNULL(SUM(convert(float,m.MONTO)),0) as 'MONTO' from movimientos m left outer join nomina n on m.reloj=n.reloj " & _
                             "where m.ano+m.periodo='" & anoPerActual & "' and n.ano+n.PERIODO='" & anoPerActual & "' and m.concepto='BONPRO' and n.cod_tipo='O' group by m.concepto"
                     dtTemp = sqlExecute(query, "NOMINA")
                     If Not dtTemp.Columns.Contains("Error") And dtTemp.Rows.Count > 0 Then
-                        Try : BONPRO_O_Act = Double.Parse(dtTemp.Rows(0).Item("cantidad")) : Catch ex As Exception : BONPRO_O_Act = 0.0 : End Try
+                        Try : BONPRO_O_Act = Double.Parse(dtTemp.Rows(0).Item("MONTO")) : Catch ex As Exception : BONPRO_O_Act = 0.0 : End Try
 
                     End If
                     _wsheet.Cells(x + 1, y + 1).Value = BONPRO_O_Act
+                    TOTAL_Act += BONPRO_O_Act
 
                     '=================================================================================
                     '=================================================================================Columna EXTRAS ADMINISTRATIVOS
@@ -13760,21 +13807,37 @@ Saltar1:
 
                     '====Extras Admin: Anio Ant
                     Dim BONPRO_A_Ant As Double = 0.0
-                    Dim itBonProA = (From z In dtMovBonProExtAnioAnt.Rows Where z("concepto").ToString.Trim = "BONPRO_A").ToList()
-                    If itBonProA.Count > 0 Then Try : BONPRO_A_Ant = Double.Parse(itBonProA.First()("MONTO")) : Catch ex As Exception : BONPRO_A_Ant = 0.0 : End Try
+                    If Convert.ToInt32(ano_ant) <= 2024 Then
+                        '===Si el año ant es del 2024 o menor, tomarlo de la tabla 'mov_extr_bon_prod'
+                        Dim itBonProA = (From z In dtMovBonProExtAnioAnt.Rows Where z("concepto").ToString.Trim = "BONPRO_A").ToList()
+                        If itBonProA.Count > 0 Then Try : BONPRO_A_Ant = Double.Parse(itBonProA.First()("MONTO")) : Catch ex As Exception : BONPRO_A_Ant = 0.0 : End Try
+                    Else
+                        '==Si el año ant es a partir del 2025, tomarlo de movimientos
+                        dtTemp.Clear()
+                        query = "select m.concepto,ISNULL(SUM(convert(float,m.MONTO)),0) as 'MONTO' from movimientos m left outer join nomina n on m.reloj=n.reloj " & _
+                                "where m.ano+m.periodo='" & ano_ant & periodo_ant & "' and n.ano+n.PERIODO='" & ano_ant & periodo_ant & "' and m.concepto='BONPRO' and n.cod_tipo='A' group by m.concepto"
+
+                        If Not dtTemp.Columns.Contains("Error") And dtTemp.Rows.Count > 0 Then
+                            Try : BONPRO_A_Ant = Double.Parse(dtTemp.Rows(0).Item("MONTO")) : Catch ex As Exception : BONPRO_A_Ant = 0.0 : End Try
+
+                        End If
+
+                    End If
+                    
                     _wsheet.Cells(x, y + 2).Value = BONPRO_A_Ant
 
                     '====Extras Admin: Anio actual
                     Dim BONPRO_A_Act As Double = 0.0
                     dtTemp.Clear()
-                    query = "select m.concepto,ISNULL(SUM(convert(float,m.MONTO)),0) as 'cantidad' from movimientos m left outer join nomina n on m.reloj=n.reloj " & _
+                    query = "select m.concepto,ISNULL(SUM(convert(float,m.MONTO)),0) as 'MONTO' from movimientos m left outer join nomina n on m.reloj=n.reloj " & _
                             "where m.ano+m.periodo='" & anoPerActual & "' and n.ano+n.PERIODO='" & anoPerActual & "' and m.concepto='BONPRO' and n.cod_tipo='A' group by m.concepto"
 
                     If Not dtTemp.Columns.Contains("Error") And dtTemp.Rows.Count > 0 Then
-                        Try : BONPRO_A_Act = Double.Parse(dtTemp.Rows(0).Item("cantidad")) : Catch ex As Exception : BONPRO_A_Act = 0.0 : End Try
+                        Try : BONPRO_A_Act = Double.Parse(dtTemp.Rows(0).Item("MONTO")) : Catch ex As Exception : BONPRO_A_Act = 0.0 : End Try
 
                     End If
                     _wsheet.Cells(x + 1, y + 2).Value = BONPRO_O_Act
+                    TOTAL_Act += BONPRO_O_Act
 
                     '=================================================================================
                     '=================================================================================Columna BONO DE PERMANENCIA
@@ -13789,8 +13852,9 @@ Saltar1:
                     '=====BONPER Anio Actual
                     Dim BONPER_Act As Double = 0.0
                     Dim itBonPerAct = (From z In dtMontosExtPeriodoActual.Rows Where z("concepto").ToString.Trim = "BONPER").ToList()
-                    If itBonPerAct.Count > 0 Then Try : BONPER_Act = Double.Parse(itBonPerAct.First()("cantidad")) : Catch ex As Exception : BONPER_Act = 0.0 : End Try
+                    If itBonPerAct.Count > 0 Then Try : BONPER_Act = Double.Parse(itBonPerAct.First()("MONTO")) : Catch ex As Exception : BONPER_Act = 0.0 : End Try
                     _wsheet.Cells(x + 1, y + 3).Value = BONPER_Act
+                    TOTAL_Act += BONPER_Act
 
 
                     '=================================================================================
@@ -13806,8 +13870,9 @@ Saltar1:
                     '====BONXCP Anio Actual
                     Dim BONXCP_act As Double = 0.0
                     Dim itBONXCP_act = (From z In dtMontosExtPeriodoActual.Rows Where z("concepto").ToString.Trim = "BONXCP").ToList()
-                    If itBONXCP_act.Count > 0 Then Try : BONXCP_act = Double.Parse(itBONXCP_act.First()("cantidad")) : Catch ex As Exception : BONXCP_act = 0.0 : End Try
+                    If itBONXCP_act.Count > 0 Then Try : BONXCP_act = Double.Parse(itBONXCP_act.First()("MONTO")) : Catch ex As Exception : BONXCP_act = 0.0 : End Try
                     _wsheet.Cells(x + 1, y + 4).Value = BONXCP_act
+                    TOTAL_Act += BONXCP_act
 
 
                     '=================================================================================
@@ -13815,29 +13880,173 @@ Saltar1:
                     '=================================================================================
 
                     '====BONBRP -- Anio Anterior (Solo aplica para el 2024)
+                    Dim BONBRP_Ant As Double = 0.0
+                    Dim itBONBRP_ant = (From z In dtMovBonProExtAnioAnt.Rows Where z("concepto").ToString.Trim = "BONBRP").ToList()
+                    If itBONBRP_ant.Count > 0 Then Try : BONBRP_Ant = Double.Parse(itBONBRP_ant.First()("MONTO")) : Catch ex As Exception : BONBRP_Ant = 0.0 : End Try
+                    _wsheet.Cells(x, y + 5).Value = BONBRP_Ant
 
                     '====BONBRP -- Ano Actual (No se paga, solo fue en el 2024)
+                    Dim BONBRP_Act As Double = 0.0
+                    _wsheet.Cells(x + 1, y + 5).Value = BONBRP_Act
+                    TOTAL_Act += BONBRP_Act
 
 
-                    '=== BONEAT -- BONO POR CIERRE EATON
+                    '=================================================================================
+                    '=================================================================================Columna BONO POR CIERRE EATON (BONEAT)
+                    '=================================================================================
+                    '===Anio Anterior
+                    Dim BONEAT_Ant As Double = 0.0
+                    Dim itBONEAT_ant = (From z In dtMovBonProExtAnioAnt.Rows Where z("concepto").ToString.Trim = "BONEAT").ToList()
+                    If itBONEAT_ant.Count > 0 Then Try : BONEAT_Ant = Double.Parse(itBONEAT_ant.First()("MONTO")) : Catch ex As Exception : BONEAT_Ant = 0.0 : End Try
+                    _wsheet.Cells(x, y + 6).Value = BONEAT_Ant
 
-                    '=== BONSCH    	BONO CIERRE 4TO SCHENKER
-
-                    '=== BONTES    	BONO T.E. CIERRE 4TO SCHENKER
-
-
-                    '=== LIQFOR    	LIQUIDACIONES FORANEOS
-
-                    '=== 8ISPT      MAS 8 ISPT
-
-                    '==== TOTAL  
+                    '===Anio Actual
+                    Dim BONEAT_Act As Double = 0.0
+                    Dim itBONEAT_act = (From z In dtMontosExtPeriodoActual.Rows Where z("concepto").ToString.Trim = "BONEAT").ToList()
+                    If itBONEAT_act.Count > 0 Then Try : BONEAT_Act = Double.Parse(itBONEAT_act.First()("MONTO")) : Catch ex As Exception : BONEAT_Act = 0.0 : End Try
+                    _wsheet.Cells(x + 1, y + 6).Value = BONEAT_Act
+                    TOTAL_Act += BONEAT_Act
 
 
+                    '=================================================================================
+                    '=================================================================================Columna BONO CIERRE 4TO SCHENKER(BONSCH)
+                    '=================================================================================
+                    '===Anio anterior
+                    Dim BONSCH_Ant As Double = 0.0
+                    Dim itBONSCH_ant = (From z In dtMovBonProExtAnioAnt.Rows Where z("concepto").ToString.Trim = "BONSCH").ToList()
+                    If itBONSCH_ant.Count > 0 Then Try : BONSCH_Ant = Double.Parse(itBONSCH_ant.First()("MONTO")) : Catch ex As Exception : BONSCH_Ant = 0.0 : End Try
+                    _wsheet.Cells(x, y + 7).Value = BONSCH_Ant
 
+                    '===Anio actual
+                    Dim BONSCH_Act As Double = 0.0
+                    Dim itBONSCH_act = (From z In dtMontosExtPeriodoActual.Rows Where z("concepto").ToString.Trim = "BONSCH").ToList()
+                    If itBONSCH_act.Count > 0 Then Try : BONSCH_Act = Double.Parse(itBONSCH_act.First()("MONTO")) : Catch ex As Exception : BONSCH_Act = 0.0 : End Try
+                    _wsheet.Cells(x + 1, y + 7).Value = BONSCH_Act
+                    TOTAL_Act += BONSCH_Act
+
+                    '=================================================================================
+                    '=================================================================================Columna BONO T.E. CIERRE 4TO SCHENKER(BONTES)
+                    '=================================================================================
+                    '===Anio anterior
+                    Dim BONTES_Ant As Double = 0.0
+                    Dim itBONTES_ant = (From z In dtMovBonProExtAnioAnt.Rows Where z("concepto").ToString.Trim = "BONTES").ToList()
+                    If itBONTES_ant.Count > 0 Then Try : BONTES_Ant = Double.Parse(itBONTES_ant.First()("MONTO")) : Catch ex As Exception : BONTES_Ant = 0.0 : End Try
+                    _wsheet.Cells(x, y + 8).Value = BONTES_Ant
+
+                    '===Anio actual
+                    Dim BONTES_Act As Double = 0.0
+                    Dim itBONTES_act = (From z In dtMontosExtPeriodoActual.Rows Where z("concepto").ToString.Trim = "BONTES").ToList()
+                    If itBONTES_act.Count > 0 Then Try : BONTES_Act = Double.Parse(itBONTES_act.First()("MONTO")) : Catch ex As Exception : BONTES_Act = 0.0 : End Try
+                    _wsheet.Cells(x + 1, y + 8).Value = BONTES_Act
+                    TOTAL_Act += BONTES_Act
+
+
+                    '=================================================================================
+                    '=================================================================================Columna LIQUIDACIONES FORANEOS(LIQFOR)
+                    '=================================================================================
+                    '===Anio anterior
+                    Dim LIQFOR_Ant As Double = 0.0
+                    Dim itLIQFOR_ant = (From z In dtMovBonProExtAnioAnt.Rows Where z("concepto").ToString.Trim = "LIQFOR").ToList()
+                    If itLIQFOR_ant.Count > 0 Then Try : LIQFOR_Ant = Double.Parse(itLIQFOR_ant.First()("MONTO")) : Catch ex As Exception : LIQFOR_Ant = 0.0 : End Try
+                    _wsheet.Cells(x, y + 9).Value = LIQFOR_Ant
+
+                    '====Anio actual
+                    Dim LIQFOR_Act As Double = 0.0
+                    Dim itLIQFOR_act = (From z In dtMontosExtPeriodoActual.Rows Where z("concepto").ToString.Trim = "LIQFOR").ToList()
+                    If itLIQFOR_act.Count > 0 Then Try : LIQFOR_Act = Double.Parse(itLIQFOR_act.First()("MONTO")) : Catch ex As Exception : LIQFOR_Act = 0.0 : End Try
+                    _wsheet.Cells(x + 1, y + 9).Value = LIQFOR_Act
+                    TOTAL_Act += LIQFOR_Act
+
+
+                    '=================================================================================
+                    '=================================================================================Columna mas 8 ISPT (8ISPT)
+                    '=================================================================================
+                    '===Anio ant
+                    Dim ocho_ISPT_Ant As Double = 0.0
+                    Dim itocho_ISPT_ant = (From z In dtMovBonProExtAnioAnt.Rows Where z("concepto").ToString.Trim = "8ISPT").ToList()
+                    If itocho_ISPT_ant.Count > 0 Then Try : ocho_ISPT_Ant = Double.Parse(itocho_ISPT_ant.First()("MONTO")) : Catch ex As Exception : ocho_ISPT_Ant = 0.0 : End Try
+                    _wsheet.Cells(x, y + 10).Value = ocho_ISPT_Ant
+
+                    '===Anio actual (A partir del 2025 ya no se paga)
+                    Dim ocho_ISPT_Act As Double = 0.0
+                    _wsheet.Cells(x + 1, y + 10).Value = ocho_ISPT_Act
+                    TOTAL_Act += ocho_ISPT_Act
+
+
+                    '=================================================================================
+                    '=================================================================================Columna TOTAL
+                    '=================================================================================
+                    '===NOTA: El total anterior siempre se va a tomar de la tabla 'nomina.dbo.mov_extr_bon_prod' ya que con este proceso se va actualizando cada año
+                    '===Ant
+                    Dim TOTAL_Ant As Double = 0.0
+                    Dim itTOT_Ant = (From z In dtTotalesBonProd.Rows Where z("CONCEPTO").ToString.Trim = "TOTAL" And z("ANO").ToString.Trim = ano_ant And z("PERIODO").ToString.Trim = periodo_ant).ToList()
+                    If itTOT_Ant.Count > 0 Then Try : TOTAL_Ant = Double.Parse(itTOT_Ant.First()("MONTO")) : Catch ex As Exception : TOTAL_Ant = 0.0 : End Try
+                    _wsheet.Cells(x, y + 11).Value = TOTAL_Ant
+
+                    '===Act: Es la suma de todos los conceptos calculados en este procedimiento
+                    _wsheet.Cells(x + 1, y + 11).Value = TOTAL_Act
+
+                    '====Agregar ese total a la tabla "mov_extr_bon_prod" para su consulta en la 3era hoja, en base a anoPerActual, primero validar si no existe previamente:
+                    Dim dtExisteTotal As New DataTable
+                    query = "select * from mov_extr_bon_prod where concepto in ('TOTAL') and ano+periodo='" & anoPerActual & "'"
+                    dtExisteTotal = sqlExecute(query, "NOMINA")
+                    If (dtExisteTotal.Rows.Count <= 0 And Not dtExisteTotal.Columns.Contains("Error")) Then
+                        sqlExecute("insert into nomina.dbo.mov_extr_bon_prod values ('" & AnoSelec & "','" & PeriodoSelec & "','TOTAL'," & TOTAL_Act & ")", "NOMINA")
+                    End If
 
 
 
                 End If
+            End If
+
+
+            '=============================================================COMPARATIVO DE BONO DE PROD ===================================================================================================
+            If numHoja = 3 Then
+                Dim anio_ant As String = ""
+                anio_ant = (Convert.ToInt32(AnoSelec) - 1).ToString
+
+                _wsheet.Cells(1, 1).Value = "COMPARATIVO  BONO DE PROD  TOTAL " & anio_ant & " & " & AnoSelec & ""
+
+                _wsheet.Cells(2, 2).Value = "BONO PRODUCTIVIDAD " & anio_ant
+
+                _wsheet.Cells(2, 3).Value = "BONO PRODUCTIVIDAD " & AnoSelec
+
+                x = 3 : y = 2
+
+
+                '=== Recorrer cada uno de los periodos, solo los que ya están asentados, por eso se toma de Nomina
+                query = "select distinct ano,periodo from nomina.dbo.nomina where ano=" & anio_actual & " and periodo<='53' order by periodo asc"
+                dtPeriodos = sqlExecute(query, "NOMINA")
+                If Not dtPeriodos.Columns.Contains("Error") And dtPeriodos.Rows.Count > 0 Then
+                    Dim dtMontosTotalesBonProd As New DataTable, _periodo_evaluar_ As String = ""
+                    query = "select * from mov_extr_bon_prod where concepto in ('TOTAL') and ano in ('" & anio_ant & "','" & AnoSelec & "') order by ano asc, periodo asc"
+                    dtMontosTotalesBonProd = sqlExecute(query, "NOMINA")
+
+                    For Each drP As DataRow In dtPeriodos.Rows
+
+                        Try : _periodo_evaluar_ = drP("periodo").ToString.Trim : Catch ex As Exception : _periodo_evaluar_ = "" : End Try
+
+                        '====Monto Anio anterior
+                        Dim tot_bon_prod_ant As Double = 0.0
+                        Dim itTOT_BON_PROD_Ant = (From z In dtMontosTotalesBonProd.Rows Where z("CONCEPTO").ToString.Trim = "TOTAL" And z("ANO").ToString.Trim = anio_ant And z("PERIODO").ToString.Trim = _periodo_evaluar_).ToList()
+                        If itTOT_BON_PROD_Ant.Count > 0 Then Try : tot_bon_prod_ant = Double.Parse(itTOT_BON_PROD_Ant.First()("MONTO")) : Catch ex As Exception : tot_bon_prod_ant = 0.0 : End Try
+                        _wsheet.Cells(x, y).Value = tot_bon_prod_ant
+
+
+                        '===Monto Anio Actual
+                        Dim tot_bon_prod_act As Double = 0.0
+                        Dim itTOT_BON_PROD_Act = (From z In dtMontosTotalesBonProd.Rows Where z("CONCEPTO").ToString.Trim = "TOTAL" And z("ANO").ToString.Trim = AnoSelec And z("PERIODO").ToString.Trim = _periodo_evaluar_).ToList()
+                        If itTOT_BON_PROD_Act.Count > 0 Then Try : tot_bon_prod_act = Double.Parse(itTOT_BON_PROD_Act.First()("MONTO")) : Catch ex As Exception : tot_bon_prod_act = 0.0 : End Try
+                        _wsheet.Cells(x, y + 1).Value = tot_bon_prod_act
+
+                        x += 1
+
+                    Next
+
+                End If
+
+
+
             End If
 
 
