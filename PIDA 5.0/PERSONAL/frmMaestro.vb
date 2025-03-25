@@ -3121,6 +3121,14 @@ Public Class frmMaestro
             Reloj = txtReloj.Text.Trim
             CalcDAgDVacDPvac(Reloj, txtEBaja.Value, False)
 
+            '===AO: 2025-03-28: Dejar la fecha de alta del dia actual y la fecha de baja en null
+            If (DarReingreso And lblEstado.Text = "REINGRESO") Then
+                MessageBox.Show("Favor de ingresar la fecha de alta, por default, dejará la fecha del día actual", "P.I.D.A.", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                txtAlta.Enabled = True
+                txtAlta.Value = Date.Now
+                txtBaja.Value = Nothing
+            End If
+
 
         Catch ex As Exception
             ErrorLog(Usuario, System.Reflection.MethodBase.GetCurrentMethod.Name(), Me.Name, ex.HResult, ex.Message)
@@ -3180,6 +3188,7 @@ Public Class frmMaestro
 
     Private Sub CancelarCambios()
         Try
+            If DarReingreso Then DarReingreso = False ' 2025-03-25
             Nuevo = False
             Editar = False
             btnBaja.Visible = False
